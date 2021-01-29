@@ -1,4 +1,6 @@
-﻿using UnityEditor;
+﻿#if UNITY_EDITOR
+
+using UnityEditor;
 using UnityEditor.Callbacks;
 
 namespace Lean.Touch
@@ -22,3 +24,5 @@ namespace Lean.Touch
 		}
 	}
 }
+
+#endif

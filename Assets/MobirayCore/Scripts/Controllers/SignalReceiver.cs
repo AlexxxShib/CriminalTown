@@ -15,7 +15,7 @@ namespace Mobiray.Controllers
             }
         }
 
-        private void OnDisable()
+        protected virtual void OnDisable()
         {
             if (IsReceiver)
             {

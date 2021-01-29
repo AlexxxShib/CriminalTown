@@ -4,9 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using System.Text;
+using System.Threading.Tasks;
+using DG.Tweening;
 using Mobiray.Helpers;
 using UnityEngine;
+using UnityEngine.Networking;
 using Random = UnityEngine.Random;
+using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
 namespace Mobiray.Common
@@ -27,12 +31,20 @@ namespace Mobiray.Common
 
         public static void StartTimer(this MonoBehaviour mono, float time, Action action)
         {
+            if (!mono.gameObject.activeInHierarchy) return;
+            
             mono.StartCoroutine(StartTimer(time, action));
         }
 
         private static IEnumerator StartTimer(float time, Action action)
         {
-            yield return new WaitForSeconds(time);
+            // yield return new WaitForSeconds(time);
+            
+            var start = Time.realtimeSinceStartup;
+            while (Time.realtimeSinceStartup < start + time)
+            {
+                yield return null;
+            }
 
             action.Invoke();
         }
@@ -73,6 +85,30 @@ namespace Mobiray.Common
             return GetRandomPointInArea(gizmo.transform.position, gizmo.Radius);
         }
 
+        public static Vector3 GetCenterPoint(List<Vector3> points, bool nullifyY)
+        {
+            if (points.Count == 0) return Vector3.zero;
+            
+            Vector3 result = Vector3.zero;
+            foreach (var point in points)
+            {
+                result += point;
+            }
+
+            if (nullifyY) result.y = 0;
+
+            return result / points.Count;
+        }
+        
+        public static Vector3 GetCenterPoint(List<Transform> points, bool nullifyY)
+        {
+            if (points.Count == 0) return Vector3.zero;
+            
+            var vectors = points.ConvertAll(t => t.position);
+
+            return GetCenterPoint(vectors, nullifyY);
+        }
+
         public static bool Chance(this float chance)
         {
             chance = Mathf.Clamp01(chance);
@@ -82,6 +118,77 @@ namespace Mobiray.Common
         public static bool RandomBool()
         {
             return Random.Range(0f, 1f) < .5f;
+        }
+
+        public static void DestroyChildren(this Transform parent)
+        {
+            var children = parent.GetChildren();
+            foreach (var transform in children)
+            {
+                GameObject.Destroy(transform.gameObject);
+            }
+        }
+
+        public static List<Transform> GetChildren(this Transform parent)
+        {
+            var list = new List<Transform>();
+            for (int i = 0; i < parent.childCount; i++)
+            {
+                list.Add(parent.GetChild(i));
+            }
+
+            return list;
+        }
+
+        public static List<GameObject> FindChildrenWithTag(this GameObject gameObject, string tag)
+        {
+            var result = new List<GameObject>();
+            FindChildrenWithTag(gameObject, tag, result);
+            return result;
+        }
+
+        private static void FindChildrenWithTag(GameObject gameObject, string tag, ICollection<GameObject> result)
+        {
+            for (int i = 0; i < gameObject.transform.childCount; i++)
+            {
+                var child = gameObject.transform.GetChild(i).gameObject;
+                
+                if (child.CompareTag(tag))
+                {
+                    result.Add(child);
+                }
+
+                FindChildrenWithTag(child, tag, result);
+            }
+        }
+        
+        public static Transform FindDeepChild(this Transform aParent, string aName)
+        {
+            Queue<Transform> queue = new Queue<Transform>();
+            queue.Enqueue(aParent);
+            while (queue.Count > 0)
+            {
+                var c = queue.Dequeue();
+                if (c.name == aName)
+                    return c;
+                foreach(Transform t in c)
+                    queue.Enqueue(t);
+            }
+            return null;
+        }    
+
+        public static void SetSame(this Transform transform, Transform original, bool withScale = false)
+        {
+            transform.position = original.position;
+            transform.rotation = original.rotation;
+
+            if (withScale) transform.localScale = original.localScale;
+        }
+
+        public static void SetSame(this Transform transform, Transform original, float smoothTime)
+        {
+            transform.DOMove(original.position, smoothTime);
+            transform.DORotate(original.rotation.eulerAngles, smoothTime);
         }
 
         public static T RandomItem<T>(this List<T> list)
@@ -107,9 +214,9 @@ namespace Mobiray.Common
             }
         }
 
-        public static T RandomItemWeights<T>(this List<T> list, float[] weights)
+        public static int RandomIndexByWeights<T>(this List<T> list, List<float> weights)
         {
-            if (list.Count != weights.Length)
+            if (list.Count != weights.Count)
             {
                 throw new ArgumentException("Illegal size for weights array");
             }
@@ -122,13 +229,25 @@ namespace Mobiray.Common
             {
                 if (counter < random && random < counter + weights[i])
                 {
-                    return list[i];
+                    return i;
                 }
 
                 counter += weights[i];
             }
 
-            return list[list.Count - 1];
+            return list.Count - 1;
+        }
+
+        public static T RandomItemByWeights<T>(this List<T> list, IEnumerable<float> weights)
+        {
+            var index = RandomIndexByWeights(list, weights.ToList());
+            return list[index];
+        }
+
+        public static T RandomItemByWeights<T>(this List<T> list, List<float> weights)
+        {
+            var index = RandomIndexByWeights(list, weights);
+            return list[index];
         }
 
         public static T RandomItemEdges<T>(this List<T> list, float[] chanceEdges)
@@ -249,6 +368,54 @@ namespace Mobiray.Common
         public static float PercentFun(float baseValue, float percent, int power)
         {
             return baseValue * (1 + percent * power);
+        }
+        
+        public static Vector3 Parabola(Vector3 start, Vector3 end, float height, float t)
+        {
+            Func<float, float> f = x => -4 * height * x * x + 4 * height * x;
+
+            var mid = Vector3.Lerp(start, end, t);
+
+            return new Vector3(mid.x, f(t) + Mathf.Lerp(start.y, end.y, t), mid.z);
+        }
+
+        public static Vector2 Parabola(Vector2 start, Vector2 end, float height, float t)
+        {
+            Func<float, float> f = x => -4 * height * x * x + 4 * height * x;
+
+            var mid = Vector2.Lerp(start, end, t);
+
+            return new Vector2(mid.x, f(t) + Mathf.Lerp(start.y, end.y, t));
+        }
+
+        public static async Task<bool> CheckInternet()
+        {
+            if (Application.internetReachability == NetworkReachability.NotReachable)
+            {
+                return false;
+            }
+            
+            var time = 0f;
+            var timeout = 5f;
+
+            var result = false;
+
+            try
+            {
+                var ping = new Ping("8.8.8.8");
+
+                while (!ping.isDone && time < timeout)
+                {
+                    await Task.Yield();
+                    time += Time.deltaTime;
+                }
+
+                result = ping.isDone;
+                ping.DestroyPing();
+
+            } catch (Exception _) { }
+
+            return result;
         }
     }
 }

@@ -1,13 +1,16 @@
-// using Facebook.Unity;
+using Facebook.Unity;
+using Mobiray.Common;
 using UnityEngine;
 
 namespace Mobiray.Helpers
 {
-    public class FacebookStart : MonoBehaviour
+    public class FacebookStart : MonoSingleton<FacebookStart>
     {
-        /*void Awake()
+        void Awake()
         {
-#if UNITY_IOS
+            Initialize();
+            
+#if UNITY_IOS || UNITY_ANDROID
             if (!FB.IsInitialized)
             {
                 FB.Init(InitCallback, OnHideUnity);
@@ -21,7 +24,7 @@ namespace Mobiray.Helpers
 
         void OnApplicationPause(bool pauseStatus)
         {
-#if UNITY_IOS
+#if UNITY_IOS || UNITY_ANDROID
             if (!pauseStatus)
             {
                 if (FB.IsInitialized)
@@ -46,7 +49,7 @@ namespace Mobiray.Helpers
             {
                 Debug.Log("Failed to Initialize the Facebook SDK");
             }
-        }*/
+        }
 
         private void OnHideUnity(bool isGameShown)
         {

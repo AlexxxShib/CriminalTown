@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Assets.SimpleLocalization;
 using UnityEngine;
@@ -6,40 +7,57 @@ namespace Mobiray.Common
 {
     public class SceneStarter : MonoBehaviour
     {
-        public List<ScriptableObject> Tools;
 
-        public bool IsForceEnglish;
+        public ConfigBundle CommonTools;
+        
+        public List<ScriptableObject> Tools;
 
         private void Awake()
         {
             Application.targetFrameRate = 60;
+            
+            var tools = new List<ScriptableObject>();
 
-            foreach (var tool in Tools)
+            if (CommonTools != null)
             {
-                if (tool is INeedInitialization)
+                tools.AddRange(CommonTools.Tools);
+            }
+            
+            tools.AddRange(Tools);
+
+            foreach (var tool in tools)
+            {
+                try
                 {
-                    ((INeedInitialization) tool).Initialize();
+                    var instance = Instantiate(tool);
+                    if (instance is INeedInitialization initialization)
+                    {
+                        initialization.Initialize();
+                    }
+
+                    ToolBox.Add(instance);
+                    
+                    // Debug.Log($"ToolBox Added {instance.name}");
+                    
+                } catch (Exception e)
+                {
+                    Debug.LogException(e);
                 }
-
-                ToolBox.Add(tool);
+                
             }
+        }
 
-            LocalizationManager.Read();
-
-            switch (Application.systemLanguage)
+        private void OnDestroy()
+        {
+            foreach (var pair in ToolBox.Instance.Box)
             {
-                case SystemLanguage.Russian:
-                    LocalizationManager.Language = "Russian";
-                    break;
-                default:
-                    LocalizationManager.Language = "English";
-                    break;
+                if (pair.Value is INeedDestroy instance)
+                {
+                    instance.OnDestroy();
+                }
             }
 
-            if (IsForceEnglish)
-            {
-                LocalizationManager.Language = "English";
-            }
+            ToolBox.Clear();
         }
     }
 }

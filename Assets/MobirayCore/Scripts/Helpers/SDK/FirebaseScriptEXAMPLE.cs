@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Mobiray.Common;
 // using Firebase.Extensions;
 // using Firebase.RemoteConfig;
 using UnityEngine;
@@ -9,10 +7,11 @@ using UnityEngine;
 namespace Mobiray.Helpers
 {
 
-    public class FirebaseScript : MonoBehaviour
+    public class FirebaseScriptEXAMPLE : MonoBehaviour
     {
 
         public static bool Available = false;
+        public static bool Fetched = false;
 
         public Dictionary<string, object> configDefaults = new Dictionary<string, object>
         {
@@ -60,8 +59,10 @@ namespace Mobiray.Helpers
             Debug.Log("Task IsCompleted: " + task.IsCompleted);
             Debug.Log("Task IsFaulted: " + task.IsFaulted);
 
+            Fetched = true;
+
             // FirebaseRemoteConfig.ActivateFetched();
-            
+
             // Debug.Log("Remote config fetched! with test value: " + FirebaseRemoteConfig.GetValue("test_value").StringValue);
         }
 

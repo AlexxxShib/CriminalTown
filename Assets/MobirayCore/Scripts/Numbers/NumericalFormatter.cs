@@ -19,16 +19,21 @@ namespace Mobiray.Numbers
         public Type FormatType = Type.SYMBOLS4;
 
         private List<string> hackedValues = new List<string>();
+        
+        public string Format(long number)
+        {
+            return FormatNumberString(number.ToString());
+        }
 
         public string Format(System.Numerics.BigInteger number)
         {
             return FormatNumberString(number.ToString());
         }
 
-        public string FormatPrice(System.Numerics.BigInteger number)
+        /*public string FormatPrice(System.Numerics.BigInteger number)
         {
             return "$" + Format(number);
-        }
+        }*/
 
         private string FormatNumberString(string number)
         {

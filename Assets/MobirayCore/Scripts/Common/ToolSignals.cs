@@ -7,9 +7,13 @@ namespace Mobiray.Common
     public class ToolSignals
     {
         public readonly Dictionary<int, List<IRecieve>> signals = new Dictionary<int, List<IRecieve>>(new FastDict());
+        
+        private readonly MobirayLogger logger = new MobirayLogger("ToolSignals");
 
         public void Add(IRecieve recieve, Type type)
         {
+            // logger.LogDebug($"ADD {type} : {recieve}");
+            
             List<IRecieve> cachedSignals;
             if (signals.TryGetValue(type.GetHashCode(), out cachedSignals))
             {
@@ -56,7 +60,7 @@ namespace Mobiray.Common
             }
         }
 
-        public void Send<T>(T val = default(T)) where T : new()
+        public void Send<T>(T signal = default(T)) where T : new()
         {
             List<IRecieve> cachedSignals;
 
@@ -64,20 +68,24 @@ namespace Mobiray.Common
             var len = cachedSignals.Count;
             for (var i = 0; i < len; i++)
             {
-                (cachedSignals[i] as IReceive<T>).HandleSignal(val);
+                (cachedSignals[i] as IReceive<T>).HandleSignal(signal);
             }
         }
 
         public void PrintReceivers<T>()
         {
             List<IRecieve> cachedSignals;
+            
+            logger.LogDebug("print receivers START");
 
             if (!signals.TryGetValue(typeof(T).GetHashCode(), out cachedSignals)) return;
             var len = cachedSignals.Count;
             for (var i = 0; i < len; i++)
             {
-                Debug.Log(((cachedSignals[i] as IReceive<T>) as MonoBehaviour).gameObject);
+                logger.LogDebug(cachedSignals[i].GetType().FullName);
             }
+            
+            logger.LogDebug("print receivers END");
         }
 
         public void Dispose()

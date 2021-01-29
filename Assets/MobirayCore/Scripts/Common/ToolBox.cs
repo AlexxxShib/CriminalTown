@@ -4,21 +4,24 @@ using UnityEngine;
 
 namespace Mobiray.Common
 {
-    public class ToolBox : MonoSingleton<ToolBox>
+    public class ToolBox : Singleton<ToolBox>
     {
-        private static Dictionary<int, object> box = new Dictionary<int, object>();
+        public static ToolSignals Signals => Instance.signals;
 
-        private static ToolSignals signals = new ToolSignals();
-        public static ToolSignals Signals => signals;
+        private readonly Dictionary<Type, object> box = new Dictionary<Type, object>();
+        private readonly ToolSignals signals = new ToolSignals();
+
+        public Dictionary<Type, object> Box => box;
 
         public static void Add<T>(T instance)
         {
             try
             {
-                box.Add(instance.GetType().GetHashCode(), instance);
+                Instance.box.Add(instance.GetType(), instance);
             }
             catch (ArgumentException exception)
             {
+                Debug.Log($"Toolbox ADD PROBLEM {typeof(T)}");
                 Debug.LogWarning(exception);
             }
         }
@@ -27,7 +30,7 @@ namespace Mobiray.Common
         {
             try
             {
-                return box.Remove(typeof(T).GetHashCode());
+                return Instance.box.Remove(typeof(T));
             }
             catch (Exception exception)
             {
@@ -37,12 +40,16 @@ namespace Mobiray.Common
             return false;
         }
 
+        public static bool Has<T>()
+        {
+            return Instance.box.ContainsKey(typeof(T));
+        }
+
         public static T Get<T>()
         {
-            int key = typeof(T).GetHashCode();
 
             object instance;
-            if (!box.TryGetValue(key, out instance))
+            if (!Instance.box.TryGetValue(typeof(T), out instance))
             {
                 Debug.LogError("ToolBox : not found " + typeof(T));
             }
@@ -52,7 +59,16 @@ namespace Mobiray.Common
 
         public static void Clear()
         {
-            box.Clear();
+            Instance.box.Clear();
+            Debug.Log($"Toolbox Clear");
+        }
+        
+        [ContextMenu("Clear Player Prefs")]
+        void ClearPlayerPrefs()
+        {
+            PlayerPrefs.DeleteAll();
+            PlayerPrefs.Save();
+            Debug.Log("Perform operation");
         }
     }
 }

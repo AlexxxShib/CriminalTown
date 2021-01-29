@@ -3,6 +3,7 @@ using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
+/*
 namespace Mobiray.Helpers
 {
     [AttributeUsage(AttributeTargets.Field)]
@@ -177,3 +178,5 @@ namespace Mobiray.Helpers
 }
 
 #endif
+
+*/
