@@ -9,16 +9,16 @@ namespace Template.Configs
     [CreateAssetMenu(fileName = "GameSettings", menuName = "Configs/GameSettings")]
     public class GameSettings : ScriptableObject
     {
+        public bool IsDebugGameState = false;
+        public bool IsSaveGame = true;
+        public string PathSaves = "/saves";
+
         [Space]
         public int MaxSecondsOffline;
 
         [Space]
         public int TargetFrameRate = 60;
 
-        [Space]
-        public bool IsSaveGame = true;
-
-        public string PathSaves;
         // public bool IsCustomSave;
         // public GameStateCustomSave CustomSave;
 

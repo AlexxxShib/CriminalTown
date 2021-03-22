@@ -8,8 +8,11 @@ using UnityEngine;
 
 public class TapticEngine : MonoBehaviour
 {
+    
+#if UNITY_IOS
     [DllImport("__Internal")]
     private static extern void _PlayTaptic(string type);
+#endif
 
     public static void TriggerWarning()
     {

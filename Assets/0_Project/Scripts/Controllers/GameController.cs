@@ -9,26 +9,22 @@ using UnityEngine;
 namespace Template.Controllers
 {
     public class GameController : SignalReceiver
-        // IReceive<SignalStartGame>,
-        // IReceive<SignalTimerEnd>,
     {
         public DataGameState GameState;
-        // public Joystick Joystick;
 
         private SessionData sessionData;
         
-        private GameSettings gameSettings;
-        private ConfigMain configMain;
-        // private LevelConfig levelConfig;
+        private GameSettings settings;
+        private ConfigMain configs;
         
-        // private SceneLoader sceneLoader = new SceneLoader();
+        private MobirayLogger logger = new MobirayLogger("GameController");
 
         private void Awake()
         {
-            configMain = ToolBox.Get<ConfigMain>();
-            gameSettings = ToolBox.Get<GameSettings>();
+            configs = ToolBox.Get<ConfigMain>();
+            settings = ToolBox.Get<GameSettings>();
 
-            Application.targetFrameRate = gameSettings.TargetFrameRate;
+            Application.targetFrameRate = settings.TargetFrameRate;
 
             ToolBox.Add(this);
             ToolBox.Add(new NumericalFormatter());
@@ -54,16 +50,12 @@ namespace Template.Controllers
 
         private void InitGameState()
         {
-            GameState = ToolSaver.Instance.Load<DataGameState>(gameSettings.PathSaves);
+            GameState = ToolSaver.Instance.Load<DataGameState>(settings.PathSaves);
 
             if (GameState == null)
             {
-                GameState = configMain.InitState();
-
-                // if (gameSettings.IsCustomSave && gameSettings.CustomSave != null)
-                // {
-                    // gameSettings.CustomSave.InitCustomSave(GameState);
-                // }
+                GameState = settings.IsDebugGameState ? 
+                    configs.DebugGameState : configs.InitGameState;
             }
 
             ToolBox.Add(GameState);
@@ -74,9 +66,9 @@ namespace Template.Controllers
             GameState.AppClosedDateTime = DateTime.Now;
 //            Debug.Log("quit time " + GameState.AppClosedDateTime);
 
-            if (gameSettings.IsSaveGame)
+            if (settings.IsSaveGame)
             {
-                ToolSaver.Instance.Save(gameSettings.PathSaves, GameState);
+                ToolSaver.Instance.Save(settings.PathSaves, GameState);
             }
         }
 

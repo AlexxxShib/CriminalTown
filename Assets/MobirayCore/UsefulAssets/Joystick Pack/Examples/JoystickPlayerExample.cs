@@ -10,7 +10,7 @@ public class JoystickPlayerExample : MonoBehaviour
 
     public void Update()
     {
-        if (dynamicJoystick.Vertical != 0 && dynamicJoystick.Horizontal != 0)
+        /*if (dynamicJoystick.Vertical != 0 && dynamicJoystick.Horizontal != 0)
         {
             rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
             // walkingForward = true;
@@ -35,7 +35,7 @@ public class JoystickPlayerExample : MonoBehaviour
             rb.AddTorque(transform.up * (delta / 180f) * sign * 1000 * Time.deltaTime);
             /*  rb.transform.localRotation = Quaternion.LookRotation( 
                       new Vector3(dynamicJoystick.Horizontal, 0f, dynamicJoystick.Vertical),
-                      Vector3.up)*/
+                      Vector3.up)#1#
             ; //w   SteppySteps('L');
             rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
         }
@@ -43,7 +43,7 @@ public class JoystickPlayerExample : MonoBehaviour
         if (dynamicJoystick.Vertical == 0 && dynamicJoystick.Horizontal == 0)
         {
             //  walkingForward = false;
-        }
+        }*/
     }
 
     private float Clamp0360(float eulerAngles)
