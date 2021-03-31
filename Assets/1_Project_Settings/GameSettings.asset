@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca01ee2ae6b74249ad6a9211e1ab2589, type: 3}
   m_Name: GameSettings
   m_EditorClassIdentifier: 
-  MaxSecondsOffline: 0
-  TargetFrameRate: 60
+  IsDebugGameState: 0
   IsSaveGame: 1
   PathSaves: 
+  MaxSecondsOffline: 0
+  TargetFrameRate: 60

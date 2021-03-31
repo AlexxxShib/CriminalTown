@@ -43,7 +43,7 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 11
+  serializedVersion: 12
   m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -98,7 +98,8 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 2c47747b6dd8643e9866d47ea9803e54,
+    type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -118,6 +119,8 @@ NavMeshSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
+    maxJobWorkers: 0
+    preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
@@ -228,6 +231,7 @@ GameObject:
   - component: {fileID: 379281131}
   - component: {fileID: 379281133}
   - component: {fileID: 379281132}
+  - component: {fileID: 379281134}
   m_Layer: 0
   m_Name: '[SETUP]'
   m_TagString: Untagged
@@ -286,14 +290,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 223cf8c594dd491fa7678d1e644171b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Tools:
-  - {fileID: 11400000, guid: ce7d7b91e02f444088edd91ff5ffaec6, type: 2}
-  - {fileID: 11400000, guid: 679e7ad5e49f744c18aef924a19b7bb6, type: 2}
-  - {fileID: 11400000, guid: e9ac2b1f264d246f4bb30d3c4c046b7a, type: 2}
-  - {fileID: 11400000, guid: e88decc0b409642d6bdb02795bf704bc, type: 2}
-  - {fileID: 11400000, guid: f36abc39e79804d77acf03e29014bd06, type: 2}
-  - {fileID: 11400000, guid: 9bccb0a647d26484da4726f582c8b987, type: 2}
-  IsForceEnglish: 0
+  CommonTools: {fileID: 11400000, guid: 1ad735a72c4b94b89b5c24d050210bc1, type: 2}
+  Tools: []
+--- !u!114 &379281134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379281130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ff8a13fd6e4551bf7c61a2cde2ae02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TotalObjects: 0
+  CollectedObjects: 0
+  Money: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,8 +434,8 @@ Camera:
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.36489853, g: 0.3697441, b: 0.3773585, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -636,9 +649,9 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1921808417}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60c37fe51d0340558d89aee6147df140, type: 3}
+  m_Script: {fileID: 11500000, guid: ae9a285506ae4df4bb3f87ff7c541bd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   KEY_ANDROID: 
@@ -650,7 +663,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1921808417}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6507d849f824464a148b33699f8595a, type: 3}
   m_Name: 
@@ -664,7 +677,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2060619781}
-  - component: {fileID: 2060619782}
   m_Layer: 0
   m_Name: '[UI]'
   m_TagString: Untagged
@@ -687,16 +699,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2060619782
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2060619780}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a141ec4933934ac08b21b558bcdbf07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsReceiver: 1
