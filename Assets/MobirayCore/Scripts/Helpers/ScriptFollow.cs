@@ -16,13 +16,22 @@ namespace Mobiray.Helpers
 
         private void Awake()
         {
+            if (!GO) return;
             if (difCalculated) return;
             
             RecalculateDif();
         }
 
+        public void SetFollowGO(Transform go)
+        {
+            GO = go;
+            RecalculateDif();
+        }
+
         private void Update()
         {
+            if (!difCalculated) return;
+            
             var pos  = transform.position;
             var start = pos;
             var newPos = GO.position + dif;

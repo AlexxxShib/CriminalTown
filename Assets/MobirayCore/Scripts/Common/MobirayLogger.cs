@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Object = UnityEngine.Object;
 
 namespace Mobiray.Common
 {
@@ -49,7 +50,14 @@ namespace Mobiray.Common
 
             Debug.Log($"{GetSceneName()}[{mainTag}] : {message}");
         }
-        
+
+        public void LogDebug(object message, Object context)
+        {
+            if (!Enabled) return;
+
+            Debug.Log($"{GetSceneName()}[{mainTag}] : {message}", context);
+        }
+
         public void LogError(object message)
         {
             if (!Enabled) return;

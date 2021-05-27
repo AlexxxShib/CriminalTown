@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ConfigMain
   m_EditorClassIdentifier: 
   InitGameState:
-    Money: 0
+    Money: 100
     HardCurrency: 0
     TotalMoney: 0
     LastLevelUp: 0

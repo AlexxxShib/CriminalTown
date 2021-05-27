@@ -1,94 +1,33 @@
-using System;
+using System.Runtime.CompilerServices;
 using Mobiray.Common;
-using Mobiray.Controllers;
-using Mobiray.Numbers;
-using Template.Configs;
-using Template.Data;
 using UnityEngine;
 
 namespace Template.Controllers
 {
-    public class GameController : SignalReceiver
+    public class GameController : BaseGameController
     {
-        public DataGameState GameState;
-
-        private SessionData sessionData;
         
-        private GameSettings settings;
-        private ConfigMain configs;
+        [Header("UI/UX")]
+        public GameObject ScreenLoading;
+        public GameObject ScreenMain;
         
         private MobirayLogger logger = new MobirayLogger("GameController");
 
-        private void Awake()
+        protected override void Awake()
         {
-            configs = ToolBox.Get<ConfigMain>();
-            settings = ToolBox.Get<GameSettings>();
+            base.Awake();
+            
+            ScreenLoading.SetActive(true);
+            
+            /*stateMachine = new StateMachine<GameController>();
 
-            Application.targetFrameRate = settings.TargetFrameRate;
+            StatePreparing = Instantiate(StatePreparing);
+            StatePreparing.Initialize(this, stateMachine);
 
-            ToolBox.Add(this);
-            ToolBox.Add(new NumericalFormatter());
-            ToolBox.Add(sessionData = GetComponent<SessionData>());
+            StatePushing = Instantiate(StatePushing);
+            StatePushing.Initialize(this, stateMachine);
 
-            InitGameState();
-
-            //DEBUG DEBUG DEBUG
-            // GameState.CurrentLevel = 2;
-
-            // LoadLevel();
+            stateMachine.Initialize(StatePreparing);*/
         }
-
-        private int TimeFromLastSessionInSeconds()
-        {
-            var dif = (DateTime.Now - GameState.AppClosedDateTime).TotalSeconds;
-
-            if (dif < 60) dif = 0;
-            return (int) dif;
-        }
-
-        #region LOADING AND SAVING
-
-        private void InitGameState()
-        {
-            GameState = ToolSaver.Instance.Load<DataGameState>(settings.PathSaves);
-
-            if (GameState == null)
-            {
-                GameState = settings.IsDebugGameState ? 
-                    configs.DebugGameState : configs.InitGameState;
-            }
-
-            ToolBox.Add(GameState);
-        }
-
-        private void SaveGameState()
-        {
-            GameState.AppClosedDateTime = DateTime.Now;
-//            Debug.Log("quit time " + GameState.AppClosedDateTime);
-
-            if (settings.IsSaveGame)
-            {
-                ToolSaver.Instance.Save(settings.PathSaves, GameState);
-            }
-        }
-
-#if UNITY_ANDROID || UNITY_IOS
-        private void OnApplicationPause(bool pauseStatus)
-        {
-            Debug.Log("OnApplicationPause " + pauseStatus);
-
-            if (pauseStatus) SaveGameState();
-        }
-
-#endif
-
-#if UNITY_EDITOR
-        private void OnApplicationQuit()
-        {
-            SaveGameState();
-        }
-#endif
-
-        #endregion
     }
 }

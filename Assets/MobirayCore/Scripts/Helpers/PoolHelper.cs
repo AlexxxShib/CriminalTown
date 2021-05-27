@@ -1,24 +1,27 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Object = UnityEngine.Object;
+using Random = UnityEngine.Random;
 
 namespace Mobiray.Helpers
 {
+    
+    [Serializable]
     public class PoolHelper<T> where T : MonoBehaviour
     {
-        public List<string> EntityTypes => entitiesPool.Keys.ToList();
+        protected List<string> EntityTypes => entitiesPool.Keys.ToList();
         
-        private Transform poolParent;
+        public Transform PoolParent;
         
         private Dictionary<string, List<T>> entitiesPool = new Dictionary<string, List<T>>();
         
-        public PoolHelper(Transform poolParent, int entitiesCount = 15)
+        public void Init(int entitiesCount = 15)
         {
-            this.poolParent = poolParent;
-            
-            for (int i = 0; i < poolParent.childCount; i++)
+            for (int i = 0; i < PoolParent.childCount; i++)
             {
-                var entity = poolParent.GetChild(i).GetComponent<T>();
+                var entity = PoolParent.GetChild(i).GetComponent<T>();
                 
                 entity.gameObject.SetActive(false);
 
@@ -31,12 +34,12 @@ namespace Mobiray.Helpers
                 
                 while (pair.Value.Count < entitiesCount)
                 {
-                    pair.Value.Add(Object.Instantiate(original, poolParent));
+                    pair.Value.Add(Object.Instantiate(original, PoolParent));
                 }
             }
         }
 
-        public T InstantiateRandom(bool enable = true)
+        public T Instantiate(bool enable = true)
         {
             var keys = EntityTypes;
             var type = keys[Random.Range(0, keys.Count)];
@@ -50,7 +53,7 @@ namespace Mobiray.Helpers
 
             if (entities.Count == 1)
             {
-                entities.Add(Object.Instantiate(entities[0], poolParent));
+                entities.Add(Object.Instantiate(entities[0], PoolParent));
             }
 
             var lastIndex = entities.Count - 1;
@@ -64,6 +67,7 @@ namespace Mobiray.Helpers
         public void Return(T entity)
         {
             entity.gameObject.SetActive(false);
+            entity.transform.parent = PoolParent;
 
             var entityName = entity.gameObject.name;
             var type = string.Empty;

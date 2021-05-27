@@ -57,7 +57,7 @@ public class Joystick : BaseJoystick, IPointerDownHandler, IDragHandler, IPointe
         handle.anchoredPosition = Vector2.zero;
     }
 
-    private void OnDisable() { input = Vector2.zero; }
+    protected virtual void OnDisable() { input = Vector2.zero; }
 
     public virtual void OnPointerDown(PointerEventData eventData)
     {

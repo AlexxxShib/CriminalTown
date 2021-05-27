@@ -423,5 +423,11 @@ namespace Mobiray.Common
             t.OnComplete(() => completionSource.SetResult(t));
             return await completionSource.Task;
         }
+
+        public static Tween TweenTimeScale(float to, float duration)
+        {
+            return DOTween.To(() => Time.timeScale, x => Time.timeScale = x,
+                to, duration);
+        }
     }
 }
