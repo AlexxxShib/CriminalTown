@@ -429,5 +429,28 @@ namespace Mobiray.Common
             return DOTween.To(() => Time.timeScale, x => Time.timeScale = x,
                 to, duration);
         }
+
+        public static Material ChangeColor(this Material material, Color color)
+        {
+            var copy = new Material(material);
+
+            copy.color = color;
+
+            return copy;
+        }
+
+        public static void ChangeColor(this MeshRenderer renderer, Color color)
+        {
+            var newMat = renderer.material.ChangeColor(color);
+
+            renderer.material = newMat;
+        }
+        
+        public static void ChangeColor(this ParticleSystemRenderer renderer, Color color)
+        {
+            var newMat = renderer.material.ChangeColor(color);
+
+            renderer.material = newMat;
+        }
     }
 }
