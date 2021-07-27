@@ -72,6 +72,11 @@ namespace Mobiray.Common
             return new Vector3(value, value, value);
         }
 
+        public static Vector3 RandomPoint(this Vector3 center, float radius)
+        {
+            return GetRandomPointInArea(center, radius);
+        }
+
         public static Vector3 GetRandomPointInArea(Vector3 center, float radius)
         {
             float randomAngle = Random.Range(0f, 2 * Mathf.PI);
@@ -85,7 +90,7 @@ namespace Mobiray.Common
             return GetRandomPointInArea(gizmo.transform.position, gizmo.Radius);
         }
 
-        public static Vector3 GetCenterPoint(List<Vector3> points, bool nullifyY)
+        public static Vector3 GetCenterPoint(List<Vector3> points, bool nullifyY = false)
         {
             if (points.Count == 0) return Vector3.zero;
             
@@ -100,7 +105,7 @@ namespace Mobiray.Common
             return result / points.Count;
         }
         
-        public static Vector3 GetCenterPoint(List<Transform> points, bool nullifyY)
+        public static Vector3 GetCenterPoint(List<Transform> points, bool nullifyY = false)
         {
             if (points.Count == 0) return Vector3.zero;
             

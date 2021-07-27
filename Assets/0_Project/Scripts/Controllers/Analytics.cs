@@ -18,57 +18,53 @@ namespace Template.Controllers
         
         private static MobirayLogger Logger = new MobirayLogger("Analytics");
 
-        /*public static void SendLevelStart(DataGameState gameState, ConfigMain configMain)
+        public static void SendLevelStart(SessionData sessionData)
         {
-            // var levelNum = gameState.CurrentLevel + 1;
-            configMain.GetLevelConfig(gameState.CurrentLevel, out var levelNum, out var loop);
             var startedLevel = PlayerPrefs.GetInt("cash_started_level", -1);
             
-            if (startedLevel == levelNum) return;
+            if (startedLevel == sessionData.CurrentLevel) return;
             
-            PlayerPrefs.SetInt("cash_started_level", levelNum);
+            PlayerPrefs.SetInt("cash_started_level", sessionData.CurrentLevel);
             PlayerPrefs.Save();
 
             OnEvent("level_start", new Dictionary<string, object>
             {
                 {
-                    "level_number", levelNum
+                    "level_number", sessionData.LevelNumber
                 },
                 {
-                    "level_name", $"level_{levelNum}"
+                    "level_name", $"level_{sessionData.LevelNumber}"
                 },
                 {
-                    "level_count", gameState.CurrentLevel
+                    "level_count", sessionData.CurrentLevel + 1
                 },
                 {
-                    "level_loop", loop
+                    "level_loop", sessionData.LevelLoop
                 },
             });
-        }*/
+        }
 
-        /*public static void SendLevelFinish(DataGameState gameState, ConfigMain configMain, bool result)
+        public static void SendLevelFinish(SessionData sessionData, bool result)
         {
-            configMain.GetLevelConfig(gameState.CurrentLevel, out var levelNum, out var loop);
-            
             OnEvent("level_finish", new Dictionary<string, object>
             {
                 {
-                    "level_number", levelNum
+                    "level_number", sessionData.LevelNumber
                 },
                 {
-                    "level_name", $"level_{levelNum}"
+                    "level_name", $"level_{sessionData.LevelNumber}"
                 },
                 {
-                    "level_count", gameState.CurrentLevel
+                    "level_count", sessionData.CurrentLevel + 1
                 },
                 {
-                    "level_loop", loop
+                    "level_loop", sessionData.LevelLoop
                 },
                 {
                     "result", result ? "win" : "lose"
                 }
             });
-        }*/
+        }
         
         public static void OnEvent(string eventName)
         {

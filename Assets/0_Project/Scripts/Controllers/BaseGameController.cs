@@ -29,7 +29,7 @@ namespace Template.Controllers
 
             ToolBox.Add(this);
             ToolBox.Add(new NumericalFormatter());
-            ToolBox.Add(SessionData = GetComponent<SessionData>());
+            ToolBox.Add(SessionData = new SessionData());
             
             var timerHelper = new GameObject("TimerHelper");
             timerHelper.transform.parent = transform;
@@ -66,7 +66,7 @@ namespace Template.Controllers
             ToolBox.Add(GameState);
         }
 
-        private void SaveGameState()
+        public void SaveGameState()
         {
             GameState.AppClosedDateTime = DateTime.Now;
 //            Debug.Log("quit time " + GameState.AppClosedDateTime);

@@ -1,6 +1,9 @@
+using System;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using Mobiray.Common;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Template.Controllers
 {
@@ -28,6 +31,25 @@ namespace Template.Controllers
             StatePushing.Initialize(this, stateMachine);
 
             stateMachine.Initialize(StatePreparing);*/
+        }
+        
+        /*private void Update()
+        {
+            stateMachine.CurrentState.LogicUpdate();
+        }
+
+        private void FixedUpdate()
+        {
+            stateMachine.CurrentState.PhysicsUpdate();
+        }*/
+        
+        private async void RestartScene()
+        {
+            ScreenLoading.SetActive(true);
+
+            await Task.Delay(TimeSpan.FromSeconds(0.2f));
+            
+            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }

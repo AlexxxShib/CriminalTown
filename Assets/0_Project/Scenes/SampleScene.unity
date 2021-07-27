@@ -474,7 +474,6 @@ GameObject:
   m_Component:
   - component: {fileID: 379281131}
   - component: {fileID: 379281133}
-  - component: {fileID: 379281134}
   - component: {fileID: 379281132}
   m_Layer: 0
   m_Name: '[SETUP]'
@@ -514,7 +513,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsReceiver: 1
-  SessionData: {fileID: 0}
+  SessionData:
+    CurrentLevel: 0
+    LevelNumber: 0
+    LevelLoop: 0
   ScreenLoading: {fileID: 1286326180}
   ScreenMain: {fileID: 10637442}
 --- !u!114 &379281133
@@ -531,21 +533,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CommonTools: {fileID: 11400000, guid: 1ad735a72c4b94b89b5c24d050210bc1, type: 2}
   Tools: []
---- !u!114 &379281134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 379281130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73ff8a13fd6e4551bf7c61a2cde2ae02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TotalObjects: 0
-  CollectedObjects: 0
-  Money: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
