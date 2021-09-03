@@ -90,19 +90,22 @@ namespace Mobiray.Common
             return GetRandomPointInArea(gizmo.transform.position, gizmo.Radius);
         }
 
-        public static Vector3 GetCenterPoint(List<Vector3> points, bool nullifyY = false)
+        public static Vector3 GetCenterPoint(IEnumerable<Vector3> points, bool nullifyY = false)
         {
-            if (points.Count == 0) return Vector3.zero;
-            
+            int count = 0;
             Vector3 result = Vector3.zero;
+            
             foreach (var point in points)
             {
                 result += point;
+                count++;
             }
+            
+            if (count == 0) return Vector3.zero;
 
             if (nullifyY) result.y = 0;
 
-            return result / points.Count;
+            return result / count;
         }
         
         public static Vector3 GetCenterPoint(List<Transform> points, bool nullifyY = false)
@@ -180,7 +183,61 @@ namespace Mobiray.Common
                     queue.Enqueue(t);
             }
             return null;
-        }    
+        }
+
+        public static bool TryFindNearest<T>(Vector3 position, IEnumerable<T> objects, out T result) where T : MonoBehaviour
+        {
+            var minDistance = float.MaxValue;
+            result = default;
+
+            var found = false;
+            
+            foreach (var obj in objects)
+            {
+                var distance = (obj.transform.position - position).magnitude;
+
+                if (distance < minDistance)
+                {
+                    minDistance = distance;
+                    result = obj;
+
+                    found = true;
+                }
+            }
+
+            return found;
+        }
+        
+        public static bool TryFindNearest(Transform point, IEnumerable<Transform> objects, out Transform result, 
+            bool behindOnly = false)
+        {
+            var minDistance = float.MaxValue;
+            result = default;
+
+            var found = false;
+            
+            foreach (var obj in objects)
+            {
+                var direction = obj.transform.position - point.position;
+                var distance = direction.magnitude;
+                
+                if (behindOnly)
+                {
+                    var angle = Vector3.SignedAngle(direction, point.forward, Vector3.up);
+                    if (Mathf.Abs(angle) < 90) continue;
+                }
+
+                if (distance < minDistance)
+                {
+                    minDistance = distance;
+                    result = obj;
+
+                    found = true;
+                }
+            }
+
+            return found;
+        }
 
         public static void SetSame(this Transform transform, Transform original, bool withScale = false)
         {

@@ -29,6 +29,8 @@ namespace Mobiray.Common
             } catch (Exception _) { }
         }
 
+        public void SetTag(GameObject gameObject) { mainTag = gameObject.name; }
+
         public void SetTag(string tag) { mainTag = tag; }
 
         private string GetSceneName()
