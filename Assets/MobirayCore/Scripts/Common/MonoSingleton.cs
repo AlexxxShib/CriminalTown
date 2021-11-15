@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Mobiray.Common
@@ -5,12 +6,15 @@ namespace Mobiray.Common
     public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
     {
         private static T _instance;
+        
+        public static bool Initilized { get; private set; }
 
-        protected void Initialize()
+        public virtual void Initialize()
         {
-            if (_instance) return;
             _instance = this as T;
             DontDestroyOnLoad(_instance);
+
+            Initilized = true;
         }
 
         // ReSharper disable once StaticMemberInGenericType
@@ -69,7 +73,7 @@ namespace Mobiray.Common
 
         public virtual void OnDisable()
         {
-            applicationIsQuitting = true;
+            // applicationIsQuitting = true;
         }
 
         private void OnApplicationQuit()

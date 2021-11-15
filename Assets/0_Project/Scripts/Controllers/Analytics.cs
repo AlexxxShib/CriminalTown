@@ -2,80 +2,109 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Facebook.Unity;
-// using Firebase.Analytics;
-using FlurrySDK;
-using Template.Configs;
-using Template.Data;
 using Mobiray.Common;
+using Template.Ads;
+using Template.Data;
 using UnityEngine;
 
 namespace Template.Controllers
 {
     public class Analytics
     {
+        
+        enum VideoAdsStatus
+        {
+            WAITING, STARTDED
+        }
 
         public static bool LogEvents = true;
         
         private static MobirayLogger Logger = new MobirayLogger("Analytics");
 
-        public static void SendLevelStart(SessionData sessionData)
-        {
-            var startedLevel = PlayerPrefs.GetInt("cash_started_level", -1);
-            
-            if (startedLevel == sessionData.CurrentLevel) return;
-            
-            PlayerPrefs.SetInt("cash_started_level", sessionData.CurrentLevel);
-            PlayerPrefs.Save();
+        private const string CASH_KEY_STARTED_LEVEL = "cash_started_level";
+        
+        private static VideoAdsStatus adsStatus = VideoAdsStatus.WAITING;
 
-            OnEvent("level_start", new Dictionary<string, object>
+        public static void OnEventVideoAdsAvailable(EventAds adEvent)
+        {
+            OnEvent("video_ads_available", adEvent.ToDictionary());
+        }
+        
+        public static void OnEventVideoAdsStarted(EventAds adEvent)
+        {
+            OnEvent("video_ads_started", adEvent.ToDictionary());
+
+            adsStatus = VideoAdsStatus.STARTDED;
+        }
+        
+        public static void OnEventVideoAdsWatch(EventAds adEvent, SessionData sessionData)
+        {
+            if (adsStatus != VideoAdsStatus.STARTDED) return;
+            
+            var parameters = adEvent.ToDictionary();
+
+            if (sessionData != null)
+            {
+                parameters.AddAllKVPFrom(MakeLevelStartParameters(sessionData));
+            }
+            
+            OnEvent("video_ads_watch", parameters);
+
+            adsStatus = VideoAdsStatus.WAITING;
+        }
+
+        private static Dictionary<string, object> MakeLevelStartParameters(SessionData sessionData)
+        {
+            var levelNum = sessionData.CurrentLevel + 1;
+
+            return new Dictionary<string, object>
             {
                 {
-                    "level_number", sessionData.LevelNumber
+                    "level_number", levelNum
                 },
                 {
-                    "level_name", $"level_{sessionData.LevelNumber}"
+                    "level_name", $"level_{levelNum:00}"
                 },
                 {
-                    "level_count", sessionData.CurrentLevel + 1
+                    "level_count", sessionData.LevelCount
                 },
                 {
                     "level_loop", sessionData.LevelLoop
                 },
-            });
+            };
+        }
+
+        public static void SendLevelStart(SessionData sessionData)
+        {
+            PlayerPrefs.SetInt(CASH_KEY_STARTED_LEVEL, sessionData.CurrentLevel);
+            PlayerPrefs.Save();
+
+            OnEvent("level_start", MakeLevelStartParameters(sessionData));
+            
+            // AppMetrica.Instance.SendEventsBuffer();
         }
 
         public static void SendLevelFinish(SessionData sessionData, bool result)
         {
-            OnEvent("level_finish", new Dictionary<string, object>
-            {
-                {
-                    "level_number", sessionData.LevelNumber
-                },
-                {
-                    "level_name", $"level_{sessionData.LevelNumber}"
-                },
-                {
-                    "level_count", sessionData.CurrentLevel + 1
-                },
-                {
-                    "level_loop", sessionData.LevelLoop
-                },
-                {
-                    "result", result ? "win" : "lose"
-                }
-            });
+            var parameters = MakeLevelStartParameters(sessionData);
+            
+            parameters.Add("result", result ? "win" : "lose");
+            parameters.Add("time", sessionData.LevelTime);
+            
+            OnEvent("level_finish", parameters);
+            
+            // AppMetrica.Instance.SendEventsBuffer();
         }
         
         public static void OnEvent(string eventName)
         {
             try
             {
+                // AppMetrica.Instance.ReportEvent(eventName);
+                
                 FB.LogAppEvent(eventName);
                 // FirebaseAnalytics.LogEvent(eventName);
-                Flurry.LogEvent(eventName);
-                
-                // AppMetrica.Instance.ReportEvent(eventName);
-                // AppMetrica.Instance.SendEventsBuffer();
+                // Flurry.LogEvent(eventName);
             }
             catch (Exception e)
             {
@@ -99,12 +128,11 @@ namespace Template.Controllers
             
             try
             {
-                FB.LogAppEvent(eventName, parameters: parameters);
-                Flurry.LogEvent(eventName, ToStringMap(parameters));
-                // FirebaseAnalytics.LogEvent(eventName, ToFirebaseParameters(parameters));
-                
                 // AppMetrica.Instance.ReportEvent(eventName, parameters);
-                // AppMetrica.Instance.SendEventsBuffer();
+                
+                FB.LogAppEvent(eventName, parameters: parameters);
+                // Flurry.LogEvent(eventName, ToStringMap(parameters));
+                // FirebaseAnalytics.LogEvent(eventName, ToFirebaseParameters(parameters));
             }
             catch (Exception e)
             {

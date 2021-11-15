@@ -1,0 +1,2529 @@
+Unity Editor version:    2020.3.21f1 (a38c86f6690f)
+Branch:                  2020.3/staging
+Build type:              Release
+Batch mode:              YES
+macOS version:           Version 12.0 (Build 21A344)
+Darwin version:          21.0.1
+Architecture:            x86_64
+Running under Rosetta:   YES
+Available memory:        16384 MB
+Using pre-set license
+Pro License: NO
+
+COMMAND LINE ARGUMENTS:
+/Applications/Unity/Hub/Editor/2020.3.21f1/Unity.app/Contents/MacOS/Unity
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+/Users/alexxxshib/Develop/Mobiray/Template
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+54293
+Successfully changed project path to: /Users/alexxxshib/Develop/Mobiray/Template
+/Users/alexxxshib/Develop/Mobiray/Template
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 92.90 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.21f1 (a38c86f6690f)
+[Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/2020.3.21f1/Unity.app/Contents/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path /Users/alexxxshib/Develop/Mobiray/Template/Assets
+GfxDevice: creating device client; threaded=0
+2021-11-15 17:33:13.148 Unity[76729:2312179] (null) preferred device: Apple M1 Pro (high power)
+2021-11-15 17:33:13.148 Unity[76729:2312179] Metal devices available: 1
+2021-11-15 17:33:13.148 Unity[76729:2312179] 0: Apple M1 Pro (high power)
+2021-11-15 17:33:13.148 Unity[76729:2312179] Using device Apple M1 Pro (high power)
+Initializing Metal device caps: Apple M1 Pro
+Initialize mono
+Mono path[0] = '/Applications/Unity/Hub/Editor/2020.3.21f1/Unity.app/Contents/Managed'
+Mono path[1] = '/Applications/Unity/Hub/Editor/2020.3.21f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = '/Applications/Unity/Hub/Editor/2020.3.21f1/Unity.app/Contents/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56729
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /Applications/Unity/Hub/Editor/2020.3.21f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Registered in 0.000368 seconds.
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 75.99 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.001 seconds
+Domain Reload Profiling:
+	ReloadAssembly (3001ms)
+		BeginReloadAssembly (84ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (2ms)
+		EndReloadAssembly (947ms)
+			LoadAssemblies (82ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (176ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (37ms)
+			SetupLoadedEditorAssemblies (477ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (11ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (76ms)
+				BeforeProcessingInitializeOnLoad (27ms)
+				ProcessInitializeOnLoadAttributes (273ms)
+				ProcessInitializeOnLoadMethodAttributes (89ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.004889 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 68.93 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.302 seconds
+Domain Reload Profiling:
+	ReloadAssembly (2305ms)
+		BeginReloadAssembly (231ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (25ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (30ms)
+		EndReloadAssembly (1987ms)
+			LoadAssemblies (173ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (383ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (66ms)
+			SetupLoadedEditorAssemblies (906ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (9ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (69ms)
+				BeforeProcessingInitializeOnLoad (146ms)
+				ProcessInitializeOnLoadAttributes (647ms)
+				ProcessInitializeOnLoadMethodAttributes (33ms)
+				AfterProcessingInitializeOnLoad (1ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (30ms)
+Platform modules already initialized, skipping
+Validating Project structure ... 0.016639 seconds.
+Shader import version has changed; will reimport all shaders...
+Upgrading shader files ...0.031886 seconds.
+Application.AssetDatabase Initial Script Refresh Start
+RefreshInfo: InitialScriptRefreshV2(NoUpdateAssetOptions) scanfilter:  ... 1 filters
+RefreshProfiler: Total: 0.000ms
+Application.AssetDatabase Initial Script Refresh End
+Application.AssetDatabase.Refresh Start
+Application.AssetDatabase.Refresh End
+RefreshInfo: StopAssetImportingV2(ForceSynchronousImport) scanfilter: 
+RefreshProfiler: Total: 0.000ms
+Launching external process: /Applications/Unity/Hub/Editor/2020.3.21f1/Unity.app/Contents/Tools/UnityShaderCompiler
+Launched and connected shader compiler UnityShaderCompiler after 0.02 seconds
+Initializing Unity extensions:
+2021-11-15 17:33:19.933 Unity[76729:2312179] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x60000061a1b0 Quick Recording, ke='Command-F10'>, but is only supported for system-provided menu items; will not be used
+2021-11-15 17:33:19.937 Unity[76729:2312179] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x60000060fdb0 Font Asset, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
+2021-11-15 17:33:19.938 Unity[76729:2312179] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x6000006075d0 Quick Recording, ke='Command-F10'>, but is only supported for system-provided menu items; will not be used
+2021-11-15 17:33:19.942 Unity[76729:2312179] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x60000062bf00 Font Asset, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
+========================================================================
+Worker process is ready to serve import requests
+Refreshing native plugins compatible for Editor in 1.22 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3435 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 266.8 MB.
+System memory in use after: 266.7 MB.
+
+Unloading 391 unused Assets to reduce memory usage. Loaded Objects now: 3850.
+Total: 2.946833 ms (FindLiveObjects: 0.223917 ms CreateObjectMapping: 0.084458 ms MarkObjects: 2.367917 ms  DeleteObjects: 0.269625 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Textures/Text/Materials/zzzap.mat
+  artifactKey: Guid(a9663b27166634743b527ef6bb592a9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Textures/Text/Materials/zzzap.mat using Guid(a9663b27166634743b527ef6bb592a9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '563d85fd8cd1b26cbb7122e7ee473dc5') in 0.651956 seconds 
+  Import took 0.656145 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001995 seconds.
+  path: Packages/com.unity.searcher/Editor/Resources/FlatSkin/Font/Roboto-Thin.ttf
+  artifactKey: Guid(19a9abb883540be48b75b951a927ae03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.searcher/Editor/Resources/FlatSkin/Font/Roboto-Thin.ttf using Guid(19a9abb883540be48b75b951a927ae03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '82e7c67d349265d5c9a4cc996c467909') in 1.003321 seconds 
+  Import took 1.007110 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.002808 seconds.
+  path: Assets/MobirayCore/Modeles/Ramp_Highslope.fbx
+  artifactKey: Guid(48b3ee92089b54f139d0e23c4f65feac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/Ramp_Highslope.fbx using Guid(48b3ee92089b54f139d0e23c4f65feac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '542fc07ea60581e8c58b0717ff265382') in 0.386998 seconds 
+  Import took 0.390973 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.002371 seconds.
+  path: Assets/MobirayCore/Modeles/SM_Icon_Arrow_Small_04.fbx
+  artifactKey: Guid(b2122d1e07ed04451b226f7a6d11a161) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/SM_Icon_Arrow_Small_04.fbx using Guid(b2122d1e07ed04451b226f7a6d11a161) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b70df3ab74812702e702a793ba0c3f39') in 0.022545 seconds 
+  Import took 0.026466 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000230 seconds.
+  path: Assets/MobirayCore/Modeles/SM_Icon_Arrow_Small_05.fbx
+  artifactKey: Guid(5b05a5e17123b481ca6a71e9e8431b2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/SM_Icon_Arrow_Small_05.fbx using Guid(5b05a5e17123b481ca6a71e9e8431b2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f885d754fe6834b39e801eab52ea9669') in 0.018129 seconds 
+  Import took 0.022183 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000216 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Geometric/drop.mat
+  artifactKey: Guid(905e6862ab8669349a39d55c5727be31) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Geometric/drop.mat using Guid(905e6862ab8669349a39d55c5727be31) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7513bee20cfc2918d85567fd2dfcee7a') in 0.040460 seconds 
+  Import took 0.044349 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000248 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Clouds/cloud_2x2_hardshadow.mat
+  artifactKey: Guid(d47abdfc41b22554698658a7b569e039) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Clouds/cloud_2x2_hardshadow.mat using Guid(d47abdfc41b22554698658a7b569e039) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cd2ad22b25f590aa68ee31f81ced54d5') in 0.008914 seconds 
+  Import took 0.012790 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000264 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Emoticons/shocked.mat
+  artifactKey: Guid(a37b0840d104b684d8ab60b4ecab00c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Emoticons/shocked.mat using Guid(a37b0840d104b684d8ab60b4ecab00c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '43348b1ba13a16123223140fa5f4f5d0') in 0.009422 seconds 
+  Import took 0.013379 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000217 seconds.
+  path: Packages/com.unity.searcher/Editor/Resources/FlatSkin/Font/Roboto-MediumItalic.ttf
+  artifactKey: Guid(d93c1bc57fdf1ac4dad1bf04fac05464) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.searcher/Editor/Resources/FlatSkin/Font/Roboto-MediumItalic.ttf using Guid(d93c1bc57fdf1ac4dad1bf04fac05464) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5531d37ca09ff93dda49f0c0983b1524') in 0.011549 seconds 
+  Import took 0.015350 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000271 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Demo/Materials/Skybox/PurpleSkybox.mat
+  artifactKey: Guid(eae4da572696be0409bce4b6e04a3e57) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Demo/Materials/Skybox/PurpleSkybox.mat using Guid(eae4da572696be0409bce4b6e04a3e57) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'af1dc0007d44144d5080a695fc1112a3') in 0.250095 seconds 
+  Import took 0.253997 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000331 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Clouds/cloud_soft.mat
+  artifactKey: Guid(c1254d407233159489f0bfdd68ac2975) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Clouds/cloud_soft.mat using Guid(c1254d407233159489f0bfdd68ac2975) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1564812b5cfb805662ef4b1388577480') in 0.008549 seconds 
+  Import took 0.012422 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000277 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Textures/Text/Materials/smack.mat
+  artifactKey: Guid(a03694b155628b44e94d75e444aa7341) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Textures/Text/Materials/smack.mat using Guid(a03694b155628b44e94d75e444aa7341) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7bb24c7192a671dab3958b4adab09374') in 0.009451 seconds 
+  Import took 0.013504 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000294 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Geometric/rectangle2.mat
+  artifactKey: Guid(566d132deeeeac744bd342fe2ee259ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Geometric/rectangle2.mat using Guid(566d132deeeeac744bd342fe2ee259ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '16f4be34bfc71289f025b770a44e2f03') in 0.008760 seconds 
+  Import took 0.012633 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000297 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Bangers SDF.asset
+  artifactKey: Guid(125cb55b44b24c4393181402bc6200e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Bangers SDF.asset using Guid(125cb55b44b24c4393181402bc6200e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '76112d7236497ffef221c76c73470132') in 0.168148 seconds 
+  Import took 0.172144 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.002569 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset
+  artifactKey: Guid(2e498d1c8094910479dc3e1b768306a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset using Guid(2e498d1c8094910479dc3e1b768306a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'de35dec635e2802ec36b3874e1d6979e') in 0.025125 seconds 
+  Import took 0.029374 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000317 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Demo/Materials/Skybox/BlueSkybox.mat
+  artifactKey: Guid(2c308a3b06c530748acc49e5e317ee58) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Demo/Materials/Skybox/BlueSkybox.mat using Guid(2c308a3b06c530748acc49e5e317ee58) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd2cbebde4ee70c777b95c1136ebb7d9e') in 0.011181 seconds 
+  Import took 0.015518 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000453 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Water/wave3.mat
+  artifactKey: Guid(7d02299296a2a9843981fe2199b208f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Water/wave3.mat using Guid(7d02299296a2a9843981fe2199b208f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '98a528653625e6e864369d40c1fa9e1a') in 0.008113 seconds 
+  Import took 0.012169 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000258 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/star_AB.mat
+  artifactKey: Guid(d05bd487e32791148ab238ebabb0154b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/star_AB.mat using Guid(d05bd487e32791148ab238ebabb0154b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a9a6e9243d5d7314fb07fee19a997b19') in 0.008124 seconds 
+  Import took 0.011901 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000256 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Bangers SDF Glow.mat
+  artifactKey: Guid(d75b8f41e959450c84ac6e967084d3e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Bangers SDF Glow.mat using Guid(d75b8f41e959450c84ac6e967084d3e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8e95f5728bb77e8a6f8479428a181c0b') in 0.116675 seconds 
+  Import took 0.120524 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000263 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/shield/shield_magic2.mat
+  artifactKey: Guid(f49bd59ec3f5ce049baaa328623000af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/shield/shield_magic2.mat using Guid(f49bd59ec3f5ce049baaa328623000af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '62facedee3e717538f45735c61a748e4') in 0.009674 seconds 
+  Import took 0.013349 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000224 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Demo/Materials/dev2.mat
+  artifactKey: Guid(207691d913319fa408633bc6df8080c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Demo/Materials/dev2.mat using Guid(207691d913319fa408633bc6df8080c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5c548db23c3ce2d1597e6368a10f55e5') in 0.008898 seconds 
+  Import took 0.012806 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000300 seconds.
+  path: Assets/MobirayCore/Modeles/SM_Icon_Arrow_Small_06.fbx
+  artifactKey: Guid(02552061ace5f46d1be5598396d4f6b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/SM_Icon_Arrow_Small_06.fbx using Guid(02552061ace5f46d1be5598396d4f6b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c7a7340a5783071d80aa23a59ad74850') in 0.017807 seconds 
+  Import took 0.021709 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000260 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset
+  artifactKey: Guid(8f586378b4e144a9851e7b34d9b748ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset using Guid(8f586378b4e144a9851e7b34d9b748ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eb64f76ea5fd196cbc9ca3591bcd6fb3') in 0.031746 seconds 
+  Import took 0.035744 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000307 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Textures/Text/Materials/sharp_blue.mat
+  artifactKey: Guid(666a9773a2ea0cc4c9d0c65884f33431) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Textures/Text/Materials/sharp_blue.mat using Guid(666a9773a2ea0cc4c9d0c65884f33431) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f813beb96587528d26867f12bd243b13') in 0.009440 seconds 
+  Import took 0.013432 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000239 seconds.
+  path: Assets/MobirayCore/Modeles/SM_Icon_Cup_02.fbx
+  artifactKey: Guid(68849a26de21c438193146a6cbf3b2d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/SM_Icon_Cup_02.fbx using Guid(68849a26de21c438193146a6cbf3b2d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6629fa032be963db160158126fb1974b') in 0.018590 seconds 
+  Import took 0.022575 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000323 seconds.
+  path: Assets/MobirayCore/Modeles/SM_Icon_Arrow_Small_07.fbx
+  artifactKey: Guid(a443b929fee7e4372827c3b0074c2a0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/SM_Icon_Arrow_Small_07.fbx using Guid(a443b929fee7e4372827c3b0074c2a0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '075139abcaa47c01f3c01fb9d5a56d99') in 0.017433 seconds 
+  Import took 0.021494 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000269 seconds.
+  path: Packages/com.unity.render-pipelines.core/Runtime/Debugging/Prefabs/Fonts/Perfect DOS VGA 437.ttf
+  artifactKey: Guid(74a5091d8707f334b9a5c31ef71a64ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.render-pipelines.core/Runtime/Debugging/Prefabs/Fonts/Perfect DOS VGA 437.ttf using Guid(74a5091d8707f334b9a5c31ef71a64ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c82782cbb6b880a087a7f2eed51fee7d') in 0.011156 seconds 
+  Import took 0.015094 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000338 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Emoticons/silly.mat
+  artifactKey: Guid(5e4e3dc9804f1a142b206023fb4e1e07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Emoticons/silly.mat using Guid(5e4e3dc9804f1a142b206023fb4e1e07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a9ae725880821104377cd9c403c522bb') in 0.008844 seconds 
+  Import took 0.012606 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000254 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/heart.mat
+  artifactKey: Guid(db608f6f11761e6409b8ea41aaa6adda) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/heart.mat using Guid(db608f6f11761e6409b8ea41aaa6adda) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd523a391f76aec49f2c5ecbd1c3804c6') in 0.008215 seconds 
+  Import took 0.012162 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000360 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/explosion_spritesheet_2x2.mat
+  artifactKey: Guid(4c750fbc95c4cde4fa7c0d3bf1d74e73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/explosion_spritesheet_2x2.mat using Guid(4c750fbc95c4cde4fa7c0d3bf1d74e73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e154fcf89a8a93a2307ef92d5547f87d') in 0.008300 seconds 
+  Import took 0.012145 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000276 seconds.
+  path: Assets/MobirayCore/Modeles/SpaceShip.FBX
+  artifactKey: Guid(3a764266290d84f3e8f7afc3ab79f11b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/SpaceShip.FBX using Guid(3a764266290d84f3e8f7afc3ab79f11b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '56d85f314595acf3807b912671ba8aa2') in 0.068131 seconds 
+  Import took 0.071896 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.002485 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Magic/aura_vertical.mat
+  artifactKey: Guid(a3706764c40746746934f5d22917b0a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Magic/aura_vertical.mat using Guid(a3706764c40746746934f5d22917b0a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '46ed446e5ec89a7882bd3fa7aa70bd42') in 0.008815 seconds 
+  Import took 0.012688 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000239 seconds.
+  path: Packages/com.unity.render-pipelines.universal/Runtime/Materials/ParticlesUnlit.mat
+  artifactKey: Guid(e823cd5b5d27c0f4b8256e7c12ee3e6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.render-pipelines.universal/Runtime/Materials/ParticlesUnlit.mat using Guid(e823cd5b5d27c0f4b8256e7c12ee3e6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ebdea16021ad9d8b570a6c69d543dc30') in 0.132778 seconds 
+  Import took 0.136559 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000328 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Roboto-Bold SDF - Drop Shadow.mat
+  artifactKey: Guid(b246c4190f4e46ec9352fe15a7b09ce0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Roboto-Bold SDF - Drop Shadow.mat using Guid(b246c4190f4e46ec9352fe15a7b09ce0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe64127710492da787c1d9110fb1e193') in 0.105550 seconds 
+  Import took 0.109093 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000299 seconds.
+  path: Assets/MobirayCore/UsefulAssets/JMO Assets/MatCap Shaders/Demo/Assets/Robot Kyle/Robot MatCap Bumped.mat
+  artifactKey: Guid(e52c42245cc405949a95d615ff298789) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/JMO Assets/MatCap Shaders/Demo/Assets/Robot Kyle/Robot MatCap Bumped.mat using Guid(e52c42245cc405949a95d615ff298789) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3087390c0ae68cb022faadc717c3159a') in 0.085659 seconds 
+  Import took 0.089296 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000230 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Emoticons/happy.mat
+  artifactKey: Guid(d12b019f745e4c749b58d4ece3615fae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Emoticons/happy.mat using Guid(d12b019f745e4c749b58d4ece3615fae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fdc11bccf61771a9f9992a5037487bf0') in 0.009110 seconds 
+  Import took 0.012816 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000215 seconds.
+  path: Assets/MobirayCore/Modeles/cylinder.obj
+  artifactKey: Guid(9a1a0b200be2045c7951b8b34d416709) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/cylinder.obj using Guid(9a1a0b200be2045c7951b8b34d416709) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '774584eadb639f2cc23356342c774c92') in 0.833915 seconds 
+  Import took 0.837693 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.002712 seconds.
+  path: Packages/com.unity.searcher/Editor/Resources/FlatSkin/Font/Roboto-Bold.ttf
+  artifactKey: Guid(3750c318f40cab44a97d3a81beaefeb3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.searcher/Editor/Resources/FlatSkin/Font/Roboto-Bold.ttf using Guid(3750c318f40cab44a97d3a81beaefeb3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '764a130ac500bdcc35cfce9b2bb9a415') in 0.011203 seconds 
+  Import took 0.014833 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000280 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Geometric/triangle_soft.mat
+  artifactKey: Guid(a058931dd3543234e94c05ced3fd8de6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Geometric/triangle_soft.mat using Guid(a058931dd3543234e94c05ced3fd8de6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'deb55457cd325bbf995cb10047a5b5b1') in 0.008234 seconds 
+  Import took 0.012483 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000277 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Bangers SDF - Outline.mat
+  artifactKey: Guid(f629c6e43dba4bf38cb74d8860150664) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Bangers SDF - Outline.mat using Guid(f629c6e43dba4bf38cb74d8860150664) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff1af7155a2185f450997279e00807de') in 0.073504 seconds 
+  Import took 0.077479 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000196 seconds.
+  path: Assets/MobirayCore/UsefulAssets/JMO Assets/MatCap Shaders/Demo/Assets/MC_Demo_M_Shadow.mat
+  artifactKey: Guid(bb0a4392f7bcaf043b7f908082206884) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/JMO Assets/MatCap Shaders/Demo/Assets/MC_Demo_M_Shadow.mat using Guid(bb0a4392f7bcaf043b7f908082206884) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '199611ef911173050f56c6f3aea2b81d') in 0.042781 seconds 
+  Import took 0.046400 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000224 seconds.
+  path: Assets/MobirayCore/Modeles/SM_Icon_Cross_01.fbx
+  artifactKey: Guid(ae445bf17681c4428ac1f5ca2a4acbe7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/SM_Icon_Cross_01.fbx using Guid(ae445bf17681c4428ac1f5ca2a4acbe7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0c4a555f5538930cfc713b7197e25023') in 0.017621 seconds 
+  Import took 0.021513 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000249 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Materials/Crate - Surface Shader Scene.mat
+  artifactKey: Guid(e6b9b44320f4448d9d5e0ee634259966) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Materials/Crate - Surface Shader Scene.mat using Guid(e6b9b44320f4448d9d5e0ee634259966) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dc80de245227e55dbb8ddc6a87ca83a4') in 0.377640 seconds 
+  Import took 0.381430 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000240 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Joystick Pack/Examples/Player.mat
+  artifactKey: Guid(59e4faf24927edf4a82f463ad16f1c37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Joystick Pack/Examples/Player.mat using Guid(59e4faf24927edf4a82f463ad16f1c37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '75b27754add874d29e4658f99c1b5b9d') in 0.008352 seconds 
+  Import took 0.012068 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000283 seconds.
+  path: Assets/MobirayCore/Modeles/SM_Generic_Tree_01.fbx
+  artifactKey: Guid(1472cb9946c1943488eb180121128fe6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/SM_Generic_Tree_01.fbx using Guid(1472cb9946c1943488eb180121128fe6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '21770b744e7bd158f90b045cfcfd29d8') in 0.018235 seconds 
+  Import took 0.022187 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000272 seconds.
+  path: Assets/MobirayCore/Modeles/SM_Icon_CoinBag_01.fbx
+  artifactKey: Guid(63b3d6656d27f49e6a17399a4e14888b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/SM_Icon_CoinBag_01.fbx using Guid(63b3d6656d27f49e6a17399a4e14888b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '23b5f74c39bbc13da096e57db4e9d869') in 0.018131 seconds 
+  Import took 0.022179 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000274 seconds.
+  path: Assets/TextMesh Pro/Fonts/LiberationSans.ttf
+  artifactKey: Guid(e3265ab4bf004d28a9537516768c1c75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Fonts/LiberationSans.ttf using Guid(e3265ab4bf004d28a9537516768c1c75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '104af553864c4d9b5201f5f7182b3748') in 0.010646 seconds 
+  Import took 0.014470 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000243 seconds.
+  path: Assets/MobirayCore/Modeles/SM_Icon_Error_Circle_01.fbx
+  artifactKey: Guid(bf823756cbbad410e93a707a370a67fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/SM_Icon_Error_Circle_01.fbx using Guid(bf823756cbbad410e93a707a370a67fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1185fe4b9d70265a3bb03e4c831e7c38') in 0.017920 seconds 
+  Import took 0.021956 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000272 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Glows/lightray2.mat
+  artifactKey: Guid(d63774db53e2fee4b84a72da1c9f1096) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Glows/lightray2.mat using Guid(d63774db53e2fee4b84a72da1c9f1096) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bcd09e184f48ab459af820c4fd8aa16f') in 0.008798 seconds 
+  Import took 0.012795 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000255 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Materials/Ground - Surface Shader Scene.mat
+  artifactKey: Guid(aadd5a709a48466c887296bb5b1b8110) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Materials/Ground - Surface Shader Scene.mat using Guid(aadd5a709a48466c887296bb5b1b8110) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f98153dc517e076b9a2a284ad3a91087') in 0.224177 seconds 
+  Import took 0.228097 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000288 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/line_sharp.mat
+  artifactKey: Guid(8c8ec7f6096f3654989f118bd767030d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/line_sharp.mat using Guid(8c8ec7f6096f3654989f118bd767030d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2ea76739fbaa4cdf80602b1770bd4e77') in 0.008408 seconds 
+  Import took 0.012142 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000249 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Glows/glow2.mat
+  artifactKey: Guid(b29e688b444288148ad46d4aae66cffc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Glows/glow2.mat using Guid(b29e688b444288148ad46d4aae66cffc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4726249dc5c8140ddb47cfdb904dbf42') in 0.041950 seconds 
+  Import took 0.045761 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000220 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Materials/Ground - Logo Scene.mat
+  artifactKey: Guid(c719e38f25a9480abd2480ab621a2949) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Materials/Ground - Logo Scene.mat using Guid(c719e38f25a9480abd2480ab621a2949) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2966c9bb88378aa64691f7d1b9e11f49') in 0.208991 seconds 
+  Import took 0.213227 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000279 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Bangers SDF Logo.mat
+  artifactKey: Guid(f4e195ac1e204eff960149d1cb34e18c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Bangers SDF Logo.mat using Guid(f4e195ac1e204eff960149d1cb34e18c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3607b20b9e17e9962c4d3dc846ecd654') in 0.056832 seconds 
+  Import took 0.060531 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000266 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Fire/fire_soft_blank_additive.mat
+  artifactKey: Guid(9991708de0e9fac438dc04d0161723ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Fire/fire_soft_blank_additive.mat using Guid(9991708de0e9fac438dc04d0161723ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '11dc461aa9c612c1dce36f7544b59ca0') in 0.008606 seconds 
+  Import took 0.012447 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000214 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Textures/Text/Materials/sharp_yellow.mat
+  artifactKey: Guid(a5fb89a338069534188b51c3abb7a128) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Textures/Text/Materials/sharp_yellow.mat using Guid(a5fb89a338069534188b51c3abb7a128) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f75def9e662defa9ef82360fab6ee3d6') in 0.009017 seconds 
+  Import took 0.013107 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000264 seconds.
+  path: Assets/MobirayCore/Modeles/Ramp_Midslope.fbx
+  artifactKey: Guid(b4b23e422dd1e40f0ba1202fffb46402) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/Ramp_Midslope.fbx using Guid(b4b23e422dd1e40f0ba1202fffb46402) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f7ab1ee223ee392e11309d5498a4f3a6') in 0.017532 seconds 
+  Import took 0.021715 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000236 seconds.
+  path: Assets/MobirayCore/Modeles/SM_Icon_Cup_03.fbx
+  artifactKey: Guid(9a51066c9de9844ebb67a11896aad5ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/SM_Icon_Cup_03.fbx using Guid(9a51066c9de9844ebb67a11896aad5ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e9be8162f99a2661b08549e2260b6385') in 0.017717 seconds 
+  Import took 0.021679 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000398 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Glows/glow.mat
+  artifactKey: Guid(e653836c30661fe419b8992e230ca189) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Glows/glow.mat using Guid(e653836c30661fe419b8992e230ca189) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '479df8a189f55b789eba1257eb132100') in 0.008438 seconds 
+  Import took 0.012415 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000206 seconds.
+  path: Packages/com.unity.searcher/Editor/Resources/FlatSkin/Font/Roboto-BoldItalic.ttf
+  artifactKey: Guid(dfb97a9307a577a41bcacba34b9a7e32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.searcher/Editor/Resources/FlatSkin/Font/Roboto-BoldItalic.ttf using Guid(dfb97a9307a577a41bcacba34b9a7e32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '87db4e4955e33d9b8acac072d0b63a85') in 0.010140 seconds 
+  Import took 0.013894 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000225 seconds.
+  path: Packages/com.unity.searcher/Editor/Resources/FlatSkin/Font/Roboto-LightItalic.ttf
+  artifactKey: Guid(5e63515167650a541b309ba3bfd4db3d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.searcher/Editor/Resources/FlatSkin/Font/Roboto-LightItalic.ttf using Guid(5e63515167650a541b309ba3bfd4db3d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7b6306eec4c1339b70ba96be351ad8f8') in 0.009458 seconds 
+  Import took 0.013294 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000205 seconds.
+  path: Assets/MobirayCore/UsefulAssets/NavMeshComponents/Assets/Examples/Materials/yellow.mat
+  artifactKey: Guid(c07befab8ca1540368e662cfe2fddf6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/NavMeshComponents/Assets/Examples/Materials/yellow.mat using Guid(c07befab8ca1540368e662cfe2fddf6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8b7bbb82809242c6e328e239d4429365') in 0.007450 seconds 
+  Import took 0.011346 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000242 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Materials/Small Crate_diffuse.mat
+  artifactKey: Guid(22262639920f43d6be32430e4e58350d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Materials/Small Crate_diffuse.mat using Guid(22262639920f43d6be32430e4e58350d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '98e9c645517f56268e61d65a9efc1f6a') in 0.235672 seconds 
+  Import took 0.239507 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000234 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Fire/fire2x2.mat
+  artifactKey: Guid(d96c4862423281f4f98b249576ae786c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Fire/fire2x2.mat using Guid(d96c4862423281f4f98b249576ae786c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '69c548df26a390b2f211611c0b6dd964') in 0.008850 seconds 
+  Import took 0.012531 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000246 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/notes.mat
+  artifactKey: Guid(01f5ad7710b9d0f4d850262f9f0145ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/notes.mat using Guid(01f5ad7710b9d0f4d850262f9f0145ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7c4ca17554dadd57c9ac48176b02a759') in 0.008234 seconds 
+  Import took 0.012059 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000268 seconds.
+  path: Assets/MobirayCore/Modeles/SM_Veh_Car_Sports_01.fbx
+  artifactKey: Guid(8d9949ec3e3814694958c6f1904e3081) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/SM_Veh_Car_Sports_01.fbx using Guid(8d9949ec3e3814694958c6f1904e3081) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cc28e01be171f0dcebf45e15a353c9e3') in 0.082325 seconds 
+  Import took 0.086174 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000880 seconds.
+  path: Packages/com.unity.searcher/Editor/Resources/FlatSkin/Font/Roboto-Medium.ttf
+  artifactKey: Guid(a51a3aebb43ac044989270407476b208) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.searcher/Editor/Resources/FlatSkin/Font/Roboto-Medium.ttf using Guid(a51a3aebb43ac044989270407476b208) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3408004d51f68b79e1bdec4792c35faa') in 0.010790 seconds 
+  Import took 0.014589 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000235 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/explosion_spritesheet_3x3.mat
+  artifactKey: Guid(e7912d15146fcf145afaaedec646b781) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/explosion_spritesheet_3x3.mat using Guid(e7912d15146fcf145afaaedec646b781) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b8ea65c9fdb8fee0773d27cc9b31ab5a') in 0.008875 seconds 
+  Import took 0.013028 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000227 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Portals/portal_stripes4.mat
+  artifactKey: Guid(39486fb106e196144a2ccac41cb23718) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Portals/portal_stripes4.mat using Guid(39486fb106e196144a2ccac41cb23718) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc4733f7ba46d61feaa5a07be088a8f1') in 0.008719 seconds 
+  Import took 0.012644 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000199 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/LiberationSans SDF - Overlay.mat
+  artifactKey: Guid(9ad269c99dcf42b7aedefd83dd5a7b9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/LiberationSans SDF - Overlay.mat using Guid(9ad269c99dcf42b7aedefd83dd5a7b9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '285399ea6870eea78009cd094b842b41') in 0.061803 seconds 
+  Import took 0.065635 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000277 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Emoticons/sick.mat
+  artifactKey: Guid(27a664effad0d164b9dc3abd1ad1f122) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Emoticons/sick.mat using Guid(27a664effad0d164b9dc3abd1ad1f122) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '49e6d7054b4dc66d56c11220617be7ec') in 0.008549 seconds 
+  Import took 0.012261 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000286 seconds.
+  path: Assets/MobirayCore/Modeles/SM_Icon_Coin_02.fbx
+  artifactKey: Guid(6c762af7c58564a34b7dd67408c92f54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/SM_Icon_Coin_02.fbx using Guid(6c762af7c58564a34b7dd67408c92f54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd94d06f8297df671f9b8a9123f9d6788') in 0.017547 seconds 
+  Import took 0.021321 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000360 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Portals/portal_stripes2.mat
+  artifactKey: Guid(40638a949c8dbee459e4c1587e0de6ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Portals/portal_stripes2.mat using Guid(40638a949c8dbee459e4c1587e0de6ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0625f0e5f098901c7d7a6de2a5093103') in 0.008822 seconds 
+  Import took 0.012835 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000227 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Models/Materials/sphereshield.mat
+  artifactKey: Guid(659628d7650fa8245b1290648af4bfd6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Models/Materials/sphereshield.mat using Guid(659628d7650fa8245b1290648af4bfd6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '41923d0b10fe5a03e9dcb1385a33bb9c') in 0.007752 seconds 
+  Import took 0.011479 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000229 seconds.
+  path: Assets/MobirayCore/Modeles/Start end round platform.fbx
+  artifactKey: Guid(e6f28278668134b85b6cf71e5dc4887b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/Start end round platform.fbx using Guid(e6f28278668134b85b6cf71e5dc4887b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '06e1a1ae2a2e93bb3c7267bb6c290ce2') in 0.056556 seconds 
+  Import took 0.060484 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000383 seconds.
+  path: Assets/MobirayCore/Modeles/scifi_hexagon_tube.FBX
+  artifactKey: Guid(92d306f683a2746bd9e473980d816f60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/scifi_hexagon_tube.FBX using Guid(92d306f683a2746bd9e473980d816f60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aea87245fb815e11067477b922ed844f') in 0.018351 seconds 
+  Import took 0.022024 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000282 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Joystick Pack/Examples/Ground.mat
+  artifactKey: Guid(c569c280f0eb52a49a7b2a6b8b0cbcf8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Joystick Pack/Examples/Ground.mat using Guid(c569c280f0eb52a49a7b2a6b8b0cbcf8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb25883e9216022ebab3669169006ccd') in 0.007359 seconds 
+  Import took 0.011168 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000261 seconds.
+  path: Assets/MobirayCore/UsefulAssets/JMO Assets/MatCap Shaders/Creator/MC_Creator_Preview.mat
+  artifactKey: Guid(e58ea3b1b512cda42abcd74de5e98b30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/JMO Assets/MatCap Shaders/Creator/MC_Creator_Preview.mat using Guid(e58ea3b1b512cda42abcd74de5e98b30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f991dd1f7dff3ac2e35626b847ae023') in 0.055210 seconds 
+  Import took 0.058812 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000269 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Magic/magic_orb.mat
+  artifactKey: Guid(962588ea14a7d69488f7ce53ab616f2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Magic/magic_orb.mat using Guid(962588ea14a7d69488f7ce53ab616f2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'df786419295390c69a11d5042803168e') in 0.008391 seconds 
+  Import took 0.012209 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000229 seconds.
+  path: Packages/com.unity.render-pipelines.universal/Runtime/Materials/Sprite-Unlit-Default.mat
+  artifactKey: Guid(9dfc825aed78fcd4ba02077103263b40) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.render-pipelines.universal/Runtime/Materials/Sprite-Unlit-Default.mat using Guid(9dfc825aed78fcd4ba02077103263b40) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7fb14ef090fc46c70c0f7af7df3033e1') in 0.053312 seconds 
+  Import took 0.057160 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000292 seconds.
+  path: Assets/MobirayCore/Modeles/SM_Generic_Tree_02.fbx
+  artifactKey: Guid(1c4643f81dec246f6b374e39ec220658) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/SM_Generic_Tree_02.fbx using Guid(1c4643f81dec246f6b374e39ec220658) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5d485dc1933093a0bf20d59889968ceb') in 0.017905 seconds 
+  Import took 0.021758 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000378 seconds.
+  path: Assets/MobirayCore/Modeles/Window Frame.fbx
+  artifactKey: Guid(a9e920b4d9f224346a06be7a2ff970e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/Window Frame.fbx using Guid(a9e920b4d9f224346a06be7a2ff970e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a6f54f7cab429b051842355e9a5a87f5') in 0.017526 seconds 
+  Import took 0.021502 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000274 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Emoticons/kiss.mat
+  artifactKey: Guid(e54cd343eedf57440bc34a1625a6a552) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Emoticons/kiss.mat using Guid(e54cd343eedf57440bc34a1625a6a552) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b8c9408fdc5a4900f820dbb715dad996') in 0.008767 seconds 
+  Import took 0.012769 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000224 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Lean/Touch/Examples/Materials/Line.mat
+  artifactKey: Guid(a7e5a27266ffc1c449993ff1173fe9a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Lean/Touch/Examples/Materials/Line.mat using Guid(a7e5a27266ffc1c449993ff1173fe9a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b8fc7782a123e4aa03b5879e74936f7b') in 0.007495 seconds 
+  Import took 0.011546 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000257 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Lean/Touch/Examples/Materials/Trail.mat
+  artifactKey: Guid(a249bfc9d8fe9874890b7170317078ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Lean/Touch/Examples/Materials/Trail.mat using Guid(a249bfc9d8fe9874890b7170317078ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '43e21a5adba1b57fc93de3f0febefb85') in 0.008111 seconds 
+  Import took 0.012101 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000237 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Textures/Text/Materials/ka-pow.mat
+  artifactKey: Guid(91ab7412ab6cce74eaf8cc56ded7300a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Textures/Text/Materials/ka-pow.mat using Guid(91ab7412ab6cce74eaf8cc56ded7300a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd33602edabd002632c62554a28b8ebf7') in 0.008940 seconds 
+  Import took 0.012833 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000200 seconds.
+  path: Assets/MobirayCore/Modeles/Round platform.fbx
+  artifactKey: Guid(c25248f9d26d44e0c8a3d91c036fcaaa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/Round platform.fbx using Guid(c25248f9d26d44e0c8a3d91c036fcaaa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '28a9f08c988dd8ff4af09d48c8836280') in 0.021238 seconds 
+  Import took 0.025086 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000233 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Fire/fire_soft_blank.mat
+  artifactKey: Guid(b959bc17e57e2354c8b6cb7fa2bd0504) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Fire/fire_soft_blank.mat using Guid(b959bc17e57e2354c8b6cb7fa2bd0504) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '25d19843db0e8bf5dbb2f96126748a0e') in 0.007570 seconds 
+  Import took 0.011554 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000235 seconds.
+  path: Packages/com.unity.searcher/Editor/Resources/FlatSkin/Font/Roboto-Black.ttf
+  artifactKey: Guid(1062c701058745940ae5dca6219c64c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.searcher/Editor/Resources/FlatSkin/Font/Roboto-Black.ttf using Guid(1062c701058745940ae5dca6219c64c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a6213eb37db458dcf0fc77781e97765') in 0.010274 seconds 
+  Import took 0.014258 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000242 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Geometric/circlecurve_magic.mat
+  artifactKey: Guid(6eb991e61c0314441bebec3f82ff5838) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Geometric/circlecurve_magic.mat using Guid(6eb991e61c0314441bebec3f82ff5838) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '11fccef30a8dbb015314d3c48c5490c4') in 0.008252 seconds 
+  Import took 0.011896 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000225 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Demo/Materials/dev_small.mat
+  artifactKey: Guid(f4cd3578e21421c498c0e983cab2e02d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Demo/Materials/dev_small.mat using Guid(f4cd3578e21421c498c0e983cab2e02d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'beb734d6475164372a96a7b93201666c') in 0.008109 seconds 
+  Import took 0.012527 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000253 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/lightning1.mat
+  artifactKey: Guid(d2485172a88e2bc4b87dae8b6b1a8dfc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/lightning1.mat using Guid(d2485172a88e2bc4b87dae8b6b1a8dfc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf394faf8bc7d5da2997ac8522c943f0') in 0.008121 seconds 
+  Import took 0.011948 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000206 seconds.
+  path: Assets/MobirayCore/UsefulAssets/NavMeshComponents/Assets/Examples/Prefabs/Materials/BanyanBranches.mat
+  artifactKey: Guid(7186e4ec31ca3459da36b9faf2049a09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/NavMeshComponents/Assets/Examples/Prefabs/Materials/BanyanBranches.mat using Guid(7186e4ec31ca3459da36b9faf2049a09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'db6fc8f138d08ab36ab9546ed34bb2ea') in 0.007417 seconds 
+  Import took 0.011146 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000229 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/explosion.mat
+  artifactKey: Guid(d85e59baa6fff034a8557b9a4df53ca0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/explosion.mat using Guid(d85e59baa6fff034a8557b9a4df53ca0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dbc1c1c4094d63423c5998ccb8836829') in 0.007873 seconds 
+  Import took 0.011625 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000221 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Roboto-Bold SDF.asset
+  artifactKey: Guid(5302535af1044152a457ed104f1f4b91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Roboto-Bold SDF.asset using Guid(5302535af1044152a457ed104f1f4b91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '842c4edbee530869a83a7109a4b032af') in 0.020428 seconds 
+  Import took 0.024580 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000276 seconds.
+  path: Packages/com.unity.searcher/Editor/Resources/FlatSkin/Font/Roboto-Regular.ttf
+  artifactKey: Guid(30dc370b164eefc43b95744fc796dad0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.searcher/Editor/Resources/FlatSkin/Font/Roboto-Regular.ttf using Guid(30dc370b164eefc43b95744fc796dad0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e14bec213f2cc7e5259d5fb3ae1d7454') in 0.010890 seconds 
+  Import took 0.014835 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000241 seconds.
+  path: Assets/MobirayCore/Modeles/SM_Icon_Arrow_Small_02.fbx
+  artifactKey: Guid(edbf43239027744dbb1a2493fcc54a3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/SM_Icon_Arrow_Small_02.fbx using Guid(edbf43239027744dbb1a2493fcc54a3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1bc54cbd82e58a615f5d953866ba0c46') in 0.017334 seconds 
+  Import took 0.021052 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000256 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Geometric/circlecurve2.mat
+  artifactKey: Guid(e0c5be42e6adced4babb8d9ec9628c4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Geometric/circlecurve2.mat using Guid(e0c5be42e6adced4babb8d9ec9628c4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a7845aba4205974e537c3ac8ed8f3dd9') in 0.007981 seconds 
+  Import took 0.011652 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000210 seconds.
+  path: Packages/com.unity.render-pipelines.universal/Runtime/Materials/Sprite-Lit-Default.mat
+  artifactKey: Guid(a97c105638bdf8b4a8650670310a4cd3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.render-pipelines.universal/Runtime/Materials/Sprite-Lit-Default.mat using Guid(a97c105638bdf8b4a8650670310a4cd3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '45c54dd32d9b71bfe69ba810ee811c13') in 0.051910 seconds 
+  Import took 0.055710 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000289 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/nova_3x3_spritesheet.mat
+  artifactKey: Guid(da7ddd9092467374182355e1178b192e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/nova_3x3_spritesheet.mat using Guid(da7ddd9092467374182355e1178b192e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3f0609f87ba755ba50d638d3364a456b') in 0.010907 seconds 
+  Import took 0.014907 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000299 seconds.
+  path: Assets/MobirayCore/UsefulAssets/NavMeshComponents/Assets/Examples/Materials/green.mat
+  artifactKey: Guid(0aa37164acf594e03876b4e0b590280e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/NavMeshComponents/Assets/Examples/Materials/green.mat using Guid(0aa37164acf594e03876b4e0b590280e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a35c34a3f593ab935bba1bed9705e80b') in 0.007713 seconds 
+  Import took 0.011734 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000228 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Fonts/Anton.ttf
+  artifactKey: Guid(997a43b767814dd0a7642ec9b78cba41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Fonts/Anton.ttf using Guid(997a43b767814dd0a7642ec9b78cba41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e7cdcb76916e00db3f5c6b3c49515b53') in 0.010114 seconds 
+  Import took 0.014134 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000207 seconds.
+  path: Assets/MobirayCore/UsefulAssets/JMO Assets/MatCap Shaders/Creator/_MC_Sphere_Material.mat
+  artifactKey: Guid(03bbabfe25c37f8479999f258ee76101) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/JMO Assets/MatCap Shaders/Creator/_MC_Sphere_Material.mat using Guid(03bbabfe25c37f8479999f258ee76101) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f35dabf6f7c45bddecbc8c5e410cd0e3') in 0.214222 seconds 
+  Import took 0.217951 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000236 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Splat/splat_animated.mat
+  artifactKey: Guid(f7c5949bd4fc39b4da8b55816f159297) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Splat/splat_animated.mat using Guid(f7c5949bd4fc39b4da8b55816f159297) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6c57d9050216e786e83ce05979c0140b') in 0.008835 seconds 
+  Import took 0.012694 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000230 seconds.
+  path: Assets/MobirayCore/Modeles/SM_Icon_Coin_01.fbx
+  artifactKey: Guid(0a98bf829839d40958ef29e61b2b669a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/SM_Icon_Coin_01.fbx using Guid(0a98bf829839d40958ef29e61b2b669a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ee6fdfb0d6e74e57a12670ce8ae6298') in 0.016989 seconds 
+  Import took 0.020769 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000272 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Anton SDF - Drop Shadow.mat
+  artifactKey: Guid(749b9069dc4742c5bfa5c74644049926) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Anton SDF - Drop Shadow.mat using Guid(749b9069dc4742c5bfa5c74644049926) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ad9c95f5353d6247267e8c5cb77073e2') in 0.007392 seconds 
+  Import took 0.011151 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000236 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/evil_spirit2.mat
+  artifactKey: Guid(128516913a7f29b4a8d3193a94475a34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/evil_spirit2.mat using Guid(128516913a7f29b4a8d3193a94475a34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0fed4c1c3effc40cf669e976bc681ddd') in 0.008055 seconds 
+  Import took 0.012144 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000244 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Geometric/triangle_curve.mat
+  artifactKey: Guid(f49f152fbc313b14b8d4b82329b10a1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Geometric/triangle_curve.mat using Guid(f49f152fbc313b14b8d4b82329b10a1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bdc722386075921f5305f5a2ef6d32fb') in 0.007762 seconds 
+  Import took 0.011722 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000223 seconds.
+  path: Assets/MobirayCore/Modeles/SM_Icon_Arrow_Small_01.fbx
+  artifactKey: Guid(7ca7466241d1f42a28d1a6b530bec1bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/SM_Icon_Arrow_Small_01.fbx using Guid(7ca7466241d1f42a28d1a6b530bec1bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c7e68f3c5f312aec4516e879111b87a9') in 0.017828 seconds 
+  Import took 0.021721 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000302 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/star_ADD.mat
+  artifactKey: Guid(f977d103ddb4f804f84d689a9f2d20ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/star_ADD.mat using Guid(f977d103ddb4f804f84d689a9f2d20ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '15e9ef1e75bac47649504756a98880fb') in 0.007165 seconds 
+  Import took 0.011141 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000238 seconds.
+  path: Assets/MobirayCore/Modeles/Block.fbx
+  artifactKey: Guid(9b8c29ff3c98741adaedb3f820d77c95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/Block.fbx using Guid(9b8c29ff3c98741adaedb3f820d77c95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '144ca03b4149fa6863070d686e859922') in 0.018129 seconds 
+  Import took 0.022188 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000198 seconds.
+  path: Assets/MobirayCore/Modeles/Floor Angle_Tile.fbx
+  artifactKey: Guid(b5edfe6d5b70b4128b3eb176eceb75fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/Floor Angle_Tile.fbx using Guid(b5edfe6d5b70b4128b3eb176eceb75fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ffef32f097662773e13e7a0038edaca8') in 0.017362 seconds 
+  Import took 0.021084 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000260 seconds.
+  path: Assets/MobirayCore/Modeles/Large column.fbx
+  artifactKey: Guid(91431cb86ca154b6ca6caa9dc907345f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/Large column.fbx using Guid(91431cb86ca154b6ca6caa9dc907345f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0b3de8a74547c3004d5c3aa21af9d853') in 0.018217 seconds 
+  Import took 0.022114 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000227 seconds.
+  path: Assets/MobirayCore/UsefulAssets/NavMeshComponents/Assets/Examples/Materials/crosshair.mat
+  artifactKey: Guid(6f20074b5ffb143d2a869e4cc78d9d5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/NavMeshComponents/Assets/Examples/Materials/crosshair.mat using Guid(6f20074b5ffb143d2a869e4cc78d9d5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1723ce2f7f4cc9a995efec569cded5bb') in 0.030623 seconds 
+  Import took 0.034748 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000211 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/lightning_spritesheet_3x3.mat
+  artifactKey: Guid(12b56d0b81e80e748b8129a9c1a582d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/lightning_spritesheet_3x3.mat using Guid(12b56d0b81e80e748b8129a9c1a582d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '08b718a24ec79de88a78cfdcb9e352fe') in 0.010352 seconds 
+  Import took 0.014395 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000236 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Water/wave.mat
+  artifactKey: Guid(e6d52e4717c76be42877f6e62fa49238) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Water/wave.mat using Guid(e6d52e4717c76be42877f6e62fa49238) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c6257750920f9193aa939ef3df3f8cb') in 0.007835 seconds 
+  Import took 0.011747 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000273 seconds.
+  path: Assets/MobirayCore/Modeles/SM_Icon_Arrow_Long_Curve_03.fbx
+  artifactKey: Guid(902d51abced4a4f41ab1f0895b4eee06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/SM_Icon_Arrow_Long_Curve_03.fbx using Guid(902d51abced4a4f41ab1f0895b4eee06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '541b0d5d89367b7346a6011d61d138a9') in 0.017177 seconds 
+  Import took 0.021722 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000204 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Portals/portal_stripes.mat
+  artifactKey: Guid(c73b7f9b494218f4e8b6475cc83c1257) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Portals/portal_stripes.mat using Guid(c73b7f9b494218f4e8b6475cc83c1257) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '28468926066b3868d980d34872a532f1') in 0.009322 seconds 
+  Import took 0.013177 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000199 seconds.
+  path: Packages/com.unity.searcher/Editor/Resources/FlatSkin/Font/Roboto-Italic.ttf
+  artifactKey: Guid(c839255fc8f6b4b4d90bf8c1af9f9bd1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.searcher/Editor/Resources/FlatSkin/Font/Roboto-Italic.ttf using Guid(c839255fc8f6b4b4d90bf8c1af9f9bd1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'da0a5e7ca4bcdcefae7e54eba396c714') in 0.009919 seconds 
+  Import took 0.013586 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000250 seconds.
+  path: Packages/com.unity.searcher/Editor/Resources/FlatSkin/Font/Roboto-ThinItalic.ttf
+  artifactKey: Guid(b2ea3b3f1765e544b9eb5bd1a93a91ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.searcher/Editor/Resources/FlatSkin/Font/Roboto-ThinItalic.ttf using Guid(b2ea3b3f1765e544b9eb5bd1a93a91ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '76437f85fe335797573c7581821e0660') in 0.010392 seconds 
+  Import took 0.014671 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000248 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Glows/lightray.mat
+  artifactKey: Guid(bc14231efc40c384ea470e5c723215de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Glows/lightray.mat using Guid(bc14231efc40c384ea470e5c723215de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a00d222cd214130164c1da1ad145c265') in 0.008510 seconds 
+  Import took 0.012438 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000228 seconds.
+  path: Assets/MobirayCore/Modeles/SM_Icon_Arrow_Small_03.fbx
+  artifactKey: Guid(68e632b2e5e1e4844bcddf272f6f008b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/SM_Icon_Arrow_Small_03.fbx using Guid(68e632b2e5e1e4844bcddf272f6f008b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '29b43760708ea9f3183495e0776d6573') in 0.018035 seconds 
+  Import took 0.021992 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000242 seconds.
+  path: Assets/MobirayCore/UsefulAssets/NavMeshComponents/Assets/Examples/Materials/floor.mat
+  artifactKey: Guid(3adb56b3302734c8d8e5a18699302e85) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/NavMeshComponents/Assets/Examples/Materials/floor.mat using Guid(3adb56b3302734c8d8e5a18699302e85) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '226a956336d92a8fc0ed4c9b1457cd66') in 0.007584 seconds 
+  Import took 0.011460 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000253 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Portals/portal_stripes3.mat
+  artifactKey: Guid(1375e13c1d3ea904a940ee9ca3efb692) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Portals/portal_stripes3.mat using Guid(1375e13c1d3ea904a940ee9ca3efb692) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c28564165e5b5751d9728149baa3e265') in 0.008709 seconds 
+  Import took 0.012623 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000241 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Geometric/circle.mat
+  artifactKey: Guid(150aee38b5d848b42b75593618992bb7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Geometric/circle.mat using Guid(150aee38b5d848b42b75593618992bb7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f25b90650c4ad95797ae67e10591eca') in 0.007412 seconds 
+  Import took 0.011564 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000245 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Bubbles/bubble2.mat
+  artifactKey: Guid(631ae8263369c8f488b47ca935f1e486) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Bubbles/bubble2.mat using Guid(631ae8263369c8f488b47ca935f1e486) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8de22d871030aa019b07ca4fbf0fe939') in 0.008241 seconds 
+  Import took 0.012426 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000235 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Emoticons/cry.mat
+  artifactKey: Guid(c98e44ac41ae3d541863cc2a3dc1596b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Emoticons/cry.mat using Guid(c98e44ac41ae3d541863cc2a3dc1596b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '52be44916496c7f5cfdd2f24e9c5241c') in 0.008628 seconds 
+  Import took 0.012737 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000200 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Magic/aura_slam.mat
+  artifactKey: Guid(8d784517dc53a6f48a9ae9297190962d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Magic/aura_slam.mat using Guid(8d784517dc53a6f48a9ae9297190962d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec4839b3f1dbc98a3094b2b9cbf3e74a') in 0.007849 seconds 
+  Import took 0.011570 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000246 seconds.
+  path: Assets/MobirayCore/Modeles/SM_Icon_Health_01.fbx
+  artifactKey: Guid(422ba05ce442b40e892cc29416e21bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/SM_Icon_Health_01.fbx using Guid(422ba05ce442b40e892cc29416e21bc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5d87d8e4894e7105ee315ba6100fb88f') in 0.018028 seconds 
+  Import took 0.022333 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000269 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Emoticons/cool.mat
+  artifactKey: Guid(b4f1adaa536553c48b2f5173e9537d38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Emoticons/cool.mat using Guid(b4f1adaa536553c48b2f5173e9537d38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4d88a8b23135c55a9f15a94a8cc61bad') in 0.008719 seconds 
+  Import took 0.012634 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000259 seconds.
+  path: Assets/MobirayCore/Modeles/SM_Icon_Coin_03.fbx
+  artifactKey: Guid(62ac5be4dc9914abd8eb1a52575acf75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/SM_Icon_Coin_03.fbx using Guid(62ac5be4dc9914abd8eb1a52575acf75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'db321305e72328db5bbc98d7d8b89b27') in 0.018281 seconds 
+  Import took 0.022193 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000328 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/LiberationSans SDF - Metalic Green.mat
+  artifactKey: Guid(8b29aaa3eec7468097ff07adfcf29ac9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/LiberationSans SDF - Metalic Green.mat using Guid(8b29aaa3eec7468097ff07adfcf29ac9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7cf59bda7c3d3c81c444a6dca649bb8e') in 0.145493 seconds 
+  Import took 0.149372 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000277 seconds.
+  path: Assets/MobirayCore/Modeles/SM_Generic_Small_Rocks_01.fbx
+  artifactKey: Guid(051cea71589fe4ca7a96fb61c308b982) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/SM_Generic_Small_Rocks_01.fbx using Guid(051cea71589fe4ca7a96fb61c308b982) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e7aac282e8e1ebcca3839e88cfb777c4') in 0.018325 seconds 
+  Import took 0.022098 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000311 seconds.
+  path: Assets/MobirayCore/UsefulAssets/JMO Assets/MatCap Shaders/Demo/Assets/Robot Kyle/Robot MatCap Textured Add.mat
+  artifactKey: Guid(d94195eed971cf34ca31a678162604c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/JMO Assets/MatCap Shaders/Demo/Assets/Robot Kyle/Robot MatCap Textured Add.mat using Guid(d94195eed971cf34ca31a678162604c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c5580a267374c64991f8e6d9fa78bf29') in 0.051266 seconds 
+  Import took 0.055093 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000245 seconds.
+  path: Assets/MobirayCore/Modeles/SM_Icon_Letter_Exclamation_01.fbx
+  artifactKey: Guid(2588f926e44c047ca947760b40912ff1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/SM_Icon_Letter_Exclamation_01.fbx using Guid(2588f926e44c047ca947760b40912ff1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dc074982d44009d3f5bd53955b74a754') in 0.018832 seconds 
+  Import took 0.022749 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000331 seconds.
+  path: Assets/MobirayCore/Modeles/Ball break 2.fbx
+  artifactKey: Guid(dd5f01b0d075f4c059ca4e5f187d7389) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/Ball break 2.fbx using Guid(dd5f01b0d075f4c059ca4e5f187d7389) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3c90aa57ab087a88c4b5535cb5852092') in 0.017328 seconds 
+  Import took 0.021390 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000285 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Geometric/spiky circular.mat
+  artifactKey: Guid(c291337420a29114a810378bde505fe6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Geometric/spiky circular.mat using Guid(c291337420a29114a810378bde505fe6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f71881f3b37c4e4a18f0ab4a0080b329') in 0.007968 seconds 
+  Import took 0.011989 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000312 seconds.
+  path: Packages/com.unity.searcher/Editor/Resources/FlatSkin/Font/Roboto-Light.ttf
+  artifactKey: Guid(2a29e27936eb547458f646f71125b264) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.searcher/Editor/Resources/FlatSkin/Font/Roboto-Light.ttf using Guid(2a29e27936eb547458f646f71125b264) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1e68ce1da937c7d6e166e1fd9ea86dbe') in 0.010379 seconds 
+  Import took 0.014278 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000250 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/explosionring.mat
+  artifactKey: Guid(f3fa42b3d5ee398468b9420a252bd26e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/explosionring.mat using Guid(f3fa42b3d5ee398468b9420a252bd26e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1bcfda11690af182a6ceb2dff95057b7') in 0.007830 seconds 
+  Import took 0.011883 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000230 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Demo/Materials/dev.mat
+  artifactKey: Guid(5f96383263013ab439e00cec0f0d2255) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Demo/Materials/dev.mat using Guid(5f96383263013ab439e00cec0f0d2255) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a22c4e1ec298b8d0271fa54d6612add') in 0.007801 seconds 
+  Import took 0.011918 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000238 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Splat/splat02.mat
+  artifactKey: Guid(3ba60631b79b3164c9c63be162da8201) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Splat/splat02.mat using Guid(3ba60631b79b3164c9c63be162da8201) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c4a3824bd2d908eb29c8d498ebc9329d') in 0.008442 seconds 
+  Import took 0.012492 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000238 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/shield/etfx_shield.mat
+  artifactKey: Guid(bfe15c5c7817ef444ab6b80888ec22ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/shield/etfx_shield.mat using Guid(bfe15c5c7817ef444ab6b80888ec22ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '452a00e082d32d1b99605aebbb4b259a') in 0.007799 seconds 
+  Import took 0.011636 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000211 seconds.
+  path: Assets/MobirayCore/UsefulAssets/NavMeshComponents/Assets/Examples/Materials/red.mat
+  artifactKey: Guid(5195427c0d27644ed90d87ebe86d468a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/NavMeshComponents/Assets/Examples/Materials/red.mat using Guid(5195427c0d27644ed90d87ebe86d468a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e6532fc6cf7877b7dfd50d821e26436f') in 0.007962 seconds 
+  Import took 0.011730 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000234 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/aura_vertical_soft.mat
+  artifactKey: Guid(9d5f3d715091cd34e97ba2941c6fb73f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/aura_vertical_soft.mat using Guid(9d5f3d715091cd34e97ba2941c6fb73f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c56b6fde22d49a0f9829ed054a0cbda0') in 0.007837 seconds 
+  Import took 0.011443 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000334 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Fonts/Oswald-Bold.ttf
+  artifactKey: Guid(c9f6d0e7bc8541498c9a4799ba184ede) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Fonts/Oswald-Bold.ttf using Guid(c9f6d0e7bc8541498c9a4799ba184ede) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e9b8e0228186536d0e7d72ff96972392') in 0.010098 seconds 
+  Import took 0.013960 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000249 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Fonts/Roboto-Bold.ttf
+  artifactKey: Guid(4beb055f07aaff244873dec698d0363e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Fonts/Roboto-Bold.ttf using Guid(4beb055f07aaff244873dec698d0363e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd219ec5861ddc0267140113236759c24') in 0.009918 seconds 
+  Import took 0.013783 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000274 seconds.
+  path: Packages/com.unity.render-pipelines.universal/Runtime/Materials/TerrainLit.mat
+  artifactKey: Guid(594ea882c5a793440b60ff72d896021e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.render-pipelines.universal/Runtime/Materials/TerrainLit.mat using Guid(594ea882c5a793440b60ff72d896021e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b34c128689495386481114efed6bad91') in 0.524528 seconds 
+  Import took 0.528241 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000274 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/ring (alphablended).mat
+  artifactKey: Guid(38e56bf2eab142445b49494feef54492) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/ring (alphablended).mat using Guid(38e56bf2eab142445b49494feef54492) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a346c7a7bb843c0085a8fe78b97b6437') in 0.008391 seconds 
+  Import took 0.012132 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000294 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/snowflake.mat
+  artifactKey: Guid(e886185bff410b84fa34b22a2dc8fbb7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/snowflake.mat using Guid(e886185bff410b84fa34b22a2dc8fbb7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe923cf3157cd5ca8107a607d0c0bddc') in 0.007892 seconds 
+  Import took 0.011880 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000391 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/grab2.mat
+  artifactKey: Guid(b18036fb1921bf44aa1e636f1bf63a2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/grab2.mat using Guid(b18036fb1921bf44aa1e636f1bf63a2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2116d8a5cad74da6dd2afe1fd5228769') in 0.008446 seconds 
+  Import took 0.012440 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000222 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/shield/shield_magic3.mat
+  artifactKey: Guid(139f4c1696c68e54390a5ad669273cab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/shield/shield_magic3.mat using Guid(139f4c1696c68e54390a5ad669273cab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f752e0ebd913f7b57883abc3612fe43f') in 0.008966 seconds 
+  Import took 0.013093 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000206 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/grab1.mat
+  artifactKey: Guid(77478f55d3312d54180320d311f35fea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/grab1.mat using Guid(77478f55d3312d54180320d311f35fea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e7822af40bd6f3b0f9676e3254bd6e32') in 0.007830 seconds 
+  Import took 0.012017 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000221 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Clouds/cloud_magic.mat
+  artifactKey: Guid(826ea3d1669996d4e8a0165518ed9f97) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Clouds/cloud_magic.mat using Guid(826ea3d1669996d4e8a0165518ed9f97) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ceae53b5e93d47d31e2dd392ab32744c') in 0.007855 seconds 
+  Import took 0.011781 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000212 seconds.
+  path: Assets/MobirayCore/Modeles/Ramp_Steep.fbx
+  artifactKey: Guid(39d9eccc6bfc840ed91607a4ad41237b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/Ramp_Steep.fbx using Guid(39d9eccc6bfc840ed91607a4ad41237b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f70e9333abb61f7e9eb4572134d2d5a9') in 0.018365 seconds 
+  Import took 0.022080 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000210 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Geometric/circle_additive.mat
+  artifactKey: Guid(4bf10d94145fd6c4187c18de0af92e43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Geometric/circle_additive.mat using Guid(4bf10d94145fd6c4187c18de0af92e43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '29f7982130c34ad70e0ab4bd0becd740') in 0.006668 seconds 
+  Import took 0.010483 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000288 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Textures/Text/Materials/pow.mat
+  artifactKey: Guid(302d3d9c80c53184396264abfad0da61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Textures/Text/Materials/pow.mat using Guid(302d3d9c80c53184396264abfad0da61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c8acda3bf3343fb4cdbeab0831c82975') in 0.008541 seconds 
+  Import took 0.012526 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000225 seconds.
+  path: Assets/MobirayCore/Modeles/Round flat platform.obj
+  artifactKey: Guid(25ff391002d2e4fa38f41d008fd08ed4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/Round flat platform.obj using Guid(25ff391002d2e4fa38f41d008fd08ed4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '59bd58b8c75293319ebeeaea55a759a9') in 0.024557 seconds 
+  Import took 0.028517 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000258 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Portals/portal_glow_add.mat
+  artifactKey: Guid(b2e8acd4ba642d74a939033f33df790c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Portals/portal_glow_add.mat using Guid(b2e8acd4ba642d74a939033f33df790c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5b1abb6827fc0c5932aa45568925a5ad') in 0.007857 seconds 
+  Import took 0.011834 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000239 seconds.
+  path: Assets/MobirayCore/UsefulAssets/NavMeshComponents/Assets/Examples/Materials/grey.mat
+  artifactKey: Guid(ade8fca681f724cd89b5a568642f15ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/NavMeshComponents/Assets/Examples/Materials/grey.mat using Guid(ade8fca681f724cd89b5a568642f15ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd0fe631fcce5ee8974a356706665f51a') in 0.007493 seconds 
+  Import took 0.011434 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000229 seconds.
+  path: Assets/MobirayCore/Modeles/Cube.FBX
+  artifactKey: Guid(3862a298cdfe445558d52ed6043f6687) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/Cube.FBX using Guid(3862a298cdfe445558d52ed6043f6687) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '436911a0520d29233e7dfd86d7501c47') in 0.223912 seconds 
+  Import took 0.227751 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000275 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Emoticons/drool.mat
+  artifactKey: Guid(d7f8f80b5b5817244a09e7fbf657da56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Emoticons/drool.mat using Guid(d7f8f80b5b5817244a09e7fbf657da56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aa9a307d8d0e3b64039aa28134a9f104') in 0.009311 seconds 
+  Import took 0.013157 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000228 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Clouds/cloud_2x2_soft.mat
+  artifactKey: Guid(719f8d52fe2e6b444b41c2f7a8fe587b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Clouds/cloud_2x2_soft.mat using Guid(719f8d52fe2e6b444b41c2f7a8fe587b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9452b865a0eff722d44b2a922eb6ec7c') in 0.008168 seconds 
+  Import took 0.012173 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000255 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Glows/glowALPHABLEND.mat
+  artifactKey: Guid(aee7f230a05bc8644854344e7c55f328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Glows/glowALPHABLEND.mat using Guid(aee7f230a05bc8644854344e7c55f328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2d980abf8ae8b0ff6f8d2892ec51912c') in 0.007097 seconds 
+  Import took 0.010957 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000245 seconds.
+  path: Packages/com.unity.render-pipelines.universal/Runtime/Materials/Lit.mat
+  artifactKey: Guid(31321ba15b8f8eb4c954353edc038b1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.render-pipelines.universal/Runtime/Materials/Lit.mat using Guid(31321ba15b8f8eb4c954353edc038b1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '12261aee8bfca0b5d5e297fa858b3639') in 0.007456 seconds 
+  Import took 0.011253 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000252 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Magic/magic_runecircle.mat
+  artifactKey: Guid(3fa6ea0a3e6cad146826ea728c857403) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Magic/magic_runecircle.mat using Guid(3fa6ea0a3e6cad146826ea728c857403) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '268fc7ec9d064b060bfbf57caaea60dc') in 0.008490 seconds 
+  Import took 0.012728 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000294 seconds.
+  path: Assets/MobirayCore/Modeles/SM_Icon_Arrow_Long_Curve_02.fbx
+  artifactKey: Guid(f7b8d63dbfc8a4233a2f19c0dce47bb8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/SM_Icon_Arrow_Long_Curve_02.fbx using Guid(f7b8d63dbfc8a4233a2f19c0dce47bb8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '612737f75ef4c7d53491e4f3a6292be4') in 0.018554 seconds 
+  Import took 0.022327 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000245 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Textures/Text/Materials/flash_white.mat
+  artifactKey: Guid(24300fe4ff88006499930929feb8bb2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Textures/Text/Materials/flash_white.mat using Guid(24300fe4ff88006499930929feb8bb2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2da657715e9c8d403d33914eee20089a') in 0.008540 seconds 
+  Import took 0.012387 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000238 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Portals/portal_glow.mat
+  artifactKey: Guid(cc016d7880dff4d41b950dfb1ce297fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Portals/portal_glow.mat using Guid(cc016d7880dff4d41b950dfb1ce297fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b4cd7de5e6618df0112f2135c11a28b9') in 0.007158 seconds 
+  Import took 0.010956 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000251 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Water/waterspray.mat
+  artifactKey: Guid(4f8eaaad1e3413b4aaf4acfff60c4c17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Water/waterspray.mat using Guid(4f8eaaad1e3413b4aaf4acfff60c4c17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5ffe802ac0f6c63bd1cda211ab5f9afe') in 0.007921 seconds 
+  Import took 0.012369 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000211 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Lean/Touch/Examples/Materials/White.mat
+  artifactKey: Guid(cf845b22c5c175e48b497b60666da488) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Lean/Touch/Examples/Materials/White.mat using Guid(cf845b22c5c175e48b497b60666da488) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5ac957591589d915fa748fff4786785b') in 0.054415 seconds 
+  Import took 0.058401 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000214 seconds.
+  path: Assets/MobirayCore/Modeles/SM_Icon_Cup_01.fbx
+  artifactKey: Guid(420abe09b68394e0f8a41e0e7795bac6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/SM_Icon_Cup_01.fbx using Guid(420abe09b68394e0f8a41e0e7795bac6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a31f40da4a343fc1826da7f5f6847f51') in 0.018441 seconds 
+  Import took 0.022134 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000282 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Electronic Highway Sign SDF.asset
+  artifactKey: Guid(dc36b3fdc14f47ebb36fd484a67e268a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Electronic Highway Sign SDF.asset using Guid(dc36b3fdc14f47ebb36fd484a67e268a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6e83b748dd09c5c6ef3139f4dff7bf7b') in 0.011635 seconds 
+  Import took 0.015483 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000237 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Sparkle/sparkle2.mat
+  artifactKey: Guid(1fe38ac1a569ae54590f6e2aff679c74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Sparkle/sparkle2.mat using Guid(1fe38ac1a569ae54590f6e2aff679c74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '93b63dcce4e0d2ac8c70789bcdf9bc85') in 0.007479 seconds 
+  Import took 0.011553 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000237 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/skull.mat
+  artifactKey: Guid(6ec6524e1d7235f4a98ac801feb54930) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/skull.mat using Guid(6ec6524e1d7235f4a98ac801feb54930) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd6a72271c1745c4c5cd1e9fb8238317d') in 0.008019 seconds 
+  Import took 0.012205 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000247 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Magic/magic_line.mat
+  artifactKey: Guid(c78b5dacb6e1a8343bb1dfe2c4161830) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Magic/magic_line.mat using Guid(c78b5dacb6e1a8343bb1dfe2c4161830) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b49eb42aa0393275f6243e7e7e976eff') in 0.007693 seconds 
+  Import took 0.011543 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000251 seconds.
+  path: Assets/MobirayCore/Modeles/FloorHole_Square.fbx
+  artifactKey: Guid(7a56227bcfba849c1acb9e1706a63958) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/FloorHole_Square.fbx using Guid(7a56227bcfba849c1acb9e1706a63958) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '716be1a8ad3c51daab1b7b1a44e2273e') in 0.017207 seconds 
+  Import took 0.020860 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000255 seconds.
+  path: Packages/com.unity.searcher/Editor/Resources/FlatSkin/Font/Roboto-BlackItalic.ttf
+  artifactKey: Guid(f95147a9bab9fe649b8070170fa7ebd2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.searcher/Editor/Resources/FlatSkin/Font/Roboto-BlackItalic.ttf using Guid(f95147a9bab9fe649b8070170fa7ebd2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f00e7b7509492176d03c0cc5f7d1f449') in 0.010500 seconds 
+  Import took 0.014774 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000218 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Fire/fire_soft.mat
+  artifactKey: Guid(f527801e80dd0814a9d5d318dbd03d69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Fire/fire_soft.mat using Guid(f527801e80dd0814a9d5d318dbd03d69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ef4fb892d96c4af9ec87563da912d61') in 0.008650 seconds 
+  Import took 0.012639 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000250 seconds.
+  path: Assets/MobirayCore/UsefulAssets/JMO Assets/MatCap Shaders/Demo/Assets/Robot Kyle/Robot MatCap Textured Mult.mat
+  artifactKey: Guid(d694527d8b94bb8408e91fe5698aa620) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/JMO Assets/MatCap Shaders/Demo/Assets/Robot Kyle/Robot MatCap Textured Mult.mat using Guid(d694527d8b94bb8408e91fe5698aa620) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7a5539a9d8bd9e7d8f23366945c7fce0') in 0.009396 seconds 
+  Import took 0.013389 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000225 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Lean/Touch/Examples/Materials/Red.mat
+  artifactKey: Guid(6fca0d354687e7a41adf6bc478a0b8b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Lean/Touch/Examples/Materials/Red.mat using Guid(6fca0d354687e7a41adf6bc478a0b8b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e8d8f148756c27e20b7055e489882016') in 0.007682 seconds 
+  Import took 0.011729 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000241 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/evil_spirit.mat
+  artifactKey: Guid(d0a013cf4059c97419da65dc3619d49b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/evil_spirit.mat using Guid(d0a013cf4059c97419da65dc3619d49b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6b36fdd3234f4cfa0cc99f7bfd9d8e13') in 0.008053 seconds 
+  Import took 0.012109 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000230 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/talkbubble.mat
+  artifactKey: Guid(a37ef22d25609254c8910ec57ea04195) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/talkbubble.mat using Guid(a37ef22d25609254c8910ec57ea04195) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4613830b8c7b0ccfdb379150440589dc') in 0.008724 seconds 
+  Import took 0.012625 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000256 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Sparkle/sparkle_AB.mat
+  artifactKey: Guid(4408abb7a30b61a4a9a19dbb5f761d2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Sparkle/sparkle_AB.mat using Guid(4408abb7a30b61a4a9a19dbb5f761d2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '86944cf4f48e02f6679d46f463cad587') in 0.007818 seconds 
+  Import took 0.011794 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000208 seconds.
+  path: Assets/MobirayCore/Modeles/Ball - Golf.FBX
+  artifactKey: Guid(427066154283a491b9643824cc184309) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/Ball - Golf.FBX using Guid(427066154283a491b9643824cc184309) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '018f8491f0da8023c6204071a4627e75') in 0.018417 seconds 
+  Import took 0.022462 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000249 seconds.
+  path: Assets/MobirayCore/Modeles/Triangle stack.fbx
+  artifactKey: Guid(42f295d0f8203441d918af2793b0f541) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/Triangle stack.fbx using Guid(42f295d0f8203441d918af2793b0f541) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3b12728cea21610e68332656e7aa7cb5') in 0.079366 seconds 
+  Import took 0.083495 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000860 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Demo/Materials/devcrate.mat
+  artifactKey: Guid(d1b64f020fe63804093ef05cc53dd7d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Demo/Materials/devcrate.mat using Guid(d1b64f020fe63804093ef05cc53dd7d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc4ab34ac4f1ec4b07a7fc7d059fdce3') in 0.008611 seconds 
+  Import took 0.012314 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000200 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Textures/Text/Materials/sharp_red.mat
+  artifactKey: Guid(c8c5f86f3a7ff694faf5f45758f045de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Textures/Text/Materials/sharp_red.mat using Guid(c8c5f86f3a7ff694faf5f45758f045de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e167152712293858664ff175055aa77a') in 0.008872 seconds 
+  Import took 0.012855 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000229 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Demo/Materials/dev_half.mat
+  artifactKey: Guid(71ad8ec8c8649bc47bb009bf8f6acd38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Demo/Materials/dev_half.mat using Guid(71ad8ec8c8649bc47bb009bf8f6acd38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e4032c39206099b2d63b6fb2ee39fafc') in 0.007580 seconds 
+  Import took 0.011637 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000193 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Fonts/Electronic Highway Sign.TTF
+  artifactKey: Guid(8a2b9e2a607dd2143b58c44bc32410b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Fonts/Electronic Highway Sign.TTF using Guid(8a2b9e2a607dd2143b58c44bc32410b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ab066121c09cde39ab0c997dde9034d6') in 0.910817 seconds 
+  Import took 0.914864 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.002546 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Confetti/confetti.mat
+  artifactKey: Guid(3625342a449601544b410357b8e7f201) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Confetti/confetti.mat using Guid(3625342a449601544b410357b8e7f201) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '70578e2457107575d6dcfb24e3da0a70') in 0.009028 seconds 
+  Import took 0.013155 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000274 seconds.
+  path: Assets/MobirayCore/Modeles/Ball break 1.fbx
+  artifactKey: Guid(6c835ec534c7842f48f0415e7419382d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/Ball break 1.fbx using Guid(6c835ec534c7842f48f0415e7419382d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '538c6c452bb70db2e6bb9cb744bf0723') in 0.018418 seconds 
+  Import took 0.022440 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000236 seconds.
+  path: Assets/MobirayCore/Modeles/Door Frame.fbx
+  artifactKey: Guid(3b99797ec0f974f628ce33b2cf683a16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/Door Frame.fbx using Guid(3b99797ec0f974f628ce33b2cf683a16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a870c0dbb7eebfd5f50aa100a03a3f3a') in 0.017841 seconds 
+  Import took 0.021657 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000266 seconds.
+  path: Assets/MobirayCore/Modeles/SM_Icon_Arrow_Long_Curve_01.fbx
+  artifactKey: Guid(e95ed279c12754c6cb6736012e153804) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/SM_Icon_Arrow_Long_Curve_01.fbx using Guid(e95ed279c12754c6cb6736012e153804) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ebb8beda5a65362ee950cf02f711ce4e') in 0.018055 seconds 
+  Import took 0.022193 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000264 seconds.
+  path: Assets/MobirayCore/Modeles/SM_Generic_Small_Rocks_02.fbx
+  artifactKey: Guid(486b076b969334d509e6ad18228b6166) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/SM_Generic_Small_Rocks_02.fbx using Guid(486b076b969334d509e6ad18228b6166) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd63c286856fd7a470fcbc23b265de7b5') in 0.017213 seconds 
+  Import took 0.021178 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000201 seconds.
+  path: Assets/MobirayCore/Modeles/Ramp_Lowslope.fbx
+  artifactKey: Guid(5bebe4a544fe9418688193e5f1627d78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/Ramp_Lowslope.fbx using Guid(5bebe4a544fe9418688193e5f1627d78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '216daed8a01c9397736af05fd03f7926') in 0.017461 seconds 
+  Import took 0.021436 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000250 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Fonts/Bangers.ttf
+  artifactKey: Guid(5dd49b3eacc540408c98eee0de38e0f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Fonts/Bangers.ttf using Guid(5dd49b3eacc540408c98eee0de38e0f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2bdaa54b9a63d5c57290ea0601fedf66') in 0.010860 seconds 
+  Import took 0.014916 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000229 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Emoticons/disappoint.mat
+  artifactKey: Guid(b0345d6b496b88744a4fe169db3b58c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Emoticons/disappoint.mat using Guid(b0345d6b496b88744a4fe169db3b58c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e415a07b706f6be7fd9b983039dda7c5') in 0.008795 seconds 
+  Import took 0.012897 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000233 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Sparkle/sparkle_ADD.mat
+  artifactKey: Guid(a976a44ca501e564bb2adee42f573b4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Sparkle/sparkle_ADD.mat using Guid(a976a44ca501e564bb2adee42f573b4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '22aac796105e85371f487843edac94bc') in 0.007756 seconds 
+  Import took 0.011539 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000255 seconds.
+  path: Assets/MobirayCore/Modeles/Cone platform.obj
+  artifactKey: Guid(1200693fbf5ae4afda21bebb262cdbd2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/Cone platform.obj using Guid(1200693fbf5ae4afda21bebb262cdbd2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9e1dbc2755f20fcec8007b4323e53762') in 0.023721 seconds 
+  Import took 0.028095 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000248 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Models/Materials/verticalgradient2.mat
+  artifactKey: Guid(37c1c20b7475e424ca1a398d209aab2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Models/Materials/verticalgradient2.mat using Guid(37c1c20b7475e424ca1a398d209aab2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fbe3c4512bfe5867d790a39d3341572e') in 0.008436 seconds 
+  Import took 0.012391 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000226 seconds.
+  path: Assets/MobirayCore/Modeles/SM_Icon_Letter_Question_01.fbx
+  artifactKey: Guid(7cca411520f9347b3b8d277c72fe933e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/SM_Icon_Letter_Question_01.fbx using Guid(7cca411520f9347b3b8d277c72fe933e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '647e94a2cb95b43d28eda8929e550302') in 0.018199 seconds 
+  Import took 0.021876 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000206 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Splat/splat01.mat
+  artifactKey: Guid(fb160fb6f3cc4e64796e5256e24dd2d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Splat/splat01.mat using Guid(fb160fb6f3cc4e64796e5256e24dd2d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a0e327c24654ffbce999bfd5bd163bd') in 0.008672 seconds 
+  Import took 0.012515 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000218 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/slash.mat
+  artifactKey: Guid(9e2411d65e8b2094eaa91113863f37d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/slash.mat using Guid(9e2411d65e8b2094eaa91113863f37d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '73a3cf6acb178afa6f4cf67a0b893a7d') in 0.009530 seconds 
+  Import took 0.013578 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000208 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/wave2.mat
+  artifactKey: Guid(2cd05c28d9db08f4281d33227a6e0442) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/wave2.mat using Guid(2cd05c28d9db08f4281d33227a6e0442) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '48c61dc0056abb4c2181e3ee9bf5f2df') in 0.007801 seconds 
+  Import took 0.011707 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000276 seconds.
+  path: Assets/MobirayCore/Modeles/SM_Generic_Tree_04.fbx
+  artifactKey: Guid(60345f44342cd49ef89cea87fc4d78f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/SM_Generic_Tree_04.fbx using Guid(60345f44342cd49ef89cea87fc4d78f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e35c15c7c2f3dbb9cbc75d060deb3381') in 0.017742 seconds 
+  Import took 0.021645 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000284 seconds.
+  path: Assets/MobirayCore/Modeles/SM_Icon_Heart_01.fbx
+  artifactKey: Guid(5eac5e2a36c7846d6b73ae4f4bd79c62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/SM_Icon_Heart_01.fbx using Guid(5eac5e2a36c7846d6b73ae4f4bd79c62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2bb91846b736c8f398a502bab4f87529') in 0.018078 seconds 
+  Import took 0.022183 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000239 seconds.
+  path: Assets/MobirayCore/UsefulAssets/JMO Assets/MatCap Shaders/Demo/Assets/Robot Kyle/Robot MatCap Plain Additive.mat
+  artifactKey: Guid(b9efcb65f24c8ff41ae0704975f44951) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/JMO Assets/MatCap Shaders/Demo/Assets/Robot Kyle/Robot MatCap Plain Additive.mat using Guid(b9efcb65f24c8ff41ae0704975f44951) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3921a7df475b46fe4450760db4b7929e') in 0.033251 seconds 
+  Import took 0.037267 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000235 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Glows/glow4.mat
+  artifactKey: Guid(e7f9d6fa459a42d48b4c8285dc69cf12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Glows/glow4.mat using Guid(e7f9d6fa459a42d48b4c8285dc69cf12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '43d4de523a06348397f618763b31aa24') in 0.008456 seconds 
+  Import took 0.012313 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000258 seconds.
+  path: Assets/MobirayCore/Modeles/SM_Generic_Tree_03.fbx
+  artifactKey: Guid(1553eaf3bfb684c1bbe3c03ad86a300f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/SM_Generic_Tree_03.fbx using Guid(1553eaf3bfb684c1bbe3c03ad86a300f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ca94261bfc97224414fb36feaadba591') in 0.017907 seconds 
+  Import took 0.021923 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000191 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Geometric/spiky.mat
+  artifactKey: Guid(0d1ddda4d4cb8074785f0e3aece5c9ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Geometric/spiky.mat using Guid(0d1ddda4d4cb8074785f0e3aece5c9ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cc30a10f22b2159e67071e6b9186f1ef') in 0.007639 seconds 
+  Import took 0.011613 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000240 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/lightning2.mat
+  artifactKey: Guid(14be5e3a1d16be14281688ea50c69c07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/lightning2.mat using Guid(14be5e3a1d16be14281688ea50c69c07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '50b3d0ff55d7f1e838bab45099be4f58') in 0.008077 seconds 
+  Import took 0.011917 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000286 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Outline.mat
+  artifactKey: Guid(79459efec17a4d00a321bdcc27bbc385) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Outline.mat using Guid(79459efec17a4d00a321bdcc27bbc385) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e751a225a625538aeffde60d21414a34') in 0.015412 seconds 
+  Import took 0.019176 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000208 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Fire/candle_soft2.mat
+  artifactKey: Guid(b8e35fd03444c1447a83f6f29a63b1d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Fire/candle_soft2.mat using Guid(b8e35fd03444c1447a83f6f29a63b1d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5643ad20a19e8c1dc5fc414c03b3f603') in 0.008311 seconds 
+  Import took 0.012324 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000237 seconds.
+  path: Assets/MobirayCore/Modeles/Ball.fbx
+  artifactKey: Guid(25aaf1f3ac8f24f1f94cd4d97cca30d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/Ball.fbx using Guid(25aaf1f3ac8f24f1f94cd4d97cca30d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '367e2c18cf01c770b3b547a49622b6b5') in 0.018055 seconds 
+  Import took 0.022044 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000264 seconds.
+  path: Assets/MobirayCore/UsefulAssets/JMO Assets/MatCap Shaders/Demo/Assets/Robot Kyle/Robot MatCap Plain.mat
+  artifactKey: Guid(69abbd19d98ea2345b05e96800c14a20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/JMO Assets/MatCap Shaders/Demo/Assets/Robot Kyle/Robot MatCap Plain.mat using Guid(69abbd19d98ea2345b05e96800c14a20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3e3194082cdc02a3330ce3f20f62361f') in 0.057833 seconds 
+  Import took 0.061756 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000258 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Clouds/cloud.mat
+  artifactKey: Guid(642935fefeb39414eb8a00e2ccc983a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Clouds/cloud.mat using Guid(642935fefeb39414eb8a00e2ccc983a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '438d30cdff4cb52c6e4eaf2f7cd43f91') in 0.007700 seconds 
+  Import took 0.011386 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000234 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Magic/orb.mat
+  artifactKey: Guid(072ade2f5404113439ad723bd09909d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Magic/orb.mat using Guid(072ade2f5404113439ad723bd09909d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'df71644ee57383c602b9d4ece45a2e5e') in 0.033725 seconds 
+  Import took 0.037459 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000207 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Fire/candle.mat
+  artifactKey: Guid(7b4e313edccbf2042b7b119e69e4d6b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Fire/candle.mat using Guid(7b4e313edccbf2042b7b119e69e4d6b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6cad6ec819ff01cc5afb676578308819') in 0.008051 seconds 
+  Import took 0.012336 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000228 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Models/Materials/verticalglow02.mat
+  artifactKey: Guid(15c030ebbfebfc641974c461bac67746) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Models/Materials/verticalglow02.mat using Guid(15c030ebbfebfc641974c461bac67746) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f912324c1aba8b5fca218ad912d9d530') in 0.007702 seconds 
+  Import took 0.011574 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000224 seconds.
+  path: Packages/com.unity.render-pipelines.universal/Runtime/Materials/SimpleLit.mat
+  artifactKey: Guid(6a1143ee683302f4aa628c052723efc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.render-pipelines.universal/Runtime/Materials/SimpleLit.mat using Guid(6a1143ee683302f4aa628c052723efc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4e1cf64c73b9089da0a60ea34a94a7f6') in 0.332717 seconds 
+  Import took 0.336397 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000269 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Geometric/rectangle.mat
+  artifactKey: Guid(71bb95a2098a9734eaf005aa7b6dc400) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Geometric/rectangle.mat using Guid(71bb95a2098a9734eaf005aa7b6dc400) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd4b4b7dc268948e07c2d5dd10c9e2a14') in 0.007872 seconds 
+  Import took 0.011522 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000206 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/ring (additive).mat
+  artifactKey: Guid(35b072e7a7dfe0f429bf5123cfc9a433) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/ring (additive).mat using Guid(35b072e7a7dfe0f429bf5123cfc9a433) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9323398426e68b30174177c8f168eb0f') in 0.007219 seconds 
+  Import took 0.011052 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000232 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/aura_punch.mat
+  artifactKey: Guid(11f7450de8b6c8c4d9a3fa39b78c143b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/aura_punch.mat using Guid(11f7450de8b6c8c4d9a3fa39b78c143b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '91b2b302abc352839d662fed289626a1') in 0.007355 seconds 
+  Import took 0.011344 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000220 seconds.
+  path: Assets/MobirayCore/Modeles/Gold.FBX
+  artifactKey: Guid(b3b36c2f468524d0ea3ee7a4ca08408b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/Gold.FBX using Guid(b3b36c2f468524d0ea3ee7a4ca08408b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9e16cbd6505b6412fc05c52edf67ccad') in 0.018633 seconds 
+  Import took 0.022677 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000316 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Drop Shadow.mat
+  artifactKey: Guid(e73a58f6e2794ae7b1b7e50b7fb811b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Drop Shadow.mat using Guid(e73a58f6e2794ae7b1b7e50b7fb811b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0f71920255673378fffebeffd4ed6764') in 0.015039 seconds 
+  Import took 0.018953 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000244 seconds.
+  path: Assets/MobirayCore/UsefulAssets/NavMeshComponents/Assets/Examples/Materials/brown.mat
+  artifactKey: Guid(1e1c6a0a64beb49ec96272beefa468a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/NavMeshComponents/Assets/Examples/Materials/brown.mat using Guid(1e1c6a0a64beb49ec96272beefa468a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3b98713cb5c014cc24c3f54455e2f6c2') in 0.007669 seconds 
+  Import took 0.011672 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000253 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Geometric/circlecurve.mat
+  artifactKey: Guid(e9edc2d464bda70448a5f572f7c7d5be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Geometric/circlecurve.mat using Guid(e9edc2d464bda70448a5f572f7c7d5be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5659c997e1fc9488598453cf042da973') in 0.007181 seconds 
+  Import took 0.011106 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000250 seconds.
+  path: Assets/MobirayCore/Modeles/Triangle beam.FBX
+  artifactKey: Guid(c3ba1e250ec8747e8a0d377fcc287a83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/Triangle beam.FBX using Guid(c3ba1e250ec8747e8a0d377fcc287a83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '200269e076ad216da80eeaf193e53381') in 0.017862 seconds 
+  Import took 0.021690 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000330 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Fire/candle_soft.mat
+  artifactKey: Guid(fa8a93d50e2f83b428d329d3aea4da8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Fire/candle_soft.mat using Guid(fa8a93d50e2f83b428d329d3aea4da8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '225b8f488638dc98d054cbe20908f75e') in 0.008211 seconds 
+  Import took 0.012586 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000258 seconds.
+  path: Assets/MobirayCore/UsefulAssets/NavMeshComponents/Assets/Examples/Materials/brightgreen.mat
+  artifactKey: Guid(5c9ea827aaa4145c8900e81ca1395aae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/NavMeshComponents/Assets/Examples/Materials/brightgreen.mat using Guid(5c9ea827aaa4145c8900e81ca1395aae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8ca452b990c32ee10632b464b4b419a0') in 0.008073 seconds 
+  Import took 0.011929 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000260 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Anton SDF - Outline.mat
+  artifactKey: Guid(a00013af81304728b2be1f4309ee2433) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Anton SDF - Outline.mat using Guid(a00013af81304728b2be1f4309ee2433) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '347a905ea268cfbc8e554b3ef4f1cad2') in 0.007061 seconds 
+  Import took 0.010864 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000207 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Emoticons/bigsmile.mat
+  artifactKey: Guid(5691aad654871084bb7f84be6dc98391) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Emoticons/bigsmile.mat using Guid(5691aad654871084bb7f84be6dc98391) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0a4e5eeb58d183d80ac5bdcb0f1ae409') in 0.008427 seconds 
+  Import took 0.012316 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000278 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Roboto-Bold SDF - Surface.mat
+  artifactKey: Guid(e6b276ec991f467aa14ef1f3cc665993) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Roboto-Bold SDF - Surface.mat using Guid(e6b276ec991f467aa14ef1f3cc665993) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '81f7a8ca921b8027d975e40406227daa') in 0.035188 seconds 
+  Import took 0.039337 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000269 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/nova_2x2_spritesheet.mat
+  artifactKey: Guid(5cb9a1590400b9e42ae6d2e5193957f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/nova_2x2_spritesheet.mat using Guid(5cb9a1590400b9e42ae6d2e5193957f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c30b4f87cab9d524f12740b67978c5d3') in 0.011059 seconds 
+  Import took 0.015386 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000395 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Glows/glow3.mat
+  artifactKey: Guid(2645e491dc8702e4c9cdada625df1bb0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Glows/glow3.mat using Guid(2645e491dc8702e4c9cdada625df1bb0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '208263b19492f16eade716c3f8b0f038') in 0.007971 seconds 
+  Import took 0.011946 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000314 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Anton SDF.asset
+  artifactKey: Guid(8a89fa14b10d46a99122fd4f73fca9a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Anton SDF.asset using Guid(8a89fa14b10d46a99122fd4f73fca9a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '505667cee942065c392b6fc7c2f681c9') in 0.010605 seconds 
+  Import took 0.014482 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000226 seconds.
+  path: Assets/MobirayCore/Modeles/Wheel.FBX
+  artifactKey: Guid(b5a3fd7cc02dd4b76901f1e151dcad9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/Wheel.FBX using Guid(b5a3fd7cc02dd4b76901f1e151dcad9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ed12acbd4b8ecceab58010447d70e36b') in 0.020215 seconds 
+  Import took 0.024448 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000233 seconds.
+  path: Assets/MobirayCore/Modeles/Narrow column.obj
+  artifactKey: Guid(48a560d243e984191967b1422e1005d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/Narrow column.obj using Guid(48a560d243e984191967b1422e1005d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '92bd35cfaa4671fcd0cfe0c14c9ba36c') in 0.026458 seconds 
+  Import took 0.031076 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000253 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Clouds/cloud_2x2_hard.mat
+  artifactKey: Guid(d386c5d9fb941e845b73fe6da5491ef2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Clouds/cloud_2x2_hard.mat using Guid(d386c5d9fb941e845b73fe6da5491ef2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '07f0eaf32bd71ef7a4996f7eb36fa8f2') in 0.008659 seconds 
+  Import took 0.013025 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000239 seconds.
+  path: Assets/MobirayCore/UsefulAssets/NavMeshComponents/Assets/Examples/Prefabs/Materials/BanyanBark.mat
+  artifactKey: Guid(4013ffb83471c44a99ae39dd19f4bb58) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/NavMeshComponents/Assets/Examples/Prefabs/Materials/BanyanBark.mat using Guid(4013ffb83471c44a99ae39dd19f4bb58) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb067bcd48d84901f2bb040ca0176f33') in 0.007487 seconds 
+  Import took 0.011461 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000249 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Water/wave2.mat
+  artifactKey: Guid(21e4f05859013aa4689fa8d1c85e6e04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Water/wave2.mat using Guid(21e4f05859013aa4689fa8d1c85e6e04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '768322a53ce6ca8214627b8fe3f8a21d') in 0.007726 seconds 
+  Import took 0.011705 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000215 seconds.
+  path: Assets/MobirayCore/Modeles/UFO.FBX
+  artifactKey: Guid(805a96a9ee7ef4b35877683450d65e46) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/UFO.FBX using Guid(805a96a9ee7ef4b35877683450d65e46) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b607bd3241d9eee091e8986949dc91e5') in 0.017985 seconds 
+  Import took 0.021994 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000227 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Bubbles/bubble.mat
+  artifactKey: Guid(c558d3db6ef748d459bd3c8a39c16607) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Bubbles/bubble.mat using Guid(c558d3db6ef748d459bd3c8a39c16607) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dfa5df0663b9466433ad2fd0d34fb375') in 0.008309 seconds 
+  Import took 0.012269 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000309 seconds.
+  path: Assets/MobirayCore/UsefulAssets/JMO Assets/MatCap Shaders/Creator/Assets/MC_Reflected.mat
+  artifactKey: Guid(5b00ccde1dae94c4d94360856c7643ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/JMO Assets/MatCap Shaders/Creator/Assets/MC_Reflected.mat using Guid(5b00ccde1dae94c4d94360856c7643ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd2cb37fbe4b59df98ad02a2b66daec7e') in 0.007150 seconds 
+  Import took 0.011098 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000206 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Confetti/confetti_blur.mat
+  artifactKey: Guid(fc4293af39df9df4ca4f1aab29b95913) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Confetti/confetti_blur.mat using Guid(fc4293af39df9df4ca4f1aab29b95913) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ed492bb4e960f111e9bf53be143d1f61') in 0.008198 seconds 
+  Import took 0.011987 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000222 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Emoticons/sad.mat
+  artifactKey: Guid(c24fc9188f935a44ea02bbcc2c0e8cd9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Emoticons/sad.mat using Guid(c24fc9188f935a44ea02bbcc2c0e8cd9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3f2c877de0bba1a1a3015ecc55318897') in 0.008873 seconds 
+  Import took 0.013245 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000253 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Lean/Touch/Examples/Materials/Skybox.mat
+  artifactKey: Guid(ad87694f1f653e74fbb3486685972833) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Lean/Touch/Examples/Materials/Skybox.mat using Guid(ad87694f1f653e74fbb3486685972833) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8fac53c3ee3a931a58a4d0c8c01c418a') in 0.044009 seconds 
+  Import took 0.047789 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000248 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Geometric/triangle.mat
+  artifactKey: Guid(6f795a8b392db5d4aa0bb026020ed093) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Geometric/triangle.mat using Guid(6f795a8b392db5d4aa0bb026020ed093) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd319d7cac4c2fbc013290fbc7f475dd8') in 0.007944 seconds 
+  Import took 0.011742 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000242 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Anton SDF - Sunny Days.mat
+  artifactKey: Guid(6522f30e342599e4e9dd4cc2cc03c830) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Anton SDF - Sunny Days.mat using Guid(6522f30e342599e4e9dd4cc2cc03c830) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '708543abc829cbf1cd7da75d7481bc2a') in 0.138889 seconds 
+  Import took 0.142689 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000244 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Bangers SDF - Drop Shadow.mat
+  artifactKey: Guid(f2dcf029949142e28b974630369c8b4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Bangers SDF - Drop Shadow.mat using Guid(f2dcf029949142e28b974630369c8b4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bea8c52cc57e283c1f1528c08e911710') in 0.007411 seconds 
+  Import took 0.011142 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000259 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Models/Materials/No Name.mat
+  artifactKey: Guid(cf79c30d0c6400a41bd8c63c9553fd2f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Models/Materials/No Name.mat using Guid(cf79c30d0c6400a41bd8c63c9553fd2f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9d26456d52777f8d5d8d6b8814678ab2') in 0.007735 seconds 
+  Import took 0.011580 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000288 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Magic/magic_blast.mat
+  artifactKey: Guid(31fb1039be526b1458d0533f38b7380f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Magic/magic_blast.mat using Guid(31fb1039be526b1458d0533f38b7380f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '80e08f5bf289ba3cd1ec95ceb1f1c1b3') in 0.007924 seconds 
+  Import took 0.011703 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000196 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Bubbles/bubble_round.mat
+  artifactKey: Guid(1816f712014366845a6725c3c45825e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Bubbles/bubble_round.mat using Guid(1816f712014366845a6725c3c45825e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '198b40daaf2159d2944a505ac55606e3') in 0.008009 seconds 
+  Import took 0.012425 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000265 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Splat/splat03.mat
+  artifactKey: Guid(9e19ef9106d053d4088df983562f2b3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Splat/splat03.mat using Guid(9e19ef9106d053d4088df983562f2b3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '945f133f771ac60a3b3cc8f39e0a21e0') in 0.008012 seconds 
+  Import took 0.012094 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000207 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Magic/magic_orb2.mat
+  artifactKey: Guid(1bafc7aca6a15ce4a92553883cdf5612) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Magic/magic_orb2.mat using Guid(1bafc7aca6a15ce4a92553883cdf5612) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e0035d9372bd9898cfa58bbb41d4bda7') in 0.008222 seconds 
+  Import took 0.012190 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000248 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Oswald Bold SDF.asset
+  artifactKey: Guid(0161d805a3764c089bef00bfe00793f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Oswald Bold SDF.asset using Guid(0161d805a3764c089bef00bfe00793f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '031bb6c965891753c1ff3f6f9b24e951') in 0.020736 seconds 
+  Import took 0.024860 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000222 seconds.
+  path: Assets/MobirayCore/Modeles/SM_Icon_Arrow_Long_02.fbx
+  artifactKey: Guid(a58885e35e3234882a2cd9c5de5ac017) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/SM_Icon_Arrow_Long_02.fbx using Guid(a58885e35e3234882a2cd9c5de5ac017) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '964cde3b18d249ab85408b3fb2a43c16') in 0.017306 seconds 
+  Import took 0.021239 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000287 seconds.
+  path: Assets/MobirayCore/Modeles/SM_Icon_Arrow_Long_01.fbx
+  artifactKey: Guid(0971212f32dcd4253bb4e2a0d8cd65f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/SM_Icon_Arrow_Long_01.fbx using Guid(0971212f32dcd4253bb4e2a0d8cd65f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f790f589063f8c5ea6b6f4bf24ca8ed') in 0.017520 seconds 
+  Import took 0.021702 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000302 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Lean/Touch/Examples/Fonts/BalooBhaina-Regular.ttf
+  artifactKey: Guid(cee533bdaf5c01a4091b972ae1bbb654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Lean/Touch/Examples/Fonts/BalooBhaina-Regular.ttf using Guid(cee533bdaf5c01a4091b972ae1bbb654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eb0b78528fe3298b4ad623b6a49d4905') in 0.010427 seconds 
+  Import took 0.014367 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000276 seconds.
+  path: Assets/MobirayCore/Modeles/Ball break 3.fbx
+  artifactKey: Guid(aed31351e7f4146fd9128eec97933f1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/Ball break 3.fbx using Guid(aed31351e7f4146fd9128eec97933f1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b86687624cf6e8f01b4c8a6838a34712') in 0.017418 seconds 
+  Import took 0.021415 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000212 seconds.
+  path: Assets/MobirayCore/Modeles/Block(1).FBX
+  artifactKey: Guid(2dc545d73705540c69bf00463790d3ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/Block(1).FBX using Guid(2dc545d73705540c69bf00463790d3ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec8b5b7ac43618da546e07d2f28a785a') in 0.018426 seconds 
+  Import took 0.022374 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000331 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/shield/shield_magic.mat
+  artifactKey: Guid(f83446c15cfd0264f8a503a4de365cc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/shield/shield_magic.mat using Guid(f83446c15cfd0264f8a503a4de365cc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3e30e23477a97759e9a072a3c226cbc2') in 0.008782 seconds 
+  Import took 0.012751 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000232 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Clouds/cloud_2x2_softshadow.mat
+  artifactKey: Guid(99d9ee837f624b148ab1ef0bde5f16a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Clouds/cloud_2x2_softshadow.mat using Guid(99d9ee837f624b148ab1ef0bde5f16a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ae76c42bf9489d94e9bcc31127044a1') in 0.007799 seconds 
+  Import took 0.011702 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000214 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Emoticons/angry.mat
+  artifactKey: Guid(9f34070364e48d24297908866dd6762f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Emoticons/angry.mat using Guid(9f34070364e48d24297908866dd6762f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c524565995663d63173e48fa90f6cbe9') in 0.008737 seconds 
+  Import took 0.012793 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000223 seconds.
+  path: Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/heart2.mat
+  artifactKey: Guid(4e47fdfe66dd2a046986da0de1ef7495) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/UsefulAssets/Epic Toon FX/Materials/Misc/heart2.mat using Guid(4e47fdfe66dd2a046986da0de1ef7495) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd164bb0dd5eae8ae6256dae948c60f5f') in 0.007896 seconds 
+  Import took 0.011737 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000235 seconds.
+  path: Assets/MobirayCore/Modeles/Floor_Tile.fbx
+  artifactKey: Guid(4a1bcfb19bbb045159ac57fb30a26edb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MobirayCore/Modeles/Floor_Tile.fbx using Guid(4a1bcfb19bbb045159ac57fb30a26edb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '53cdde0b70e77da0abc2a0f7c01f1068') in 0.017242 seconds 
+  Import took 0.021273 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000264 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/LiberationSans SDF - Soft Mask.mat
+  artifactKey: Guid(42df1c7856584b6b8db9a509b6b10074) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/LiberationSans SDF - Soft Mask.mat using Guid(42df1c7856584b6b8db9a509b6b10074) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e796b1643dfd32b29cb31eed03e5ef47') in 0.094817 seconds 
+  Import took 0.098904 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006232 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 1.44 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+2021-11-15 17:35:01.054 Unity[76729:2312179] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x600000607250 Quick Recording, ke='Command-F10'>, but is only supported for system-provided menu items; will not be used
+2021-11-15 17:35:01.058 Unity[76729:2312179] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x60000061e6f0 Font Asset, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
+Mono: successfully reloaded assembly
+- Completed reload, in  2.694 seconds
+Domain Reload Profiling:
+	ReloadAssembly (2696ms)
+		BeginReloadAssembly (248ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (32ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (99ms)
+		EndReloadAssembly (2357ms)
+			LoadAssemblies (165ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (385ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (53ms)
+			SetupLoadedEditorAssemblies (1274ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (13ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (236ms)
+				ProcessInitializeOnLoadAttributes (992ms)
+				ProcessInitializeOnLoadMethodAttributes (28ms)
+				AfterProcessingInitializeOnLoad (1ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (62ms)
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 1.17 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3292 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 289.5 MB.
+System memory in use after: 289.8 MB.
+
+Unloading 108 unused Assets to reduce memory usage. Loaded Objects now: 3946.
+Total: 2.757542 ms (FindLiveObjects: 0.219500 ms CreateObjectMapping: 0.079333 ms MarkObjects: 2.416500 ms  DeleteObjects: 0.041459 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.007413 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 1.31 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+2021-11-15 17:35:25.397 Unity[76729:2312179] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x6000006e6c30 Quick Recording, ke='Command-F10'>, but is only supported for system-provided menu items; will not be used
+2021-11-15 17:35:25.400 Unity[76729:2312179] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x6000006113b0 Font Asset, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
+Mono: successfully reloaded assembly
+- Completed reload, in  2.354 seconds
+Domain Reload Profiling:
+	ReloadAssembly (2355ms)
+		BeginReloadAssembly (204ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (24ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (84ms)
+		EndReloadAssembly (2065ms)
+			LoadAssemblies (155ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (358ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (49ms)
+			SetupLoadedEditorAssemblies (1104ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (10ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (221ms)
+				ProcessInitializeOnLoadAttributes (847ms)
+				ProcessInitializeOnLoadMethodAttributes (22ms)
+				AfterProcessingInitializeOnLoad (1ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (52ms)
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 1.06 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3292 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 289.8 MB.
+System memory in use after: 290.1 MB.
+
+Unloading 107 unused Assets to reduce memory usage. Loaded Objects now: 3948.
+Total: 2.657417 ms (FindLiveObjects: 0.187875 ms CreateObjectMapping: 0.078625 ms MarkObjects: 2.340375 ms  DeleteObjects: 0.049750 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006225 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 1.36 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+2021-11-15 17:39:49.729 Unity[76729:2312179] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x600000582ed0 Quick Recording, ke='Command-F10'>, but is only supported for system-provided menu items; will not be used
+2021-11-15 17:39:49.733 Unity[76729:2312179] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x6000006e7410 Font Asset, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
+Mono: successfully reloaded assembly
+- Completed reload, in  2.562 seconds
+Domain Reload Profiling:
+	ReloadAssembly (2563ms)
+		BeginReloadAssembly (228ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (31ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (97ms)
+		EndReloadAssembly (2244ms)
+			LoadAssemblies (166ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (393ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (52ms)
+			SetupLoadedEditorAssemblies (1203ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (10ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (232ms)
+				ProcessInitializeOnLoadAttributes (931ms)
+				ProcessInitializeOnLoadMethodAttributes (26ms)
+				AfterProcessingInitializeOnLoad (1ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (52ms)
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 1.36 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3293 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 290.8 MB.
+System memory in use after: 291.0 MB.
+
+Unloading 108 unused Assets to reduce memory usage. Loaded Objects now: 3959.
+Total: 3.051416 ms (FindLiveObjects: 0.282250 ms CreateObjectMapping: 0.091792 ms MarkObjects: 2.621500 ms  DeleteObjects: 0.054667 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.011140 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 1.05 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+2021-11-15 17:41:30.889 Unity[76729:2312179] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x600000582bc0 Quick Recording, ke='Command-F10'>, but is only supported for system-provided menu items; will not be used
+2021-11-15 17:41:30.893 Unity[76729:2312179] NSEventModifierFlagFunction specified to -setKeyEquivalentModifierMask: for item <NSMenuItem: 0x6000006ee060 Font Asset, ke='Command-F12'>, but is only supported for system-provided menu items; will not be used
+Mono: successfully reloaded assembly
+- Completed reload, in  2.384 seconds
+Domain Reload Profiling:
+	ReloadAssembly (2385ms)
+		BeginReloadAssembly (200ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (23ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (76ms)
+		EndReloadAssembly (2092ms)
+			LoadAssemblies (184ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (367ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (48ms)
+			SetupLoadedEditorAssemblies (1097ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (10ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (221ms)
+				ProcessInitializeOnLoadAttributes (840ms)
+				ProcessInitializeOnLoadMethodAttributes (22ms)
+				AfterProcessingInitializeOnLoad (1ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (51ms)
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.86 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3248 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 289.9 MB.
+System memory in use after: 290.1 MB.
+
+Unloading 63 unused Assets to reduce memory usage. Loaded Objects now: 3961.
+Total: 2.648916 ms (FindLiveObjects: 0.193750 ms CreateObjectMapping: 0.073333 ms MarkObjects: 2.354083 ms  DeleteObjects: 0.027000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 

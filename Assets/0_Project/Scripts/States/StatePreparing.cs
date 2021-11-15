@@ -27,8 +27,7 @@ namespace Template.States
 
             sessionData.CurrentLevel = gameState.CurrentLevel;
             
-            host.CurrentLevel = currentLevel = GetCurrentLevel(gameState.CurrentLevel, 
-                out sessionData.LevelNumber, out sessionData.LevelLoop);
+            host.CurrentLevel = currentLevel = GetCurrentLevel(gameState.CurrentLevel, out sessionData.LevelLoop);
             
             Analytics.SendLevelStart(sessionData);
 
@@ -44,7 +43,7 @@ namespace Template.States
             stateMachine.ChangeState(host.StateMainLoop);
         }
 
-        private Transform GetCurrentLevel(int currentLevel, out int levelNum, out int loop)
+        private Transform GetCurrentLevel(int currentLevel, out int loop)
         {
             if (host.TutorialLevelsParent != null)
             {
@@ -60,7 +59,6 @@ namespace Template.States
                         tutorialLevels[i].gameObject.SetActive(i == currentLevel);
                     }
 
-                    levelNum = currentLevel + 1;
                     loop = 1;
                     
                     return tutorialLevels[currentLevel];
@@ -80,7 +78,6 @@ namespace Template.States
                 levels[i].gameObject.SetActive(i == localLevel);
             }
 
-            levelNum = currentLevel + localLevel + 1;
             loop = currentLevel / levels.Count + 1;
 
             return levels[localLevel];

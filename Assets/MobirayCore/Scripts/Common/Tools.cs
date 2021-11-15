@@ -133,7 +133,7 @@ namespace Mobiray.Common
             var children = parent.GetChildren();
             foreach (var transform in children)
             {
-                GameObject.Destroy(transform.gameObject);
+                GameObject.DestroyImmediate(transform.gameObject);
             }
         }
 
@@ -514,5 +514,7 @@ namespace Mobiray.Common
 
             renderer.material = newMat;
         }
+
+        public static int ToInt(this bool value) { return value ? 1 : 0; }
     }
 }

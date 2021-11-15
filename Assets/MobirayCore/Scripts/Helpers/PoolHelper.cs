@@ -47,6 +47,16 @@ namespace Mobiray.Helpers
             return Instantiate(type, enable);
         }
         
+        public T Instantiate(Vector3 position, Quaternion rotation, bool eneable = true)
+        {
+            var instance = Instantiate(eneable);
+
+            instance.transform.position = position;
+            instance.transform.rotation = rotation;
+
+            return instance;
+        }
+        
         public T Instantiate(string type, Vector3 position, Quaternion rotation, bool eneable = true)
         {
             var instance = Instantiate(type, eneable);

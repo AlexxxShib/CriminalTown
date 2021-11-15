@@ -31,6 +31,12 @@ namespace Mobiray.Helpers
             return timer;
         }
 
+        private void OnDisable()
+        {
+            timerStates.Clear();
+            completeTimers.Clear();
+        }
+
         private void Update()
         {
             foreach (var timerState in timerStates)
