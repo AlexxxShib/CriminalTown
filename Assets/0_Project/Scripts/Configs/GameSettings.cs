@@ -9,24 +9,24 @@ namespace Template.Configs
     [CreateAssetMenu(fileName = "GameSettings", menuName = "Configs/GameSettings")]
     public class GameSettings : ScriptableObject
     {
+        [Header("Saves")]
         public bool IsDebugGameState = false;
         public bool IsSaveGame = true;
         public string PathSaves = "/saves";
 
-        [Space]
-        public int MaxSecondsOffline;
-
-        [Space]
+        [Header("Ads")]
+        public int InterstitialCoolDown = 30;
+        public bool AdsFreeBuild;
+        
+        [Header("Other")]
         public int TargetFrameRate = 60;
-
-        // public bool IsCustomSave;
-        // public GameStateCustomSave CustomSave;
-
+        
         public void ClearSaves()
         {
             File.Delete(ToolSaver.PathFor(PathSaves, typeof(DataGameState)));
+            PlayerPrefs.DeleteAll();
 
-            Debug.Log("DONE!");
+            Debug.Log("Saves and preferences are cleared...");
         }
     }
 }

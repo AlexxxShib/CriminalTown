@@ -12,13 +12,13 @@ namespace Template.Configs
         public DataGameState InitGameState;
         public DataGameState DebugGameState;
 
-        [Space] 
+        /*[Space] 
         public long BasePriceParameter1;
         public float PriceStepParameter1;
         
         [Space]
         public float BaseParameter1Val;
-        public float StepParameter1Val;
+        public float StepParameter1Val;*/
         
         public void Initialize()
         {
@@ -26,7 +26,7 @@ namespace Template.Configs
             // ReadConfigMoneyOnLevel();
             // ReadConfigMoneyToLevelUp();
         }
-        public int GetParameter1Val(int level)
+        /*public int GetParameter1Val(int level)
         {
             //BaseParameter1Val
             //StepParameter1Val
@@ -36,6 +36,6 @@ namespace Template.Configs
         public long GetParameter1Price(int level)
         {
             return (long) (BasePriceParameter1 * (1 + PriceStepParameter1 * level));
-        }
+        }*/
     }
 }

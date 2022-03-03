@@ -10,21 +10,21 @@ namespace Template.Data
     [Serializable]
     public class DataGameState
     {
-        public long Money;
-        public int HardCurrency;
-        public long TotalMoney;
+        // public long Money;
+        // public int HardCurrency;
+        // public long TotalMoney;
 
-        public int LastLevelUp;
-        public int CurrentMoneyLevel;
+        // public int LastLevelUp;
+        // public int CurrentMoneyLevel;
 
         public int CurrentLevel;
 
         [Space]
-        public int LevelParamter1;
+        // public int LevelParamter1;
 
         public DateTime AppClosedDateTime;
 
-        public void AddMoney(long value)
+        /*public void AddMoney(long value)
         {
             Money += value;
             // if (value > 0) TotalMoney += value;
@@ -82,7 +82,7 @@ namespace Template.Data
                     {"level", LevelParamter1}
                 });
             }
-        }
+        }*/
 
     }
 }
