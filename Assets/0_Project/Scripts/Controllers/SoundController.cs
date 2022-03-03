@@ -1,57 +1,77 @@
+using Template.Configs;
 using Mobiray.Common;
 using Mobiray.Controllers;
-using Template.Configs;
 using UnityEngine;
 
 namespace Template.Controllers
 {
     public class SoundController : SignalReceiver
     {
-        public ConfigTaptic ConfigTaptic;
+        private ConfigTaptic _configTaptic;
+        private ConfigSounds _configSounds;
 
-        public bool Vibro;
+        public bool vibro;
+        public bool localDisabledVibro;
 
-        private static string vibroPref = "isVibroOn";
+        private const string PREF_VIBRO = "pref_vibro";
 
         public void SetVibro(bool vibro)
         {
-            PlayerPrefs.SetInt(vibroPref, vibro ? 1 : 0);
+            PlayerPrefs.SetInt(PREF_VIBRO, vibro ? 1 : 0);
 
-            Vibro = vibro;
+            this.vibro = vibro;
         }
 
         private void Awake()
         {
-            Vibro = PlayerPrefs.GetInt(vibroPref, 1) == 1;
+            vibro = PlayerPrefs.GetInt(PREF_VIBRO, 1) == 1;
             
             ToolBox.Add(this);
+
+            _configTaptic = ToolBox.Get<ConfigTaptic>();
+            _configSounds = ToolBox.Get<ConfigSounds>();
         }
 
-        private void OnDestroy()
+        public void SetEnabled(bool enabled)
         {
-            ToolBox.Remove<SoundController>();
+            localDisabledVibro = !enabled;
         }
     
         public void PlayCollision()
         {
-            PlayTaptic(ConfigTaptic.Collision);
+            PlayHaptic(_configTaptic.Collision);
+        }
+
+        public void PlayExplosion()
+        {
+            PlayHaptic(_configTaptic.Explosion);
         }
 
         public void PlayAddMoney()
         {
-            PlayTaptic(ConfigTaptic.CollectMoney);
+            // PlayTaptic(ConfigTaptic.CollectMoney);
         }
         
         public void PlayUi()
         {
-            PlayTaptic(ConfigTaptic.Ui);
+            // PlayTaptic(ConfigTaptic.Ui);
+        }
+
+        private void PlayHaptic(HapticConfig haptic)
+        {
+            if (!vibro || localDisabledVibro) return;
+
+#if UNITY_ANDROID
+            Vibration.Init();
+            Vibration.Vibrate(haptic.androidVibration, -1);
+#elif UNITY_IOS
+            PlayIOSTaptic(haptic.iOSVibration);
+#endif
         }
 
 
-        private void PlayTaptic(TapticTypes type)
+        private void PlayIOSTaptic(TapticTypes type)
         {
-            if (!Vibro) return;
-            
             switch (type)
             {
                 case TapticTypes.Light:

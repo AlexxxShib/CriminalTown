@@ -1,13 +1,24 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Template.Configs
 {
     [CreateAssetMenu(fileName = "TapticConfig", menuName = "Configs/Taptic")]
     public class ConfigTaptic : ScriptableObject
     {
-        public TapticTypes Collision;
-        public TapticTypes CollectMoney;
-        public TapticTypes Ui;
+        // public TapticTypes Collision;
+        // public TapticTypes CollectMoney;
+        // public TapticTypes Ui;
+
+        public HapticConfig Collision;
+        public HapticConfig Explosion;
+    }
+    
+    [Serializable]
+    public class HapticConfig
+    {
+        public long[] androidVibration = {0, 100};
+        public TapticTypes iOSVibration;
     }
 
     public enum TapticTypes
