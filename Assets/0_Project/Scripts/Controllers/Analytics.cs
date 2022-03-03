@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Facebook.Unity;
+using FlurrySDK;
 using Mobiray.Common;
 using Template.Ads;
 using Template.Data;
@@ -81,7 +82,7 @@ namespace Template.Controllers
 
             OnEvent("level_start", MakeLevelStartParameters(sessionData));
             
-            // AppMetrica.Instance.SendEventsBuffer();
+            AppMetrica.Instance.SendEventsBuffer();
         }
 
         public static void SendLevelFinish(SessionData sessionData, bool result)
@@ -93,14 +94,14 @@ namespace Template.Controllers
             
             OnEvent("level_finish", parameters);
             
-            // AppMetrica.Instance.SendEventsBuffer();
+            AppMetrica.Instance.SendEventsBuffer();
         }
         
         public static void OnEvent(string eventName)
         {
             try
             {
-                // AppMetrica.Instance.ReportEvent(eventName);
+                AppMetrica.Instance.ReportEvent(eventName);
                 
                 FB.LogAppEvent(eventName);
                 // FirebaseAnalytics.LogEvent(eventName);
@@ -128,10 +129,10 @@ namespace Template.Controllers
             
             try
             {
-                // AppMetrica.Instance.ReportEvent(eventName, parameters);
+                AppMetrica.Instance.ReportEvent(eventName, parameters);
                 
-                FB.LogAppEvent(eventName, parameters: parameters);
-                // Flurry.LogEvent(eventName, ToStringMap(parameters));
+                // FB.LogAppEvent(eventName, parameters: parameters);
+                Flurry.LogEvent(eventName, ToStringMap(parameters));
                 // FirebaseAnalytics.LogEvent(eventName, ToFirebaseParameters(parameters));
             }
             catch (Exception e)
