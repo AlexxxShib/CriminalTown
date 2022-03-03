@@ -1,6 +1,5 @@
 using Template.Configs;
 using Mobiray.Common;
-using Mobiray.Controllers;
 using UnityEngine;
 
 namespace Template.Controllers
