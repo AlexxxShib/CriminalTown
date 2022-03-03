@@ -9,17 +9,18 @@ namespace Template.Data
     public class SessionData
     {
 
-        public int CurrentLevel;
-        public int LevelLoop;
-        public int LevelCount;
+        public int currentLevel;
+        public int levelLoop;
+        public int levelCount;
 
-        public bool LevelComplete;
-        public DateTime TimeLevelStart;
+        public bool levelComplete;
+        public DateTime timeLevelStart;
+        
         public int LevelTime
         {
             get
             {
-                var time = (int) (DateTime.Now - TimeLevelStart).TotalSeconds;
+                var time = (int) (DateTime.Now - timeLevelStart).TotalSeconds;
                 
                 Debug.Log($"SessionData LevelTime : {time}");
 
@@ -31,12 +32,12 @@ namespace Template.Data
 
         public SessionData(SessionData sessionData)
         {
-            CurrentLevel = sessionData.CurrentLevel;
-            LevelLoop = sessionData.LevelLoop;
-            LevelCount = sessionData.LevelCount;
+            currentLevel = sessionData.currentLevel;
+            levelLoop = sessionData.levelLoop;
+            levelCount = sessionData.levelCount;
 
-            LevelComplete = sessionData.LevelComplete;
-            TimeLevelStart = sessionData.TimeLevelStart;
+            levelComplete = sessionData.levelComplete;
+            timeLevelStart = sessionData.timeLevelStart;
         }
     }
 

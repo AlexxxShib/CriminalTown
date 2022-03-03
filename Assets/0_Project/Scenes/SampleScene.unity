@@ -18,8 +18,8 @@ RenderSettings:
   m_FogColor: {r: 0.59607846, g: 0.61960787, b: 0.67058825, a: 1}
   m_FogMode: 1
   m_FogDensity: 0.01
-  m_LinearFogStart: 100
-  m_LinearFogEnd: 150
+  m_LinearFogStart: 50
+  m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.9529412, g: 0.9137255, b: 0.8862745, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
@@ -467,7 +467,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 379281131}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &204251129
 MonoBehaviour:
@@ -533,7 +533,7 @@ Transform:
   - {fileID: 963194228}
   - {fileID: 1825696762}
   m_Father: {fileID: 379281131}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &315262471
 GameObject:
@@ -729,11 +729,11 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 705507995}
+  - {fileID: 260033783}
+  - {fileID: 1442501206}
   - {fileID: 204251128}
   - {fileID: 1921808418}
   - {fileID: 1723037185}
-  - {fileID: 260033783}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -750,23 +750,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsReceiver: 1
-  SessionData:
-    CurrentLevel: 0
-    LevelLoop: 0
-    LevelCount: 0
-    LevelComplete: 0
-  ScreenLoading: {fileID: 1286326180}
-  ScreenMain: {fileID: 10637442}
-  ScreenGameOver: {fileID: 139453972}
-  ScreenLevelComplete: {fileID: 1329633177}
-  TextLevel: {fileID: 1598465028}
-  TutorialLevelsParent: {fileID: 315262472}
-  LevelsParent: {fileID: 468168006}
-  StatePreparing: {fileID: 11400000, guid: c35ada429a06a46f8aad99e228bf25b0, type: 2}
-  StateMainLoop: {fileID: 11400000, guid: e5f4797f0c80e40d49a9abf6827facb0, type: 2}
-  StateGameOver: {fileID: 11400000, guid: e43265150e0e74b67b92028a61ecb798, type: 2}
-  StateLevelComplete: {fileID: 11400000, guid: a914095c46b0c427f9292460dfd4c361, type: 2}
-  CurrentLevel: {fileID: 0}
+  gameState:
+    currentLevel: 0
+  sessionData:
+    currentLevel: 0
+    levelLoop: 0
+    levelCount: 0
+    levelComplete: 0
+  screenLoading: {fileID: 1286326180}
+  screenMain: {fileID: 10637442}
+  screenGameOver: {fileID: 139453972}
+  screenLevelComplete: {fileID: 1329633177}
+  textLevel: {fileID: 1598465028}
+  tutorialLevelsParent: {fileID: 315262472}
+  levelsParent: {fileID: 468168006}
+  statePreparing: {fileID: 11400000, guid: c35ada429a06a46f8aad99e228bf25b0, type: 2}
+  stateMainLoop: {fileID: 11400000, guid: e5f4797f0c80e40d49a9abf6827facb0, type: 2}
+  stateGameOver: {fileID: 11400000, guid: e43265150e0e74b67b92028a61ecb798, type: 2}
+  stateLevelComplete: {fileID: 11400000, guid: a914095c46b0c427f9292460dfd4c361, type: 2}
+  currentLevel: {fileID: 0}
 --- !u!114 &379281133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -934,7 +936,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 300, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 379281131}
+  m_Father: {fileID: 1442501206}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &763595551
@@ -1429,6 +1431,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1349381151}
   m_CullTransparentMesh: 0
+--- !u!1 &1442501205
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1442501206}
+  m_Layer: 0
+  m_Name: Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1442501206
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442501205}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 705507995}
+  m_Father: {fileID: 379281131}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1553823247
 GameObject:
   m_ObjectHideFlags: 0
@@ -1755,7 +1788,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 379281131}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1723037186
 MonoBehaviour:
@@ -1965,7 +1998,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 379281131}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1921808419
 MonoBehaviour:
@@ -2039,7 +2072,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2072650456
 Transform:
   m_ObjectHideFlags: 0

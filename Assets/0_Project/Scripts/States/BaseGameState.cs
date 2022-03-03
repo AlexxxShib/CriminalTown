@@ -10,26 +10,19 @@ namespace Template.States
 {
     public class BaseGameState : State<GameController>
     {
-
-        // public LevelState LevelState;
-        [Space]
-        
-        protected GameSettings settings;
-        protected ConfigMain configs;
-        // protected LevelConfig levelConfig;
-        protected DataGameState gameState;
-        
-        protected TimerHelper timerHelper;
+        protected GameSettings _settings;
+        protected ConfigMain _configs;
+        protected DataGameState _gameState;
+        protected TimerHelper _timerHelper;
 
         public override void Initialize(GameController character, StateMachine<GameController> stateMachine)
         {
             base.Initialize(character, stateMachine);
             
-            configs = ToolBox.Get<ConfigMain>();
-            settings = ToolBox.Get<GameSettings>();
-            gameState = ToolBox.Get<DataGameState>();
-            // levelConfig = ToolBox.Get<LevelConfig>();
-            timerHelper = ToolBox.Get<TimerHelper>();
+            _configs = ToolBox.Get<ConfigMain>();
+            _settings = ToolBox.Get<GameSettings>();
+            _gameState = ToolBox.Get<DataGameState>();
+            _timerHelper = ToolBox.Get<TimerHelper>();
         }
 
         public override void Enter()
@@ -37,8 +30,6 @@ namespace Template.States
             base.Enter();
             
             ToolBox.Signals.Add(this);
-            
-            // character.SessionData.ChangeLevelState(LevelState);
         }
 
         public override void Exit()

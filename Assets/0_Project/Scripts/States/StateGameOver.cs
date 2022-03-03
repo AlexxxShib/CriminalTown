@@ -13,7 +13,7 @@ namespace Template.States
         {
             base.Enter();
             
-            host.ScreenGameOver.SetActive(true);
+            _host.screenGameOver.SetActive(true);
             
             Analytics.SendLevelFinish(ToolBox.Get<SessionData>(), false);
         }

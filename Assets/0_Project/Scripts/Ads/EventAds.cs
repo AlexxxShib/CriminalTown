@@ -14,16 +14,17 @@ namespace Template.Ads
     
     public struct EventAds
     {
-        public AdType AdType;
-        public AdPlacement Placement;
-        public string Result;
+        public AdType adType;
+        public AdPlacement placement;
+        public string result;
+        
         public bool Connection => Application.internetReachability != NetworkReachability.NotReachable;
 
         public static EventAds EventAvailable(AdType adType, AdPlacement placement, bool result)
         {
             return new EventAds
             {
-                AdType = adType, Placement = placement, Result = result ? "success" : "not_available"
+                adType = adType, placement = placement, result = result ? "success" : "not_available"
             };
         }
         
@@ -31,7 +32,7 @@ namespace Template.Ads
         {
             return new EventAds
             {
-                AdType = adType, Placement = placement, Result = "start"
+                adType = adType, placement = placement, result = "start"
             };
         }
 
@@ -39,7 +40,7 @@ namespace Template.Ads
         {
             return new EventAds
             {
-                AdType = adType, Placement = placement, Result = watchResult.ToStringValue()
+                adType = adType, placement = placement, result = watchResult.ToStringValue()
             };
         }
 
@@ -48,13 +49,13 @@ namespace Template.Ads
             return new Dictionary<string, object>
             {
                 {
-                    "ad_type", AdType.ToStringValue()
+                    "ad_type", adType.ToStringValue()
                 },
                 {
-                    "placement", Placement.ToStringValue()
+                    "placement", placement.ToStringValue()
                 },
                 {
-                    "result", Result
+                    "result", result
                 },
                 {
                     "connection", Connection.ToInt()

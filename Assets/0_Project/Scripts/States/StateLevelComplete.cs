@@ -13,10 +13,10 @@ namespace Template.States
         {
             base.Enter();
 
-            gameState.CurrentLevel++;
-            host.SaveGameState();
+            _gameState.currentLevel++;
+            _host.SaveGameState();
             
-            host.ScreenLevelComplete.SetActive(true);
+            _host.screenLevelComplete.SetActive(true);
             
             Analytics.SendLevelFinish(ToolBox.Get<SessionData>(), true);
         }

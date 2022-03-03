@@ -10,103 +10,102 @@ namespace Template.Ads
     [CreateAssetMenu(fileName = "AdService", menuName = "Services/AdService")]
     public class AdService : ScriptableObject, INeedInitialization
     {
-        private static DateTime lastTimeAdShown;
+        private static DateTime LastTimeAdShown;
 
-        private MobirayLogger logger = new MobirayLogger("AdService");
+        private readonly MobirayLogger _logger = new MobirayLogger("AdService");
         
-        private GameSettings settings;
-
-        private IAdProvider adProvider;
+        private GameSettings _settings;
+        private IAdProvider _adProvider;
         
-        private TaskCompletionSource<RewardedVideoStatus> taskRewardedVideoCallback;
+        private TaskCompletionSource<RewardedVideoStatus> _taskRewardedVideoCallback;
         
         public void Initialize()
         {
-            settings = ToolBox.Get<GameSettings>();
-            adProvider = AdAdapterAppLovin.Instance;
+            _settings = ToolBox.Get<GameSettings>();
+            _adProvider = AdAdapterAppLovin.Instance;
         }
 
-        public bool IsInterstitialReady() { return adProvider.IsInterstitialReady(); }
+        public bool IsInterstitialReady() { return _adProvider.IsInterstitialReady(); }
 
         public bool ShowInterstitial(AdPlacement placement, bool force = false)
         {
-            var time = (DateTime.Now - lastTimeAdShown).TotalSeconds;
+            var time = (DateTime.Now - LastTimeAdShown).TotalSeconds;
             
-            if (time < settings.InterstitialCoolDown && !force)
+            if (time < _settings.interstitialCoolDown && !force)
             {
-                logger.LogDebug($"Try to show interstitial failed: time {time}");
+                _logger.LogDebug($"Try to show interstitial failed: time {time}");
                 return false;
             }
 
-            if (!adProvider.IsInterstitialReady())
+            if (!_adProvider.IsInterstitialReady())
             {
-                logger.LogDebug($"Try to show interstitial failed : not ready");
+                _logger.LogDebug($"Try to show interstitial failed : not ready");
                 Analytics.OnEventVideoAdsAvailable(EventAds.EventAvailable(AdType.INTERSTITIAL, placement, false));
                 return false;
             }
             
-            logger.LogDebug($"Try to show interstitial success");
+            _logger.LogDebug($"Try to show interstitial success");
 
             Analytics.OnEventVideoAdsAvailable(EventAds.EventAvailable(AdType.INTERSTITIAL, placement, true));
             Analytics.OnEventVideoAdsStarted(EventAds.EventStart(AdType.INTERSTITIAL, placement));
             
-            if (settings.AdsFreeBuild)
+            if (_settings.adsFreeBuild)
             {
-                logger.LogDebug($"Free Ads Build! No interstitial");
+                _logger.LogDebug($"Free Ads Build! No interstitial");
                 return true;
             }
             
-            adProvider.ShowInterstitial(placement, OnInterstitialCallback);
+            _adProvider.ShowInterstitial(placement, OnInterstitialCallback);
 
             return true;
         }
 
         private void OnInterstitialCallback(bool shown)
         {
-            lastTimeAdShown = DateTime.Now;
+            LastTimeAdShown = DateTime.Now;
         }
 
-        public bool IsRewardedVideoReady() { return adProvider.IsRewardedVideoReady(); }
+        public bool IsRewardedVideoReady() { return _adProvider.IsRewardedVideoReady(); }
 
         public void ShowRewardedVideo(AdPlacement placement, Action<RewardedVideoStatus> callback)
         {
-            if (settings.AdsFreeBuild)
+            if (_settings.adsFreeBuild)
             {
-                logger.LogDebug($"Free Ads Build! No RV");
+                _logger.LogDebug($"Free Ads Build! No RV");
                 callback.Invoke(RewardedVideoStatus.REWARDED);
                 return;
             }
             
-            if (!adProvider.IsRewardedVideoReady())
+            if (!_adProvider.IsRewardedVideoReady())
             {
-                logger.LogDebug("Show rewarded video failed : not loaded");
+                _logger.LogDebug("Show rewarded video failed : not loaded");
                 Analytics.OnEventVideoAdsAvailable(EventAds.EventAvailable(AdType.VIDEO, placement, false));
                 
                 callback?.Invoke(RewardedVideoStatus.NOT_LOADED);
                 return;
             }
             
-            logger.LogDebug("Show rewarded video success");
+            _logger.LogDebug("Show rewarded video success");
                 
             Analytics.OnEventVideoAdsAvailable(EventAds.EventAvailable(AdType.VIDEO, placement, true));
             Analytics.OnEventVideoAdsStarted(EventAds.EventStart(AdType.VIDEO, placement));
             
-            adProvider.ShowRewardedVideo(placement, callback);
+            _adProvider.ShowRewardedVideo(placement, callback);
         }
 
         public async Task<RewardedVideoStatus> ShowRewardedVideo(AdPlacement placement)
         {
-            taskRewardedVideoCallback = new TaskCompletionSource<RewardedVideoStatus>();
+            _taskRewardedVideoCallback = new TaskCompletionSource<RewardedVideoStatus>();
             
             ShowRewardedVideo(placement, OnRewardedVideoCallback);
             
-            var status = await taskRewardedVideoCallback.Task;
+            var status = await _taskRewardedVideoCallback.Task;
             
-            taskRewardedVideoCallback = null;
+            _taskRewardedVideoCallback = null;
 
             if (status == RewardedVideoStatus.REWARDED)
             {
-                lastTimeAdShown = DateTime.Now;
+                LastTimeAdShown = DateTime.Now;
             }
             
             return status;
@@ -114,9 +113,9 @@ namespace Template.Ads
         
         private void OnRewardedVideoCallback(RewardedVideoStatus status)
         {
-            logger.LogDebug($"Rewarded Video Callback : {status}");
+            _logger.LogDebug($"Rewarded Video Callback : {status}");
 
-            taskRewardedVideoCallback?.SetResult(status);
+            _taskRewardedVideoCallback?.SetResult(status);
         }
     }
 }

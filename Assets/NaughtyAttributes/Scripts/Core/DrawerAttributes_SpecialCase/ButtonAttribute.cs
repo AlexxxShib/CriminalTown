@@ -22,11 +22,13 @@ namespace NaughtyAttributes
 	public class ButtonAttribute : SpecialCaseDrawerAttribute
 	{
 		public string Text { get; private set; }
+		public int Space { get; private set; }
 		public EButtonEnableMode SelectedEnableMode { get; private set; }		
 
-		public ButtonAttribute(string text = null, EButtonEnableMode enabledMode = EButtonEnableMode.Always)
+		public ButtonAttribute(string text = null, EButtonEnableMode enabledMode = EButtonEnableMode.Always, int space = 0)
 		{
 			this.Text = text;
+			this.Space = space;
 			this.SelectedEnableMode = enabledMode;
 		}
 	}

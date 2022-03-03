@@ -8,16 +8,16 @@ namespace Template.Ads
 {
     public class AdAdapterAppLovin : MonoSingleton<AdAdapterAppLovin>, IAdProvider
     {
-        public bool Initialized;
+        public bool initialized;
 
         [Header("Settings")]
-        public string SdkKey = "";
+        public string sdkKey = "";
 
         [Space]
-        public string AdUnitInterstitial = "INTER";
-        public string AdUnitRewardedVideo = "REWARDED";
+        public string adUnitInterstitial = "INTER";
+        public string adUnitRewardedVideo = "REWARDED";
 
-        private SessionData currentSessionDataOnStart;
+        private SessionData _currentSessionDataOnStart;
 
         public override void Initialize()
         {
@@ -27,13 +27,13 @@ namespace Template.Ads
 
             MaxSdk.SetHasUserConsent(true);
 
-            MaxSdk.SetSdkKey(SdkKey);
+            MaxSdk.SetSdkKey(sdkKey);
             MaxSdk.InitializeSdk();
         }
 
         private void OnSdkInitialized(MaxSdkBase.SdkConfiguration sdkConfiguration)
         {
-            Initialized = true;
+            initialized = true;
 
             InitializeInterstitialAds();
             InitializeRewardedAds();
@@ -41,12 +41,12 @@ namespace Template.Ads
 
         #region INTERSTITIAL
 
-        private int interstitialRetryAttempt;
+        private int _interstitialRetryAttempt;
         
-        private AdPlacement lastInterstitialPlacement = AdPlacement.UNKNOWN;
-        private AdWatchResult interstitalWatchResult = AdWatchResult.NONE;
+        private AdPlacement _lastInterstitialPlacement = AdPlacement.UNKNOWN;
+        private AdWatchResult _interstitialWatchResult = AdWatchResult.NONE;
 
-        private Action<bool> interstitialCallback;
+        private Action<bool> _interstitialCallback;
 
         public void InitializeInterstitialAds()
         {
@@ -62,14 +62,14 @@ namespace Template.Ads
             LoadInterstitial();
         }
 
-        private void LoadInterstitial() { MaxSdk.LoadInterstitial(AdUnitInterstitial); }
+        private void LoadInterstitial() { MaxSdk.LoadInterstitial(adUnitInterstitial); }
         
         private void OnInterstitialLoadedEvent(string adUnitId, MaxSdkBase.AdInfo adInfo)
         {
             // Interstitial ad is ready for you to show. MaxSdk.IsInterstitialReady(adUnitId) now returns 'true'
 
             // Reset retry attempt
-            interstitialRetryAttempt = 0;
+            _interstitialRetryAttempt = 0;
         }
 
         private void OnInterstitialLoadFailedEvent(string adUnitId, MaxSdkBase.ErrorInfo errorInfo)
@@ -77,15 +77,15 @@ namespace Template.Ads
             // Interstitial ad failed to load 
             // AppLovin recommends that you retry with exponentially higher delays, up to a maximum delay (in this case 64 seconds)
 
-            interstitialRetryAttempt++;
-            double retryDelay = Math.Pow(2, Math.Min(6, interstitialRetryAttempt));
+            _interstitialRetryAttempt++;
+            double retryDelay = Math.Pow(2, Math.Min(6, _interstitialRetryAttempt));
 
             Invoke(nameof(LoadInterstitial), (float) retryDelay);
         }
 
         private void OnInterstitialDisplayedEvent(string adUnitId, MaxSdkBase.AdInfo adInfo)
         {
-            interstitalWatchResult = AdWatchResult.WATCHED;
+            _interstitialWatchResult = AdWatchResult.WATCHED;
         }
 
         private void OnInterstitialAdFailedToDisplayEvent(string adUnitId, MaxSdkBase.ErrorInfo errorInfo,
@@ -94,8 +94,8 @@ namespace Template.Ads
             
             try
             {
-                interstitialCallback?.Invoke(false);
-                interstitialCallback = null;
+                _interstitialCallback?.Invoke(false);
+                _interstitialCallback = null;
 
             } catch (Exception e)
             {
@@ -108,22 +108,22 @@ namespace Template.Ads
 
         private void OnInterstitialClickedEvent(string adUnitId, MaxSdkBase.AdInfo adInfo)
         {
-            interstitalWatchResult = AdWatchResult.CLICKED;
+            _interstitialWatchResult = AdWatchResult.CLICKED;
         }
 
         private void OnInterstitialHiddenEvent(string adUnitId, MaxSdkBase.AdInfo adInfo)
         {
-            if (interstitalWatchResult != AdWatchResult.NONE)
+            if (_interstitialWatchResult != AdWatchResult.NONE)
             {
                 Analytics.OnEventVideoAdsWatch(EventAds.EventWatch(
-                    AdType.INTERSTITIAL, lastInterstitialPlacement, interstitalWatchResult), currentSessionDataOnStart);
+                    AdType.INTERSTITIAL, _lastInterstitialPlacement, _interstitialWatchResult), _currentSessionDataOnStart);
 
-                interstitalWatchResult = AdWatchResult.NONE;
+                _interstitialWatchResult = AdWatchResult.NONE;
 
                 try
                 {
-                    interstitialCallback?.Invoke(true);
-                    interstitialCallback = null;
+                    _interstitialCallback?.Invoke(true);
+                    _interstitialCallback = null;
 
                 } catch (Exception e)
                 {
@@ -135,21 +135,21 @@ namespace Template.Ads
             LoadInterstitial();
         }
 
-        public bool IsInterstitialReady() { return MaxSdk.IsInterstitialReady(AdUnitInterstitial); }
+        public bool IsInterstitialReady() { return MaxSdk.IsInterstitialReady(adUnitInterstitial); }
 
         public bool ShowInterstitial(AdPlacement placement, Action<bool> callback)
         {
-            if (!Initialized) return false;
+            if (!initialized) return false;
 
             var sessionData = ToolBox.Get<SessionData>();
-            currentSessionDataOnStart = sessionData == null ? null : new SessionData(sessionData);
+            _currentSessionDataOnStart = sessionData == null ? null : new SessionData(sessionData);
             
-            lastInterstitialPlacement = placement;
-            interstitalWatchResult = AdWatchResult.NONE;
+            _lastInterstitialPlacement = placement;
+            _interstitialWatchResult = AdWatchResult.NONE;
 
-            interstitialCallback = callback;
+            _interstitialCallback = callback;
 
-            MaxSdk.ShowInterstitial(AdUnitInterstitial);
+            MaxSdk.ShowInterstitial(adUnitInterstitial);
             return true;
         }
 
@@ -157,17 +157,17 @@ namespace Template.Ads
 
         #region REWARDED_VIDEO
         
-        private int rewardedVideoRetryAttempt;
-        private Action<RewardedVideoStatus> rewardedVideoCallback;
+        private int _rewardedVideoRetryAttempt;
+        private Action<RewardedVideoStatus> _rewardedVideoCallback;
         
-        private AdPlacement lastRewardedVideoPlacement = AdPlacement.UNKNOWN;
-        private bool clickedOnRewardedVideo;
+        private AdPlacement _lastRewardedVideoPlacement = AdPlacement.UNKNOWN;
+        private bool _clickedOnRewardedVideo;
 
-        public bool IsRewardedVideoReady() { return MaxSdk.IsRewardedAdReady(AdUnitRewardedVideo); }
+        public bool IsRewardedVideoReady() { return MaxSdk.IsRewardedAdReady(adUnitRewardedVideo); }
 
         public void ShowRewardedVideo(AdPlacement placement, Action<RewardedVideoStatus> callback)
         {
-            if (!Initialized)
+            if (!initialized)
             {
                 callback.Invoke(RewardedVideoStatus.NOT_INITITLIZED);
                 return;
@@ -180,14 +180,14 @@ namespace Template.Ads
             }
             
             var sessionData = ToolBox.Get<SessionData>();
-            currentSessionDataOnStart = sessionData == null ? null : new SessionData(sessionData);
+            _currentSessionDataOnStart = sessionData == null ? null : new SessionData(sessionData);
 
-            clickedOnRewardedVideo = false;
+            _clickedOnRewardedVideo = false;
 
-            lastRewardedVideoPlacement = placement;
-            rewardedVideoCallback = callback;
+            _lastRewardedVideoPlacement = placement;
+            _rewardedVideoCallback = callback;
 
-            MaxSdk.ShowRewardedAd(AdUnitRewardedVideo);
+            MaxSdk.ShowRewardedAd(adUnitRewardedVideo);
         }
         
         public void InitializeRewardedAds()
@@ -206,14 +206,14 @@ namespace Template.Ads
             LoadRewardedAd();
         }
         
-        private void LoadRewardedAd() { MaxSdk.LoadRewardedAd(AdUnitRewardedVideo); }
+        private void LoadRewardedAd() { MaxSdk.LoadRewardedAd(adUnitRewardedVideo); }
 
         private void OnRewardedAdLoadedEvent(string adUnitId, MaxSdkBase.AdInfo adInfo)
         {
             // Rewarded ad is ready for you to show. MaxSdk.IsRewardedAdReady(adUnitId) now returns 'true'.
 
             // Reset retry attempt
-            rewardedVideoRetryAttempt = 0;
+            _rewardedVideoRetryAttempt = 0;
         }
 
         private void OnRewardedAdLoadFailedEvent(string adUnitId, MaxSdkBase.ErrorInfo errorInfo)
@@ -221,8 +221,8 @@ namespace Template.Ads
             // Rewarded ad failed to load 
             // AppLovin recommends that you retry with exponentially higher delays, up to a maximum delay (in this case 64 seconds).
 
-            rewardedVideoRetryAttempt++;
-            double retryDelay = Math.Pow(2, Math.Min(6, rewardedVideoRetryAttempt));
+            _rewardedVideoRetryAttempt++;
+            double retryDelay = Math.Pow(2, Math.Min(6, _rewardedVideoRetryAttempt));
 
             Invoke("LoadRewardedAd", (float) retryDelay);
         }
@@ -240,7 +240,7 @@ namespace Template.Ads
 
         private void OnRewardedAdClickedEvent(string adUnitId, MaxSdkBase.AdInfo adInfo)
         {
-            clickedOnRewardedVideo = true;
+            _clickedOnRewardedVideo = true;
         }
 
         private void OnRewardedAdHiddenEvent(string adUnitId, MaxSdkBase.AdInfo adInfo)
@@ -251,7 +251,7 @@ namespace Template.Ads
             if (CallbackRVStatus(RewardedVideoStatus.HIDDEN))
             {
                 Analytics.OnEventVideoAdsWatch(EventAds.EventWatch(
-                    AdType.VIDEO, lastRewardedVideoPlacement, AdWatchResult.CANCELED), currentSessionDataOnStart);
+                    AdType.VIDEO, _lastRewardedVideoPlacement, AdWatchResult.CANCELED), _currentSessionDataOnStart);
             }
         }
 
@@ -261,10 +261,10 @@ namespace Template.Ads
 
             if (CallbackRVStatus(RewardedVideoStatus.REWARDED))
             {
-                var watchResult = clickedOnRewardedVideo ? AdWatchResult.CLICKED : AdWatchResult.WATCHED;
+                var watchResult = _clickedOnRewardedVideo ? AdWatchResult.CLICKED : AdWatchResult.WATCHED;
                 
                 Analytics.OnEventVideoAdsWatch(EventAds.EventWatch(
-                    AdType.VIDEO, lastRewardedVideoPlacement, watchResult), currentSessionDataOnStart);
+                    AdType.VIDEO, _lastRewardedVideoPlacement, watchResult), _currentSessionDataOnStart);
             }
         }
 
@@ -275,10 +275,10 @@ namespace Template.Ads
 
         private bool CallbackRVStatus(RewardedVideoStatus status)
         {
-            if (rewardedVideoCallback != null)
+            if (_rewardedVideoCallback != null)
             {
-                rewardedVideoCallback.Invoke(status);
-                rewardedVideoCallback = null;
+                _rewardedVideoCallback.Invoke(status);
+                _rewardedVideoCallback = null;
 
                 return true;
             }

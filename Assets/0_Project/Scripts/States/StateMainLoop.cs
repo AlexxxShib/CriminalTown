@@ -11,14 +11,14 @@ namespace Template.States
         {
             base.Enter();
             
-            host.ScreenMain.SetActive(true);
+            _host.screenMain.SetActive(true);
         }
 
         public override void Exit()
         {
             base.Exit();
             
-            host.ScreenMain.SetActive(false);
+            _host.screenMain.SetActive(false);
         }
         
     }

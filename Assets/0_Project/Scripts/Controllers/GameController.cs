@@ -14,67 +14,67 @@ namespace Template.Controllers
     {
         
         [Header("UI/UX")]
-        public GameObject ScreenLoading;
-        public GameObject ScreenMain;
-        public GameObject ScreenGameOver;
-        public GameObject ScreenLevelComplete;
+        public GameObject screenLoading;
+        public GameObject screenMain;
+        public GameObject screenGameOver;
+        public GameObject screenLevelComplete;
 
         [Space]
-        public TextMeshProUGUI TextLevel;
+        public TextMeshProUGUI textLevel;
 
         [Header("MAIN SETTINGS")]
-        public Transform TutorialLevelsParent;
-        public Transform LevelsParent;
+        public Transform tutorialLevelsParent;
+        public Transform levelsParent;
 
         [Header("STATES")]
-        public StatePreparing StatePreparing;
-        public StateMainLoop StateMainLoop;
-        public StateGameOver StateGameOver;
-        public StateLevelComplete StateLevelComplete;
+        public StatePreparing statePreparing;
+        public StateMainLoop stateMainLoop;
+        public StateGameOver stateGameOver;
+        public StateLevelComplete stateLevelComplete;
 
         [Header("REALTIME")]
-        public Transform CurrentLevel;
+        public Transform currentLevel;
         
-        private MobirayLogger logger = new MobirayLogger("GameController");
+        private MobirayLogger _logger = new MobirayLogger("GameController");
 
-        private StateMachine<GameController> stateMachine;
+        private StateMachine<GameController> _stateMachine;
 
         protected override void Awake()
         {
             base.Awake();
             
-            ScreenLoading.SetActive(true);
+            screenLoading.SetActive(true);
             
-            stateMachine = new StateMachine<GameController>();
+            _stateMachine = new StateMachine<GameController>();
 
-            StatePreparing = Instantiate(StatePreparing);
-            StatePreparing.Initialize(this, stateMachine);
+            statePreparing = Instantiate(statePreparing);
+            statePreparing.Initialize(this, _stateMachine);
 
-            StateMainLoop = Instantiate(StateMainLoop);
-            StateMainLoop.Initialize(this, stateMachine);
+            stateMainLoop = Instantiate(stateMainLoop);
+            stateMainLoop.Initialize(this, _stateMachine);
 
-            StateGameOver = Instantiate(StateGameOver);
-            StateGameOver.Initialize(this, stateMachine);
+            stateGameOver = Instantiate(stateGameOver);
+            stateGameOver.Initialize(this, _stateMachine);
 
-            StateLevelComplete = Instantiate(StateLevelComplete);
-            StateLevelComplete.Initialize(this, stateMachine);
+            stateLevelComplete = Instantiate(stateLevelComplete);
+            stateLevelComplete.Initialize(this, _stateMachine);
 
-            stateMachine.Initialize(StatePreparing);
+            _stateMachine.Initialize(statePreparing);
         }
         
         private void Update()
         {
-            stateMachine.CurrentState.LogicUpdate();
+            _stateMachine.CurrentState.LogicUpdate();
         }
 
         private void FixedUpdate()
         {
-            stateMachine.CurrentState.PhysicsUpdate();
+            _stateMachine.CurrentState.PhysicsUpdate();
         }
         
         private async void RestartScene()
         {
-            ScreenLoading.SetActive(true);
+            screenLoading.SetActive(true);
 
             await Task.Delay(TimeSpan.FromSeconds(0.2f));
             

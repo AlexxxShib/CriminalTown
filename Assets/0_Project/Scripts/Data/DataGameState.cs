@@ -17,12 +17,12 @@ namespace Template.Data
         // public int LastLevelUp;
         // public int CurrentMoneyLevel;
 
-        public int CurrentLevel;
+        public int currentLevel;
 
         [Space]
         // public int LevelParamter1;
 
-        public DateTime AppClosedDateTime;
+        public DateTime appClosedDateTime;
 
         /*public void AddMoney(long value)
         {

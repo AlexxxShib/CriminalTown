@@ -8,12 +8,12 @@ namespace Template
 
     public struct SignalAddMoney
     {
-        public long Money;
+        public long money;
     }
     
     public struct SignalAddHardCurrency
     {
-        public long HardCurrency;
+        public long hardCurrency;
     }
     
 }

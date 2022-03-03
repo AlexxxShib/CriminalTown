@@ -12,47 +12,46 @@ namespace Template.States
     public class StatePreparing : BaseGameState
     {
 
-        private Transform currentLevel;
+        private Transform _currentLevel;
         
         public override void Enter()
         {
             base.Enter();
             
-            host.ScreenMain.SetActive(false);
-            host.ScreenLoading.SetActive(true);
+            _host.screenMain.SetActive(false);
+            _host.screenLoading.SetActive(true);
             
-            timerHelper.StartTimer(1, LoadingComplete);
+            _timerHelper.StartTimer(1, LoadingComplete);
             
             var sessionData = ToolBox.Get<SessionData>();
-
-            sessionData.CurrentLevel = gameState.CurrentLevel;
+            sessionData.currentLevel = _gameState.currentLevel;
             
-            host.CurrentLevel = currentLevel = GetCurrentLevel(gameState.CurrentLevel, out sessionData.LevelLoop);
+            _host.currentLevel = _currentLevel = GetCurrentLevel(_gameState.currentLevel, out sessionData.levelLoop);
             
             Analytics.SendLevelStart(sessionData);
 
-            host.TextLevel.text = $"LEVEL {gameState.CurrentLevel + 1}";
+            _host.textLevel.text = $"LEVEL {_gameState.currentLevel + 1}";
             
             //INIT LEVEL
         }
 
         private void LoadingComplete()
         {
-            host.ScreenLoading.SetActive(false);
+            _host.screenLoading.SetActive(false);
             
-            stateMachine.ChangeState(host.StateMainLoop);
+            _stateMachine.ChangeState(_host.stateMainLoop);
         }
 
         private Transform GetCurrentLevel(int currentLevel, out int loop)
         {
-            if (host.TutorialLevelsParent != null)
+            if (_host.tutorialLevelsParent != null)
             {
-                var tutorialLevels = host.TutorialLevelsParent.GetChildren();
+                var tutorialLevels = _host.tutorialLevelsParent.GetChildren();
 
                 if (currentLevel < tutorialLevels.Count)
                 {
-                    host.LevelsParent.gameObject.SetActive(false);
-                    host.TutorialLevelsParent.gameObject.SetActive(true);
+                    _host.levelsParent.gameObject.SetActive(false);
+                    _host.tutorialLevelsParent.gameObject.SetActive(true);
                     
                     for (var i = 0; i < tutorialLevels.Count; i++)
                     {
@@ -64,13 +63,13 @@ namespace Template.States
                     return tutorialLevels[currentLevel];
                 }
 
-                host.TutorialLevelsParent.gameObject.SetActive(false);
+                _host.tutorialLevelsParent.gameObject.SetActive(false);
                 currentLevel -= tutorialLevels.Count;
             }
             
-            host.LevelsParent.gameObject.SetActive(true);
+            _host.levelsParent.gameObject.SetActive(true);
             
-            var levels = host.LevelsParent.GetChildren();
+            var levels = _host.levelsParent.GetChildren();
             var localLevel = currentLevel % levels.Count;
             
             for (var i = 0; i < levels.Count; i++)

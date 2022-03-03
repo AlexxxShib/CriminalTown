@@ -10,8 +10,8 @@ namespace Template.Configs
         // public TapticTypes CollectMoney;
         // public TapticTypes Ui;
 
-        public HapticConfig Collision;
-        public HapticConfig Explosion;
+        public HapticConfig collision;
+        public HapticConfig explosion;
     }
     
     [Serializable]

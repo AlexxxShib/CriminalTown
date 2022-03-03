@@ -56,7 +56,7 @@ namespace Template.Controllers
 
         private static Dictionary<string, object> MakeLevelStartParameters(SessionData sessionData)
         {
-            var levelNum = sessionData.CurrentLevel + 1;
+            var levelNum = sessionData.currentLevel + 1;
 
             return new Dictionary<string, object>
             {
@@ -67,17 +67,17 @@ namespace Template.Controllers
                     "level_name", $"level_{levelNum:00}"
                 },
                 {
-                    "level_count", sessionData.LevelCount
+                    "level_count", sessionData.levelCount
                 },
                 {
-                    "level_loop", sessionData.LevelLoop
+                    "level_loop", sessionData.levelLoop
                 },
             };
         }
 
         public static void SendLevelStart(SessionData sessionData)
         {
-            PlayerPrefs.SetInt(CASH_KEY_STARTED_LEVEL, sessionData.CurrentLevel);
+            PlayerPrefs.SetInt(CASH_KEY_STARTED_LEVEL, sessionData.currentLevel);
             PlayerPrefs.Save();
 
             OnEvent("level_start", MakeLevelStartParameters(sessionData));

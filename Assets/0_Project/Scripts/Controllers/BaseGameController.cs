@@ -11,25 +11,24 @@ namespace Template.Controllers
 {
     public class BaseGameController : SignalReceiver
     {
-        protected DataGameState GameState;
-
-        public SessionData SessionData;
+        public DataGameState gameState;
+        public SessionData sessionData;
         
-        protected GameSettings Settings;
-        protected ConfigMain Configs;
+        protected GameSettings _settings;
+        protected ConfigMain _configs;
 
         protected virtual void Awake()
         {
             Time.timeScale = 1;
             
-            Configs = ToolBox.Get<ConfigMain>();
-            Settings = ToolBox.Get<GameSettings>();
+            _configs = ToolBox.Get<ConfigMain>();
+            _settings = ToolBox.Get<GameSettings>();
 
-            Application.targetFrameRate = Settings.TargetFrameRate;
+            Application.targetFrameRate = _settings.targetFrameRate;
 
             ToolBox.Add(this);
             ToolBox.Add(new NumericalFormatter());
-            ToolBox.Add(SessionData = new SessionData());
+            ToolBox.Add(sessionData = new SessionData());
             
             var timerHelper = new GameObject("TimerHelper");
             timerHelper.transform.parent = transform;
@@ -45,7 +44,7 @@ namespace Template.Controllers
 
         private int TimeFromLastSessionInSeconds()
         {
-            var dif = (DateTime.Now - GameState.AppClosedDateTime).TotalSeconds;
+            var dif = (DateTime.Now - gameState.appClosedDateTime).TotalSeconds;
 
             if (dif < 60) dif = 0;
             return (int) dif;
@@ -55,25 +54,25 @@ namespace Template.Controllers
 
         private void InitGameState()
         {
-            GameState = ToolSaver.Instance.Load<DataGameState>(Settings.PathSaves);
+            gameState = ToolSaver.Instance.Load<DataGameState>(_settings.pathSaves);
 
-            if (GameState == null)
+            if (gameState == null)
             {
-                GameState = Settings.IsDebugGameState ? 
-                    Configs.DebugGameState : Configs.InitGameState;
+                gameState = _settings.isDebugGameState ? 
+                    _configs.debugGameState : _configs.initGameState;
             }
 
-            ToolBox.Add(GameState);
+            ToolBox.Add(gameState);
         }
 
         public void SaveGameState()
         {
-            GameState.AppClosedDateTime = DateTime.Now;
+            gameState.appClosedDateTime = DateTime.Now;
 //            Debug.Log("quit time " + GameState.AppClosedDateTime);
 
-            if (Settings.IsSaveGame)
+            if (_settings.isSaveGame)
             {
-                ToolSaver.Instance.Save(Settings.PathSaves, GameState);
+                ToolSaver.Instance.Save(_settings.pathSaves, gameState);
             }
         }
 

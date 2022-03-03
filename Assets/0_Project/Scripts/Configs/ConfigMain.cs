@@ -9,8 +9,8 @@ namespace Template.Configs
     [CreateAssetMenu(fileName = "ConfigMain", menuName = "Configs/ConfigMain")]
     public class ConfigMain : ScriptableObject, INeedInitialization
     {
-        public DataGameState InitGameState;
-        public DataGameState DebugGameState;
+        public DataGameState initGameState;
+        public DataGameState debugGameState;
 
         /*[Space] 
         public long BasePriceParameter1;

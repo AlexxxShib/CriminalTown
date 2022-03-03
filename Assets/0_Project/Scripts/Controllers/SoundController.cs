@@ -39,12 +39,12 @@ namespace Template.Controllers
     
         public void PlayCollision()
         {
-            PlayHaptic(_configTaptic.Collision);
+            PlayHaptic(_configTaptic.collision);
         }
 
         public void PlayExplosion()
         {
-            PlayHaptic(_configTaptic.Explosion);
+            PlayHaptic(_configTaptic.explosion);
         }
 
         public void PlayAddMoney()
