@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Template.Configs
+namespace CriminalTown.Configs
 {
     [CreateAssetMenu(fileName = "TapticConfig", menuName = "Configs/Taptic")]
     public class ConfigTaptic : ScriptableObject

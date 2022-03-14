@@ -1,6 +1,6 @@
 using System;
 
-namespace Template.Ads
+namespace CriminalTown.Ads
 {
     public enum AdPlacement
     {

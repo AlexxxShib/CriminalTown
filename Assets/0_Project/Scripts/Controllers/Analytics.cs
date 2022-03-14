@@ -1,14 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using CriminalTown.Ads;
+using CriminalTown.Data;
 using Facebook.Unity;
 using FlurrySDK;
 using Mobiray.Common;
-using Template.Ads;
-using Template.Data;
 using UnityEngine;
 
-namespace Template.Controllers
+namespace CriminalTown.Controllers
 {
     public class Analytics
     {

@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
 using Mobiray.Common;
-using Template.Configs;
-using Template.Controllers;
+using CriminalTown.Configs;
+using CriminalTown.Controllers;
 using UnityEngine;
 
-namespace Template.Data
+namespace CriminalTown.Data
 {
     [Serializable]
     public class DataGameState

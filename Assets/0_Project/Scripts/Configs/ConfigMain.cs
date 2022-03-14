@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Globalization;
-using Template.Data;
+using CriminalTown.Data;
 using Mobiray.Common;
 
-namespace Template.Configs
+namespace CriminalTown.Configs
 {
     [CreateAssetMenu(fileName = "ConfigMain", menuName = "Configs/ConfigMain")]
     public class ConfigMain : ScriptableObject, INeedInitialization

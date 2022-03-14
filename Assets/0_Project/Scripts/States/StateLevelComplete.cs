@@ -1,9 +1,9 @@
+using CriminalTown.Controllers;
+using CriminalTown.Data;
 using Mobiray.Common;
-using Template.Controllers;
-using Template.Data;
 using UnityEngine;
 
-namespace Template.States
+namespace CriminalTown.States
 {
     
     [CreateAssetMenu(fileName = "StateLevelComplete", menuName = "GameState/StateLevelComplete")]

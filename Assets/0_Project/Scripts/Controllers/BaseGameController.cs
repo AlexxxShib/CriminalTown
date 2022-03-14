@@ -1,12 +1,12 @@
 using System;
+using CriminalTown.Configs;
+using CriminalTown.Data;
 using Mobiray.Common;
 using Mobiray.Helpers;
 using Mobiray.Numbers;
-using Template.Configs;
-using Template.Data;
 using UnityEngine;
 
-namespace Template.Controllers
+namespace CriminalTown.Controllers
 {
     public class BaseGameController : SignalReceiver
     {

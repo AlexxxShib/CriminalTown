@@ -1,12 +1,12 @@
+using CriminalTown.Configs;
+using CriminalTown.Controllers;
+using CriminalTown.Data;
 using Mobiray.Common;
 using Mobiray.Helpers;
 using Mobiray.StateMachine;
-using Template.Configs;
-using Template.Controllers;
-using Template.Data;
 using UnityEngine;
 
-namespace Template.States
+namespace CriminalTown.States
 {
     public class BaseGameState : State<GameController>
     {

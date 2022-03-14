@@ -1,8 +1,8 @@
-using Template.Configs;
+using CriminalTown.Configs;
 using Mobiray.Common;
 using UnityEngine;
 
-namespace Template.Controllers
+namespace CriminalTown.Controllers
 {
     public class SoundController : SignalReceiver
     {

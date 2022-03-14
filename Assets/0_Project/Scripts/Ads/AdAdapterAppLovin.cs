@@ -1,10 +1,10 @@
 using System;
+using CriminalTown.Controllers;
+using CriminalTown.Data;
 using Mobiray.Common;
-using Template.Controllers;
-using Template.Data;
 using UnityEngine;
 
-namespace Template.Ads
+namespace CriminalTown.Ads
 {
     public class AdAdapterAppLovin : MonoSingleton<AdAdapterAppLovin>, IAdProvider
     {

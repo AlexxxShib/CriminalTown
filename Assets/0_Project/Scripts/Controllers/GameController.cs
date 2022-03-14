@@ -1,14 +1,14 @@
 using System;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using CriminalTown.States;
 using Mobiray.Common;
 using Mobiray.StateMachine;
-using Template.States;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Template.Controllers
+namespace CriminalTown.Controllers
 {
     public class GameController : BaseGameController
     {

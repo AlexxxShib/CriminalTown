@@ -1,10 +1,10 @@
 using System.IO;
-using Template.Data;
+using CriminalTown.Data;
 using Mobiray.Common;
 using NaughtyAttributes;
 using UnityEngine;
 
-namespace Template.Configs
+namespace CriminalTown.Configs
 {
     [ExecuteInEditMode]
     [CreateAssetMenu(fileName = "GameSettings", menuName = "Configs/GameSettings")]

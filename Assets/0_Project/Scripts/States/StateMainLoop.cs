@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Template.States
+namespace CriminalTown.States
 {
     
     [CreateAssetMenu(fileName = "StateMainLoop", menuName = "GameState/StateMainLoop")]

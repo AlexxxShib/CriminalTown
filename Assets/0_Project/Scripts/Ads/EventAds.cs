@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Mobiray.Common;
 using UnityEngine;
 
-namespace Template.Ads
+namespace CriminalTown.Ads
 {
     public enum AdType
     {

@@ -1,4 +1,4 @@
-namespace Template
+namespace CriminalTown
 {
     public static class Tags
     {

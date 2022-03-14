@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-namespace Template.Data
+namespace CriminalTown.Data
 {
 
     [Serializable]

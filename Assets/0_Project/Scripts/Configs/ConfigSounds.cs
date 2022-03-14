@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Template.Configs
+namespace CriminalTown.Configs
 {
     [CreateAssetMenu(fileName = "SoundConfig", menuName = "Configs/Sounds")]
     public class ConfigSounds : ScriptableObject

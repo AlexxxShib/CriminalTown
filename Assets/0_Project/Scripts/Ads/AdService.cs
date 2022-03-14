@@ -1,11 +1,11 @@
 using System;
 using System.Threading.Tasks;
+using CriminalTown.Configs;
+using CriminalTown.Controllers;
 using Mobiray.Common;
-using Template.Configs;
-using Template.Controllers;
 using UnityEngine;
 
-namespace Template.Ads
+namespace CriminalTown.Ads
 {
     [CreateAssetMenu(fileName = "AdService", menuName = "Services/AdService")]
     public class AdService : ScriptableObject, INeedInitialization
