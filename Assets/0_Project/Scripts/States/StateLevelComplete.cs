@@ -13,7 +13,7 @@ namespace CriminalTown.States
         {
             base.Enter();
 
-            _gameState.currentLevel++;
+            // _gameState.currentLevel++;
             _host.SaveGameState();
             
             _host.screenLevelComplete.SetActive(true);

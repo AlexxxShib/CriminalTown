@@ -11,17 +11,13 @@ namespace CriminalTown.Data
     public class DataGameState
     {
         // public long Money;
-        // public int HardCurrency;
-        // public long TotalMoney;
 
-        // public int LastLevelUp;
-        // public int CurrentMoneyLevel;
+        public int money;
 
-        public int currentLevel;
+        public List<DataIsland> islands;
 
         [Space]
         // public int LevelParamter1;
-
         public DateTime appClosedDateTime;
 
         /*public void AddMoney(long value)

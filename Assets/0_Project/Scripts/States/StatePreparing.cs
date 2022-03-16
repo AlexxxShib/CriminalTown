@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using CriminalTown.Controllers;
 using CriminalTown.Data;
+using CriminalTown.Entities;
 using Mobiray.Common;
 using UnityEngine;
 using UnityEngine.AI;
@@ -12,8 +13,6 @@ namespace CriminalTown.States
     public class StatePreparing : BaseGameState
     {
 
-        private Transform _currentLevel;
-        
         public override void Enter()
         {
             base.Enter();
@@ -21,18 +20,12 @@ namespace CriminalTown.States
             _host.screenMain.SetActive(false);
             _host.screenLoading.SetActive(true);
             
-            _timerHelper.StartTimer(1, LoadingComplete);
-            
             var sessionData = ToolBox.Get<SessionData>();
-            sessionData.currentLevel = _gameState.currentLevel;
-            
-            _host.currentLevel = _currentLevel = GetCurrentLevel(_gameState.currentLevel, out sessionData.levelLoop);
-            
-            Analytics.SendLevelStart(sessionData);
+            Analytics.SendLevelStart(sessionData);//TODO
 
-            _host.textLevel.text = $"LEVEL {_gameState.currentLevel + 1}";
+            InitializeIslands();
             
-            //INIT LEVEL
+            _timerHelper.StartTimer(0.25f, LoadingComplete);
         }
 
         private void LoadingComplete()
@@ -42,44 +35,37 @@ namespace CriminalTown.States
             _stateMachine.ChangeState(_host.stateMainLoop);
         }
 
-        private Transform GetCurrentLevel(int currentLevel, out int loop)
+        private void InitializeIslands()
         {
-            if (_host.tutorialLevelsParent != null)
+            var islands = _host.parentIslands.GetComponentsInChildren<EntityIsland>(true);
+            
+            for (var i = 0; i < islands.Length; i++)
             {
-                var tutorialLevels = _host.tutorialLevelsParent.GetChildren();
+                DataIsland dataIsland;
 
-                if (currentLevel < tutorialLevels.Count)
+                if (i < _gameState.islands.Count)
                 {
-                    _host.levelsParent.gameObject.SetActive(false);
-                    _host.tutorialLevelsParent.gameObject.SetActive(true);
-                    
-                    for (var i = 0; i < tutorialLevels.Count; i++)
+                    dataIsland = _gameState.islands[i];
+                }
+                else
+                {
+                    dataIsland = new DataIsland
                     {
-                        tutorialLevels[i].gameObject.SetActive(i == currentLevel);
-                    }
-
-                    loop = 1;
+                        index = i,
+                        state = IslandState.CLOSED
+                    };
                     
-                    return tutorialLevels[currentLevel];
+                    _gameState.islands.Add(dataIsland);
                 }
 
-                _host.tutorialLevelsParent.gameObject.SetActive(false);
-                currentLevel -= tutorialLevels.Count;
-            }
-            
-            _host.levelsParent.gameObject.SetActive(true);
-            
-            var levels = _host.levelsParent.GetChildren();
-            var localLevel = currentLevel % levels.Count;
-            
-            for (var i = 0; i < levels.Count; i++)
-            {
-                levels[i].gameObject.SetActive(i == localLevel);
-            }
+                islands[i].Initialize(dataIsland);
 
-            loop = currentLevel / levels.Count + 1;
-
-            return levels[localLevel];
+                if (dataIsland.state == IslandState.CLOSED &&
+                    (i == 0 || _gameState.islands[i - 1].state == IslandState.OPENED))
+                {
+                    islands[i].SetAvailable();
+                }
+            }
         }
     }
 }

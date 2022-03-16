@@ -8,60 +8,56 @@ namespace CriminalTown.Entities
     public class CompHumanControl : MonoBehaviour
     {
 
-        public BaseJoystick Joystick;
+        public BaseJoystick joystick;
 
-        public bool IsNavigable => agent != null && agent.enabled && agent.isOnNavMesh;
+        public bool IsNavigable => _agent != null && _agent.enabled && _agent.isOnNavMesh;
+        public bool IsMoving => _isMoving;
 
-        public bool InputEnabled = true;
+        public bool inputEnabled = true;
 
-        private NavMeshAgent agent;
-
-        private Animator animator;
+        private NavMeshAgent _agent;
+        private Animator _animator;
         
         private static readonly int AnimIdMoving = Animator.StringToHash("isMoving");
         private static readonly int AnimIdCarrying = Animator.StringToHash("carrying");
         private static readonly int AnimIdDance = Animator.StringToHash("dance");
         private static readonly int AnimIdFall = Animator.StringToHash("fall");
 
-        private bool hasJoystick;
-        private float prevSpeed;
+        private bool _hasJoystick;
+        private bool _isMoving;
+        private float _prevSpeed;
 
         private void Awake()
         {
-            agent = GetComponent<NavMeshAgent>();
+            _agent = GetComponent<NavMeshAgent>();
             
-            animator = GetComponent<Animator>();
+            _animator = GetComponentInChildren<Animator>();
 
-            hasJoystick = Joystick != null;
+            _hasJoystick = joystick != null;
         }
 
         public void SetDance()
         {
-            animator.SetTrigger(AnimIdDance);
+            _animator.SetTrigger(AnimIdDance);
         }
 
         private void Update()
         {
-            var isMoving = false;
+            _isMoving = IsNavigable && _agent.remainingDistance > _agent.stoppingDistance;
 
-            if (IsNavigable)
-            {
-                isMoving = agent.remainingDistance > agent.stoppingDistance;
-            }
+            _animator.SetBool(AnimIdMoving, _isMoving);
 
-            animator.SetBool(AnimIdMoving, isMoving);
-
-            if (IsNavigable && hasJoystick)
+            if (IsNavigable && _hasJoystick)
             {
                 // Debug.Log($"joystick {Joystick.Direction3D}");
 
-                var direction = Joystick.Direction3D;
+                var direction = joystick.Direction3D;
                 
-                if (!InputEnabled) direction = Vector3.zero;
+                if (!inputEnabled) direction = Vector3.zero;
 
                 var destination = transform.position + direction;
 
-                agent.SetDestination(destination);
+                _agent.SetDestination(destination);
             }
         }
     }

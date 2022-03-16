@@ -12,23 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b275db10d89ee4484911b6e8da35628a, type: 3}
   m_Name: ConfigMain
   m_EditorClassIdentifier: 
-  InitGameState:
-    Money: 100
-    HardCurrency: 0
-    TotalMoney: 0
-    LastLevelUp: 0
-    CurrentMoneyLevel: 0
-    CurrentLevel: 0
-    LevelParamter1: 0
-  DebugGameState:
-    Money: 0
-    HardCurrency: 0
-    TotalMoney: 0
-    LastLevelUp: 0
-    CurrentMoneyLevel: 0
-    CurrentLevel: 0
-    LevelParamter1: 0
-  BasePriceParameter1: 0
-  PriceStepParameter1: 0
-  BaseParameter1Val: 0
-  StepParameter1Val: 0
+  initGameState:
+    money: 0
+    islands: []
+  debugGameState:
+    money: 2000
+    islands: []
+  islandBasePrice: 1000
+  islandPriceFactor: 0.4
+  connectionTime: 1

@@ -23,8 +23,7 @@ namespace CriminalTown.Controllers
         public TextMeshProUGUI textLevel;
 
         [Header("MAIN SETTINGS")]
-        public Transform tutorialLevelsParent;
-        public Transform levelsParent;
+        public Transform parentIslands;
 
         [Header("STATES")]
         public StatePreparing statePreparing;
@@ -33,8 +32,6 @@ namespace CriminalTown.Controllers
         public StateLevelComplete stateLevelComplete;
 
         [Header("REALTIME")]
-        public Transform currentLevel;
-        
         private MobirayLogger _logger = new MobirayLogger("GameController");
 
         private StateMachine<GameController> _stateMachine;
