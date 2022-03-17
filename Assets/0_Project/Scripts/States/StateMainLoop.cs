@@ -1,3 +1,4 @@
+using CriminalTown.Data;
 using CriminalTown.Entities;
 using Mobiray.Common;
 using UnityEngine;
@@ -26,6 +27,15 @@ namespace CriminalTown.States
         public void HandleSignal(SignalIslandPurchased signal)
         {
             _host.islandSurface.BuildNavMesh();
+
+            for (var i = 0; i < _gameState.islands.Count; i++)
+            {
+                if (i > 0 && _gameState.islands[i - 1].state == IslandState.OPENED && 
+                    _gameState.islands[i].state == IslandState.CLOSED)
+                {
+                    _host.islands[i].SetAvailable();
+                }
+            }
         }
     }
 }

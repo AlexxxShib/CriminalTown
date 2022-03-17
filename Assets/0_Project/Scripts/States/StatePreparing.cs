@@ -37,9 +37,9 @@ namespace CriminalTown.States
 
         private void InitializeIslands()
         {
-            var islands = _host.parentIslands.GetComponentsInChildren<EntityIsland>(true);
+            _host.islands.AddRange(_host.parentIslands.GetComponentsInChildren<EntityIsland>(true));
             
-            for (var i = 0; i < islands.Length; i++)
+            for (var i = 0; i < _host.islands.Count; i++)
             {
                 DataIsland dataIsland;
 
@@ -58,12 +58,12 @@ namespace CriminalTown.States
                     _gameState.islands.Add(dataIsland);
                 }
 
-                islands[i].Initialize(dataIsland);
+                _host.islands[i].Initialize(dataIsland);
 
                 if (dataIsland.state == IslandState.CLOSED &&
                     (i == 0 || _gameState.islands[i - 1].state == IslandState.OPENED))
                 {
-                    islands[i].SetAvailable();
+                    _host.islands[i].SetAvailable();
                 }
             }
             

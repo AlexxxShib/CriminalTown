@@ -16,7 +16,7 @@ MonoBehaviour:
     money: 0
     islands: []
   debugGameState:
-    money: 2000
+    money: 5000
     islands: []
   islandBasePrice: 1000
   islandPriceFactor: 0.4

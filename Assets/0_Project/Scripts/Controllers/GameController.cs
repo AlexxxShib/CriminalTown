@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using CriminalTown.Entities;
 using CriminalTown.States;
 using Mobiray.Common;
 using Mobiray.StateMachine;
@@ -26,6 +28,7 @@ namespace CriminalTown.Controllers
         [Header("MAIN SETTINGS")]
         public NavMeshSurface islandSurface;
         public Transform parentIslands;
+        public List<EntityIsland> islands;
 
         [Header("STATES")]
         public StatePreparing statePreparing;
