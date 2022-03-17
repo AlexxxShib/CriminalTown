@@ -8,6 +8,8 @@ using UnityEngine;
 
 namespace CriminalTown.Entities
 {
+    public struct SignalIslandPurchased { }
+    
     public class EntityIsland : MonoBehaviour
     {
         public DataIsland data;
@@ -16,9 +18,14 @@ namespace CriminalTown.Entities
         public GameObject offer;
         public GameObject body;
 
-        private TextMeshProUGUI _textPrice;
+        public ParticleSystemForceField ForceField { get; private set; }
+        public Collider ForceFieldCollider { get; private set; }
 
+        private TextMeshProUGUI _textPrice;
+        
         private ConfigMain _configMain;
+
+        private IslandConnector _curConnector;
 
         public void Initialize(DataIsland dataIsland)
         {
@@ -26,9 +33,11 @@ namespace CriminalTown.Entities
             
             data = dataIsland;
 
+            ForceField = offer.GetComponentInChildren<ParticleSystemForceField>(true);
+            ForceFieldCollider = ForceField.GetComponent<Collider>();
             _textPrice = offer.GetComponentInChildren<TextMeshProUGUI>(true);
 
-            var triggerAgent = offer.GetComponentInChildren<CompTriggerAgent>(true);
+            var triggerAgent = offer.GetComponent<CompTriggerAgent>();
 
             triggerAgent.onCallTriggerEnter += OnEnterIsland;
             triggerAgent.onCallTriggerExit += OnExitIsland;
@@ -42,6 +51,22 @@ namespace CriminalTown.Entities
             data.currentPrice = _configMain.GetIslandPrice(data.index);
             
             UpdateState();
+        }
+
+        public void AddMoney(int money)
+        {
+            data.currentPrice -= money;
+            UpdatePrice();
+
+            if (data.currentPrice <= 0)
+            {
+                data.state = IslandState.OPENED;
+                UpdateState();
+                
+                _curConnector.OnExit(this);
+                
+                ToolBox.Signals.Send<SignalIslandPurchased>();
+            }
         }
 
         public void UpdateState()
@@ -66,11 +91,11 @@ namespace CriminalTown.Entities
         {
             Debug.Log(other.gameObject);
 
-            var connector = other.GetComponentInParent<IslandConnector>();
+            _curConnector = other.GetComponentInParent<IslandConnector>();
             
-            if (connector != null)
+            if (_curConnector != null)
             {
-                connector.OnEnter(this);
+                _curConnector.OnEnter(this);
             }
         }
 

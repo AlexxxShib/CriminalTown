@@ -1,10 +1,12 @@
+using CriminalTown.Entities;
+using Mobiray.Common;
 using UnityEngine;
 
 namespace CriminalTown.States
 {
     
     [CreateAssetMenu(fileName = "StateMainLoop", menuName = "GameState/StateMainLoop")]
-    public class StateMainLoop : BaseGameState
+    public class StateMainLoop : BaseGameState, IReceive<SignalIslandPurchased>
     {
         
         public override void Enter()
@@ -20,6 +22,10 @@ namespace CriminalTown.States
             
             _host.screenMain.SetActive(false);
         }
-        
+
+        public void HandleSignal(SignalIslandPurchased signal)
+        {
+            _host.islandSurface.BuildNavMesh();
+        }
     }
 }

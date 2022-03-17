@@ -8,7 +8,7 @@ namespace CriminalTown
 
     public struct SignalAddMoney
     {
-        public long money;
+        public int money;
     }
     
     public struct SignalAddHardCurrency

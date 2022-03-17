@@ -6,6 +6,7 @@ using Mobiray.Common;
 using Mobiray.StateMachine;
 using TMPro;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 
 namespace CriminalTown.Controllers
@@ -23,6 +24,7 @@ namespace CriminalTown.Controllers
         public TextMeshProUGUI textLevel;
 
         [Header("MAIN SETTINGS")]
+        public NavMeshSurface islandSurface;
         public Transform parentIslands;
 
         [Header("STATES")]

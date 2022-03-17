@@ -20,4 +20,7 @@ MonoBehaviour:
     islands: []
   islandBasePrice: 1000
   islandPriceFactor: 0.4
-  connectionTime: 1
+  connectionTime: 0.6
+  emitResourceTime: 0.8
+  emitMoneyMin: 10
+  emitMoneyMax: 800

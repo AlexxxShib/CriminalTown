@@ -17,8 +17,11 @@ namespace CriminalTown.Configs
         public int islandBasePrice;
         public float islandPriceFactor;
 
-        [Header("Timing")]
+        [Header("Other")]
         public float connectionTime = 1;
+        public float emitResourceTime = 0.8f;
+        public int emitMoneyMin = 10;
+        public int emitMoneyMax = 800;
 
         /*[Space] 
         public long BasePriceParameter1;

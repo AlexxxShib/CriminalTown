@@ -66,6 +66,8 @@ namespace CriminalTown.States
                     islands[i].SetAvailable();
                 }
             }
+            
+            _host.islandSurface.BuildNavMesh();
         }
     }
 }

@@ -25,7 +25,9 @@ namespace CriminalTown.Components.Connectors
             {
                 if (value != _isReady)
                 {
-                    if (value)
+                    _isReady = value;
+
+                    if (_isReady)
                     {
                         OnConnected?.Invoke(ConnectedObject);
                     }
@@ -34,8 +36,6 @@ namespace CriminalTown.Components.Connectors
                         OnDisconnected?.Invoke(ConnectedObject);
                     }
                 }
-
-                _isReady = value;
             }
         }
 
@@ -88,6 +88,7 @@ namespace CriminalTown.Components.Connectors
             }
 
             IsReady = true;
+            _progressbarMat.SetFloat(FillPercent, 0);
         }
 
         public void OnEnter(T connectedObject)

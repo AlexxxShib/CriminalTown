@@ -8,6 +8,7 @@ namespace CriminalTown.Entities
         public Action<Collider> onCallTriggerEnter;
         public Action<Collider> onCallTriggerStay;
         public Action<Collider> onCallTriggerExit;
+        public Action onCallParticleTrigger;
 
         private void OnTriggerEnter(Collider other)
         {
@@ -23,5 +24,11 @@ namespace CriminalTown.Entities
         {
             onCallTriggerExit?.Invoke(other);
         }
+
+        private void OnParticleTrigger()
+        {
+            onCallParticleTrigger?.Invoke();
+        }
+        
     }
 }

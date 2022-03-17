@@ -10,8 +10,6 @@ namespace CriminalTown.Data
     [Serializable]
     public class DataGameState
     {
-        // public long Money;
-
         public int money;
 
         public List<DataIsland> islands;
@@ -20,14 +18,14 @@ namespace CriminalTown.Data
         // public int LevelParamter1;
         public DateTime appClosedDateTime;
 
-        /*public void AddMoney(long value)
+        public void AddMoney(int value)
         {
-            Money += value;
+            money += value;
             // if (value > 0) TotalMoney += value;
-            ToolBox.Signals.Send(new SignalAddMoney {Money = value});
+            ToolBox.Signals.Send(new SignalAddMoney {money = value});
         }
 
-        public void AddHard(int value)
+        /*public void AddHard(int value)
         {
             HardCurrency += value;
             ToolBox.Signals.Send(new SignalAddHardCurrency {HardCurrency = value});
