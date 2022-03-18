@@ -1,5 +1,5 @@
 using System;
-using Mobiray.Common;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -13,27 +13,59 @@ namespace CriminalTown.Entities
         public bool IsNavigable => _agent != null && _agent.enabled && _agent.isOnNavMesh;
         public bool IsMoving => _isMoving;
 
+        public float MaxSpeed
+        {
+            get => _agent.speed;
+            set => _agent.speed = value;
+        }
+
         public bool inputEnabled = true;
 
         private NavMeshAgent _agent;
         private Animator _animator;
         
         private static readonly int AnimIdMoving = Animator.StringToHash("isMoving");
+        private static readonly int AnimIdSpeed = Animator.StringToHash("speed");
         private static readonly int AnimIdCarrying = Animator.StringToHash("carrying");
         private static readonly int AnimIdDance = Animator.StringToHash("dance");
         private static readonly int AnimIdFall = Animator.StringToHash("fall");
 
         private bool _hasJoystick;
+        
         private bool _isMoving;
-        private float _prevSpeed;
+
+        private Transform _destination;
+        private Action<CompHumanControl> _onDestinationFinish;
+        private bool _hasDestination;
 
         private void Awake()
         {
             _agent = GetComponent<NavMeshAgent>();
-            
             _animator = GetComponentInChildren<Animator>();
 
             _hasJoystick = joystick != null;
+        }
+
+        public async void SetPosition(Vector3 pos)
+        {
+            /*_agent.enabled = false;
+
+            transform.position = pos;
+            transform.rotation = rot;
+
+            await Task.Delay(TimeSpan.FromSeconds(Time.deltaTime));
+
+            _agent.enabled = true;*/
+
+            _agent.Warp(pos);
+        }
+
+        public void SetDestination(Transform destination, Action<CompHumanControl> listener)
+        {
+            _destination = destination;
+            _onDestinationFinish = listener;
+            
+            _hasDestination = true;
         }
 
         public void SetDance()
@@ -43,21 +75,38 @@ namespace CriminalTown.Entities
 
         private void Update()
         {
-            _isMoving = IsNavigable && _agent.remainingDistance > _agent.stoppingDistance;
+            var isNavigable = IsNavigable;
+            
+            _isMoving = isNavigable && _agent.remainingDistance > _agent.stoppingDistance;
 
             _animator.SetBool(AnimIdMoving, _isMoving);
+            _animator.SetFloat(AnimIdSpeed, isNavigable ? _agent.velocity.magnitude : 0);
 
-            if (IsNavigable && _hasJoystick)
+            if (!isNavigable)
             {
-                // Debug.Log($"joystick {Joystick.Direction3D}");
-
-                var direction = joystick.Direction3D;
-                
-                if (!inputEnabled) direction = Vector3.zero;
-
+                return;
+            }
+            
+            if (_hasJoystick)
+            {
+                var direction = inputEnabled ? joystick.Direction3D : Vector3.zero;
                 var destination = transform.position + direction;
 
                 _agent.SetDestination(destination);
+                return;
+            }
+
+            if (_hasDestination)
+            {
+                _agent.SetDestination(_destination.position);
+
+                var finishDistance = (_destination.position - transform.position).magnitude;
+
+                if (finishDistance <= 1f)
+                {
+                    _onDestinationFinish.Invoke(this);
+                    _hasDestination = false;
+                }
             }
         }
     }

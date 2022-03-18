@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using CriminalTown.Components.Connectors;
 using CriminalTown.Configs;
 using CriminalTown.Data;
@@ -17,6 +18,9 @@ namespace CriminalTown.Entities
         [Space]
         public GameObject offer;
         public GameObject body;
+
+        [Space]
+        public Transform peoplePoints;
 
         public ParticleSystemForceField ForceField { get; private set; }
         public Collider ForceFieldCollider { get; private set; }
@@ -85,6 +89,14 @@ namespace CriminalTown.Entities
             }
             
             _textPrice.text = $"{data.currentPrice:N0}$";
+        }
+
+        /*
+         * side 0 is left, 1 is right
+         */
+        public List<Transform> GetPeoplePoints(int side)
+        {
+            return peoplePoints.GetChild(side).GetChildren();
         }
 
         private void OnEnterIsland(Collider other)

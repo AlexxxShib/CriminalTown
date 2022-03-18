@@ -23,6 +23,8 @@ namespace CriminalTown.Entities
         
         private void Awake()
         {
+            ToolBox.Add(this);
+            
             _humanControl = GetComponent<CompHumanControl>();
             _islandConnector = GetComponent<IslandConnector>();
             

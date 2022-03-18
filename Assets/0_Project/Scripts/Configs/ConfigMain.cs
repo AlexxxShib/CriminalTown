@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Globalization;
 using CriminalTown.Data;
+using CriminalTown.Entities;
 using Mobiray.Common;
 
 namespace CriminalTown.Configs
@@ -23,6 +24,19 @@ namespace CriminalTown.Configs
         public int emitMoneyMin = 10;
         public int emitMoneyMax = 800;
 
+        [Header("Citizens")]
+        public float citizenSpeedWalk = 2;
+        public float citizenSpeedRun = 3;
+        
+        [Space]
+        public List<Material> citizenMaterials;
+        public List<EntityCitizen> citizenPrefabs;
+
+        [Header("Citizen System")]
+        public float updateCitizensTime = 1;
+        public int citizensPerIsland = 2;
+        public float citizenPlayerDistanceMin = 8;
+
         /*[Space] 
         public long BasePriceParameter1;
         public float PriceStepParameter1;
@@ -38,11 +52,16 @@ namespace CriminalTown.Configs
             // ReadConfigMoneyToLevelUp();
         }
 
-        public int GetIslandPrice(int level)
+        public int GetIslandPrice(int islandIndex)
         {
-            return (int) (islandBasePrice * (1 + islandPriceFactor * level));
+            return (int) (islandBasePrice * (1 + islandPriceFactor * (islandIndex - 1)));
         }
-        
+
+        public int GetCitizensCount(int islandsCount)
+        {
+            return (islandsCount - 1) * citizensPerIsland;
+        }
+
         /*public int GetParameter1Val(int level)
         {
             //BaseParameter1Val

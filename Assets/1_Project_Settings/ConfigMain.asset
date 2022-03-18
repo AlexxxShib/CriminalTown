@@ -14,13 +14,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initGameState:
     money: 0
-    islands: []
+    islands:
+    - index: 0
+      state: 0
+      currentPrice: 0
   debugGameState:
     money: 5000
-    islands: []
+    islands:
+    - index: 0
+      state: 0
+      currentPrice: 0
+    - index: 1
+      state: 0
+      currentPrice: 0
   islandBasePrice: 1000
   islandPriceFactor: 0.4
   connectionTime: 0.6
   emitResourceTime: 0.8
   emitMoneyMin: 10
   emitMoneyMax: 800
+  citizenSpeedWalk: 2
+  citizenSpeedRun: 3
+  citizenMaterials:
+  - {fileID: 2100000, guid: 814f491ea1422f5418dd1a97154ca32c, type: 2}
+  - {fileID: 2100000, guid: 4142add5bd162f84497f4c6e082c6183, type: 2}
+  citizenPrefabs:
+  - {fileID: 6237996799701716922, guid: 1f1c26e5d13604c3b9068a888c83807e, type: 3}
+  updateCitizensTime: 1
+  citizensPerIsland: 2
+  citizenPlayerDistanceMin: 8
