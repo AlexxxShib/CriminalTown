@@ -5449,6 +5449,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 868182593}
     m_Modifications:
+    - target: {fileID: 7008618211774389739, guid: 6a8f313288a774e6a948d9c3af0a02a9,
+        type: 3}
+      propertyPath: logger.mainTag
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7008618211774389739, guid: 6a8f313288a774e6a948d9c3af0a02a9,
+        type: 3}
+      propertyPath: logger.showLog
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7013548236144142837, guid: 6a8f313288a774e6a948d9c3af0a02a9,
         type: 3}
       propertyPath: m_Name
@@ -5519,6 +5529,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8746544157230241238, guid: 6a8f313288a774e6a948d9c3af0a02a9,
+        type: 3}
+      propertyPath: initProgressBar
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a8f313288a774e6a948d9c3af0a02a9, type: 3}
 --- !u!4 &5698879567133578741 stripped
@@ -5527,6 +5542,31 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5698879567133578740}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &5698879567133578742 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3236979596945246910, guid: 6a8f313288a774e6a948d9c3af0a02a9,
+    type: 3}
+  m_PrefabInstance: {fileID: 5698879567133578740}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5698879567133578743 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7013548236144142837, guid: 6a8f313288a774e6a948d9c3af0a02a9,
+    type: 3}
+  m_PrefabInstance: {fileID: 5698879567133578740}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5698879567133578744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5698879567133578743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 018691bdbe7b4ab3b3daf34f77bce7eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  progressBar: {fileID: 5698879567133578742}
 --- !u!1001 &7053393265486851000
 PrefabInstance:
   m_ObjectHideFlags: 0

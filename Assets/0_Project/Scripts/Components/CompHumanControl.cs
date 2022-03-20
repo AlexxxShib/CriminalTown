@@ -19,7 +19,21 @@ namespace CriminalTown.Entities
             set => _agent.speed = value;
         }
 
-        public bool inputEnabled = true;
+        private bool _inputEnabled = true;
+
+        public bool InputEnabled
+        {
+            get => _inputEnabled;
+            set
+            {
+                _inputEnabled = value;
+
+                if (!_inputEnabled && IsNavigable)
+                {
+                    _agent.ResetPath();
+                }
+            }
+        }
 
         private NavMeshAgent _agent;
         private Animator _animator;
@@ -89,14 +103,14 @@ namespace CriminalTown.Entities
             
             if (_hasJoystick)
             {
-                var direction = inputEnabled ? joystick.Direction3D : Vector3.zero;
+                var direction = InputEnabled ? joystick.Direction3D : Vector3.zero;
                 var destination = transform.position + direction;
 
                 _agent.SetDestination(destination);
                 return;
             }
 
-            if (_hasDestination)
+            if (_hasDestination && InputEnabled)
             {
                 _agent.SetDestination(_destination.position);
 

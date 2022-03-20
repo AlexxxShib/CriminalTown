@@ -44,30 +44,32 @@ namespace CriminalTown.Components.Connectors
         private ConfigMain _configMain;
         
         private float _currentTime;
-        
+
+        private MeshRenderer _progressRenderer;
         private Material _progressbarMat;
         private static readonly int FillPercent = Shader.PropertyToID("_fillPercent");
 
-        private void Awake()
+        protected virtual void Awake()
         {
             _humanControl = GetComponent<CompHumanControl>();
             
             _configMain = ToolBox.Get<ConfigMain>();
             
-            var progressRenderer = progressBar.GetComponentInChildren<MeshRenderer>();
-            _progressbarMat = new Material(progressRenderer.material);
-            progressRenderer.material = _progressbarMat;
+            _progressRenderer = progressBar.GetComponentInChildren<MeshRenderer>();
+            _progressbarMat = new Material(_progressRenderer.material);
+            _progressRenderer.material = _progressbarMat;
+
             _progressbarMat.SetFloat(FillPercent, 0);
         }
         
         private void Update()
         {
-            progressBar.rotation = Quaternion.Euler(0, 180, 0);
-
             if (!IsConnected)
             {
                 return;
             }
+            
+            progressBar.rotation = Quaternion.Euler(0, 180, 0);
 
             if (_humanControl.IsMoving)
             {
@@ -81,6 +83,8 @@ namespace CriminalTown.Components.Connectors
             _currentTime += Time.deltaTime;
             
             _progressbarMat.SetFloat(FillPercent, Mathf.Clamp01(_currentTime / _configMain.connectionTime));
+            
+            // Debug.Log($"current time {_currentTime} from {_configMain.connectionTime}");
 
             if (_currentTime < _configMain.connectionTime)
             {
@@ -91,8 +95,11 @@ namespace CriminalTown.Components.Connectors
             _progressbarMat.SetFloat(FillPercent, 0);
         }
 
-        public void OnEnter(T connectedObject)
+        public virtual void OnEnter(T connectedObject)
         {
+            progressBar.gameObject.SetActive(true);
+            _progressRenderer.material = _progressbarMat;
+            
             IsConnected = true;
             IsReady = false;
             
@@ -101,8 +108,10 @@ namespace CriminalTown.Components.Connectors
             _currentTime = 0;
         }
 
-        public void OnExit(T connectedObject)
+        public virtual void OnExit(T connectedObject)
         {
+            progressBar.gameObject.SetActive(false);
+            
             IsConnected = false;
             IsReady = false;
             

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4931655203580819320}
   - component: {fileID: 6716787907696468463}
   - component: {fileID: 6237996799701716922}
+  - component: {fileID: 5341393917964209674}
   m_Layer: 0
   m_Name: CitizenMale
   m_TagString: Untagged
@@ -103,6 +104,20 @@ MonoBehaviour:
   bodyContainer: {fileID: 9030050173225572768}
   headContainer: {fileID: 6237996799721289612}
   glassesContainer: {fileID: 6237996798003731797}
+--- !u!136 &5341393917964209674
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6237996799701716920}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 1
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1001 &2975226581499974330
 PrefabInstance:
   m_ObjectHideFlags: 0

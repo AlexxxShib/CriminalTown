@@ -33,7 +33,7 @@ namespace CriminalTown.Controllers
             _config = ToolBox.Get<ConfigMain>();
             _islands = ToolBox.Get<GameController>().islands;
 
-            _logger.Enabled = enabledLog;
+            _logger.showLog = enabledLog;
             
             UpdatePoints();
         }

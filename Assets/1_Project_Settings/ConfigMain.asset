@@ -41,5 +41,5 @@ MonoBehaviour:
   citizenPrefabs:
   - {fileID: 6237996799701716922, guid: 1f1c26e5d13604c3b9068a888c83807e, type: 3}
   updateCitizensTime: 1
-  citizensPerIsland: 2
+  citizensPerIsland: 1
   citizenPlayerDistanceMin: 8

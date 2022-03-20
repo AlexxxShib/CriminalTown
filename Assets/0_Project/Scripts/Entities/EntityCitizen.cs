@@ -1,4 +1,5 @@
 using System;
+using CriminalTown.Components.Connectors;
 using CriminalTown.Configs;
 using Mobiray.Common;
 using UnityEngine;
@@ -24,6 +25,28 @@ namespace CriminalTown.Entities
 
             _humanControl = GetComponent<CompHumanControl>();
             _humanControl.MaxSpeed = _config.citizenSpeedWalk;
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            // Debug.Log($"enter {other.gameObject.name}", other.gameObject);
+            
+            var connector = other.GetComponentInParent<CitizenConnector>();
+
+            if (connector != null)
+            {
+                connector.OnEnter(this);
+            }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            var connector = other.GetComponentInParent<CitizenConnector>();
+
+            if (connector != null)
+            {
+                connector.OnExit(this);
+            }
         }
 
         private void InitializeView()
