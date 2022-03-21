@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using CriminalTown.Configs;
 using CriminalTown.Data;
@@ -11,7 +12,7 @@ namespace CriminalTown.Controllers
 {
     public class CitizenSystem : SignalReceiver, IReceive<SignalIslandPurchased>
     {
-        public bool enabledLog = true;
+        public MobirayLogger logger;
         
         [Space]
         public Transform entitiesParent;
@@ -22,24 +23,23 @@ namespace CriminalTown.Controllers
         private List<Transform> _leftSidePoints = new();
         private List<Transform> _rightSidePoints = new();
 
+        private EntityPlayer _player;
         private List<EntityCitizen> _citizens = new();
 
         private ConfigMain _config;
-
-        private MobirayLogger _logger = new MobirayLogger("CitizenSystem");
 
         private void Awake()
         {
             _config = ToolBox.Get<ConfigMain>();
             _islands = ToolBox.Get<GameController>().islands;
-
-            _logger.showLog = enabledLog;
             
             UpdatePoints();
         }
 
         private void Start()
         {
+            _player = ToolBox.Get<EntityPlayer>();
+
             StartTimer();
         }
 
@@ -59,8 +59,18 @@ namespace CriminalTown.Controllers
 
         private void TryAddCitizen()
         {
+            var deathCitizens = _citizens.Where(c => c.Death).ToList();
+            
+            foreach (var citizen in deathCitizens)
+            {
+                if (TryDestroyCitizen(citizen))
+                {
+                    _citizens.Remove(citizen);
+                }
+            }
+            
             var targetCitizensCount = _config.GetCitizensCount(_openedIslandsCount);
-            if (targetCitizensCount <= _citizens.Count)
+            if (targetCitizensCount <= _citizens.Count(c => !c.Death))
             {
                 return;
             }
@@ -70,7 +80,7 @@ namespace CriminalTown.Controllers
                 var citizen = Instantiate(_config.citizenPrefabs.RandomItem(), entitiesParent);
                 var control = citizen.GetComponent<CompHumanControl>();
                 
-                _logger.LogDebug($"add citizen {citizen.gameObject.name} start: {start.position} finish: {end.position}");
+                logger.LogDebug($"add citizen {citizen.gameObject.name} start: {start.position} finish: {end.position}");
 
                 control.SetPosition(start.position);
                 control.SetDestination(end, 
@@ -82,29 +92,37 @@ namespace CriminalTown.Controllers
 
         private async void OnCitizenFinishPath(EntityCitizen citizen, CompHumanControl control, List<Transform> points)
         {
-            var player = ToolBox.Get<EntityPlayer>();
+            logger.LogDebug($"citizen {citizen.gameObject.name} finished path");
 
-            var citizenPlayerDistance = (player.transform.position - citizen.transform.position).magnitude;
-            
-            _logger.LogDebug($"citizen {citizen.gameObject.name} finished path");
-
-            if (citizenPlayerDistance > _config.citizenPlayerDistanceMin)
+            if (TryDestroyCitizen(citizen))
             {
-                _citizens.Remove(citizen);
-                Destroy(citizen.gameObject);
-
-                _logger.LogDebug($"citizen {citizen.gameObject.name} destroyed");
                 return;
             }
             
             var destination = FindFarPoint(citizen.transform.position, points);
             
-            _logger.LogDebug($"citizen {citizen.gameObject.name} continue {destination.position}");
+            logger.LogDebug($"citizen {citizen.gameObject.name} continue {destination.position}");
 
             await Task.Delay(TimeSpan.FromSeconds(Time.deltaTime));
             
             control.SetDestination(destination,
                 humanControl => OnCitizenFinishPath(citizen, humanControl, points));
+        }
+
+        private bool TryDestroyCitizen(EntityCitizen citizen)
+        {
+            var citizenPlayerDistance = (_player.transform.position - citizen.transform.position).magnitude;
+            if (citizenPlayerDistance < _config.citizenPlayerDistanceMin)
+            {
+                return false;
+            }
+
+            _citizens.Remove(citizen);
+            Destroy(citizen.gameObject);
+
+            logger.LogDebug($"citizen {citizen.gameObject.name} destroyed");
+            return true;
+
         }
 
         private bool CalculatePoints(out Transform start, out Transform end, out List<Transform> points)

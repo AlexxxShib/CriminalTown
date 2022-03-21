@@ -383,7 +383,7 @@ PrefabInstance:
     - target: {fileID: 4680194721857523216, guid: 569fa85c969fcb14699de646e51f1e48,
         type: 3}
       propertyPath: m_Name
-      value: Resource Force Field
+      value: ResourceForceField
       objectReference: {fileID: 0}
     - target: {fileID: 4680194721857523217, guid: 569fa85c969fcb14699de646e51f1e48,
         type: 3}

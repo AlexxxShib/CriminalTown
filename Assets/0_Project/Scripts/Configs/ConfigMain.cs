@@ -4,6 +4,7 @@ using System.Globalization;
 using CriminalTown.Data;
 using CriminalTown.Entities;
 using Mobiray.Common;
+using MobirayCore.Helpers;
 
 namespace CriminalTown.Configs
 {
@@ -25,6 +26,7 @@ namespace CriminalTown.Configs
         public int emitMoneyMax = 800;
 
         [Header("Citizens")]
+        public int citizenHealth = 3;
         public float citizenSpeedWalk = 2;
         public float citizenSpeedRun = 3;
         

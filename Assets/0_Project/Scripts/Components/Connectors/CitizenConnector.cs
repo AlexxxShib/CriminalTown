@@ -24,8 +24,11 @@ namespace CriminalTown.Components.Connectors
             }
             
             base.OnExit(citizen);
-            
-            citizen.GetComponent<CompHumanControl>().InputEnabled = true;
+
+            if (!citizen.Death)
+            {
+                citizen.GetComponent<CompHumanControl>().InputEnabled = true;
+            }
         }
     }
 }

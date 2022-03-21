@@ -13,6 +13,12 @@ namespace CriminalTown.Entities
         public Transform headContainer;
         public Transform glassesContainer;
 
+        [Space]
+        public int reward = 100;
+        
+        public int Health { get; private set; }
+        public bool Death { get; private set; }
+
         private ConfigMain _config;
 
         private CompHumanControl _humanControl;
@@ -20,6 +26,8 @@ namespace CriminalTown.Entities
         private void Awake()
         {
             _config = ToolBox.Get<ConfigMain>();
+
+            Health = _config.citizenHealth;
             
             InitializeView();
 
@@ -30,6 +38,11 @@ namespace CriminalTown.Entities
         private void OnTriggerEnter(Collider other)
         {
             // Debug.Log($"enter {other.gameObject.name}", other.gameObject);
+
+            if (Death)
+            {
+                return;
+            }
             
             var connector = other.GetComponentInParent<CitizenConnector>();
 
@@ -46,6 +59,13 @@ namespace CriminalTown.Entities
             if (connector != null)
             {
                 connector.OnExit(this);
+            }
+            
+            if (!Death && Health <= 0)
+            {
+                Death = true;
+
+                _humanControl.SetDeath();
             }
         }
 
@@ -66,6 +86,25 @@ namespace CriminalTown.Entities
             {
                 SetRandomChild(glassesContainer, material);
             }
+        }
+
+        public bool ApplyHit(bool lastHit)
+        {
+            var hasHealth = Health > 0;
+
+            if (hasHealth)
+            {
+                Health--;
+            }
+
+            if (lastHit && Health <= 0)
+            {
+                Death = true;
+
+                _humanControl.SetDeath();
+            }
+
+            return hasHealth;
         }
 
         private static GameObject SetRandomChild(Transform container, Material material, int from = 0)

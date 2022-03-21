@@ -33,6 +33,7 @@ MonoBehaviour:
   emitResourceTime: 0.8
   emitMoneyMin: 10
   emitMoneyMax: 800
+  citizenHealth: 3
   citizenSpeedWalk: 2
   citizenSpeedRun: 3
   citizenMaterials:
