@@ -16,12 +16,16 @@ namespace CriminalTown.Entities
     public class EntityPlayer : MonoBehaviour
     {
         public MobirayLogger logger;
+        
+        [Space]
+        public GameObject view;
         public ParticleSystem moneyEmitter;
         public PlayableDirector timelineStealMoney;
         
         private CompHumanControl _humanControl;
         private IslandConnector _islandConnector;
         private CitizenConnector _citizenConnector;
+        private ShelterConnector _shelterConnector;
 
         private CompTriggerAgent _moneyTriggerAgent;
         private ParticleSystemForceField _ownForceField;
@@ -41,25 +45,29 @@ namespace CriminalTown.Entities
 
         private void Awake()
         {
+            _configMain = ToolBox.Get<ConfigMain>();
+            _gameState = ToolBox.Get<DataGameState>();
+            
             ToolBox.Add(this);
             
             _humanControl = GetComponent<CompHumanControl>();
+            
             _islandConnector = GetComponent<IslandConnector>();
+            _islandConnector.OnConnected += OnIslandConnected;
+            _islandConnector.OnDisconnected += OnIslandDisconnected;
+
             _citizenConnector = GetComponent<CitizenConnector>();
+            _citizenConnector.OnConnected += OnCitizenConnected;
+            _citizenConnector.OnDisconnected += OnCitizenDisconnected;
+            
+            _shelterConnector = GetComponent<ShelterConnector>();
+            _shelterConnector.OnConnected += OnShelterConnected;
+            _shelterConnector.OnDisconnected += OnShelterDisconnected;
 
             _moneyTriggerAgent = moneyEmitter.GetComponent<CompTriggerAgent>();
             _ownForceField = GetComponentInChildren<ParticleSystemForceField>();
 
             _moneyTriggerAgent.onCallParticleTrigger += OnMoneyParticlesTrigger;
-            
-            _islandConnector.OnConnected += OnIslandConnected;
-            _islandConnector.OnDisconnected += OnIslandDisconnected;
-
-            _citizenConnector.OnConnected += OnCitizenConnected;
-            _citizenConnector.OnDisconnected += OnCitizenDisconnected;
-
-            _configMain = ToolBox.Get<ConfigMain>();
-            _gameState = ToolBox.Get<DataGameState>();
 
             timelineStealMoney.played += director =>
             {
@@ -184,6 +192,22 @@ namespace CriminalTown.Entities
                 
                 _gameState.AddMoney(citizen.reward);
             }
+        }
+
+        private void OnShelterConnected(EntityShelter shelter)
+        {
+            logger.LogDebug($"+shelter {shelter.gameObject.name}");
+            
+            shelter.EnterShelter();
+            view.SetActive(false);
+        }
+
+        private void OnShelterDisconnected(EntityShelter shelter)
+        {
+            logger.LogDebug($"-shelter {shelter.gameObject.name}");
+            
+            shelter.LeaveShelter();
+            view.SetActive(true);
         }
 
         private void OnMoneyParticlesTrigger()
