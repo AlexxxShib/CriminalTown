@@ -4,31 +4,33 @@ namespace CriminalTown.Components.Connectors
 {
     public class CitizenConnector : BaseConnector<EntityCitizen>
     {
-        public override void OnEnter(EntityCitizen citizen)
+        public override bool OnEnter(EntityCitizen citizen)
         {
             if (IsConnected)
             {
-                return;
+                return false;
             }
             
             base.OnEnter(citizen);
 
             citizen.GetComponent<CompHumanControl>().InputEnabled = false;
+
+            return true;
         }
 
-        public override void OnExit(EntityCitizen citizen)
+        public override bool OnExit(EntityCitizen citizen)
         {
             if (citizen != ConnectedObject)
             {
-                return;
+                return true;
             }
             
-            base.OnExit(citizen);
-
             if (!citizen.Death)
             {
                 citizen.GetComponent<CompHumanControl>().InputEnabled = true;
             }
+            
+            return base.OnExit(citizen);
         }
     }
 }

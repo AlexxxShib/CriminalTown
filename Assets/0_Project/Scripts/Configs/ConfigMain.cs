@@ -36,8 +36,9 @@ namespace CriminalTown.Configs
 
         [Header("Citizen System")]
         public float updateCitizensTime = 1;
-        public int citizensPerIsland = 2;
         public float citizenPlayerDistanceMin = 8;
+        public float citizenPanicDistance = 4;
+        public float citizenPanicAngle = 120;
 
         /*[Space] 
         public long BasePriceParameter1;
@@ -57,11 +58,6 @@ namespace CriminalTown.Configs
         public int GetIslandPrice(int islandIndex)
         {
             return (int) (islandBasePrice * (1 + islandPriceFactor * (islandIndex - 1)));
-        }
-
-        public int GetCitizensCount(int islandsCount)
-        {
-            return (islandsCount - 1) * citizensPerIsland;
         }
 
         /*public int GetParameter1Val(int level)

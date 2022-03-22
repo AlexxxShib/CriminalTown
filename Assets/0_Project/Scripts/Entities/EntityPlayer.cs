@@ -21,6 +21,8 @@ namespace CriminalTown.Entities
         public GameObject view;
         public ParticleSystem moneyEmitter;
         public PlayableDirector timelineStealMoney;
+
+        public bool CrimeInProgress => _stealMoneyInProgress;
         
         private CompHumanControl _humanControl;
         private IslandConnector _islandConnector;
@@ -171,6 +173,7 @@ namespace CriminalTown.Entities
             if (_stealMoneyInProgress)
             {
                 timelineStealMoney.Stop();
+                citizen.SetPanic();
             }
             
             CleanupMoneyEmitter(_ownForceField.GetComponent<Collider>());

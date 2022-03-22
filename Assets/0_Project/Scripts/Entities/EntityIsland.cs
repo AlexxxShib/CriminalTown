@@ -14,6 +14,7 @@ namespace CriminalTown.Entities
     public class EntityIsland : MonoBehaviour
     {
         public DataIsland data;
+        public int citizenCount;
         
         [Space]
         public GameObject offer;

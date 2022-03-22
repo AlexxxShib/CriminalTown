@@ -8,7 +8,6 @@ using UnityEngine;
 
 namespace CriminalTown.Components.Connectors
 {
-
     public interface IConnector
     {
         public bool IsConnected { get; }
@@ -16,136 +15,145 @@ namespace CriminalTown.Components.Connectors
 
     public abstract class BaseConnector<T> : MonoBehaviour, IConnector where T : MonoBehaviour
     {
-    public MobirayLogger logger;
-    public Transform progressBar;
+        public MobirayLogger logger;
+        public Transform progressBar;
 
-    public Action<T> OnConnected;
-    public Action<T> OnDisconnected;
+        public Action<T> OnConnected;
+        public Action<T> OnDisconnected;
 
-    public bool IsConnected { get; protected set; }
-    public T ConnectedObject { get; protected set; }
+        public bool IsConnected { get; protected set; }
+        public T ConnectedObject { get; protected set; }
 
-    private bool _isReady;
+        private bool _isReady;
 
-    public bool IsReady
-    {
-        get => _isReady;
-        set
+        public bool IsReady
         {
-            if (value != _isReady)
+            get => _isReady;
+            set
             {
-                _isReady = value;
+                if (value != _isReady)
+                {
+                    _isReady = value;
 
-                if (_isReady)
-                {
-                    OnConnected?.Invoke(ConnectedObject);
-                }
-                else
-                {
-                    OnDisconnected?.Invoke(ConnectedObject);
+                    if (_isReady)
+                    {
+                        OnConnected?.Invoke(ConnectedObject);
+                    }
+                    else
+                    {
+                        OnDisconnected?.Invoke(ConnectedObject);
+                    }
                 }
             }
         }
-    }
 
 
-    private CompHumanControl _humanControl;
-    private ConfigMain _configMain;
+        private CompHumanControl _humanControl;
+        private ConfigMain _configMain;
 
-    private float _currentTime;
+        private float _currentTime;
 
-    private MeshRenderer _progressRenderer;
-    private Material _progressbarMat;
-    private static readonly int FillPercent = Shader.PropertyToID("_fillPercent");
+        private MeshRenderer _progressRenderer;
+        private Material _progressbarMat;
+        private static readonly int FillPercent = Shader.PropertyToID("_fillPercent");
 
-    private List<IConnector> _otherConnectors = new List<IConnector>();
+        private List<IConnector> _otherConnectors = new List<IConnector>();
 
-    protected virtual void Awake()
-    {
-        _humanControl = GetComponent<CompHumanControl>();
-
-        _configMain = ToolBox.Get<ConfigMain>();
-
-        _progressRenderer = progressBar.GetComponentInChildren<MeshRenderer>();
-        _progressbarMat = new Material(_progressRenderer.material);
-        _progressRenderer.material = _progressbarMat;
-
-        _progressbarMat.SetFloat(FillPercent, 0);
-
-        var connectors = GetComponents<IConnector>();
-        logger.LogDebug("=== other connectors");
-
-        foreach (var connector in connectors)
+        protected virtual void Awake()
         {
-            if (connector.GetType() != GetType())
-            {
-                logger.LogDebug($"    {connector.GetType().Name}");
-                
-                _otherConnectors.Add(connector);
-            }
-        }
-    }
+            _humanControl = GetComponent<CompHumanControl>();
 
-    private void Update()
-    {
-        if (!IsConnected)
-        {
-            return;
-        }
+            _configMain = ToolBox.Get<ConfigMain>();
 
-        progressBar.rotation = Quaternion.Euler(0, 180, 0);
+            _progressRenderer = progressBar.GetComponentInChildren<MeshRenderer>();
+            _progressbarMat = new Material(_progressRenderer.material);
+            _progressRenderer.material = _progressbarMat;
 
-        if (_humanControl.IsMoving)
-        {
-            IsReady = false;
-
-            _currentTime = 0;
             _progressbarMat.SetFloat(FillPercent, 0);
 
-            return;
+            var connectors = GetComponents<IConnector>();
+            logger.LogDebug("=== other connectors");
+
+            foreach (var connector in connectors)
+            {
+                if (connector.GetType() != GetType())
+                {
+                    logger.LogDebug($"    {connector.GetType().Name}");
+
+                    _otherConnectors.Add(connector);
+                }
+            }
         }
 
-        _currentTime += Time.deltaTime;
-
-        _progressbarMat.SetFloat(FillPercent, Mathf.Clamp01(_currentTime / _configMain.connectionTime));
-
-        // Debug.Log($"current time {_currentTime} from {_configMain.connectionTime}");
-
-        if (_currentTime < _configMain.connectionTime)
+        private void Update()
         {
-            return;
+            if (!IsConnected)
+            {
+                return;
+            }
+
+            progressBar.rotation = Quaternion.Euler(0, 180, 0);
+
+            if (_humanControl.IsMoving)
+            {
+                IsReady = false;
+
+                _currentTime = 0;
+                _progressbarMat.SetFloat(FillPercent, 0);
+
+                return;
+            }
+
+            _currentTime += Time.deltaTime;
+
+            _progressbarMat.SetFloat(FillPercent, Mathf.Clamp01(_currentTime / _configMain.connectionTime));
+
+            // Debug.Log($"current time {_currentTime} from {_configMain.connectionTime}");
+
+            if (_currentTime < _configMain.connectionTime)
+            {
+                return;
+            }
+
+            IsReady = true;
+            _progressbarMat.SetFloat(FillPercent, 0);
         }
 
-        IsReady = true;
-        _progressbarMat.SetFloat(FillPercent, 0);
-    }
-
-    public virtual void OnEnter(T connectedObject)
-    {
-        if (_otherConnectors.Any(c => c.IsConnected))
+        public virtual bool OnEnter(T connectedObject)
         {
-            return;
+            if (_otherConnectors.Any(c => c.IsConnected) || IsConnected)
+            {
+                return false;
+            }
+
+            progressBar.gameObject.SetActive(true);
+            _progressRenderer.material = _progressbarMat;
+
+            IsConnected = true;
+            IsReady = false;
+
+            ConnectedObject = connectedObject;
+
+            _currentTime = 0;
+
+            return IsConnected;
         }
-        
-        progressBar.gameObject.SetActive(true);
-        _progressRenderer.material = _progressbarMat;
 
-        IsConnected = true;
-        IsReady = false;
+        public virtual bool OnExit(T connectedObject)
+        {
+            progressBar.gameObject.SetActive(false);
 
-        ConnectedObject = connectedObject;
+            IsConnected = false;
+            IsReady = false;
 
-        _currentTime = 0;
-    }
+            _progressbarMat.SetFloat(FillPercent, 0);
 
-    public virtual void OnExit(T connectedObject)
-    {
-        progressBar.gameObject.SetActive(false);
+            return IsConnected;
+        }
 
-        IsConnected = false;
-        IsReady = false;
-
-        _progressbarMat.SetFloat(FillPercent, 0);
-    }
+        public bool IsItConnected(T connectedObject)
+        {
+            return IsConnected && connectedObject == ConnectedObject;
+        }
     }
 }

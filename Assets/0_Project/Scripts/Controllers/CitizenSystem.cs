@@ -59,7 +59,8 @@ namespace CriminalTown.Controllers
 
         private void TryAddCitizen()
         {
-            var deathCitizens = _citizens.Where(c => c.Death).ToList();
+            var deathCitizens = _citizens
+                .Where(c => c.Death).ToList();
             
             foreach (var citizen in deathCitizens)
             {
@@ -69,7 +70,10 @@ namespace CriminalTown.Controllers
                 }
             }
             
-            var targetCitizensCount = _config.GetCitizensCount(_openedIslandsCount);
+            var targetCitizensCount = _islands
+                .Where(i => i.data.state == IslandState.OPENED)
+                .Sum(i => i.citizenCount);
+            
             if (targetCitizensCount <= _citizens.Count(c => !c.Death))
             {
                 return;

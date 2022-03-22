@@ -514,6 +514,7 @@ MonoBehaviour:
     index: 0
     state: 0
     currentPrice: 0
+  citizenCount: 2
   offer: {fileID: 1400869811}
   body: {fileID: 102297379}
   peoplePoints: {fileID: 2074240600}
@@ -1751,6 +1752,7 @@ MonoBehaviour:
     index: 0
     state: 0
     currentPrice: 0
+  citizenCount: 1
   offer: {fileID: 365583218}
   body: {fileID: 1538776186}
   peoplePoints: {fileID: 1175300942}
@@ -1836,6 +1838,7 @@ MonoBehaviour:
     index: 0
     state: 0
     currentPrice: 0
+  citizenCount: 0
   offer: {fileID: 1675797369}
   body: {fileID: 172317155}
   peoplePoints: {fileID: 27597343}
@@ -2593,7 +2596,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.30766928, y: -0.000000011153258, z: 0.0000000036064534, w: 0.9514934}
+  m_LocalRotation: {x: 0.30766925, y: 0.00000003047128, z: -0.0000000098530135, w: 0.9514934}
   m_LocalPosition: {x: 0, y: 7.5, z: -9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4274,7 +4277,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1825696761}
-  m_LocalRotation: {x: 0.30766928, y: -0.000000011153258, z: 0.0000000036064534, w: 0.9514934}
+  m_LocalRotation: {x: 0.30766925, y: 0.00000003047128, z: -0.0000000098530135, w: 0.9514934}
   m_LocalPosition: {x: 0, y: 7.5, z: -9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

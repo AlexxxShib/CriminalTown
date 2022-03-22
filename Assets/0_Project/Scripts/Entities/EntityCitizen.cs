@@ -9,19 +9,29 @@ namespace CriminalTown.Entities
 {
     public class EntityCitizen : MonoBehaviour
     {
+        public MobirayLogger logger;
+        
+        [Space]
         public Transform bodyContainer;
         public Transform headContainer;
         public Transform glassesContainer;
+
+        [Space]
+        public ParticleSystem emojiShocked;
 
         [Space]
         public int reward = 100;
         
         public int Health { get; private set; }
         public bool Death { get; private set; }
+        public bool Panic { get; private set; }
 
         private ConfigMain _config;
 
         private CompHumanControl _humanControl;
+
+        private EntityPlayer _player;
+        private CitizenConnector _connector;
 
         private void Awake()
         {
@@ -35,20 +45,53 @@ namespace CriminalTown.Entities
             _humanControl.MaxSpeed = _config.citizenSpeedWalk;
         }
 
+        private void Start()
+        {
+            _player = ToolBox.Get<EntityPlayer>();
+        }
+
+        private void Update()
+        {
+            TrySetPanic();
+        }
+
+        private void TrySetPanic()
+        {
+            if (Panic || Death)
+            {
+                return;
+            }
+            
+            if (_connector != null && _connector.IsItConnected(this))
+            {
+                return;
+            }
+            
+            var playerDirection = _player.transform.position - transform.position;
+            if (playerDirection.magnitude <= _config.citizenPanicDistance)
+            {
+                var dot = Vector3.Dot(playerDirection.normalized, transform.forward);
+                var angle = Mathf.Acos(dot) * Mathf.Rad2Deg;
+
+                if (angle < _config.citizenPanicAngle / 2 && _player.CrimeInProgress)
+                {
+                    SetPanic();
+                }
+            }
+        }
+
         private void OnTriggerEnter(Collider other)
         {
-            // Debug.Log($"enter {other.gameObject.name}", other.gameObject);
-
             if (Death)
             {
                 return;
             }
             
-            var connector = other.GetComponentInParent<CitizenConnector>();
+            _connector = other.GetComponentInParent<CitizenConnector>();
 
-            if (connector != null)
+            if (_connector != null)
             {
-                connector.OnEnter(this);
+                _connector.OnEnter(this);
             }
         }
 
@@ -74,7 +117,11 @@ namespace CriminalTown.Entities
             var material = _config.citizenMaterials.RandomItem();
             
             var body = SetRandomChild(bodyContainer, material, 1);
-            gameObject.name = body.name.Replace("Body_", String.Empty);
+            
+            var name = body.name.Replace("Body_", String.Empty);
+            
+            gameObject.name = name;
+            logger.mainTag = name;
             
             SetRandomChild(headContainer, material);
 
@@ -105,6 +152,20 @@ namespace CriminalTown.Entities
             }
 
             return hasHealth;
+        }
+
+        public void SetPanic()
+        {
+            if (Death)
+            {
+                return;
+            }
+            
+            Panic = true;
+            
+            _humanControl.MaxSpeed = _config.citizenSpeedRun + 0.1f;
+            
+            emojiShocked.Play();
         }
 
         private static GameObject SetRandomChild(Transform container, Material material, int from = 0)
