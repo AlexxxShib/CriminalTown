@@ -13,7 +13,7 @@ namespace CriminalTown.Entities
         {
             var renderer = GetComponentInChildren<MeshRenderer>();
 
-            _progressMat = new Material(renderer.sharedMaterial);
+            _progressMat = new Material(renderer.material);
             renderer.material = _progressMat;
             
             SetValue(0);

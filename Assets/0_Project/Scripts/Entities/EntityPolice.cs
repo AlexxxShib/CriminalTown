@@ -1,7 +1,6 @@
 using System;
 using System.Threading.Tasks;
 using CriminalTown.Configs;
-using CriminalTown.Controllers;
 using Mobiray.Common;
 using Mobiray.Helpers;
 using UnityEngine;
@@ -13,14 +12,14 @@ namespace CriminalTown.Entities
         NONE, ACTIVE, PASSIVE
     }
     
-    public struct SignalPlayerCaught { }
-    
-    public class EntityPolice : MonoBehaviour
+    public class EntityPolice : SignalReceiver
     {
         public MobirayLogger logger;
         
         [Space]
         public ParticleSystem emojiQuestion;
+
+        public bool SawPlayer => _prevIsPlayerVisible;
 
         private ConfigMain _config;
         
@@ -92,8 +91,6 @@ namespace CriminalTown.Entities
             _prevIsPlayerVisible = isPlayerVisible;
             _visibilityDelay -= Time.deltaTime;
             
-            _player.hasPoliceVisor = isPlayerVisible; //TODO global value
-
             if (isPlayerVisible || _visibilityDelay > 0)
             {
                 _followAnchor.position = _player.transform.position;
@@ -118,15 +115,6 @@ namespace CriminalTown.Entities
                 if (isPlayerVisible)
                 {
                     SetPanicActive();
-                    return;
-                }
-
-                _catchingTime += Time.deltaTime;
-                if (_catchingTime >= _config.policePassiveTime) //TODO global
-                {
-                    DisablePanic();
-                    
-                    ToolBox.Get<CitizenSystem>().ReturnPolice(_citizen, _control);
                 }
             }
         }
@@ -143,11 +131,14 @@ namespace CriminalTown.Entities
                 return;
             }
             
+            ToolBox.Signals.Send<SignalPoliceActivated>();
+            
             _panicMode = PanicMode.ACTIVE;
             _followAnchor.parent = transform.parent;
+            _followAnchor.position = _player.transform.position;
             
-            // _catchingTime = _config.policeCatchTime / 2;
             _catchingTime = 0;
+            _visibilityDelay = _config.policeVisibilityDelay;
             
             _catchingProgressBar.gameObject.SetActive(true);
             _searchFieldOfView.gameObject.SetActive(true);
@@ -166,20 +157,27 @@ namespace CriminalTown.Entities
             
             // ToolBox.Get<CitizenSystem>().ReturnPolice(_citizen, _control);
             emojiQuestion.Play();
+
+            _control.InputEnabled = false;
             
             await Task.Delay(TimeSpan.FromSeconds(2f));
-
-            if (_panicMode != PanicMode.PASSIVE)
-            {
-                return;
-            }
             
-            _followAnchor.position = _followAnchor.position.RandomPoint(3f);
-            _control.SetDestination(_followAnchor, OnFoundPlayer);
+            _control.InputEnabled = true;
+
+            if (_panicMode == PanicMode.PASSIVE)
+            {
+                _followAnchor.position = _followAnchor.position.RandomPoint(3f);
+                _control.SetDestination(_followAnchor, OnFoundPlayer);
+            }
         }
 
         public void DisablePanic()
         {
+            if (_panicMode == PanicMode.NONE)
+            {
+                return;
+            }
+            
             _panicMode = PanicMode.NONE;
             _citizen.Panic = false;
             
@@ -189,8 +187,7 @@ namespace CriminalTown.Entities
             _control.MaxSpeed = _config.citizenSpeedWalk;
             
             _followAnchor.parent = transform;
-            
-            // ToolBox.Get<CitizenSystem>().ReturnPolice(_citizen, _control);
+            _followAnchor.localPosition = Vector3.zero;
         }
 
         private void PlayerIsCaught()
@@ -199,6 +196,8 @@ namespace CriminalTown.Entities
 
             _control.InputEnabled = false;
             _player.Catch();
+            
+            //TODO animation
         }
 
         private bool PlayerIsVisible()

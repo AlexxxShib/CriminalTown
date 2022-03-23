@@ -16,4 +16,10 @@ namespace CriminalTown
         public long hardCurrency;
     }
     
+    public struct SignalPlayerCaught { }
+
+    public struct SignalPoliceActivated { }
+    
+    public struct SignalPoliceDeactivated { }
+    
 }

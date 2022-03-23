@@ -35,7 +35,7 @@ namespace CriminalTown.Data
         {
             if (Money < price)
             {
-                Debug.LogError("Not enough money - cur: " + Money + " price: " + price); //TODO add money window?
+                Debug.LogError("Not enough money - cur: " + Money + " price: " + price);
                 return false;
             }
 
@@ -47,7 +47,7 @@ namespace CriminalTown.Data
         {
             if (HardCurrency < price)
             {
-                Debug.LogError("Not enough Hard Currency"); //TODO add money window?
+                Debug.LogError("Not enough Hard Currency");
                 return false;
             }
 

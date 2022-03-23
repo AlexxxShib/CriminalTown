@@ -1899,7 +1899,6 @@ GameObject:
   - component: {fileID: 790617023782243701}
   - component: {fileID: 9097044967694548595}
   - component: {fileID: 7456029654998526180}
-  - component: {fileID: 8101836107041490689}
   - component: {fileID: 790617023782243702}
   - component: {fileID: 790617023782243703}
   m_Layer: 0
@@ -1981,20 +1980,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joystick: {fileID: 0}
---- !u!136 &8101836107041490689
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7844744423914768051}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  m_Radius: 2.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &790617023782243702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2007,6 +1992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cabd5e70818481fb2a9116bb2d9c71b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsReceiver: 1
   logger:
     showLog: 1
     mainTag: 
@@ -2035,7 +2021,7 @@ MonoBehaviour:
   headContainer: {fileID: 5691209313684120654}
   glassesContainer: {fileID: 5691209313751694807}
   emojiShocked: {fileID: 5691209314670811189}
-  reward: 100
+  reward: -100
 --- !u!1001 &756364710230412370
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -10,13 +10,16 @@ using UnityEngine;
 
 namespace CriminalTown.Controllers
 {
-    public class CitizenSystem : SignalReceiver, IReceive<SignalIslandPurchased>
+    public class CitizenSystem : SignalReceiver, IReceive<SignalIslandPurchased>, IReceive<SignalPoliceActivated>, IReceive<SignalPlayerCaught>
     {
         public MobirayLogger logger;
         
         [Space]
         public Transform entitiesParent;
-        
+
+        public delegate void OnCatchingProgressDelegat(float progress, bool isHidden, bool isVisible);
+        public OnCatchingProgressDelegat OnCatchingProgress;
+
         private List<EntityIsland> _islands;
 
         private List<Transform> _leftSidePoints = new();
@@ -28,6 +31,11 @@ namespace CriminalTown.Controllers
         private List<EntityCitizen> _polices = new();
 
         private ConfigMain _config;
+
+        private float _updateTimer = 0;
+
+        private bool _policeActivated;
+        private float _policeCatchingTime;
 
         private void Awake()
         {
@@ -44,6 +52,52 @@ namespace CriminalTown.Controllers
             _player = ToolBox.Get<EntityPlayer>();
 
             StartTimer();
+        }
+
+        private void Update()
+        {
+            if (_policeActivated)
+            {
+                var playerIsVisible = false;
+                
+                foreach (var citizen in _polices)
+                {
+                    if (citizen.TryGetComponent<EntityPolice>(out var police))
+                    {
+                        playerIsVisible = playerIsVisible || police.SawPlayer;
+                    }
+                }
+                
+                _player.hasPoliceVisor = playerIsVisible;
+
+                if (playerIsVisible)
+                {
+                    _policeCatchingTime = _config.policePassiveTime;
+                }
+                else
+                {
+                    _policeCatchingTime -= Time.deltaTime * (_player.isHidden ? _config.hidingTimeBonus : 1);
+                }
+
+                var progress = Mathf.Clamp01(_policeCatchingTime / _config.policePassiveTime);
+                OnCatchingProgress?.Invoke(progress, _player.isHidden, playerIsVisible);
+                
+                var policeCatchingTimeout = _policeCatchingTime <= 0;
+
+                if (policeCatchingTimeout)
+                {
+                    DeactivatePolice();
+                }
+            }
+            
+            _updateTimer += Time.deltaTime;
+            
+            if (_updateTimer >= _config.updateCitizensTime)
+            {
+                _updateTimer = 0;
+
+                TryAddCitizen();
+            }
         }
 
         private void StartTimer()
@@ -89,21 +143,55 @@ namespace CriminalTown.Controllers
             
             var targetPoliceCount = targetCitizensCount / _config.policePerCitizen;
 
+            if (_policeActivated)
+            {
+                targetPoliceCount += _config.policeHelperCount;
+            }
+
             if (_polices.Count < targetPoliceCount)
             {
                 if (TryAddCitizen(_config.policePrefabs.RandomItem(), out var police))
                 {
                     _polices.Add(police);
+                    
+                    this.StartTimer(0.5f, () =>
+                    {
+                        if (_policeActivated)
+                        {
+                            police.SetPanic();
+                        }
+                    });
                 }
             }
         }
 
-        public void ReturnPolice(EntityCitizen citizen, CompHumanControl control)
+        private void DeactivatePolice()
+        {
+            foreach (var citizen in _polices)
+            {
+                if (citizen.TryGetComponent<EntityPolice>(out var police))
+                {
+                    police.DisablePanic();
+                            
+                    ReturnPolice(police);
+                }
+            }
+
+            _player.hasPoliceVisor = false;
+
+            _policeActivated = false;
+            ToolBox.Signals.Send<SignalPoliceDeactivated>();
+        }
+
+        public void ReturnPolice(EntityPolice police)
         {
             var points = new List<Transform>();
             
             points.AddRange(_leftSidePoints);
             points.AddRange(_rightSidePoints);
+
+            police.TryGetComponent<EntityCitizen>(out var citizen);
+            police.TryGetComponent<CompHumanControl>(out var control);
             
             OnCitizenFinishPath(citizen, control, points);
         }
@@ -157,9 +245,14 @@ namespace CriminalTown.Controllers
                 return false;
             }
 
-            if (citizen.Panic && _polices.Contains(citizen))
+            if (citizen.Panic)
             {
-                return false;
+                if (_polices.Contains(citizen))
+                {
+                    return false;
+                }
+
+                ToolBox.Signals.Send<SignalPoliceActivated>();
             }
 
             _citizens.Remove(citizen);
@@ -242,6 +335,30 @@ namespace CriminalTown.Controllers
         public void HandleSignal(SignalIslandPurchased signal)
         {
             UpdatePoints();
+        }
+
+        public void HandleSignal(SignalPoliceActivated signal)
+        {
+            if (_policeActivated)
+            {
+                return;
+            }
+
+            _policeActivated = true;
+            _policeCatchingTime = _config.policePassiveTime;
+            
+            foreach (var police in _polices)
+            {
+                if (!police.Panic)
+                {
+                    police.SetPanic();
+                }
+            }
+        }
+
+        public void HandleSignal(SignalPlayerCaught signal)
+        {
+            DeactivatePolice();
         }
     }
 }
