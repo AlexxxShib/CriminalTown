@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: mat_player_progressbar
+  m_Name: mat_progressbar_player
   m_Shader: {fileID: -6465566751694194690, guid: 4f1b584cb2a1a4cc189cf743012fc937,
     type: 3}
   m_ShaderKeywords: 
@@ -118,7 +118,7 @@ Material:
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _fillPercent: 1
+    - _fillPercent: 0.899
     - _thickness: 0.297
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}

@@ -11,9 +11,9 @@ namespace CriminalTown.Components.Connectors
                 return false;
             }
             
-            base.OnEnter(citizen);
-
             citizen.GetComponent<CompHumanControl>().InputEnabled = false;
+            
+            base.OnEnter(citizen);
 
             return true;
         }

@@ -41,6 +41,10 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 4142add5bd162f84497f4c6e082c6183, type: 2}
   citizenPrefabs:
   - {fileID: 6237996799701716922, guid: 1f1c26e5d13604c3b9068a888c83807e, type: 3}
+  policePrefabs:
+  - {fileID: 790617023782243703, guid: c34b457097c5c4b5e99bd0d188e126e1, type: 3}
   updateCitizensTime: 1
-  citizensPerIsland: 1
   citizenPlayerDistanceMin: 8
+  citizenPanicDistance: 4
+  citizenPanicAngle: 120
+  policePerCitizen: 2

@@ -1,10 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
-using System.Globalization;
 using CriminalTown.Data;
 using CriminalTown.Entities;
 using Mobiray.Common;
-using MobirayCore.Helpers;
 
 namespace CriminalTown.Configs
 {
@@ -33,12 +31,19 @@ namespace CriminalTown.Configs
         [Space]
         public List<Material> citizenMaterials;
         public List<EntityCitizen> citizenPrefabs;
+        public List<EntityCitizen> policePrefabs;
 
         [Header("Citizen System")]
         public float updateCitizensTime = 1;
         public float citizenPlayerDistanceMin = 8;
         public float citizenPanicDistance = 4;
         public float citizenPanicAngle = 120;
+        public int policePerCitizen = 2;
+
+        [Header("Police")]
+        public float policeCatchTime = 10;
+        public float policePassiveTime = 10;
+        public float policeVisibilityDelay = 1f;
 
         /*[Space] 
         public long BasePriceParameter1;

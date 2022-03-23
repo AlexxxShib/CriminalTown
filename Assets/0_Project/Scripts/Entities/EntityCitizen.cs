@@ -2,6 +2,7 @@ using System;
 using CriminalTown.Components.Connectors;
 using CriminalTown.Configs;
 using Mobiray.Common;
+using NaughtyAttributes;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -10,6 +11,7 @@ namespace CriminalTown.Entities
     public class EntityCitizen : MonoBehaviour
     {
         public MobirayLogger logger;
+        public bool staff;
         
         [Space]
         public Transform bodyContainer;
@@ -24,7 +26,32 @@ namespace CriminalTown.Entities
         
         public int Health { get; private set; }
         public bool Death { get; private set; }
-        public bool Panic { get; private set; }
+
+        private bool _panic;
+
+        public bool Panic
+        {
+            get => _panic;
+            set
+            {
+                if (value != _panic)
+                {
+                    _panic = value;
+                    
+                    if (_panic)
+                    {
+                        OnPanicStarted?.Invoke();
+                    }
+                    else
+                    {
+                        OnPanicFinished?.Invoke();
+                    }
+                }
+            }
+        }
+
+        public Action OnPanicStarted;
+        public Action OnPanicFinished;
 
         private ConfigMain _config;
 
@@ -82,7 +109,7 @@ namespace CriminalTown.Entities
 
         private void OnTriggerEnter(Collider other)
         {
-            if (Death)
+            if (Death || staff)
             {
                 return;
             }
@@ -154,9 +181,10 @@ namespace CriminalTown.Entities
             return hasHealth;
         }
 
+        [Button("Panic")]
         public void SetPanic()
         {
-            if (Death)
+            if (Death || Panic)
             {
                 return;
             }

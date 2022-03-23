@@ -18,18 +18,21 @@ namespace CriminalTown.Controllers
         public Transform entitiesParent;
         
         private List<EntityIsland> _islands;
-        private int _openedIslandsCount;
 
         private List<Transform> _leftSidePoints = new();
         private List<Transform> _rightSidePoints = new();
 
         private EntityPlayer _player;
+        
         private List<EntityCitizen> _citizens = new();
+        private List<EntityCitizen> _polices = new();
 
         private ConfigMain _config;
 
         private void Awake()
         {
+            ToolBox.Add(this);
+            
             _config = ToolBox.Get<ConfigMain>();
             _islands = ToolBox.Get<GameController>().islands;
             
@@ -74,24 +77,35 @@ namespace CriminalTown.Controllers
                 .Where(i => i.data.state == IslandState.OPENED)
                 .Sum(i => i.citizenCount);
             
-            if (targetCitizensCount <= _citizens.Count(c => !c.Death))
+            // if (targetCitizensCount >= _citizens.Count(c => !c.Death))
+            if (_citizens.Count < targetCitizensCount)
             {
-                return;
+                if (TryAddCitizen(_config.citizenPrefabs.RandomItem(), out var citizen))
+                {
+                    _citizens.Add(citizen);
+                    return;
+                }
             }
+            
+            var targetPoliceCount = targetCitizensCount / _config.policePerCitizen;
 
-            if (CalculatePoints(out var start, out var end, out var points))
+            if (_polices.Count < targetPoliceCount)
             {
-                var citizen = Instantiate(_config.citizenPrefabs.RandomItem(), entitiesParent);
-                var control = citizen.GetComponent<CompHumanControl>();
-                
-                logger.LogDebug($"add citizen {citizen.gameObject.name} start: {start.position} finish: {end.position}");
-
-                control.SetPosition(start.position);
-                control.SetDestination(end, 
-                    humanControl => OnCitizenFinishPath(citizen, humanControl, points));
-                
-                _citizens.Add(citizen);
+                if (TryAddCitizen(_config.policePrefabs.RandomItem(), out var police))
+                {
+                    _polices.Add(police);
+                }
             }
+        }
+
+        public void ReturnPolice(EntityCitizen citizen, CompHumanControl control)
+        {
+            var points = new List<Transform>();
+            
+            points.AddRange(_leftSidePoints);
+            points.AddRange(_rightSidePoints);
+            
+            OnCitizenFinishPath(citizen, control, points);
         }
 
         private async void OnCitizenFinishPath(EntityCitizen citizen, CompHumanControl control, List<Transform> points)
@@ -113,6 +127,28 @@ namespace CriminalTown.Controllers
                 humanControl => OnCitizenFinishPath(citizen, humanControl, points));
         }
 
+        private bool TryAddCitizen(EntityCitizen prefab, out EntityCitizen instance)
+        {
+            if (!CalculatePoints(out var start, out var end, out var points))
+            {
+                instance = null;
+                return false;
+            }
+            
+            var citizen = instance = Instantiate(prefab, entitiesParent);
+            var control = instance.GetComponent<CompHumanControl>();
+
+            control.SetPosition(start.position);
+            
+            logger.LogDebug(
+                $"add citizen {instance.gameObject.name} start: {start.position} finish: {end.position}");
+            
+            control.SetDestination(end,
+                humanControl => OnCitizenFinishPath(citizen, humanControl, points));
+
+            return true;
+        }
+
         private bool TryDestroyCitizen(EntityCitizen citizen)
         {
             var citizenPlayerDistance = (_player.transform.position - citizen.transform.position).magnitude;
@@ -121,7 +157,14 @@ namespace CriminalTown.Controllers
                 return false;
             }
 
+            if (citizen.Panic && _polices.Contains(citizen))
+            {
+                return false;
+            }
+
             _citizens.Remove(citizen);
+            _polices.Remove(citizen);
+
             Destroy(citizen.gameObject);
 
             logger.LogDebug($"citizen {citizen.gameObject.name} destroyed");
@@ -185,8 +228,6 @@ namespace CriminalTown.Controllers
         {
             _leftSidePoints.Clear();
             _rightSidePoints.Clear();
-
-            _openedIslandsCount = 0;
             
             foreach (var island in _islands)
             {
@@ -194,8 +235,6 @@ namespace CriminalTown.Controllers
                 {
                     _leftSidePoints.AddRange(island.GetPeoplePoints(0));
                     _rightSidePoints.AddRange(island.GetPeoplePoints(1));
-
-                    _openedIslandsCount++;
                 }
             }
         }

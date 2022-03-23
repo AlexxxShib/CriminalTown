@@ -7,6 +7,7 @@ using CriminalTown.Data;
 using DG.Tweening;
 using Mobiray.Common;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
 using Random = UnityEngine.Random;
@@ -21,6 +22,11 @@ namespace CriminalTown.Entities
         public GameObject view;
         public ParticleSystem moneyEmitter;
         public PlayableDirector timelineStealMoney;
+
+        [Space]
+        public bool isCaught;
+        public bool isHidden;
+        public bool hasPoliceVisor;
 
         public bool CrimeInProgress => _stealMoneyInProgress;
         
@@ -82,6 +88,14 @@ namespace CriminalTown.Entities
             };
         }
 
+        private void Update()
+        {
+            if (isHidden && _humanControl.joystick.HasInput)
+            {
+                GetComponent<NavMeshAgent>().enabled = true;
+            }
+        }
+
         private void SetupMoneyEmitter(ParticleSystemForceField forceField, Collider collider)
         {
             moneyEmitter.externalForces.RemoveAllInfluences();
@@ -98,6 +112,11 @@ namespace CriminalTown.Entities
 
         private async void OnIslandConnected(EntityIsland island)
         {
+            if (isCaught)
+            {
+                return;
+            }
+            
             logger.LogDebug($"+island {island.gameObject.name}");
             
             SetupMoneyEmitter(island.ForceField, island.ForceFieldCollider);
@@ -136,6 +155,11 @@ namespace CriminalTown.Entities
         private async void OnCitizenConnected(EntityCitizen citizen)
         {
             logger.LogDebug($"+citizen {citizen.gameObject.name}");
+            
+            if (isCaught || isHidden)
+            {
+                return;
+            }
             
             transform.DOLookAt(citizen.transform.position, 0.25f);
             await citizen.transform.DOLookAt(transform.position, 0.25f).IsComplete();
@@ -199,18 +223,34 @@ namespace CriminalTown.Entities
 
         private void OnShelterConnected(EntityShelter shelter)
         {
+            if (hasPoliceVisor)
+            {
+                return;
+            }
+            
             logger.LogDebug($"+shelter {shelter.gameObject.name}");
             
             shelter.EnterShelter();
             view.SetActive(false);
+
+            GetComponent<NavMeshAgent>().enabled = false;
+
+            isHidden = true;
         }
 
         private void OnShelterDisconnected(EntityShelter shelter)
         {
+            if (!isHidden)
+            {
+                return;
+            }
+            
             logger.LogDebug($"-shelter {shelter.gameObject.name}");
             
             shelter.LeaveShelter();
             view.SetActive(true);
+
+            isHidden = false;
         }
 
         private void OnMoneyParticlesTrigger()
@@ -260,6 +300,16 @@ namespace CriminalTown.Entities
             }*/
         }
 
+        public void Catch()
+        {
+            logger.LogDebug("player is caught");
+
+            isCaught = true;
+
+            _humanControl.InputEnabled = false;
+            
+            ToolBox.Signals.Send<SignalPlayerCaught>();
+        }
         
     }
 }
