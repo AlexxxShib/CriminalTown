@@ -167,15 +167,19 @@ namespace CriminalTown.Controllers
 
         private void DeactivatePolice()
         {
+            var returnPolices = new List<EntityPolice>();
+            
             foreach (var citizen in _polices)
             {
                 if (citizen.TryGetComponent<EntityPolice>(out var police))
                 {
                     police.DisablePanic();
-                            
-                    ReturnPolice(police);
+                    
+                    returnPolices.Add(police);
                 }
             }
+            
+            returnPolices.ForEach(ReturnPolice);
 
             _player.hasPoliceVisor = false;
 
