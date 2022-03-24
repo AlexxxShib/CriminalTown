@@ -21,6 +21,12 @@ namespace CriminalTown.Data
         public void AddMoney(int value)
         {
             money += value;
+            
+            if (money < 0)
+            {
+                money = 0;
+            }
+            
             // if (value > 0) TotalMoney += value;
             ToolBox.Signals.Send(new SignalAddMoney {money = value});
         }

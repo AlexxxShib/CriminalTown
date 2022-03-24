@@ -42,6 +42,7 @@ namespace CriminalTown.Entities
         private static readonly int AnimIdSpeed = Animator.StringToHash("speed");
         private static readonly int AnimIdDance = Animator.StringToHash("dance");
         private static readonly int AnimIdDeath = Animator.StringToHash("death");
+        private static readonly int AnimIdPistol = Animator.StringToHash("pistol");
 
         private bool _hasJoystick;
         
@@ -91,6 +92,13 @@ namespace CriminalTown.Entities
             InputEnabled = false;
             
             _animator.SetTrigger(AnimIdDeath);
+        }
+
+        public void SetPistol(bool active)
+        {
+            InputEnabled = !active;
+            
+            _animator.SetBool(AnimIdPistol, active);
         }
 
         private void Update()

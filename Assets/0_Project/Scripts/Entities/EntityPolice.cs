@@ -15,16 +15,20 @@ namespace CriminalTown.Entities
     public class EntityPolice : SignalReceiver
     {
         public MobirayLogger logger;
-        
+
         [Space]
+        public CompFieldOfView searchFieldOfView;
+        public CompFieldOfView catchingFieldProgress;
+
+        [Space]
+        public GameObject weapon;
         public ParticleSystem emojiQuestion;
 
         public bool SawPlayer => _prevIsPlayerVisible;
 
         private ConfigMain _config;
         
-        private CompMeshProgress _catchingProgressBar;
-        private CompFieldOfView _searchFieldOfView;
+        // private CompMeshProgress _catchingProgressBar;
 
         private EntityCitizen _citizen;
         private CompHumanControl _control;
@@ -42,16 +46,15 @@ namespace CriminalTown.Entities
         {
             _config = ToolBox.Get<ConfigMain>();
             
-            _catchingProgressBar = GetComponentInChildren<CompMeshProgress>();
-            _catchingProgressBar.gameObject.SetActive(false);
-            
-            _searchFieldOfView = GetComponentInChildren<CompFieldOfView>();
-            _searchFieldOfView.gameObject.SetActive(false);
+            searchFieldOfView.gameObject.SetActive(false);
+            catchingFieldProgress.gameObject.SetActive(false);
 
             _citizen = GetComponent<EntityCitizen>();
             _citizen.OnPanicStarted += OnPanicStarted;
 
             _control = GetComponent<CompHumanControl>();
+            
+            weapon.SetActive(false);
         }
 
         private void Start()
@@ -74,7 +77,7 @@ namespace CriminalTown.Entities
                 {
                     var playerDirection = _player.transform.position - transform.position;
 
-                    if (playerDirection.magnitude < _searchFieldOfView.range)
+                    if (playerDirection.magnitude < searchFieldOfView.range)
                     {
                         SetPanicActive();
                     }
@@ -100,8 +103,11 @@ namespace CriminalTown.Entities
             {
                 var sign = isPlayerVisible ? 1 : -1;
                 _catchingTime += sign * Time.deltaTime;
+
+                var progress = Mathf.Clamp01(_catchingTime / _config.policeCatchTime);
                 
-                _catchingProgressBar.SetValue(_catchingTime / _config.policeCatchTime);
+                // _catchingProgressBar.SetValue(_catchingTime / _config.policeCatchTime);
+                catchingFieldProgress.transform.localScale = progress.ToVector().ChangeY(1);
 
                 if (_catchingTime >= _config.policeCatchTime)
                 {
@@ -131,6 +137,8 @@ namespace CriminalTown.Entities
                 return;
             }
             
+            weapon.SetActive(true);
+            
             ToolBox.Signals.Send<SignalPoliceActivated>();
             
             _panicMode = PanicMode.ACTIVE;
@@ -140,8 +148,8 @@ namespace CriminalTown.Entities
             _catchingTime = 0;
             _visibilityDelay = _config.policeVisibilityDelay;
             
-            _catchingProgressBar.gameObject.SetActive(true);
-            _searchFieldOfView.gameObject.SetActive(true);
+            catchingFieldProgress.gameObject.SetActive(true);
+            searchFieldOfView.gameObject.SetActive(true);
 
             _control.MaxSpeed = _config.citizenSpeedRun;
             _control.SetDestination(_followAnchor, OnFoundPlayer);
@@ -152,7 +160,7 @@ namespace CriminalTown.Entities
             _panicMode = PanicMode.PASSIVE;
             _catchingTime = 0;
             
-            _catchingProgressBar.gameObject.SetActive(false);
+            catchingFieldProgress.gameObject.SetActive(false);
             _control.MaxSpeed = _config.citizenSpeedWalk;
             
             // ToolBox.Get<CitizenSystem>().ReturnPolice(_citizen, _control);
@@ -181,8 +189,8 @@ namespace CriminalTown.Entities
             _panicMode = PanicMode.NONE;
             _citizen.Panic = false;
             
-            _searchFieldOfView.gameObject.SetActive(false);
-            _catchingProgressBar.gameObject.SetActive(false);
+            searchFieldOfView.gameObject.SetActive(false);
+            catchingFieldProgress.gameObject.SetActive(false);
             
             _control.MaxSpeed = _config.citizenSpeedWalk;
             
@@ -193,16 +201,15 @@ namespace CriminalTown.Entities
         private void PlayerIsCaught()
         {
             DisablePanic();
-
-            _control.InputEnabled = false;
-            _player.Catch();
             
-            //TODO animation
+            _control.SetPistol(true);
+            
+            _player.Catch();
         }
 
         private bool PlayerIsVisible()
         {
-            return !_player.isHidden && _searchFieldOfView.IsVisible(_player.transform);
+            return !_player.isHidden && searchFieldOfView.IsVisible(_player.transform);
         }
 
         private async void OnFoundPlayer(CompHumanControl control)

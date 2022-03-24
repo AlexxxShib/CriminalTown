@@ -7,7 +7,7 @@ namespace CriminalTown.States
 {
     
     [CreateAssetMenu(fileName = "StateMainLoop", menuName = "GameState/StateMainLoop")]
-    public class StateMainLoop : BaseGameState, IReceive<SignalIslandPurchased>
+    public class StateMainLoop : BaseGameState, IReceive<SignalIslandPurchased>, IReceive<SignalPlayerCaught>
     {
         
         public override void Enter()
@@ -36,6 +36,13 @@ namespace CriminalTown.States
                     _host.islands[i].SetAvailable();
                 }
             }
+        }
+
+        public void HandleSignal(SignalPlayerCaught signal)
+        {
+            _gameState.AddMoney(-_configs.policeFine);
+            
+            _stateMachine.ChangeState(_host.stateGameOver);
         }
     }
 }
