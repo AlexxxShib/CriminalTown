@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1686044368}
   - component: {fileID: 1686044369}
   - component: {fileID: 1686044370}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TimelineStealMoney
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 8746544157230241238}
   - component: {fileID: 5698879567133578744}
   - component: {fileID: 5698879567133578755}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,6 +210,9 @@ MonoBehaviour:
   view: {fileID: 5698879566295623027}
   moneyEmitter: {fileID: 4275009766934645771}
   timelineStealMoney: {fileID: 1686044369}
+  isCaught: 0
+  isHidden: 0
+  hasPoliceVisor: 0
 --- !u!114 &8746544157230241238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -390,6 +393,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 840989860085876264, guid: b342fc99c8a705a49a64ba65b9f96ab3,
         type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 840989860085876264, guid: b342fc99c8a705a49a64ba65b9f96ab3,
+        type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 840989860085876264, guid: b342fc99c8a705a49a64ba65b9f96ab3,
+        type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -432,6 +445,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ResourceEmmitter
+      objectReference: {fileID: 0}
+    - target: {fileID: 840989860085876269, guid: b342fc99c8a705a49a64ba65b9f96ab3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 840989860085876270, guid: b342fc99c8a705a49a64ba65b9f96ab3,
         type: 3}
@@ -492,8 +510,48 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 7655486541080463836, guid: 7b74ae7aa39e94a4d9c4bd20910d9a8a,
+      objectReference: {fileID: 8751119029747316117, guid: 42b9095f1ed7e174fa9c9ef2dc72e9fd,
         type: 3}
+    - target: {fileID: 840989860085876271, guid: b342fc99c8a705a49a64ba65b9f96ab3,
+        type: 3}
+      propertyPath: m_UseCustomVertexStreams
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 840989860085876271, guid: b342fc99c8a705a49a64ba65b9f96ab3,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8ee1d7d2856d0164a80d560539e7a892, type: 2}
+    - target: {fileID: 840989860085876271, guid: b342fc99c8a705a49a64ba65b9f96ab3,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.data[1]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 840989860085876271, guid: b342fc99c8a705a49a64ba65b9f96ab3,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.data[2]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 840989860085876271, guid: b342fc99c8a705a49a64ba65b9f96ab3,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.data[3]
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 840989860123241738, guid: b342fc99c8a705a49a64ba65b9f96ab3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7368900935850449958, guid: b342fc99c8a705a49a64ba65b9f96ab3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7368900935850635866, guid: b342fc99c8a705a49a64ba65b9f96ab3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7368900935850635866, guid: b342fc99c8a705a49a64ba65b9f96ab3,
         type: 3}
       propertyPath: m_IsActive
@@ -553,6 +611,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ResourceForceField
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680194721857523216, guid: 569fa85c969fcb14699de646e51f1e48,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4680194721857523217, guid: 569fa85c969fcb14699de646e51f1e48,
         type: 3}
@@ -649,6 +712,11 @@ PrefabInstance:
       propertyPath: m_Parameters.m_StartRange
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4680194722439087662, guid: 569fa85c969fcb14699de646e51f1e48,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4680194721857523228, guid: 569fa85c969fcb14699de646e51f1e48, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 569fa85c969fcb14699de646e51f1e48, type: 3}
@@ -665,6 +733,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8740567473031265080}
     m_Modifications:
+    - target: {fileID: 4148907646907021262, guid: 318e68956b96a489dbf7fc1a98384404,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6286877975831441903, guid: 318e68956b96a489dbf7fc1a98384404,
         type: 3}
       propertyPath: m_RootOrder
@@ -724,6 +797,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ConnectionProgressBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 8744537278717032582, guid: 318e68956b96a489dbf7fc1a98384404,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 318e68956b96a489dbf7fc1a98384404, type: 3}
