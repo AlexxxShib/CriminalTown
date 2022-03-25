@@ -48,6 +48,8 @@ namespace CriminalTown.States
                     _host.islands[i].SetAvailable();
                 }
             }
+            
+            _host.SaveGameState();
         }
 
         public void HandleSignal(SignalPlayerCaught signal)

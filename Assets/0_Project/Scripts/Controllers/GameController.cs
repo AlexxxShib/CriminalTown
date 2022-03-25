@@ -12,7 +12,7 @@ using UnityEngine.SceneManagement;
 
 namespace CriminalTown.Controllers
 {
-    public class GameController : BaseGameController
+    public class GameController : BaseGameController, IReceive<SignalAddMoney>
     {
         
         [Header("UI/UX")]
@@ -76,6 +76,7 @@ namespace CriminalTown.Controllers
         private async void RestartScene()
         {
             screenLoading.SetActive(true);
+            SaveGameState();
 
             await Task.Delay(TimeSpan.FromSeconds(0.2f));
             
@@ -85,6 +86,11 @@ namespace CriminalTown.Controllers
         public void OnClickRestartScene()
         {
             RestartScene();
+        }
+
+        public void HandleSignal(SignalAddMoney signal)
+        {
+            SaveGameState();
         }
     }
 }

@@ -22,7 +22,7 @@ namespace CriminalTown.Ads
         public void Initialize()
         {
             _settings = ToolBox.Get<GameSettings>();
-            _adProvider = AdAdapterAppLovin.Instance;
+            // _adProvider = AdAdapterAppLovin.Instance;
         }
 
         public bool IsInterstitialReady() { return _adProvider.IsInterstitialReady(); }

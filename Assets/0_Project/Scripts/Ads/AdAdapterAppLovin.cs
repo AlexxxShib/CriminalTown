@@ -6,6 +6,8 @@ using UnityEngine;
 
 namespace CriminalTown.Ads
 {
+    
+    /*
     public class AdAdapterAppLovin : MonoSingleton<AdAdapterAppLovin>, IAdProvider
     {
         public bool initialized;
@@ -288,5 +290,5 @@ namespace CriminalTown.Ads
 
         #endregion
         
-    }
+    }*/
 }

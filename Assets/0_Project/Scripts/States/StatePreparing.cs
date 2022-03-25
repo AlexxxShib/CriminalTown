@@ -22,7 +22,7 @@ namespace CriminalTown.States
             _host.screenLoading.SetActive(true);
             
             var sessionData = ToolBox.Get<SessionData>();
-            Analytics.SendLevelStart(sessionData);//TODO
+            // Analytics.SendLevelStart(sessionData);//TODO
 
             InitializeIslands();
             

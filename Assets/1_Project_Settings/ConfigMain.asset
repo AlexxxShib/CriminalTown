@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ConfigMain
   m_EditorClassIdentifier: 
   initGameState:
-    money: 0
+    money: 300
     islands:
     - index: 0
       state: 0

@@ -18,7 +18,7 @@ namespace CriminalTown.States
             
             _host.screenLevelComplete.SetActive(true);
             
-            Analytics.SendLevelFinish(ToolBox.Get<SessionData>(), true);
+            // Analytics.SendLevelFinish(ToolBox.Get<SessionData>(), true);
         }
     }
 }
