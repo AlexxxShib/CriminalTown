@@ -32,6 +32,8 @@ namespace CriminalTown.Entities
 
         private EntityCitizen _citizen;
         private CompHumanControl _control;
+        public Renderer _renderer;
+        public Camera _mainCamera;
         
         private EntityPlayer _player;
         private Transform _followAnchor;
@@ -67,6 +69,9 @@ namespace CriminalTown.Entities
             _followAnchor.gameObject.AddComponent<GizmoSphereComp>().radius = 0.5f;
             _followAnchor.parent = transform;
             _followAnchor.localPosition = Vector3.zero;
+            
+            _renderer = GetComponentInChildren<Renderer>();
+            _mainCamera = Camera.main;
         }
 
         private void Update()
@@ -75,9 +80,9 @@ namespace CriminalTown.Entities
             {
                 if (_player.CrimeInProgress)
                 {
-                    var playerDirection = _player.transform.position - transform.position;
-
-                    if (playerDirection.magnitude < searchFieldOfView.range)
+                    var planes = GeometryUtility.CalculateFrustumPlanes(_mainCamera);
+                    
+                    if (GeometryUtility.TestPlanesAABB(planes, _renderer.bounds))
                     {
                         SetPanicActive();
                     }
@@ -139,7 +144,7 @@ namespace CriminalTown.Entities
             
             weapon.SetActive(true);
             
-            ToolBox.Signals.Send<SignalPoliceActivated>();
+            ToolBox.Signals.Send(SignalPoliceStatus.ActiveState());
             
             _panicMode = PanicMode.ACTIVE;
             _followAnchor.parent = transform.parent;

@@ -10,7 +10,8 @@ using UnityEngine;
 
 namespace CriminalTown.Controllers
 {
-    public class CitizenSystem : SignalReceiver, IReceive<SignalIslandPurchased>, IReceive<SignalPoliceActivated>, IReceive<SignalPlayerCaught>
+    public class CitizenSystem : SignalReceiver, IReceive<SignalIslandPurchased>, 
+        IReceive<SignalPoliceStatus>, IReceive<SignalPlayerCaught>
     {
         public MobirayLogger logger;
         
@@ -19,6 +20,8 @@ namespace CriminalTown.Controllers
 
         public delegate void OnCatchingProgressDelegat(float progress, bool isHidden, bool isVisible);
         public OnCatchingProgressDelegat OnCatchingProgress;
+
+        public bool PoliceActivated => _policeActivated;
 
         private List<EntityIsland> _islands;
 
@@ -203,7 +206,7 @@ namespace CriminalTown.Controllers
             _player.hasPoliceVisor = false;
 
             _policeActivated = false;
-            ToolBox.Signals.Send<SignalPoliceDeactivated>();
+            ToolBox.Signals.Send(SignalPoliceStatus.InactiveState());
         }
 
         public void ReturnPolice(EntityPolice police)
@@ -285,9 +288,9 @@ namespace CriminalTown.Controllers
                     return false;
                 }
 
-                if (_config.activateCitizenPanic && !citizen.Death && _targetPoliceCount > 0)
+                if (_config.activateCitizenPanic && citizen.Snitch && !citizen.Death && _targetPoliceCount > 0)
                 {
-                    ToolBox.Signals.Send<SignalPoliceActivated>();
+                    ToolBox.Signals.Send(SignalPoliceStatus.ActiveState());
                 }
             }
 
@@ -377,9 +380,9 @@ namespace CriminalTown.Controllers
             UpdatePoints();
         }
 
-        public void HandleSignal(SignalPoliceActivated signal)
+        public void HandleSignal(SignalPoliceStatus signal)
         {
-            if (_policeActivated)
+            if (!signal.activated || _policeActivated)
             {
                 return;
             }

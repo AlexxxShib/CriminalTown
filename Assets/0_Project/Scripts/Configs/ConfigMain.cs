@@ -42,7 +42,10 @@ namespace CriminalTown.Configs
         public float policeVisibilityDelay = 1f;
         public float hidingTimeBonus = 1.2f;
         public int policeHelperCount = 1;
+
+        [Space]
         public bool activateCitizenPanic = true;
+        public bool activatePolicePanic = true;
 
         /*[Space] 
         public long BasePriceParameter1;

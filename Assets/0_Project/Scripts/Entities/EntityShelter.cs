@@ -7,7 +7,7 @@ using UnityEngine;
 namespace CriminalTown.Entities
 {
     
-    public class EntityShelter : SignalReceiver, IReceive<SignalPoliceActivated>, IReceive<SignalPoliceDeactivated>
+    public class EntityShelter : SignalReceiver, IReceive<SignalPoliceStatus>
     {
         public GameObject viewEmpty;
         public GameObject viewFill;
@@ -93,14 +93,9 @@ namespace CriminalTown.Entities
             }
         }
 
-        public void HandleSignal(SignalPoliceActivated signal)
+        public void HandleSignal(SignalPoliceStatus signal)
         {
-            _showSign = true;
-        }
-
-        public void HandleSignal(SignalPoliceDeactivated signal)
-        {
-            _showSign = false;
+            _showSign = signal.activated;
         }
     }
 }

@@ -18,8 +18,12 @@ namespace CriminalTown
     
     public struct SignalPlayerCaught { }
 
-    public struct SignalPoliceActivated { }
-    
-    public struct SignalPoliceDeactivated { }
+    public struct SignalPoliceStatus
+    {
+        public bool activated;
+
+        public static SignalPoliceStatus ActiveState() => new() {activated = true};
+        public static SignalPoliceStatus InactiveState() => new() {activated = false};
+    }
     
 }

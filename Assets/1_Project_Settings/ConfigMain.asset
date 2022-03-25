@@ -27,6 +27,9 @@ MonoBehaviour:
     - index: 0
       state: 0
       currentPrice: 0
+    - index: 0
+      state: 0
+      currentPrice: 0
   connectionTime: 0.6
   emitResourceTime: 0.8
   emitMoneyMin: 10
@@ -51,4 +54,5 @@ MonoBehaviour:
   policeVisibilityDelay: 1
   hidingTimeBonus: 1.2
   policeHelperCount: 1
-  activateCitizenPanic: 1
+  activateCitizenPanic: 0
+  activatePolicePanic: 1

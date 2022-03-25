@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace CriminalTown.UI
 {
-    public class UIPursuitPanel : SignalReceiver, IReceive<SignalPoliceActivated>, IReceive<SignalPoliceDeactivated>
+    public class UIPursuitPanel : SignalReceiver, IReceive<SignalPoliceStatus>
     {
         public GameObject body;
 
@@ -39,14 +39,9 @@ namespace CriminalTown.UI
             imageProgress.color = isVisible ? colorNormal : colorNotVisible;
         }
 
-        public void HandleSignal(SignalPoliceActivated signal)
+        public void HandleSignal(SignalPoliceStatus signal)
         {
-            body.SetActive(true);
-        }
-
-        public void HandleSignal(SignalPoliceDeactivated signal)
-        {
-            body.SetActive(false);
+            body.SetActive(signal.activated);
         }
     }
 }

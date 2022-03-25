@@ -10,7 +10,7 @@ using Random = UnityEngine.Random;
 
 namespace CriminalTown.Entities
 {
-    public class EntityCitizen : MonoBehaviour
+    public class EntityCitizen : SignalReceiver
     {
         public MobirayLogger logger;
         public bool staff;
@@ -29,6 +29,7 @@ namespace CriminalTown.Entities
         public int Health { get; private set; }
         public bool Death { get; private set; }
         public float DeathTime => _deathTime;
+        public bool Snitch { get; private set; }
 
         private bool _panic;
         private float _deathTime;
@@ -214,6 +215,11 @@ namespace CriminalTown.Entities
             }
             
             Panic = true;
+
+            if (!ToolBox.Get<CitizenSystem>().PoliceActivated)
+            {
+                Snitch = true;
+            }
             
             _humanControl.MaxSpeed = _config.citizenSpeedRun + 0.1f;
             

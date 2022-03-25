@@ -199,6 +199,8 @@ namespace CriminalTown.Entities
                 timelineStealMoney.Stop();
                 citizen.SetPanic();
             }
+
+            _stealMoneyInProgress = false;
             
             CleanupMoneyEmitter(_ownForceField.GetComponent<Collider>());
         }
