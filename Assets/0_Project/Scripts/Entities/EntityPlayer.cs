@@ -11,10 +11,11 @@ using UnityEngine.AI;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
 using Random = UnityEngine.Random;
+using SignalReceiver = Mobiray.Common.SignalReceiver;
 
 namespace CriminalTown.Entities
 {
-    public class EntityPlayer : MonoBehaviour
+    public class EntityPlayer : SignalReceiver, IReceive<SignalPoliceStatus>
     {
         public MobirayLogger logger;
         
@@ -312,6 +313,15 @@ namespace CriminalTown.Entities
             
             ToolBox.Signals.Send<SignalPlayerCaught>();
         }
-        
+
+        public void HandleSignal(SignalPoliceStatus signal)
+        {
+            if (!signal.activated)
+            {
+                moneyEmitter.Emit(3);
+                
+                _gameState.AddMoney(ToolBox.Get<ConfigBalance>().policeReward);
+            }
+        }
     }
 }
