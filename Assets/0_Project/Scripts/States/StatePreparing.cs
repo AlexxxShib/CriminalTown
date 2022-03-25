@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using CriminalTown.Configs;
 using CriminalTown.Controllers;
 using CriminalTown.Data;
 using CriminalTown.Entities;
@@ -38,6 +39,8 @@ namespace CriminalTown.States
         private void InitializeIslands()
         {
             _host.islands.AddRange(_host.parentIslands.GetComponentsInChildren<EntityIsland>(true));
+
+            var balance = ToolBox.Get<ConfigBalance>();
             
             for (var i = 0; i < _host.islands.Count; i++)
             {
@@ -58,7 +61,7 @@ namespace CriminalTown.States
                     _gameState.islands.Add(dataIsland);
                 }
 
-                _host.islands[i].Initialize(dataIsland);
+                _host.islands[i].Initialize(dataIsland, balance.islandConfigs[i]);
 
                 if (dataIsland.state == IslandState.CLOSED &&
                     (i == 0 || _gameState.islands[i - 1].state == IslandState.OPENED))

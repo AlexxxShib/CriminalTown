@@ -126,10 +126,18 @@ namespace CriminalTown.Controllers
                     _citizens.Remove(citizen);
                 }
             }
+
+            var targetCitizensCount = 0;
+            var targetPoliceCount = 0;
             
-            var targetCitizensCount = _islands
-                .Where(i => i.data.state == IslandState.OPENED)
-                .Sum(i => i.citizenCount);
+            foreach (var island in _islands)
+            {
+                if (island.data.state == IslandState.OPENED)
+                {
+                    targetCitizensCount += island.balance.citizensCount;
+                    targetPoliceCount += island.balance.policeCount;
+                }
+            }
             
             // if (targetCitizensCount >= _citizens.Count(c => !c.Death))
             if (_citizens.Count < targetCitizensCount)
@@ -141,8 +149,6 @@ namespace CriminalTown.Controllers
                 }
             }
             
-            var targetPoliceCount = targetCitizensCount / _config.policePerCitizen;
-
             if (_policeActivated)
             {
                 targetPoliceCount += _config.policeHelperCount;

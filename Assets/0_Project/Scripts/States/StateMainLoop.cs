@@ -1,6 +1,9 @@
+using CriminalTown.Configs;
+using CriminalTown.Controllers;
 using CriminalTown.Data;
 using CriminalTown.Entities;
 using Mobiray.Common;
+using Mobiray.StateMachine;
 using UnityEngine;
 
 namespace CriminalTown.States
@@ -9,7 +12,16 @@ namespace CriminalTown.States
     [CreateAssetMenu(fileName = "StateMainLoop", menuName = "GameState/StateMainLoop")]
     public class StateMainLoop : BaseGameState, IReceive<SignalIslandPurchased>, IReceive<SignalPlayerCaught>
     {
-        
+
+        private ConfigBalance _balance;
+
+        public override void Initialize(GameController character, StateMachine<GameController> stateMachine)
+        {
+            base.Initialize(character, stateMachine);
+
+            _balance = ToolBox.Get<ConfigBalance>();
+        }
+
         public override void Enter()
         {
             base.Enter();
@@ -40,7 +52,7 @@ namespace CriminalTown.States
 
         public void HandleSignal(SignalPlayerCaught signal)
         {
-            _gameState.AddMoney(-_configs.policeFine);
+            _gameState.AddMoney(-_balance.policeFine);
             
             _stateMachine.ChangeState(_host.stateGameOver);
         }

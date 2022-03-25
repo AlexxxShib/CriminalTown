@@ -14,7 +14,7 @@ namespace CriminalTown.Entities
     public class EntityIsland : MonoBehaviour
     {
         public DataIsland data;
-        public int citizenCount;
+        public IslandConfig balance;
         
         [Space]
         public GameObject offer;
@@ -32,11 +32,12 @@ namespace CriminalTown.Entities
 
         private IslandConnector _curConnector;
 
-        public void Initialize(DataIsland dataIsland)
+        public void Initialize(DataIsland dataIsland, IslandConfig balanceIsland)
         {
             _configMain = ToolBox.Get<ConfigMain>();
             
             data = dataIsland;
+            balance = balanceIsland;
 
             ForceField = offer.GetComponentInChildren<ParticleSystemForceField>(true);
             ForceFieldCollider = ForceField.GetComponent<Collider>();
@@ -53,7 +54,7 @@ namespace CriminalTown.Entities
         public void SetAvailable()
         {
             data.state = IslandState.AVAILABLE;
-            data.currentPrice = _configMain.GetIslandPrice(data.index);
+            data.currentPrice = balance.price;
             
             UpdateState();
         }

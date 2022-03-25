@@ -13,10 +13,6 @@ namespace CriminalTown.Configs
         public DataGameState initGameState;
         public DataGameState debugGameState;
 
-        [Header("Balance")]
-        public int islandBasePrice;
-        public float islandPriceFactor;
-
         [Header("Other")]
         public float connectionTime = 1;
         public float emitResourceTime = 0.8f;
@@ -38,7 +34,6 @@ namespace CriminalTown.Configs
         public float citizenPlayerDistanceMin = 8;
         public float citizenPanicDistance = 4;
         public float citizenPanicAngle = 120;
-        public int policePerCitizen = 2;
 
         [Header("Police")]
         public float policeCatchTime = 10;
@@ -46,7 +41,6 @@ namespace CriminalTown.Configs
         public float policeVisibilityDelay = 1f;
         public float hidingTimeBonus = 1.2f;
         public int policeHelperCount = 1;
-        public int policeFine = 200;
 
         /*[Space] 
         public long BasePriceParameter1;
@@ -61,11 +55,6 @@ namespace CriminalTown.Configs
             //READ CONFIGS
             // ReadConfigMoneyOnLevel();
             // ReadConfigMoneyToLevelUp();
-        }
-
-        public int GetIslandPrice(int islandIndex)
-        {
-            return (int) (islandBasePrice * (1 + islandPriceFactor * (islandIndex - 1)));
         }
 
         /*public int GetParameter1Val(int level)

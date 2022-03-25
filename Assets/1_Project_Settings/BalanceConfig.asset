@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3116fc9a6b9348349c76a1d64b1bde4e, type: 3}
+  m_Name: BalanceConfig
+  m_EditorClassIdentifier: 
+  policeFine: 200
+  policeReward: 300
+  islandConfigs:
+  - price: 0
+    citizensCount: 0
+    policeCount: 0
+  - price: 300
+    citizensCount: 2
+    policeCount: 0
+  - price: 1000
+    citizensCount: 2
+    policeCount: 1
+  - price: 2000
+    citizensCount: 2
+    policeCount: 1
+  - price: 4000
+    citizensCount: 2
+    policeCount: 0
