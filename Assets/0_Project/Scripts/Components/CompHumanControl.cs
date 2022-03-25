@@ -90,7 +90,8 @@ namespace CriminalTown.Entities
         public void SetDeath()
         {
             InputEnabled = false;
-            
+
+            _agent.enabled = false;
             _animator.SetTrigger(AnimIdDeath);
         }
 

@@ -1,6 +1,8 @@
 using System;
 using CriminalTown.Components.Connectors;
 using CriminalTown.Configs;
+using CriminalTown.Controllers;
+using DG.Tweening;
 using Mobiray.Common;
 using NaughtyAttributes;
 using UnityEngine;
@@ -26,8 +28,10 @@ namespace CriminalTown.Entities
         
         public int Health { get; private set; }
         public bool Death { get; private set; }
+        public float DeathTime => _deathTime;
 
         private bool _panic;
+        private float _deathTime;
 
         public bool Panic
         {
@@ -79,6 +83,25 @@ namespace CriminalTown.Entities
 
         private void Update()
         {
+            if (Death)
+            {
+                if (_deathTime > 0)
+                {
+                    _deathTime -= Time.deltaTime;
+
+                    if (_deathTime <= 0)
+                    {
+                        var destPoint = transform.position + Vector3.down;
+
+                        transform.DOMove(destPoint, 1.5f).OnComplete(() =>
+                        {
+                            ToolBox.Get<CitizenSystem>().DestroyCitizen(this);
+                        });
+                    }
+                }
+                return;
+            }
+            
             TrySetPanic();
         }
 
@@ -174,7 +197,8 @@ namespace CriminalTown.Entities
             if (lastHit && Health <= 0)
             {
                 Death = true;
-
+                
+                _deathTime = _config.citizenDeathTime;
                 _humanControl.SetDeath();
             }
 

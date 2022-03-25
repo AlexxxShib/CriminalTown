@@ -16,7 +16,8 @@ namespace CriminalTown.Entities
         public GameObject availableMark;
 
         public bool Hiding { get; private set; }
-        public bool IsAvailable { get; private set; }
+        // public bool IsAvailable { get; private set; }
+        public bool IsAvailable;
 
         private bool _showSign;
 
@@ -24,7 +25,7 @@ namespace CriminalTown.Entities
         {
             UpdateState();
             
-            availableMark.SetActive(false);
+            SetAvailable(true);
         }
 
         private void UpdateState()

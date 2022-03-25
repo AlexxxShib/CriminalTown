@@ -34,6 +34,7 @@ namespace CriminalTown.Configs
         public float citizenPlayerDistanceMin = 8;
         public float citizenPanicDistance = 4;
         public float citizenPanicAngle = 120;
+        public float citizenDeathTime = 6f;
 
         [Header("Police")]
         public float policeCatchTime = 10;
@@ -41,6 +42,7 @@ namespace CriminalTown.Configs
         public float policeVisibilityDelay = 1f;
         public float hidingTimeBonus = 1.2f;
         public int policeHelperCount = 1;
+        public bool activateCitizenPanic = true;
 
         /*[Space] 
         public long BasePriceParameter1;

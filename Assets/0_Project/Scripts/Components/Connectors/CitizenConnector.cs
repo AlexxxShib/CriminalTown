@@ -6,7 +6,7 @@ namespace CriminalTown.Components.Connectors
     {
         public override bool OnEnter(EntityCitizen citizen)
         {
-            if (IsConnected)
+            if (IsConnected || citizen.Death)
             {
                 return false;
             }

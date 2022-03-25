@@ -25,6 +25,9 @@ namespace CriminalTown.Controllers
         private List<Transform> _leftSidePoints = new();
         private List<Transform> _rightSidePoints = new();
 
+        private int _targetCitizenCount;
+        private int _targetPoliceCount;
+
         private EntityPlayer _player;
         
         private List<EntityCitizen> _citizens = new();
@@ -142,20 +145,8 @@ namespace CriminalTown.Controllers
                 }
             }
 
-            var targetCitizensCount = 0;
-            var targetPoliceCount = 0;
-            
-            foreach (var island in _islands)
-            {
-                if (island.data.state == IslandState.OPENED)
-                {
-                    targetCitizensCount += island.balance.citizensCount;
-                    targetPoliceCount += island.balance.policeCount;
-                }
-            }
-            
             // if (targetCitizensCount >= _citizens.Count(c => !c.Death))
-            if (_citizens.Count < targetCitizensCount)
+            if (_citizens.Count < _targetCitizenCount)
             {
                 if (TryAddCitizen(_config.citizenPrefabs.RandomItem(), out var citizen))
                 {
@@ -163,6 +154,8 @@ namespace CriminalTown.Controllers
                     return;
                 }
             }
+
+            var targetPoliceCount = _targetPoliceCount;
             
             if (_policeActivated)
             {
@@ -267,6 +260,16 @@ namespace CriminalTown.Controllers
             return true;
         }
 
+        public void DestroyCitizen(EntityCitizen citizen)
+        {
+            logger.LogDebug($"citizen {citizen.gameObject.name} destroyed");
+            
+            _citizens.Remove(citizen);
+            _polices.Remove(citizen);
+            
+            Destroy(citizen.gameObject);
+        }
+
         private bool TryDestroyCitizen(EntityCitizen citizen)
         {
             var citizenPlayerDistance = (_player.transform.position - citizen.transform.position).magnitude;
@@ -282,17 +285,14 @@ namespace CriminalTown.Controllers
                     return false;
                 }
 
-                ToolBox.Signals.Send<SignalPoliceActivated>();
+                if (_config.activateCitizenPanic && !citizen.Death && _targetPoliceCount > 0)
+                {
+                    ToolBox.Signals.Send<SignalPoliceActivated>();
+                }
             }
 
-            _citizens.Remove(citizen);
-            _polices.Remove(citizen);
-
-            Destroy(citizen.gameObject);
-
-            logger.LogDebug($"citizen {citizen.gameObject.name} destroyed");
+            DestroyCitizen(citizen);
             return true;
-
         }
 
         private bool CalculatePoints(out Transform start, out Transform end, out List<Transform> points)
@@ -353,6 +353,9 @@ namespace CriminalTown.Controllers
             _rightSidePoints.Clear();
             
             _shelters.Clear();
+
+            _targetCitizenCount = 0;
+            _targetPoliceCount = 0;
             
             foreach (var island in _islands)
             {
@@ -362,6 +365,9 @@ namespace CriminalTown.Controllers
                     _rightSidePoints.AddRange(island.GetPeoplePoints(1));
                     
                     _shelters.AddRange(island.GetComponentsInChildren<EntityShelter>());
+
+                    _targetCitizenCount += island.balance.citizensCount;
+                    _targetPoliceCount += island.balance.policeCount;
                 }
             }
         }

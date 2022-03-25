@@ -24,6 +24,9 @@ MonoBehaviour:
     - index: 0
       state: 0
       currentPrice: 0
+    - index: 0
+      state: 0
+      currentPrice: 0
   connectionTime: 0.6
   emitResourceTime: 0.8
   emitMoneyMin: 10
@@ -42,8 +45,10 @@ MonoBehaviour:
   citizenPlayerDistanceMin: 8
   citizenPanicDistance: 4
   citizenPanicAngle: 120
+  citizenDeathTime: 6
   policeCatchTime: 10
   policePassiveTime: 10
   policeVisibilityDelay: 1
   hidingTimeBonus: 1.2
   policeHelperCount: 1
+  activateCitizenPanic: 1
