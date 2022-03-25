@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using CriminalTown.Components.Connectors;
 using CriminalTown.Configs;
 using CriminalTown.Data;
+using DG.Tweening;
 using Mobiray.Common;
 using TMPro;
 using UnityEngine;
@@ -41,6 +42,7 @@ namespace CriminalTown.Entities
 
             ForceField = offer.GetComponentInChildren<ParticleSystemForceField>(true);
             ForceFieldCollider = ForceField.GetComponent<Collider>();
+            
             _textPrice = offer.GetComponentInChildren<TextMeshProUGUI>(true);
 
             var triggerAgent = offer.GetComponent<CompTriggerAgent>();
@@ -72,6 +74,8 @@ namespace CriminalTown.Entities
                 _curConnector.OnExit(this);
                 
                 ToolBox.Signals.Send<SignalIslandPurchased>();
+
+                body.transform.DOPunchPosition(new Vector3(0, 0.5f, 0), 0.5f, 2);
             }
         }
 

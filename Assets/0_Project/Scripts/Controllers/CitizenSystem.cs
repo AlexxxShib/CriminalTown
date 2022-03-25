@@ -30,6 +30,8 @@ namespace CriminalTown.Controllers
         private List<EntityCitizen> _citizens = new();
         private List<EntityCitizen> _polices = new();
 
+        private List<EntityShelter> _shelters = new();
+
         private ConfigMain _config;
 
         private float _updateTimer = 0;
@@ -60,11 +62,24 @@ namespace CriminalTown.Controllers
             {
                 var playerIsVisible = false;
                 
+                foreach (var shelter in _shelters)
+                {
+                    shelter.SetAvailable(true);
+                }
+                
                 foreach (var citizen in _polices)
                 {
                     if (citizen.TryGetComponent<EntityPolice>(out var police))
                     {
                         playerIsVisible = playerIsVisible || police.SawPlayer;
+
+                        foreach (var shelter in _shelters)
+                        {
+                            if (police.searchFieldOfView.IsVisible(shelter.transform))
+                            {
+                                shelter.SetAvailable(false);
+                            }
+                        }
                     }
                 }
                 
@@ -186,6 +201,11 @@ namespace CriminalTown.Controllers
             }
             
             returnPolices.ForEach(ReturnPolice);
+            
+            foreach (var shelter in _shelters)
+            {
+                shelter.SetAvailable(false);
+            }
 
             _player.hasPoliceVisor = false;
 
@@ -332,12 +352,16 @@ namespace CriminalTown.Controllers
             _leftSidePoints.Clear();
             _rightSidePoints.Clear();
             
+            _shelters.Clear();
+            
             foreach (var island in _islands)
             {
                 if (island.data.state == IslandState.OPENED)
                 {
                     _leftSidePoints.AddRange(island.GetPeoplePoints(0));
                     _rightSidePoints.AddRange(island.GetPeoplePoints(1));
+                    
+                    _shelters.AddRange(island.GetComponentsInChildren<EntityShelter>());
                 }
             }
         }

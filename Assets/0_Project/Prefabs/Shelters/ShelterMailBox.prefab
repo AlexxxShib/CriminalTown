@@ -158,6 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b693440a49e147c99b3106e4346e0ee2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsReceiver: 1
   viewEmpty: {fileID: 7601266171811272949}
   viewFill: {fileID: 7601266170396974513}
   availableMark: {fileID: 7601266172170791479}
