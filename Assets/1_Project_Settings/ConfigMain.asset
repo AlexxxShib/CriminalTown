@@ -19,13 +19,11 @@ MonoBehaviour:
       state: 0
       currentPrice: 0
   debugGameState:
-    money: 500000
+    money: 50000
     islands:
     - index: 0
       state: 0
       currentPrice: 0
-  islandBasePrice: 1000
-  islandPriceFactor: 0.4
   connectionTime: 0.6
   emitResourceTime: 0.8
   emitMoneyMin: 10
@@ -44,7 +42,6 @@ MonoBehaviour:
   citizenPlayerDistanceMin: 8
   citizenPanicDistance: 4
   citizenPanicAngle: 120
-  policePerCitizen: 2
   policeCatchTime: 10
   policePassiveTime: 10
   policeVisibilityDelay: 1
