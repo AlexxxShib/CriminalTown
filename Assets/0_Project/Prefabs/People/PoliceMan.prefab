@@ -2004,6 +2004,8 @@ MonoBehaviour:
   catchingFieldProgress: {fileID: 7893351986659988851}
   weapon: {fileID: 8504282954584877305}
   emojiQuestion: {fileID: 4476143376986305496}
+  _renderer: {fileID: 0}
+  _mainCamera: {fileID: 0}
 --- !u!114 &790617023782243703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2016,6 +2018,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22c8951f9e184274909dd48ef9f90ec6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsReceiver: 1
   logger:
     showLog: 0
     mainTag: 
@@ -2159,7 +2162,7 @@ PrefabInstance:
     - target: {fileID: 1135573208771151671, guid: 0975f7195f0d941ffb0c8020086cf482,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 2.52
       objectReference: {fileID: 0}
     - target: {fileID: 1135573208771151671, guid: 0975f7195f0d941ffb0c8020086cf482,
         type: 3}
@@ -2545,7 +2548,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 430458, guid: 1978e86b7c9a6459e97548f62343e9c0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 2.52
       objectReference: {fileID: 0}
     - target: {fileID: 430458, guid: 1978e86b7c9a6459e97548f62343e9c0, type: 3}
       propertyPath: m_LocalPosition.z
