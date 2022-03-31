@@ -13,7 +13,11 @@ namespace CriminalTown.States
     public class StateMainLoop : BaseGameState, IReceive<SignalIslandPurchased>, IReceive<SignalPlayerCaught>
     {
 
+        public int lowCameraPriorityDefault = 30;
+        public int highCameraPriorityDefault = 20;
+
         private ConfigBalance _balance;
+        private EntityPlayer _player;
 
         public override void Initialize(GameController character, StateMachine<GameController> stateMachine)
         {
@@ -27,6 +31,8 @@ namespace CriminalTown.States
             base.Enter();
             
             _host.screenMain.SetActive(true);
+            
+            _player = ToolBox.Get<EntityPlayer>();
         }
 
         public override void Exit()
@@ -34,6 +40,35 @@ namespace CriminalTown.States
             base.Exit();
             
             _host.screenMain.SetActive(false);
+        }
+
+        public override void LogicUpdate()
+        {
+            base.LogicUpdate();
+
+            UpdateCameraPos();
+        }
+
+        private void UpdateCameraPos()
+        {
+            var cameraPos = _host.cameraLow.transform.position;
+            var playerDir = _player.transform.position - cameraPos;
+
+            var cameraRay = new Ray(cameraPos, playerDir);
+
+            var lowCameraPriority = lowCameraPriorityDefault;
+            var highCameraPriority = highCameraPriorityDefault;
+
+            if (Physics.Raycast(cameraRay, out var hit))
+            {
+                if (hit.transform.gameObject.layer != _player.gameObject.layer)
+                {
+                    (lowCameraPriority, highCameraPriority) = (highCameraPriority, lowCameraPriority);
+                }
+            }
+
+            _host.cameraLow.Priority = lowCameraPriority;
+            _host.cameraHigh.Priority = highCameraPriority;
         }
 
         public void HandleSignal(SignalIslandPurchased signal)

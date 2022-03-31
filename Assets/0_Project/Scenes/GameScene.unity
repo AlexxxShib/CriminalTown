@@ -4402,6 +4402,8 @@ MonoBehaviour:
   screenGameOver: {fileID: 1449658614}
   screenLevelComplete: {fileID: 1329633177}
   textLevel: {fileID: 1598465028}
+  cameraLow: {fileID: 468390636}
+  cameraHigh: {fileID: 2038481957}
   islandSurface: {fileID: 77327135}
   parentIslands: {fileID: 458800857}
   statePreparing: {fileID: 11400000, guid: c35ada429a06a46f8aad99e228bf25b0, type: 2}
@@ -5324,7 +5326,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 468390634}
-  m_LocalRotation: {x: 0.38268346, y: 0.000000015896624, z: -0.0000000065845973, w: 0.92387956}
+  m_LocalRotation: {x: 0.38268346, y: -0.000000015896623, z: 0.000000006584596, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 10, z: -9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7827,8 +7829,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.55292255, y: 0.000000021505372, z: -0.0000000142706895, w: 0.83323264}
-  m_LocalPosition: {x: 0, y: 15.94, z: -6.3}
+  m_LocalRotation: {x: 0.38268346, y: -0.000000015896623, z: 0.000000006584596, w: 0.92387956}
+  m_LocalPosition: {x: 0, y: 10, z: -9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14272,7 +14274,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2038481955}
-  m_LocalRotation: {x: 0.55292255, y: 0.000000021505372, z: -0.0000000142706895, w: 0.83323264}
+  m_LocalRotation: {x: 0.55292255, y: 0.00000002150537, z: -0.0000000142706895, w: 0.83323264}
   m_LocalPosition: {x: 0, y: 15.94, z: -6.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -14297,7 +14299,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 100
+  m_Priority: 20
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 1047592582}
   m_Follow: {fileID: 1047592582}

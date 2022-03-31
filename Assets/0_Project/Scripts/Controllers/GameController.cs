@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Cinemachine;
 using CriminalTown.Entities;
 using CriminalTown.States;
 using Mobiray.Common;
@@ -23,6 +24,10 @@ namespace CriminalTown.Controllers
 
         [Space]
         public TextMeshProUGUI textLevel;
+
+        [Header("Cameras")]
+        public CinemachineVirtualCamera cameraLow;
+        public CinemachineVirtualCamera cameraHigh;
 
         [Header("MAIN SETTINGS")]
         public NavMeshSurface islandSurface;

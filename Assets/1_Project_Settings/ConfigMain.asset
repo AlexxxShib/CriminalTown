@@ -14,22 +14,65 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initGameState:
     money: 300
-    islands:
-    - index: 0
-      state: 0
-      currentPrice: 0
+    branches: []
   debugGameState:
-    money: 50000
-    islands:
-    - index: 0
-      state: 0
-      currentPrice: 0
-    - index: 0
-      state: 0
-      currentPrice: 0
-    - index: 0
-      state: 0
-      currentPrice: 0
+    money: 47000
+    branches:
+    - islands:
+      - branch: 0
+        index: 0
+        state: 1
+        currentPrice: 1000
+      - branch: 0
+        index: 1
+        state: 2
+        currentPrice: 0
+      - branch: 0
+        index: 2
+        state: 2
+        currentPrice: 0
+      - branch: 0
+        index: 3
+        state: 2
+        currentPrice: 0
+      - branch: 0
+        index: 4
+        state: 2
+        currentPrice: 0
+      - branch: 0
+        index: 5
+        state: 2
+        currentPrice: 0
+    - islands:
+      - branch: 1
+        index: 0
+        state: 0
+        currentPrice: 0
+      - branch: 1
+        index: 1
+        state: 0
+        currentPrice: 0
+      - branch: 1
+        index: 2
+        state: 0
+        currentPrice: 0
+    - islands:
+      - branch: 2
+        index: 0
+        state: 2
+        currentPrice: 0
+      - branch: 2
+        index: 1
+        state: 2
+        currentPrice: 0
+      - branch: 2
+        index: 2
+        state: 2
+        currentPrice: 0
+      - branch: 2
+        index: 3
+        state: 2
+        currentPrice: 0
   connectionTime: 0.6
   emitResourceTime: 0.8
   emitMoneyMin: 10
