@@ -20,7 +20,7 @@ PrefabInstance:
     - target: {fileID: 6247696313957955396, guid: 0a84c2e9efbff42f29e39b1960b068e1,
         type: 3}
       propertyPath: m_Name
-      value: Tile Sidewalk 6
+      value: Tile Sidewalk 6 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7114762285627026489, guid: 0a84c2e9efbff42f29e39b1960b068e1,
         type: 3}
@@ -80,12 +80,12 @@ PrefabInstance:
     - target: {fileID: 7162502286913301840, guid: 0a84c2e9efbff42f29e39b1960b068e1,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 6
+      value: 8.3
       objectReference: {fileID: 0}
     - target: {fileID: 7162502286913301840, guid: 0a84c2e9efbff42f29e39b1960b068e1,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 6
+      value: 8.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a84c2e9efbff42f29e39b1960b068e1, type: 3}
