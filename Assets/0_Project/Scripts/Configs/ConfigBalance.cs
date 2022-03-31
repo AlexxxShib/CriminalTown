@@ -16,6 +16,12 @@ namespace CriminalTown.Configs
         // [Space]
         // public List<EntityCitizen> citizenPrefabs;
     }
+
+    [Serializable]
+    public class IslandBranchConfig
+    {
+        public List<IslandConfig> islands;
+    }
     
     [CreateAssetMenu(fileName = "BalanceConfig", menuName = "Configs/Balance", order = 0)]
     public class ConfigBalance : ScriptableObject
@@ -23,7 +29,7 @@ namespace CriminalTown.Configs
         public int policeFine = 200;
         public int policeReward = 300;
         
-        public List<IslandConfig> islandConfigs;
+        public List<IslandBranchConfig> branches;
     }
     
 }

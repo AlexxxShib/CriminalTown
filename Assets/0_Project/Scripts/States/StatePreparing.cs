@@ -38,36 +38,71 @@ namespace CriminalTown.States
 
         private void InitializeIslands()
         {
-            _host.islands.AddRange(_host.parentIslands.GetComponentsInChildren<EntityIsland>(true));
-
             var balance = ToolBox.Get<ConfigBalance>();
             
-            for (var i = 0; i < _host.islands.Count; i++)
-            {
-                DataIsland dataIsland;
+            _host.islands = new List<List<EntityIsland>>();
 
-                if (i < _gameState.islands.Count)
+            for (int i = 1; i < _host.parentIslands.childCount; i++)
+            {
+                var branchTransform = _host.parentIslands.GetChild(i);
+                
+                var islands = new List<EntityIsland>();
+                for (int j = 0; j < branchTransform.childCount; j++)
                 {
-                    dataIsland = _gameState.islands[i];
+                    islands.Add(branchTransform.GetChild(j).GetComponent<EntityIsland>());
+                }
+                
+                _host.islands.Add(islands);
+            }
+            
+            for (var i = 0; i < _host.islands.Count; i++) // Island branches
+            {
+                DataIslandBranch branch;
+                
+                if (i < _gameState.branches.Count)
+                {
+                    branch = _gameState.branches[i];
                 }
                 else
                 {
-                    dataIsland = new DataIsland
+                    branch = new DataIslandBranch
                     {
-                        index = i,
-                        state = IslandState.CLOSED
+                        islands = new List<DataIsland>()
                     };
                     
-                    _gameState.islands.Add(dataIsland);
+                    _gameState.branches.Add(branch);
                 }
-
-                _host.islands[i].Initialize(dataIsland, balance.islandConfigs[i]);
-
-                if (dataIsland.state == IslandState.CLOSED &&
-                    (i == 0 || _gameState.islands[i - 1].state == IslandState.OPENED))
+                
+                for (var j = 0; j < _host.islands[i].Count; j++)
                 {
-                    _host.islands[i].SetAvailable();
-                }
+                    var island = _host.islands[i][j];
+                    
+                    DataIsland dataIsland;
+
+                    if (j < branch.islands.Count)
+                    {
+                        dataIsland = branch.islands[j];
+                    }
+                    else
+                    {
+                        dataIsland = new DataIsland
+                        {
+                            branch = i,
+                            index = j,
+                            state = IslandState.CLOSED
+                        };
+                        
+                        branch.islands.Add(dataIsland);
+                    }
+                    
+                    _host.islands[i][j].Initialize(dataIsland, balance.branches[i].islands[j]);
+                    
+                    if (dataIsland.state == IslandState.CLOSED &&
+                        (j == 0 || _gameState.branches[i].islands[j - 1].state == IslandState.OPENED))
+                    {
+                        _host.islands[i][j].SetAvailable();
+                    }//*/
+                }//*/
             }
             
             _host.islandSurface.BuildNavMesh();

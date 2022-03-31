@@ -22,7 +22,10 @@ namespace CriminalTown.Entities
         public GameObject body;
 
         [Space]
-        public Transform peoplePoints;
+        public List<EntityIsland> dependIslands;
+
+        // [Space]
+        // public Transform peoplePoints;
 
         public ParticleSystemForceField ForceField { get; private set; }
         public Collider ForceFieldCollider { get; private set; }
@@ -40,6 +43,9 @@ namespace CriminalTown.Entities
             data = dataIsland;
             balance = balanceIsland;
 
+            offer = transform.GetChild(0).gameObject;
+            body = transform.GetChild(1).gameObject;
+
             ForceField = offer.GetComponentInChildren<ParticleSystemForceField>(true);
             ForceFieldCollider = ForceField.GetComponent<Collider>();
             
@@ -55,6 +61,14 @@ namespace CriminalTown.Entities
 
         public void SetAvailable()
         {
+            foreach (var island in dependIslands)
+            {
+                if (island.data.state != IslandState.OPENED)
+                {
+                    return;
+                }
+            }
+            
             data.state = IslandState.AVAILABLE;
             data.currentPrice = balance.price;
             
@@ -95,14 +109,6 @@ namespace CriminalTown.Entities
             }
             
             _textPrice.text = $"{data.currentPrice:N0}$";
-        }
-
-        /*
-         * side 0 is left, 1 is right
-         */
-        public List<Transform> GetPeoplePoints(int side)
-        {
-            return peoplePoints.GetChild(side).GetChildren();
         }
 
         private void OnEnterIsland(Collider other)

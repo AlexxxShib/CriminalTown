@@ -12,7 +12,7 @@ namespace CriminalTown.Data
     {
         public int money;
 
-        public List<DataIsland> islands;
+        public List<DataIslandBranch> branches;
 
         [Space]
         // public int LevelParamter1;

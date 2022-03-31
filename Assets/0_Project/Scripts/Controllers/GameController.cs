@@ -27,7 +27,7 @@ namespace CriminalTown.Controllers
         [Header("MAIN SETTINGS")]
         public NavMeshSurface islandSurface;
         public Transform parentIslands;
-        public List<EntityIsland> islands;
+        public List<List<EntityIsland>> islands;
 
         [Header("STATES")]
         public StatePreparing statePreparing;

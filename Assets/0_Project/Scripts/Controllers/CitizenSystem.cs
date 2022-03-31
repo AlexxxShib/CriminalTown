@@ -23,7 +23,7 @@ namespace CriminalTown.Controllers
 
         public bool PoliceActivated => _policeActivated;
 
-        private List<EntityIsland> _islands;
+        private List<List<EntityIsland>> _islands;
 
         private List<Transform> _leftSidePoints = new();
         private List<Transform> _rightSidePoints = new();
@@ -360,17 +360,20 @@ namespace CriminalTown.Controllers
             _targetCitizenCount = 0;
             _targetPoliceCount = 0;
             
-            foreach (var island in _islands)
+            foreach (var branch in _islands)
             {
-                if (island.data.state == IslandState.OPENED)
+                foreach (var island in branch)
                 {
-                    _leftSidePoints.AddRange(island.GetPeoplePoints(0));
-                    _rightSidePoints.AddRange(island.GetPeoplePoints(1));
+                    if (island.data.state == IslandState.OPENED)
+                    {
+                        // _leftSidePoints.AddRange(island.GetPeoplePoints(0));
+                        // _rightSidePoints.AddRange(island.GetPeoplePoints(1));
                     
-                    _shelters.AddRange(island.GetComponentsInChildren<EntityShelter>());
+                        _shelters.AddRange(island.GetComponentsInChildren<EntityShelter>());
 
-                    _targetCitizenCount += island.balance.citizensCount;
-                    _targetPoliceCount += island.balance.policeCount;
+                        _targetCitizenCount += island.balance.citizensCount;
+                        _targetPoliceCount += island.balance.policeCount;
+                    }
                 }
             }
         }

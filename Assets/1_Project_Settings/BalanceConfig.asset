@@ -14,19 +14,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   policeFine: 200
   policeReward: 300
-  islandConfigs:
-  - price: 0
-    citizensCount: 0
-    policeCount: 0
-  - price: 300
-    citizensCount: 2
-    policeCount: 0
-  - price: 1000
-    citizensCount: 2
-    policeCount: 1
-  - price: 2000
-    citizensCount: 2
-    policeCount: 1
-  - price: 4000
-    citizensCount: 2
-    policeCount: 0
+  branches:
+  - islands:
+    - price: 1000
+      citizensCount: 1
+      policeCount: 0
+    - price: 1000
+      citizensCount: 1
+      policeCount: 0
+    - price: 1000
+      citizensCount: 1
+      policeCount: 0
+    - price: 1000
+      citizensCount: 1
+      policeCount: 0
+    - price: 1000
+      citizensCount: 1
+      policeCount: 0
+    - price: 1000
+      citizensCount: 1
+      policeCount: 0
+  - islands:
+    - price: 1000
+      citizensCount: 1
+      policeCount: 0
+    - price: 1000
+      citizensCount: 1
+      policeCount: 0
+    - price: 1000
+      citizensCount: 1
+      policeCount: 0
+  - islands:
+    - price: 1000
+      citizensCount: 1
+      policeCount: 0
+    - price: 1000
+      citizensCount: 1
+      policeCount: 0
+    - price: 1000
+      citizensCount: 1
+      policeCount: 0
+    - price: 1000
+      citizensCount: 1
+      policeCount: 0

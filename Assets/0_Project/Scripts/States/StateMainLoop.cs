@@ -40,12 +40,15 @@ namespace CriminalTown.States
         {
             _host.islandSurface.BuildNavMesh();
 
-            for (var i = 0; i < _gameState.islands.Count; i++)
+            for (var i = 0; i < _gameState.branches.Count; i++)
             {
-                if (i > 0 && _gameState.islands[i - 1].state == IslandState.OPENED && 
-                    _gameState.islands[i].state == IslandState.CLOSED)
+                for (var j = 0; j < _gameState.branches[i].islands.Count; j++)
                 {
-                    _host.islands[i].SetAvailable();
+                    if (_gameState.branches[i].islands[j].state == IslandState.CLOSED && 
+                        (j == 0 || _gameState.branches[i].islands[j - 1].state == IslandState.OPENED))
+                    {
+                        _host.islands[i][j].SetAvailable();
+                    }
                 }
             }
             

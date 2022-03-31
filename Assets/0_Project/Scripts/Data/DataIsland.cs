@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace CriminalTown.Data
 {
@@ -7,10 +8,17 @@ namespace CriminalTown.Data
     {
         OPENED, AVAILABLE, CLOSED
     }
+
+    [Serializable]
+    public class DataIslandBranch
+    {
+        public List<DataIsland> islands;
+    }
     
     [Serializable]
     public class DataIsland
     {
+        public int branch;
         public int index;
         public IslandState state;
         public int currentPrice;
