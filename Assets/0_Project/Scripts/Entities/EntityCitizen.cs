@@ -96,7 +96,7 @@ namespace CriminalTown.Entities
 
                         transform.DOMove(destPoint, 1.5f).OnComplete(() =>
                         {
-                            ToolBox.Get<CitizenSystem>().DestroyCitizen(this);
+                            ToolBox.Signals.Send(SignalTryDestroyCitizen.Destroy(this));
                         });
                     }
                 }

@@ -21,7 +21,7 @@ MonoBehaviour:
       policeCount: 0
     - price: 1000
       citizensCount: 1
-      policeCount: 0
+      policeCount: 1
     - price: 1000
       citizensCount: 1
       policeCount: 0
@@ -40,7 +40,7 @@ MonoBehaviour:
       policeCount: 0
     - price: 1000
       citizensCount: 1
-      policeCount: 0
+      policeCount: 1
     - price: 1000
       citizensCount: 1
       policeCount: 0

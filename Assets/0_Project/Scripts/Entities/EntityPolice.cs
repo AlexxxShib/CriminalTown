@@ -78,14 +78,9 @@ namespace CriminalTown.Entities
         {
             if (_panicMode == PanicMode.NONE)
             {
-                if (_player.CrimeInProgress)
+                if (_player.CrimeInProgress && _mainCamera.IsVisible(_renderer))
                 {
-                    var planes = GeometryUtility.CalculateFrustumPlanes(_mainCamera);
-                    
-                    if (GeometryUtility.TestPlanesAABB(planes, _renderer.bounds))
-                    {
-                        SetPanicActive();
-                    }
+                    SetPanicActive();
                 }
                 return;
             }

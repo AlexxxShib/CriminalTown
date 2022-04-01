@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using CriminalTown.Configs;
 using CriminalTown.Data;
 using CriminalTown.Entities;
@@ -24,21 +22,20 @@ namespace CriminalTown.Controllers
         public bool PoliceActivated => _policeActivated;
 
         private List<List<EntityIsland>> _islands;
-
-        private List<Transform> _leftSidePoints = new();
-        private List<Transform> _rightSidePoints = new();
+        private List<DistrictController> _districts;
 
         private int _targetCitizenCount;
         private int _targetPoliceCount;
 
         private EntityPlayer _player;
         
-        private List<EntityCitizen> _citizens = new();
-        private List<EntityCitizen> _polices = new();
+        // private List<EntityCitizen> _citizens = new();
+        // private List<EntityCitizen> _polices = new();
 
         private List<EntityShelter> _shelters = new();
 
         private ConfigMain _config;
+        private ConfigBalance _balance;
 
         private float _updateTimer = 0;
 
@@ -50,14 +47,24 @@ namespace CriminalTown.Controllers
             ToolBox.Add(this);
             
             _config = ToolBox.Get<ConfigMain>();
+            _balance = ToolBox.Get<ConfigBalance>();
+            
             _islands = ToolBox.Get<GameController>().islands;
             
-            UpdatePoints();
+            _districts = new List<DistrictController>(GetComponentsInChildren<DistrictController>());
         }
 
         private void Start()
         {
             _player = ToolBox.Get<EntityPlayer>();
+            
+            foreach (var district in _districts)
+            {
+                district.entitiesParent = entitiesParent;
+                district.OnPanic += OnDistrictPanic;
+            }
+            
+            UpdatePoints();
 
             StartTimer();
         }
@@ -73,17 +80,20 @@ namespace CriminalTown.Controllers
                     shelter.SetAvailable(true);
                 }
                 
-                foreach (var citizen in _polices)
+                foreach (var district in _districts)
                 {
-                    if (citizen.TryGetComponent<EntityPolice>(out var police))
+                    foreach (var citizen in district.polices)
                     {
-                        playerIsVisible = playerIsVisible || police.SawPlayer;
-
-                        foreach (var shelter in _shelters)
+                        if (citizen.TryGetComponent<EntityPolice>(out var police))
                         {
-                            if (police.searchFieldOfView.IsVisible(shelter.transform))
+                            playerIsVisible = playerIsVisible || police.SawPlayer;
+
+                            foreach (var shelter in _shelters)
                             {
-                                shelter.SetAvailable(false);
+                                if (police.searchFieldOfView.IsVisible(shelter.transform))
+                                {
+                                    shelter.SetAvailable(false);
+                                }
                             }
                         }
                     }
@@ -137,27 +147,32 @@ namespace CriminalTown.Controllers
 
         private void TryAddCitizen()
         {
-            var deathCitizens = _citizens
-                .Where(c => c.Death).ToList();
+            var citizenCount = 0;
+            var policeCount = 0;
             
-            foreach (var citizen in deathCitizens)
+            foreach (var district in _districts)
             {
-                if (TryDestroyCitizen(citizen))
-                {
-                    _citizens.Remove(citizen);
-                }
+                district.TryDestroyCitizens();
+
+                citizenCount += district.citizens.Count;
+                policeCount += district.polices.Count;
             }
 
-            // if (targetCitizensCount >= _citizens.Count(c => !c.Death))
-            if (_citizens.Count < _targetCitizenCount)
+            if (citizenCount < _targetCitizenCount)
             {
-                if (TryAddCitizen(_config.citizenPrefabs.RandomItem(), out var citizen))
+                _districts.Sort((d1, d2) => d1.citizens.Count - d2.citizens.Count);
+
+                foreach (var district in _districts)
                 {
-                    _citizens.Add(citizen);
-                    return;
+                    // logger.LogDebug($"Try add citizen to {district.gameObject.name} with citizens {district.citizens.Count}");
+                    
+                    if (district.TryAddCitizen())
+                    {
+                        break;
+                    }
                 }
             }
-
+            
             var targetPoliceCount = _targetPoliceCount;
             
             if (_policeActivated)
@@ -165,19 +180,21 @@ namespace CriminalTown.Controllers
                 targetPoliceCount += _config.policeHelperCount;
             }
 
-            if (_polices.Count < targetPoliceCount)
+            if (!_balance.IsPoliceOpened(_islands))
             {
-                if (TryAddCitizen(_config.policePrefabs.RandomItem(), out var police))
+                targetPoliceCount = 0;
+            }
+
+            if (policeCount < targetPoliceCount)
+            {
+                _districts.Sort((d1, d2) => d1.polices.Count - d2.polices.Count);
+
+                foreach (var district in _districts)
                 {
-                    _polices.Add(police);
-                    
-                    this.StartTimer(0.5f, () =>
+                    if (district.TryAddPolice(_policeActivated))
                     {
-                        if (_policeActivated)
-                        {
-                            police.SetPanic();
-                        }
-                    });
+                        break;
+                    }
                 }
             }
         }
@@ -185,17 +202,20 @@ namespace CriminalTown.Controllers
         private void DeactivatePolice()
         {
             var returnPolices = new List<EntityPolice>();
-            
-            foreach (var citizen in _polices)
+
+            foreach (var district in _districts)
             {
-                if (citizen.TryGetComponent<EntityPolice>(out var police))
+                foreach (var citizen in district.polices)
                 {
-                    police.DisablePanic();
-                    
-                    returnPolices.Add(police);
+                    if (citizen.TryGetComponent<EntityPolice>(out var police))
+                    {
+                        police.DisablePanic();
+
+                        returnPolices.Add(police);
+                    }
                 }
             }
-            
+
             returnPolices.ForEach(ReturnPolice);
             
             foreach (var shelter in _shelters)
@@ -211,149 +231,26 @@ namespace CriminalTown.Controllers
 
         public void ReturnPolice(EntityPolice police)
         {
-            var points = new List<Transform>();
-            
-            points.AddRange(_leftSidePoints);
-            points.AddRange(_rightSidePoints);
-
             police.TryGetComponent<EntityCitizen>(out var citizen);
-            police.TryGetComponent<CompHumanControl>(out var control);
             
-            OnCitizenFinishPath(citizen, control, points);
-        }
-
-        private async void OnCitizenFinishPath(EntityCitizen citizen, CompHumanControl control, List<Transform> points)
-        {
-            logger.LogDebug($"citizen {citizen.gameObject.name} finished path");
-
-            if (TryDestroyCitizen(citizen))
+            foreach (var district in _districts)
             {
+                if (!district.polices.Contains(citizen))
+                {
+                    continue;
+                }
+                
+                district.ReturnPolice(citizen);
                 return;
             }
-            
-            var destination = FindFarPoint(citizen.transform.position, points);
-            
-            logger.LogDebug($"citizen {citizen.gameObject.name} continue {destination.position}");
-
-            await Task.Delay(TimeSpan.FromSeconds(Time.deltaTime));
-            
-            control.SetDestination(destination,
-                humanControl => OnCitizenFinishPath(citizen, humanControl, points));
-        }
-
-        private bool TryAddCitizen(EntityCitizen prefab, out EntityCitizen instance)
-        {
-            if (!CalculatePoints(out var start, out var end, out var points))
-            {
-                instance = null;
-                return false;
-            }
-            
-            var citizen = instance = Instantiate(prefab, entitiesParent);
-            var control = instance.GetComponent<CompHumanControl>();
-
-            control.SetPosition(start.position);
-            
-            logger.LogDebug(
-                $"add citizen {instance.gameObject.name} start: {start.position} finish: {end.position}");
-            
-            control.SetDestination(end,
-                humanControl => OnCitizenFinishPath(citizen, humanControl, points));
-
-            return true;
-        }
-
-        public void DestroyCitizen(EntityCitizen citizen)
-        {
-            logger.LogDebug($"citizen {citizen.gameObject.name} destroyed");
-            
-            _citizens.Remove(citizen);
-            _polices.Remove(citizen);
-            
-            Destroy(citizen.gameObject);
-        }
-
-        private bool TryDestroyCitizen(EntityCitizen citizen)
-        {
-            var citizenPlayerDistance = (_player.transform.position - citizen.transform.position).magnitude;
-            if (citizenPlayerDistance < _config.citizenPlayerDistanceMin)
-            {
-                return false;
-            }
-
-            if (citizen.Panic)
-            {
-                if (_polices.Contains(citizen))
-                {
-                    return false;
-                }
-
-                if (_config.activateCitizenPanic && citizen.Snitch && !citizen.Death && _targetPoliceCount > 0)
-                {
-                    ToolBox.Signals.Send(SignalPoliceStatus.ActiveState());
-                }
-            }
-
-            DestroyCitizen(citizen);
-            return true;
-        }
-
-        private bool CalculatePoints(out Transform start, out Transform end, out List<Transform> points)
-        {
-            start = end = null;
-            
-            var side = 0.5f.Chance() ? 0 : 1;
-
-            var player = ToolBox.Get<EntityPlayer>();
-            points = side == 0 ? _leftSidePoints : _rightSidePoints;
-
-            var availablePoints = new List<Transform>();
-            
-            foreach (var point in points)
-            {
-                var distance = (point.position - player.transform.position).magnitude;
-
-                if (distance > _config.citizenPlayerDistanceMin)
-                {
-                    availablePoints.Add(point);
-                }
-            }
-
-            if (availablePoints.Count == 0)
-            {
-                return false;
-            }
-
-            start = availablePoints.RandomItem();
-
-            end = FindFarPoint(start.position, points);
-
-            return true;
-        }
-
-        private Transform FindFarPoint(Vector3 start, List<Transform> points)
-        {
-            Transform farPoint = null;
-            var maxDistance = 0f;
-            
-            foreach (var point in points)
-            {
-                var distance = (point.position - start).magnitude;
-
-                if (distance > maxDistance)
-                {
-                    maxDistance = distance;
-                    farPoint = point;
-                }
-            }
-
-            return farPoint;
         }
 
         private void UpdatePoints()
         {
-            _leftSidePoints.Clear();
-            _rightSidePoints.Clear();
+            foreach (var district in _districts)
+            {
+                district.UpdatePoints();
+            }
             
             _shelters.Clear();
 
@@ -366,15 +263,20 @@ namespace CriminalTown.Controllers
                 {
                     if (island.data.state == IslandState.OPENED)
                     {
-                        // _leftSidePoints.AddRange(island.GetPeoplePoints(0));
-                        // _rightSidePoints.AddRange(island.GetPeoplePoints(1));
-                    
                         _shelters.AddRange(island.GetComponentsInChildren<EntityShelter>());
 
                         _targetCitizenCount += island.balance.citizensCount;
                         _targetPoliceCount += island.balance.policeCount;
                     }
                 }
+            }
+        }
+
+        private void OnDistrictPanic(DistrictController district)
+        {
+            if (_targetPoliceCount > 0)
+            {
+                ToolBox.Signals.Send(SignalPoliceStatus.ActiveState());
             }
         }
 
@@ -392,12 +294,15 @@ namespace CriminalTown.Controllers
 
             _policeActivated = true;
             _policeCatchingTime = _config.policePassiveTime;
-            
-            foreach (var police in _polices)
+
+            foreach (var district in _districts)
             {
-                if (!police.Panic)
+                foreach (var police in district.polices)
                 {
-                    police.SetPanic();
+                    if (!police.Panic)
+                    {
+                        police.SetPanic();
+                    }
                 }
             }
         }

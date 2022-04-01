@@ -1,3 +1,5 @@
+using CriminalTown.Entities;
+
 namespace CriminalTown
 {
     public struct SignalGameStart {}
@@ -24,6 +26,13 @@ namespace CriminalTown
 
         public static SignalPoliceStatus ActiveState() => new() {activated = true};
         public static SignalPoliceStatus InactiveState() => new() {activated = false};
+    }
+
+    public struct SignalTryDestroyCitizen
+    {
+        public EntityCitizen citizen;
+
+        public static SignalTryDestroyCitizen Destroy(EntityCitizen citizen) => new() {citizen = citizen};
     }
     
 }
