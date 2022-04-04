@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using CriminalTown.Components;
 using CriminalTown.Components.Connectors;
 using CriminalTown.Configs;
+using CriminalTown.Controllers;
 using CriminalTown.Data;
 using DG.Tweening;
 using Mobiray.Common;
@@ -15,7 +17,10 @@ using SignalReceiver = Mobiray.Common.SignalReceiver;
 
 namespace CriminalTown.Entities
 {
-    public class EntityPlayer : SignalReceiver, IReceive<SignalPoliceStatus>
+    public class EntityPlayer : SignalReceiver, 
+        IReceive<SignalPoliceStatus>, 
+        IReceive<SignalAddMoney>, 
+        IReceive<SignalIslandPurchased>
     {
         public MobirayLogger logger;
         
@@ -38,6 +43,8 @@ namespace CriminalTown.Entities
 
         private CompTriggerAgent _moneyTriggerAgent;
         private ParticleSystemForceField _ownForceField;
+
+        private CompHelperArrow _helperArrow;
 
         private ConfigMain _configMain;
         private DataGameState _gameState;
@@ -78,6 +85,8 @@ namespace CriminalTown.Entities
 
             _moneyTriggerAgent.onCallParticleTrigger += OnMoneyParticlesTrigger;
 
+            _helperArrow = GetComponentInChildren<CompHelperArrow>();
+
             timelineStealMoney.played += director =>
             {
                 _stealMoneyInProgress = true;
@@ -89,12 +98,46 @@ namespace CriminalTown.Entities
             };
         }
 
+        private void Start()
+        {
+            FindAvailableIsland();
+        }
+
         private void Update()
         {
             if (isHidden && _humanControl.joystick.HasInput)
             {
                 GetComponent<NavMeshAgent>().enabled = true;
             }
+        }
+
+        private void FindAvailableIsland()
+        {
+            var availableIslands = new List<EntityIsland>();
+            var branches = ToolBox.Get<GameController>().islands;
+            
+            foreach (var branch in branches)
+            {
+                foreach (var island in branch)
+                {
+                    if (island.data.state == IslandState.AVAILABLE && 
+                        island.data.currentPrice <= _gameState.money)
+                    {
+                        availableIslands.Add(island);
+                    }
+                }
+            }
+
+            if (availableIslands.Count == 0)
+            {
+                _helperArrow.Forget();
+                return;
+            }
+            
+            availableIslands.Sort(
+                (i1, i2) => i1.data.currentPrice - i2.data.currentPrice);
+            
+            _helperArrow.SetTarget(availableIslands[0].offer.transform);
         }
 
         private void SetupMoneyEmitter(ParticleSystemForceField forceField, Collider collider)
@@ -117,6 +160,8 @@ namespace CriminalTown.Entities
             {
                 return;
             }
+            
+            _helperArrow.Forget();
             
             logger.LogDebug($"+island {island.gameObject.name}");
             
@@ -151,6 +196,8 @@ namespace CriminalTown.Entities
             logger.LogDebug($"-island {island.gameObject.name}");
             
             CleanupMoneyEmitter(island.ForceFieldCollider);
+            
+            this.NextFrame(FindAvailableIsland);
         }
 
         private async void OnCitizenConnected(EntityCitizen citizen)
@@ -322,6 +369,16 @@ namespace CriminalTown.Entities
                 
                 _gameState.AddMoney(ToolBox.Get<ConfigBalance>().policeReward);
             }
+        }
+
+        public void HandleSignal(SignalAddMoney signal)
+        {
+            FindAvailableIsland();
+        }
+
+        public void HandleSignal(SignalIslandPurchased signal)
+        {
+            FindAvailableIsland();
         }
     }
 }

@@ -73,13 +73,13 @@ MonoBehaviour:
         index: 3
         state: 2
         currentPrice: 0
-  connectionTime: 0.6
-  emitResourceTime: 0.8
-  emitMoneyMin: 10
+  connectionTime: 0.4
+  emitResourceTime: 0.4
+  emitMoneyMin: 100
   emitMoneyMax: 800
   citizenHealth: 3
-  citizenSpeedWalk: 2
-  citizenSpeedRun: 3
+  citizenSpeedWalk: 1.5
+  citizenSpeedRun: 2.5
   citizenMaterials:
   - {fileID: 2100000, guid: 814f491ea1422f5418dd1a97154ca32c, type: 2}
   - {fileID: 2100000, guid: 4142add5bd162f84497f4c6e082c6183, type: 2}
@@ -99,3 +99,4 @@ MonoBehaviour:
   policeHelperCount: 1
   activateCitizenPanic: 1
   activatePolicePanic: 1
+  policePanicDistance: 10

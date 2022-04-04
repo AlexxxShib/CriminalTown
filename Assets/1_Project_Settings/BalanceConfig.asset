@@ -17,7 +17,7 @@ MonoBehaviour:
   policeIsland: {x: 1, y: 0}
   branches:
   - islands:
-    - price: 1000
+    - price: 300
       citizensCount: 1
       policeCount: 0
     - price: 1000
