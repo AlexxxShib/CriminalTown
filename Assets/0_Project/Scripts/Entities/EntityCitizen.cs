@@ -10,6 +10,17 @@ using Random = UnityEngine.Random;
 
 namespace CriminalTown.Entities
 {
+
+    public struct SignalCitizenPanic
+    {
+        public bool activated;
+        public EntityCitizen citizen;
+
+        public static SignalCitizenPanic Activate(EntityCitizen citizen) => new() {activated = true, citizen = citizen};
+        
+        public static SignalCitizenPanic Deactivate(EntityCitizen citizen) => new() {activated = false, citizen = citizen};
+    } 
+    
     public class EntityCitizen : SignalReceiver
     {
         public MobirayLogger logger;
@@ -80,6 +91,13 @@ namespace CriminalTown.Entities
         private void Start()
         {
             _player = ToolBox.Get<EntityPlayer>();
+        }
+
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+            
+            ToolBox.Signals.Send(SignalCitizenPanic.Deactivate(this));
         }
 
         private void Update()
@@ -160,6 +178,8 @@ namespace CriminalTown.Entities
                 Death = true;
 
                 _humanControl.SetDeath();
+                
+                ToolBox.Signals.Send(SignalCitizenPanic.Deactivate(this));
             }
         }
 
@@ -219,6 +239,8 @@ namespace CriminalTown.Entities
             if (!ToolBox.Get<CitizenSystem>().PoliceActivated)
             {
                 Snitch = true;
+                
+                ToolBox.Signals.Send(SignalCitizenPanic.Activate(this));
             }
             
             _humanControl.MaxSpeed = _config.citizenSpeedRun + 0.1f;

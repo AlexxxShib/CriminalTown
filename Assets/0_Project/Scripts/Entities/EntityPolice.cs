@@ -78,7 +78,10 @@ namespace CriminalTown.Entities
         {
             if (_panicMode == PanicMode.NONE)
             {
-                if (_player.CrimeInProgress && _mainCamera.IsVisible(_renderer))
+                var playerDistance = (_player.transform.position - transform.position).magnitude;
+                
+                if (_player.CrimeInProgress && 
+                    playerDistance < _config.policePanicDistance && _mainCamera.IsVisible(_renderer))
                 {
                     SetPanicActive();
                 }
@@ -132,7 +135,7 @@ namespace CriminalTown.Entities
 
         public void SetPanicActive()
         {
-            if (_panicMode == PanicMode.ACTIVE)
+            if (_panicMode == PanicMode.ACTIVE || !_config.activatePolicePanic)
             {
                 return;
             }

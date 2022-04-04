@@ -191,7 +191,7 @@ namespace CriminalTown.Controllers
 
         public void TryDestroyCitizens()
         {
-            var deathCitizens = citizens.Where(c => c.Death);
+            var deathCitizens = citizens.Where(c => c.Death).ToList();
 
             foreach (var citizen in deathCitizens)
             {

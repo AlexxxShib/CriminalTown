@@ -97,5 +97,5 @@ MonoBehaviour:
   policeVisibilityDelay: 1
   hidingTimeBonus: 1.2
   policeHelperCount: 1
-  activateCitizenPanic: 0
+  activateCitizenPanic: 1
   activatePolicePanic: 1

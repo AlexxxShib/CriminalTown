@@ -46,6 +46,7 @@ namespace CriminalTown.Configs
         [Space]
         public bool activateCitizenPanic = true;
         public bool activatePolicePanic = true;
+        public float policePanicDistance = 10;
 
         /*[Space] 
         public long BasePriceParameter1;
