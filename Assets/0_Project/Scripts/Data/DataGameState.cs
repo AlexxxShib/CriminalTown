@@ -12,6 +12,7 @@ namespace CriminalTown.Data
     {
         public int money;
 
+        public List<ToolType> tools;
         public List<DataIslandBranch> branches;
 
         [Space]

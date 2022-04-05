@@ -14,18 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initGameState:
     money: 300
+    tools: 00000000
     branches: []
   debugGameState:
     money: 47000
+    tools: 00000000
     branches:
     - islands:
       - branch: 0
         index: 0
-        state: 1
+        state: 0
         currentPrice: 1000
       - branch: 0
         index: 1
-        state: 2
+        state: 0
         currentPrice: 0
       - branch: 0
         index: 2

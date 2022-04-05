@@ -57,6 +57,7 @@ namespace CriminalTown.Entities
             triggerAgent.onCallTriggerExit += OnExitIsland;
             
             UpdateState();
+            ClearTools();
         }
 
         public void SetAvailable()
@@ -84,12 +85,16 @@ namespace CriminalTown.Entities
             {
                 data.state = IslandState.OPENED;
                 UpdateState();
-                
-                _curConnector.OnExit(this);
+                ClearTools();
                 
                 ToolBox.Signals.Send<SignalIslandPurchased>();
 
                 body.transform.DOPunchPosition(new Vector3(0, 0.5f, 0), 0.5f, 2);
+
+                if (_curConnector)
+                {
+                    _curConnector.OnExit(this);
+                }
             }
         }
 
@@ -99,6 +104,20 @@ namespace CriminalTown.Entities
             body.SetActive(data.state == IslandState.OPENED);
             
             UpdatePrice();
+        }
+
+        public void ClearTools()
+        {
+            var gameState = ToolBox.Get<DataGameState>();
+            var tools = body.GetComponentsInChildren<EntityTool>(true);
+
+            foreach (var tool in tools)
+            {
+                if (gameState.tools.Contains(tool.type))
+                {
+                    Destroy(tool.gameObject);
+                }
+            }
         }
 
         public void UpdatePrice()
