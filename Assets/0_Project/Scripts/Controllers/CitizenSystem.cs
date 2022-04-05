@@ -117,7 +117,7 @@ namespace CriminalTown.Controllers
 
                 if (policeCatchingTimeout)
                 {
-                    DeactivatePolice();
+                    DeactivatePolice(false);
                 }
             }
             
@@ -199,7 +199,7 @@ namespace CriminalTown.Controllers
             }
         }
 
-        private void DeactivatePolice()
+        private void DeactivatePolice(bool isCaught)
         {
             var returnPolices = new List<EntityPolice>();
 
@@ -224,9 +224,11 @@ namespace CriminalTown.Controllers
             }
 
             _player.hasPoliceVisor = false;
-
             _policeActivated = false;
-            ToolBox.Signals.Send(SignalPoliceStatus.InactiveState());
+
+            ToolBox.Signals.Send(isCaught ? 
+                SignalPoliceStatus.CaughtState() : 
+                SignalPoliceStatus.InactiveState());
         }
 
         public void ReturnPolice(EntityPolice police)
@@ -309,7 +311,7 @@ namespace CriminalTown.Controllers
 
         public void HandleSignal(SignalPlayerCaught signal)
         {
-            DeactivatePolice();
+            DeactivatePolice(true);
         }
     }
 }

@@ -93,6 +93,11 @@ namespace CriminalTown.Controllers
             RestartScene();
         }
 
+        public void OnClickCaughtContinue()
+        {
+            ToolBox.Signals.Send<SignalUICaughtContinue>();
+        }
+
         public void HandleSignal(SignalAddMoney signal)
         {
             SaveGameState();

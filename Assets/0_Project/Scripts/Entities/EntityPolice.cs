@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using CriminalTown.Configs;
+using CriminalTown.Controllers;
 using Mobiray.Common;
 using Mobiray.Helpers;
 using UnityEngine;
@@ -12,7 +13,7 @@ namespace CriminalTown.Entities
         NONE, ACTIVE, PASSIVE
     }
     
-    public class EntityPolice : SignalReceiver
+    public class EntityPolice : SignalReceiver, IReceive<SignalPlayerCaught>, IReceive<SignalUICaughtContinue>
     {
         public MobirayLogger logger;
 
@@ -160,6 +161,11 @@ namespace CriminalTown.Entities
 
         public async void SetPanicPassive()
         {
+            if (_panicMode != PanicMode.ACTIVE)
+            {
+                return;
+            }
+            
             _panicMode = PanicMode.PASSIVE;
             _catchingTime = 0;
             
@@ -225,6 +231,18 @@ namespace CriminalTown.Entities
             
             await Task.Delay(TimeSpan.FromSeconds(Time.deltaTime));
             control.SetDestination(_followAnchor, OnFoundPlayer);
+        }
+        
+        public void HandleSignal(SignalPlayerCaught signal)
+        {
+            DisablePanic();
+        }
+
+        public void HandleSignal(SignalUICaughtContinue signal)
+        {
+            _control.SetPistol(false);
+            
+            ToolBox.Get<CitizenSystem>().ReturnPolice(this);
         }
     }
 }

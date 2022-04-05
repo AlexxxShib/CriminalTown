@@ -1,7 +1,5 @@
 namespace CriminalTown
 {
     
-    public struct SignalUIShowSomeDialog {}
-    
-    public struct SignalUIHideSomeDialog {}
+    public struct SignalUICaughtContinue { }
 }

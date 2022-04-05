@@ -21,7 +21,7 @@ namespace CriminalTown.UI
 
         public void HandleSignal(SignalPoliceStatus signal)
         {
-            if (_lastPoliceState == signal.activated)
+            if (_lastPoliceState == signal.activated || signal.caught)
             {
                 return;
             }

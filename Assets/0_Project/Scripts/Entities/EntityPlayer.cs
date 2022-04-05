@@ -20,7 +20,8 @@ namespace CriminalTown.Entities
     public class EntityPlayer : SignalReceiver, 
         IReceive<SignalPoliceStatus>, 
         IReceive<SignalAddMoney>, 
-        IReceive<SignalIslandPurchased>
+        IReceive<SignalIslandPurchased>,
+        IReceive<SignalUICaughtContinue>
     {
         public MobirayLogger logger;
         
@@ -55,6 +56,8 @@ namespace CriminalTown.Entities
         
         private int _hitCounter;
         private bool _stealMoneyInProgress;
+
+        private bool _policeActivated;
 
         private CrimeType _lastCrimeType;
         private int _lastCrimeReward;
@@ -113,6 +116,11 @@ namespace CriminalTown.Entities
 
         private void FindAvailableIsland()
         {
+            if (_policeActivated)
+            {
+                return;
+            }
+            
             var availableIslands = new List<EntityIsland>();
             var branches = ToolBox.Get<GameController>().islands;
             
@@ -361,13 +369,29 @@ namespace CriminalTown.Entities
             ToolBox.Signals.Send<SignalPlayerCaught>();
         }
 
+        public void CaughtContinue()
+        {
+            isCaught = false;
+
+            _humanControl.InputEnabled = true;
+        }
+
         public void HandleSignal(SignalPoliceStatus signal)
         {
-            if (!signal.activated)
+            if (!signal.activated && !signal.caught)
             {
                 moneyEmitter.Emit(3);
                 
                 _gameState.AddMoney(ToolBox.Get<ConfigBalance>().policeReward);
+                
+                FindAvailableIsland();
+            }
+
+            _policeActivated = signal.activated;
+
+            if (_policeActivated)
+            {
+                _helperArrow.Forget();
             }
         }
 
@@ -379,6 +403,11 @@ namespace CriminalTown.Entities
         public void HandleSignal(SignalIslandPurchased signal)
         {
             FindAvailableIsland();
+        }
+
+        public void HandleSignal(SignalUICaughtContinue signal)
+        {
+            CaughtContinue();
         }
     }
 }

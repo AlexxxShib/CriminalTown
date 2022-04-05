@@ -10,7 +10,7 @@ namespace CriminalTown.States
 {
     
     [CreateAssetMenu(fileName = "StateMainLoop", menuName = "GameState/StateMainLoop")]
-    public class StateMainLoop : BaseGameState, IReceive<SignalIslandPurchased>, IReceive<SignalPlayerCaught>
+    public class StateMainLoop : BaseGameState, IReceive<SignalIslandPurchased>, IReceive<SignalPlayerCaught>, IReceive<SignalUICaughtContinue>
     {
 
         public int lowCameraPriorityDefault = 30;
@@ -94,7 +94,14 @@ namespace CriminalTown.States
         {
             _gameState.AddMoney(-_balance.policeFine);
             
-            _stateMachine.ChangeState(_host.stateGameOver);
+            _host.screenMain.SetActive(false);
+            _host.screenGameOver.SetActive(true);
+        }
+
+        public void HandleSignal(SignalUICaughtContinue signal)
+        {
+            _host.screenMain.SetActive(true);
+            _host.screenGameOver.SetActive(false);
         }
     }
 }
