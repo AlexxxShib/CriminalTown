@@ -176,9 +176,39 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2889322979444120243, guid: 1e13ebc88f6574a08a700fddf889970c,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2889322979444120243, guid: 1e13ebc88f6574a08a700fddf889970c,
+        type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3037644952578504358, guid: 1e13ebc88f6574a08a700fddf889970c,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3053649423918716443, guid: 1e13ebc88f6574a08a700fddf889970c,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3053649423918716443, guid: 1e13ebc88f6574a08a700fddf889970c,
+        type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3541643469923742085, guid: 1e13ebc88f6574a08a700fddf889970c,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3541643469923742085, guid: 1e13ebc88f6574a08a700fddf889970c,
+        type: 3}
+      propertyPath: m_DynamicOccludee
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3907106879637653196, guid: 1e13ebc88f6574a08a700fddf889970c,
@@ -220,6 +250,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tile Road Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6530845129348417690, guid: 1e13ebc88f6574a08a700fddf889970c,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6530845129348417690, guid: 1e13ebc88f6574a08a700fddf889970c,
+        type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7114762285627026489, guid: 1e13ebc88f6574a08a700fddf889970c,
         type: 3}
@@ -296,7 +336,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 223558064801469292, guid: 1e13ebc88f6574a08a700fddf889970c, type: 3}
+    - {fileID: 1892289283125319895, guid: 1e13ebc88f6574a08a700fddf889970c, type: 3}
+    - {fileID: 1651685683483218155, guid: 1e13ebc88f6574a08a700fddf889970c, type: 3}
+    - {fileID: 452780158497451345, guid: 1e13ebc88f6574a08a700fddf889970c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1e13ebc88f6574a08a700fddf889970c, type: 3}
 --- !u!4 &1763256641713962444 stripped
 Transform:
