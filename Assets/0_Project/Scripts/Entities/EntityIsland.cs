@@ -10,8 +10,6 @@ using UnityEngine;
 
 namespace CriminalTown.Entities
 {
-    public struct SignalIslandPurchased { }
-    
     public class EntityIsland : MonoBehaviour
     {
         public DataIsland data;
@@ -132,12 +130,12 @@ namespace CriminalTown.Entities
 
         private void OnEnterIsland(Collider other)
         {
-            Debug.Log(other.gameObject);
-
             _curConnector = other.GetComponentInParent<IslandConnector>();
             
             if (_curConnector != null)
             {
+                Debug.Log(other.gameObject);
+
                 _curConnector.OnEnter(this);
             }
         }

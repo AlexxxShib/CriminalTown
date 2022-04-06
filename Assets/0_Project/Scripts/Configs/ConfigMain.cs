@@ -48,6 +48,9 @@ namespace CriminalTown.Configs
         public bool activatePolicePanic = true;
         public float policePanicDistance = 10;
 
+        [Header("Other")]
+        public float atmTimeLock = 10f;
+
         /*[Space] 
         public long BasePriceParameter1;
         public float PriceStepParameter1;

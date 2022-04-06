@@ -52,15 +52,11 @@ namespace CriminalTown.Entities
 
         private List<ParticleSystem.Particle> _moneyParticles = new();
         private int _emitMoneyCounterInside;
-        private int _emitMoneyCounterOutside;
         
         private int _hitCounter;
         private bool _stealMoneyInProgress;
 
         private bool _policeActivated;
-
-        private CrimeType _lastCrimeType;
-        private int _lastCrimeReward;
 
         private void Awake()
         {
@@ -92,13 +88,18 @@ namespace CriminalTown.Entities
 
             timelineStealMoney.played += director =>
             {
-                _stealMoneyInProgress = true;
+                SetCrime(true);
             };
 
             timelineStealMoney.stopped += director =>
             {
-                _stealMoneyInProgress = false;
+                SetCrime(false);
             };
+        }
+
+        public void SetCrime(bool active)
+        {
+            _stealMoneyInProgress = active;
         }
 
         private void Start()
@@ -148,15 +149,26 @@ namespace CriminalTown.Entities
             _helperArrow.SetTarget(availableIslands[0].offer.transform);
         }
 
-        private void SetupMoneyEmitter(ParticleSystemForceField forceField, Collider collider)
+        public void SetupMoneyEmitter()
+        {
+            SetupMoneyEmitter(_ownForceField, _ownForceField.GetComponent<Collider>());
+        }
+
+        public void SetupMoneyEmitter(ParticleSystemForceField forceField, Collider collider)
         {
             moneyEmitter.externalForces.RemoveAllInfluences();
             moneyEmitter.externalForces.AddInfluence(forceField);
 
             moneyEmitter.trigger.AddCollider(collider);
         }
+        
+        public void CleanupMoneyEmitter()
+        {
+            moneyEmitter.externalForces.RemoveAllInfluences();
+            moneyEmitter.trigger.RemoveCollider(_ownForceField.GetComponent<Collider>());
+        }
 
-        private void CleanupMoneyEmitter(Collider collider)
+        public void CleanupMoneyEmitter(Collider collider)
         {
             moneyEmitter.externalForces.RemoveAllInfluences();
             moneyEmitter.trigger.RemoveCollider(collider);
@@ -179,7 +191,6 @@ namespace CriminalTown.Entities
             var minEmitDelay = emitDelay / 2;
 
             _emitMoneyCounterInside = 0;
-            _emitMoneyCounterOutside = 0;
 
             while (_islandConnector.IsReady && _gameState.money > 0)
             {
@@ -188,7 +199,6 @@ namespace CriminalTown.Entities
                     break;
                 }
 
-                _emitMoneyCounterOutside++;
                 moneyEmitter.Emit(1);
                 // moneyEmitter.Play();
                 
@@ -226,7 +236,6 @@ namespace CriminalTown.Entities
             }
 
             _emitMoneyCounterInside = 0;
-            _emitMoneyCounterOutside = 0;
             _hitCounter = 0;
             
             var playableAsset = (TimelineAsset) timelineStealMoney.playableAsset;
@@ -240,9 +249,6 @@ namespace CriminalTown.Entities
             timelineStealMoney.SetGenericBinding(trackKey, citizen.GetComponentInChildren<Animator>());
             timelineStealMoney.Play();
 
-            _lastCrimeType = CrimeType.STEAL_CITIZEN;
-            _lastCrimeReward = citizen.reward;
-            
             SetupMoneyEmitter(_ownForceField, _ownForceField.GetComponent<Collider>());
         }
 
@@ -272,11 +278,14 @@ namespace CriminalTown.Entities
             
             if (citizen.ApplyHit(lastHit))
             {
-                _emitMoneyCounterOutside++;
-                moneyEmitter.Emit(Random.Range(1, 3));
-                
-                _gameState.AddMoney(citizen.reward);
+                AddMoney(citizen.reward, Random.Range(1, 3));
             }
+        }
+
+        public void AddMoney(int reward, int emitCount = 1)
+        {
+            moneyEmitter.Emit(emitCount);
+            _gameState.AddMoney(reward);
         }
 
         private void OnShelterConnected(EntityShelter shelter)

@@ -20,6 +20,8 @@ namespace CriminalTown.Entities
                 if (!gameState.tools.Contains(type))
                 {
                     gameState.tools.Add(type);
+                    
+                    ToolBox.Signals.Send<SignalNewTool>();
                 }
                 
                 Destroy(gameObject);

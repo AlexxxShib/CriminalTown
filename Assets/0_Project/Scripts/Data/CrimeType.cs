@@ -5,6 +5,7 @@ namespace CriminalTown.Data
     public enum CrimeType
     {
         NONE,
-        STEAL_CITIZEN
+        STEAL_CITIZEN,
+        ROB_ATM,
     }
 }

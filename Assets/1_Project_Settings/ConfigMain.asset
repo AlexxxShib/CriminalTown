@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initGameState:
     money: 300
-    tools: 00000000
+    tools: 
     branches: []
   debugGameState:
     money: 47000
-    tools: 00000000
+    tools: 
     branches:
     - islands:
       - branch: 0
@@ -27,7 +27,7 @@ MonoBehaviour:
         currentPrice: 1000
       - branch: 0
         index: 1
-        state: 0
+        state: 2
         currentPrice: 0
       - branch: 0
         index: 2
@@ -94,7 +94,7 @@ MonoBehaviour:
   citizenPanicDistance: 4
   citizenPanicAngle: 120
   citizenDeathTime: 6
-  policeCatchTime: 5
+  policeCatchTime: 8
   policePassiveTime: 10
   policeVisibilityDelay: 1
   hidingTimeBonus: 1.2
@@ -102,3 +102,4 @@ MonoBehaviour:
   activateCitizenPanic: 1
   activatePolicePanic: 1
   policePanicDistance: 10
+  atmTimeLock: 10

@@ -11,7 +11,7 @@ namespace CriminalTown.Entities
 
         private void Awake()
         {
-            var renderer = GetComponentInChildren<MeshRenderer>();
+            var renderer = GetComponentInChildren<MeshRenderer>(true);
 
             _progressMat = new Material(renderer.material);
             renderer.material = _progressMat;

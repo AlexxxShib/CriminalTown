@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1686044369}
   - component: {fileID: 1686044370}
   m_Layer: 6
-  m_Name: TimelineStealMoney
+  m_Name: TimelineRobCitizen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,8 +30,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8740567473031265080}
-  m_RootOrder: 3
+  m_Father: {fileID: 6223124789980090800}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!320 &1686044369
 PlayableDirector:
@@ -72,21 +72,110 @@ MonoBehaviour:
     m_Events:
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1686044367}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: 
+        - m_Target: {fileID: 7008618211774389739}
+          m_TargetAssemblyTypeName: CriminalTown.Entities.EntityPlayer, Assembly-CSharp
+          m_MethodName: OnHitCitizen
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 7008618211774389739}
-          m_TargetAssemblyTypeName: CriminalTown.Entities.EntityPlayer, Assembly-CSharp
-          m_MethodName: OnHitCitizen
+--- !u!1 &1155485978856304218
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6815206605157755482}
+  - component: {fileID: 6620304975181100820}
+  - component: {fileID: 8345445603345747605}
+  m_Layer: 6
+  m_Name: TimelineRobAtm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6815206605157755482
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155485978856304218}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6223124789980090800}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!320 &6620304975181100820
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155485978856304218}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 3356f5a1950c1461597aaf33f2f16d0e, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 3832688251765703001, guid: 3356f5a1950c1461597aaf33f2f16d0e, type: 2}
+    value: {fileID: 5698879566288463783}
+  - key: {fileID: 2280283835132466257, guid: 3356f5a1950c1461597aaf33f2f16d0e, type: 2}
+    value: {fileID: 0}
+  m_ExposedReferences:
+    m_References: []
+--- !u!114 &8345445603345747605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155485978856304218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 29336a98e40d54efc83c59d988399cc4, type: 2}
+    - {fileID: 11400000, guid: 85f2981dbd9e94bf48dddde892c6db58, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5698879567133578749}
+          m_TargetAssemblyTypeName: CriminalTown.Components.Connectors.AtmCrimeConnector,
+            Assembly-CSharp
+          m_MethodName: OnHit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5698879567133578749}
+          m_TargetAssemblyTypeName: CriminalTown.Components.Connectors.AtmCrimeConnector,
+            Assembly-CSharp
+          m_MethodName: OnLastHit
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -112,6 +201,7 @@ GameObject:
   - component: {fileID: 8746544157230241238}
   - component: {fileID: 5698879567133578744}
   - component: {fileID: 5698879567133578755}
+  - component: {fileID: 5698879567133578749}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -134,9 +224,9 @@ Transform:
   - {fileID: 5698879566295916871}
   - {fileID: 3236979596945246910}
   - {fileID: 4275009766934645773}
-  - {fileID: 1686044368}
   - {fileID: 1145348654096645711}
   - {fileID: 9088163038525855420}
+  - {fileID: 6223124789980090800}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
@@ -269,6 +359,59 @@ MonoBehaviour:
     showCurrentScene: 0
     currentSceneName: 
   progressBar: {fileID: 3236979596945246910}
+--- !u!114 &5698879567133578749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7013548236144142837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87bd8fdf5b0e4e8fb3af00a69b7ae24d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  logger:
+    showLog: 1
+    mainTag: AtmConnector
+    showCurrentScene: 0
+    currentSceneName: 
+  progressBar: {fileID: 3236979596945246910}
+  cutscene: {fileID: 6620304975181100820}
+  cutsceneOuterTrackIndex: 2
+--- !u!1 &7862756666901437018
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6223124789980090800}
+  m_Layer: 6
+  m_Name: Timelines
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6223124789980090800
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7862756666901437018}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1686044368}
+  - {fileID: 6815206605157755482}
+  m_Father: {fileID: 8740567473031265080}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1325867676953510110
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -335,6 +478,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: View
+      objectReference: {fileID: 0}
+    - target: {fileID: 6732900568838678393, guid: c35af8dd0d6c649bbaa93cca98290da4,
+        type: 3}
+      propertyPath: m_WarningMessage
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'Bip001 R Foot'\n\tTransform 'Bip001 R Toe0'\n\tTransform
+        'Bip001 R UpperArm'\n\tTransform 'Bip001 R Calf'\n\tTransform 'Bip001 L Toe0'\n\tTransform
+        'Bip001 L Hand'\n\tTransform 'Bip001 Head'\n\tTransform 'Bip001 L UpperArm'\n\tTransform
+        'Bip001 Neck'\n\tTransform 'Bip001 Spine'\n\tand more ..."
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c35af8dd0d6c649bbaa93cca98290da4, type: 3}
@@ -622,7 +775,7 @@ PrefabInstance:
     - target: {fileID: 4680194721857523217, guid: 569fa85c969fcb14699de646e51f1e48,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4680194721857523217, guid: 569fa85c969fcb14699de646e51f1e48,
         type: 3}
@@ -738,7 +891,7 @@ PrefabInstance:
     - target: {fileID: 2091745543433798878, guid: cbf8d3ac6a8cf480e92fdbc0d0d55658,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2091745543433798878, guid: cbf8d3ac6a8cf480e92fdbc0d0d55658,
         type: 3}

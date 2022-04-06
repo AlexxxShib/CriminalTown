@@ -2,22 +2,13 @@ using CriminalTown.Entities;
 
 namespace CriminalTown
 {
-    public struct SignalGameStart {}
-    
-    public struct SignalGameOver {}
-    
-    public struct SignalUpgradeCharacter {}
-
     public struct SignalAddMoney
     {
         public int money;
     }
-    
-    public struct SignalAddHardCurrency
-    {
-        public long hardCurrency;
-    }
-    
+
+    public struct SignalIslandPurchased { }
+
     public struct SignalPlayerCaught { }
 
     public struct SignalPoliceStatus
@@ -36,5 +27,7 @@ namespace CriminalTown
 
         public static SignalTryDestroyCitizen Destroy(EntityCitizen citizen) => new() {citizen = citizen};
     }
-    
+
+    public struct SignalNewTool { }
+
 }
