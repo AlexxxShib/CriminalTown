@@ -7,13 +7,16 @@ namespace CriminalTown.Components.Connectors
 {
     public class BaseConnectorTrigger<T, TM> : SignalReceiver where TM : BaseConnector<T> where T : MonoBehaviour
     {
+        public MobirayLogger logger;
+        
         public bool available = true;
+        public bool stayTrigger = true;
         public CompTriggerAgent triggerAgent;
         
         private bool _hasTriggerAgent;
         
-        private T _owner;
-        private TM _curConnector;
+        protected T _owner;
+        protected TM _connector;
 
         protected virtual void Awake()
         {
@@ -25,11 +28,11 @@ namespace CriminalTown.Components.Connectors
             {
                 triggerAgent.onCallTriggerEnter += OnEnter;
                 triggerAgent.onCallTriggerStay += OnStay;
-                triggerAgent.onCallTriggerExit += OnExit;
+                triggerAgent.onCallTriggerExit += c => OnExit(c);
             }
         }
 
-        private void OnEnter(Collider other)
+        protected virtual void OnEnter(Collider other)
         {
             if (!available)
             {
@@ -39,60 +42,60 @@ namespace CriminalTown.Components.Connectors
             Connect(other);
         }
 
-        private void OnStay(Collider other)
+        protected virtual void OnStay(Collider other)
         {
-            if (!available)
+            if (!available || !stayTrigger)
             {
                 return;
             }
             
-            if (_curConnector == null)
+            if (_connector == null)
             {
                 Connect(other);
                 return;
             }
 
-            if (!_curConnector.IsConnected)
+            if (!_connector.IsConnected)
             {
-                _curConnector.OnEnter(_owner);
+                _connector.OnEnter(_owner);
             }
         }
 
-        private void OnExit(Collider other)
+        protected virtual bool OnExit(Collider other)
         {
-            if (!available)
+            if (!available || _connector == null)
             {
-                return;
+                return false;
             }
             
             var connector = other.GetComponentInParent<TM>();
 
-            if (connector != _curConnector)
+            if (connector == _connector && _connector.IsConnected)
             {
-                return;
-            }
-            
-            if (!_curConnector || !_curConnector.IsConnected)
-            {
-                return;
+                if (!_connector.OnExit(_owner))
+                {
+                    _connector = null;
+
+                    return true;
+                }
             }
 
-            _curConnector.OnExit(_owner);
+            return false;
         }
         
         private void Connect(Collider other)
         {
-            _curConnector = other.GetComponentInParent<TM>();
+            _connector = other.GetComponentInParent<TM>();
 
-            if (_curConnector != null)
+            if (_connector != null)
             {
-                _curConnector.OnEnter(_owner);
+                _connector.OnEnter(_owner);
             }
         }
         
         private void OnTriggerEnter(Collider other)
         {
-            if (!_hasTriggerAgent)
+            if (!other.isTrigger && !_hasTriggerAgent)
             {
                 OnEnter(other);
             }
@@ -100,7 +103,7 @@ namespace CriminalTown.Components.Connectors
 
         private void OnTriggerStay(Collider other)
         {
-            if (!_hasTriggerAgent)
+            if (!other.isTrigger && !_hasTriggerAgent)
             {
                 OnStay(other);
             }
@@ -108,7 +111,7 @@ namespace CriminalTown.Components.Connectors
 
         private void OnTriggerExit(Collider other)
         {
-            if (!_hasTriggerAgent)
+            if (!other.isTrigger && !_hasTriggerAgent)
             {
                 OnExit(other);
             }

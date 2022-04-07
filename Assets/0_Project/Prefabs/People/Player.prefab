@@ -69,12 +69,29 @@ MonoBehaviour:
   m_Events:
     m_Signals:
     - {fileID: 11400000, guid: 29336a98e40d54efc83c59d988399cc4, type: 2}
+    - {fileID: 11400000, guid: 85f2981dbd9e94bf48dddde892c6db58, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 7008618211774389739}
-          m_TargetAssemblyTypeName: CriminalTown.Entities.EntityPlayer, Assembly-CSharp
-          m_MethodName: OnHitCitizen
+        - m_Target: {fileID: 5698879567133578744}
+          m_TargetAssemblyTypeName: CriminalTown.Components.Connectors.BaseCrimeConnector`1[[CriminalTown.Entities.EntityCitizen,
+            Assembly-CSharp
+          m_MethodName: OnHit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5698879567133578744}
+          m_TargetAssemblyTypeName: CriminalTown.Components.Connectors.BaseCrimeConnector`1[[CriminalTown.Entities.EntityCitizen,
+            Assembly-CSharp
+          m_MethodName: OnLastHit
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -341,6 +358,10 @@ MonoBehaviour:
     showCurrentScene: 0
     currentSceneName: 
   progressBar: {fileID: 3236979596945246910}
+  crimeTag: crime
+  cutscene: {fileID: 1686044369}
+  cutsceneOuterTrackIndex: 2
+  moveTargetBeforeCutscene: 1
 --- !u!114 &5698879567133578755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,8 +398,10 @@ MonoBehaviour:
     showCurrentScene: 0
     currentSceneName: 
   progressBar: {fileID: 3236979596945246910}
+  crimeTag: crime
   cutscene: {fileID: 6620304975181100820}
   cutsceneOuterTrackIndex: 2
+  moveTargetBeforeCutscene: 0
 --- !u!1 &7862756666901437018
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,12 +505,7 @@ PrefabInstance:
     - target: {fileID: 6732900568838678393, guid: c35af8dd0d6c649bbaa93cca98290da4,
         type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'Bip001 R Foot'\n\tTransform 'Bip001 R Toe0'\n\tTransform
-        'Bip001 R UpperArm'\n\tTransform 'Bip001 R Calf'\n\tTransform 'Bip001 L Toe0'\n\tTransform
-        'Bip001 L Hand'\n\tTransform 'Bip001 Head'\n\tTransform 'Bip001 L UpperArm'\n\tTransform
-        'Bip001 Neck'\n\tTransform 'Bip001 Spine'\n\tand more ..."
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c35af8dd0d6c649bbaa93cca98290da4, type: 3}
@@ -845,7 +863,7 @@ PrefabInstance:
     - target: {fileID: 4680194721857523230, guid: 569fa85c969fcb14699de646e51f1e48,
         type: 3}
       propertyPath: m_Radius
-      value: 0.5
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 4680194721857523230, guid: 569fa85c969fcb14699de646e51f1e48,
         type: 3}

@@ -1902,6 +1902,7 @@ GameObject:
   - component: {fileID: 7456029654998526180}
   - component: {fileID: 790617023782243702}
   - component: {fileID: 790617023782243703}
+  - component: {fileID: -1510838397192112025}
   m_Layer: 6
   m_Name: PoliceMan
   m_TagString: Untagged
@@ -2019,6 +2020,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsReceiver: 1
+  available: 1
+  triggerAgent: {fileID: 0}
   logger:
     showLog: 0
     mainTag: 
@@ -2029,7 +2032,21 @@ MonoBehaviour:
   headContainer: {fileID: 5691209313684120654}
   glassesContainer: {fileID: 5691209313751694807}
   emojiShocked: {fileID: 5691209314670811189}
-  reward: -100
+--- !u!114 &-1510838397192112025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7844744423914768051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c174b3f179e740b281374888c2ffd88f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1000
+  damageReward: 0
+  curHealth: 0
 --- !u!1001 &756364710230412370
 PrefabInstance:
   m_ObjectHideFlags: 0

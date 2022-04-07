@@ -11,8 +11,6 @@ namespace CriminalTown.Entities
 {
     public class EntityAtm : BaseConnectorTrigger<EntityAtm, AtmCrimeConnector>, IReceive<SignalNewTool>
     {
-        public MobirayLogger logger;
-
         [Space]
         public GameObject notAvailableSign;
         
@@ -62,7 +60,7 @@ namespace CriminalTown.Entities
                     _progressTimeLock.SetValue(progress);
                 }, 0, timeLock)
                 .SetEase(Ease.Linear)
-                .IsComplete();
+                .AwaitFor();
 
             _lockTime = false;
             _progressTimeLock.gameObject.SetActive(_lockTime);

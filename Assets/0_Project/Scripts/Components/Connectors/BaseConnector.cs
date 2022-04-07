@@ -94,7 +94,7 @@ namespace CriminalTown.Components.Connectors
 
             progressBar.rotation = Quaternion.Euler(0, 180, 0);
 
-            if (_humanControl.IsMoving)
+            if (_humanControl.HasInput)
             {
                 IsReady = false;
 
@@ -141,6 +141,11 @@ namespace CriminalTown.Components.Connectors
 
         public virtual bool OnExit(T connectedObject)
         {
+            if (connectedObject != ConnectedObject)
+            {
+                return true;
+            }
+            
             progressBar.gameObject.SetActive(false);
 
             IsConnected = false;

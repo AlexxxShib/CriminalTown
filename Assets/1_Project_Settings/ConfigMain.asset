@@ -80,8 +80,8 @@ MonoBehaviour:
   emitMoneyMin: 100
   emitMoneyMax: 800
   citizenHealth: 3
-  citizenSpeedWalk: 1.5
-  citizenSpeedRun: 2.5
+  citizenSpeedWalk: 1.4
+  citizenSpeedRun: 2.6
   citizenMaterials:
   - {fileID: 2100000, guid: 814f491ea1422f5418dd1a97154ca32c, type: 2}
   - {fileID: 2100000, guid: 4142add5bd162f84497f4c6e082c6183, type: 2}
@@ -99,7 +99,7 @@ MonoBehaviour:
   policeVisibilityDelay: 1
   hidingTimeBonus: 1.2
   policeHelperCount: 1
-  activateCitizenPanic: 1
-  activatePolicePanic: 1
+  activateCitizenPanic: 0
+  activatePolicePanic: 0
   policePanicDistance: 10
   atmTimeLock: 10

@@ -39,7 +39,6 @@ namespace CriminalTown.Entities
         
         private CompHumanControl _humanControl;
         private IslandConnector _islandConnector;
-        private CitizenConnector _citizenConnector;
         private ShelterConnector _shelterConnector;
 
         private CompTriggerAgent _moneyTriggerAgent;
@@ -71,10 +70,6 @@ namespace CriminalTown.Entities
             _islandConnector.OnConnected += OnIslandConnected;
             _islandConnector.OnDisconnected += OnIslandDisconnected;
 
-            _citizenConnector = GetComponent<CitizenConnector>();
-            _citizenConnector.OnConnected += OnCitizenConnected;
-            _citizenConnector.OnDisconnected += OnCitizenDisconnected;
-            
             _shelterConnector = GetComponent<ShelterConnector>();
             _shelterConnector.OnConnected += OnShelterConnected;
             _shelterConnector.OnDisconnected += OnShelterDisconnected;
@@ -218,70 +213,6 @@ namespace CriminalTown.Entities
             this.NextFrame(FindAvailableIsland);
         }
 
-        private async void OnCitizenConnected(EntityCitizen citizen)
-        {
-            logger.LogDebug($"+citizen {citizen.gameObject.name}");
-            
-            if (isCaught || isHidden)
-            {
-                return;
-            }
-            
-            transform.DOLookAt(citizen.transform.position, 0.25f);
-            await citizen.transform.DOLookAt(transform.position, 0.25f).IsComplete();
-
-            if (!_citizenConnector.IsReady)
-            {
-                return;
-            }
-
-            _emitMoneyCounterInside = 0;
-            _hitCounter = 0;
-            
-            var playableAsset = (TimelineAsset) timelineStealMoney.playableAsset;
-            
-            /*foreach (var binding in playableAsset.outputs)
-            {
-                logger.LogDebug(binding.streamName);
-            }*/
-            
-            var trackKey = playableAsset.GetOutputTrack(2);
-            timelineStealMoney.SetGenericBinding(trackKey, citizen.GetComponentInChildren<Animator>());
-            timelineStealMoney.Play();
-
-            SetupMoneyEmitter(_ownForceField, _ownForceField.GetComponent<Collider>());
-        }
-
-        private void OnCitizenDisconnected(EntityCitizen citizen)
-        {
-            logger.LogDebug($"-citizen {citizen.gameObject.name}");
-
-            if (_stealMoneyInProgress)
-            {
-                timelineStealMoney.Stop();
-                citizen.SetPanic();
-            }
-
-            _stealMoneyInProgress = false;
-            
-            CleanupMoneyEmitter(_ownForceField.GetComponent<Collider>());
-        }
-
-        public void OnHitCitizen()
-        {
-            _hitCounter++;
-
-            var lastHit = _hitCounter == _configMain.citizenHealth;
-            var citizen = _citizenConnector.ConnectedObject;
-            
-            // logger.LogDebug($"hiy citizen {citizen.gameObject.name}");
-            
-            if (citizen.ApplyHit(lastHit))
-            {
-                AddMoney(citizen.reward, Random.Range(1, 3));
-            }
-        }
-
         public void AddMoney(int reward, int emitCount = 1)
         {
             moneyEmitter.Emit(emitCount);
@@ -353,18 +284,6 @@ namespace CriminalTown.Entities
                 _emitMoneyCounterInside++;
                 return;
             }
-
-            /*_emitMoneyCounterInside += particlesCount;
-
-            for (int i = 0; i < particlesCount; i++)
-            {
-                _gameState.AddMoney(_lastCrimeReward);
-            }
-
-            if (_emitMoneyCounterInside == _emitMoneyCounterOutside)
-            {
-                CleanupMoneyEmitter(_ownForceField.GetComponent<Collider>());
-            }*/
         }
 
         public void Catch()

@@ -1,4 +1,5 @@
 using System;
+using CriminalTown.Components;
 using CriminalTown.Components.Connectors;
 using CriminalTown.Configs;
 using CriminalTown.Controllers;
@@ -21,9 +22,8 @@ namespace CriminalTown.Entities
         public static SignalCitizenPanic Deactivate(EntityCitizen citizen) => new() {activated = false, citizen = citizen};
     } 
     
-    public class EntityCitizen : SignalReceiver
+    public class EntityCitizen : BaseConnectorTrigger<EntityCitizen, CitizenCrimeConnector>
     {
-        public MobirayLogger logger;
         public bool staff;
         
         [Space]
@@ -32,18 +32,15 @@ namespace CriminalTown.Entities
         public Transform glassesContainer;
 
         [Space]
+        public GameObject panicSign;
         public ParticleSystem emojiShocked;
-
-        [Space]
-        public int reward = 100;
         
-        public int Health { get; private set; }
-        public bool Death { get; private set; }
-        public float DeathTime => _deathTime;
-        public bool Snitch { get; private set; }
-
         private bool _panic;
         private float _deathTime;
+
+        public bool Snitch { get; private set; }
+
+        public bool Death => _health.Death;
 
         public bool Panic
         {
@@ -53,6 +50,11 @@ namespace CriminalTown.Entities
                 if (value != _panic)
                 {
                     _panic = value;
+
+                    if (panicSign != null)
+                    {
+                        panicSign.SetActive(_panic);
+                    }
                     
                     if (_panic)
                     {
@@ -72,20 +74,30 @@ namespace CriminalTown.Entities
         private ConfigMain _config;
 
         private CompHumanControl _humanControl;
+        private CompHealth _health;
 
         private EntityPlayer _player;
-        private CitizenConnector _connector;
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
+            
             _config = ToolBox.Get<ConfigMain>();
 
-            Health = _config.citizenHealth;
-            
             InitializeView();
 
             _humanControl = GetComponent<CompHumanControl>();
             _humanControl.MaxSpeed = _config.citizenSpeedWalk;
+
+            _health = GetComponent<CompHealth>();
+            _health.OnDeath += OnDeath;
+
+            available = !staff;
+
+            if (panicSign != null)
+            {
+                panicSign.SetActive(false);
+            }
         }
 
         private void Start()
@@ -102,7 +114,7 @@ namespace CriminalTown.Entities
 
         private void Update()
         {
-            if (Death)
+            if (_health.Death)
             {
                 if (_deathTime > 0)
                 {
@@ -126,7 +138,7 @@ namespace CriminalTown.Entities
 
         private void TrySetPanic()
         {
-            if (Panic || Death)
+            if (Panic || _health.Death)
             {
                 return;
             }
@@ -146,40 +158,6 @@ namespace CriminalTown.Entities
                 {
                     SetPanic();
                 }
-            }
-        }
-
-        private void OnTriggerEnter(Collider other)
-        {
-            if (Death || staff)
-            {
-                return;
-            }
-            
-            _connector = other.GetComponentInParent<CitizenConnector>();
-
-            if (_connector != null)
-            {
-                _connector.OnEnter(this);
-            }
-        }
-
-        private void OnTriggerExit(Collider other)
-        {
-            var connector = other.GetComponentInParent<CitizenConnector>();
-
-            if (connector != null)
-            {
-                connector.OnExit(this);
-            }
-            
-            if (!Death && Health <= 0)
-            {
-                Death = true;
-
-                _humanControl.SetDeath();
-                
-                ToolBox.Signals.Send(SignalCitizenPanic.Deactivate(this));
             }
         }
 
@@ -206,30 +184,10 @@ namespace CriminalTown.Entities
             }
         }
 
-        public bool ApplyHit(bool lastHit)
-        {
-            var hasHealth = Health > 0;
-
-            if (hasHealth)
-            {
-                Health--;
-            }
-
-            if (lastHit && Health <= 0)
-            {
-                Death = true;
-                
-                _deathTime = _config.citizenDeathTime;
-                _humanControl.SetDeath();
-            }
-
-            return hasHealth;
-        }
-
         [Button("Panic")]
         public void SetPanic()
         {
-            if (Death || Panic)
+            if (_health.Death || Panic)
             {
                 return;
             }
@@ -246,6 +204,18 @@ namespace CriminalTown.Entities
             _humanControl.MaxSpeed = _config.citizenSpeedRun + 0.1f;
             
             emojiShocked.Play();
+        }
+
+        private void OnDeath()
+        {
+            _deathTime = _config.citizenDeathTime;
+            
+            _humanControl.SetDeath();
+
+            Panic = false;
+            Snitch = false;
+            
+            ToolBox.Signals.Send(SignalCitizenPanic.Deactivate(this));
         }
 
         private static GameObject SetRandomChild(Transform container, Material material, int from = 0)

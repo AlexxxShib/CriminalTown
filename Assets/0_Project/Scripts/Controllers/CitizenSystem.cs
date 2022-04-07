@@ -16,6 +16,10 @@ namespace CriminalTown.Controllers
         [Space]
         public Transform entitiesParent;
 
+        [Header("Debug")]
+        public int maxPolices = 100;
+        public int maxCitizens = 1000;
+
         public delegate void OnCatchingProgressDelegat(float progress, bool isHidden, bool isVisible);
         public OnCatchingProgressDelegat OnCatchingProgress;
 
@@ -158,7 +162,9 @@ namespace CriminalTown.Controllers
                 policeCount += district.polices.Count;
             }
 
-            if (citizenCount < _targetCitizenCount)
+            var targetCitizenCount = Mathf.Clamp(_targetCitizenCount, 0, maxCitizens);
+
+            if (citizenCount < targetCitizenCount)
             {
                 _districts.Sort((d1, d2) => d1.citizens.Count - d2.citizens.Count);
 
@@ -183,6 +189,11 @@ namespace CriminalTown.Controllers
             if (!_balance.IsPoliceOpened(_islands))
             {
                 targetPoliceCount = 0;
+            }
+
+            if (targetPoliceCount > maxPolices)
+            {
+                targetPoliceCount = maxPolices;
             }
 
             if (policeCount < targetPoliceCount)

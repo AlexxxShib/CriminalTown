@@ -12,6 +12,7 @@ namespace CriminalTown.Entities
 
         public bool IsNavigable => _agent != null && _agent.enabled && _agent.isOnNavMesh;
         public bool IsMoving => _isMoving;
+        public bool HasInput { get; private set; }
 
         public float MaxSpeed
         {
@@ -113,11 +114,14 @@ namespace CriminalTown.Entities
 
             if (!isNavigable)
             {
+                HasInput = false;
                 return;
             }
             
             if (_hasJoystick)
             {
+                HasInput = InputEnabled && joystick.HasInput;
+                
                 var direction = InputEnabled ? joystick.Direction3D : Vector3.zero;
                 var destination = transform.position + direction;
 
