@@ -49,6 +49,7 @@ namespace CriminalTown.Configs
         public float policePanicDistance = 10;
 
         [Header("Other")]
+        public float lookAtTime = 0.25f;
         public float atmTimeLock = 10f;
         public float streetFoodTimeLock = 10f;
 

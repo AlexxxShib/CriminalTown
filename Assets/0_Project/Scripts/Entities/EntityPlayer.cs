@@ -6,13 +6,9 @@ using CriminalTown.Components.Connectors;
 using CriminalTown.Configs;
 using CriminalTown.Controllers;
 using CriminalTown.Data;
-using DG.Tweening;
 using Mobiray.Common;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Playables;
-using UnityEngine.Timeline;
-using Random = UnityEngine.Random;
 using SignalReceiver = Mobiray.Common.SignalReceiver;
 
 namespace CriminalTown.Entities
@@ -28,7 +24,6 @@ namespace CriminalTown.Entities
         [Space]
         public GameObject view;
         public ParticleSystem moneyEmitter;
-        public PlayableDirector timelineStealMoney;
 
         [Space]
         public bool isCaught;
@@ -80,16 +75,6 @@ namespace CriminalTown.Entities
             _moneyTriggerAgent.onCallParticleTrigger += OnMoneyParticlesTrigger;
 
             _helperArrow = GetComponentInChildren<CompHelperArrow>();
-
-            timelineStealMoney.played += director =>
-            {
-                SetCrime(true);
-            };
-
-            timelineStealMoney.stopped += director =>
-            {
-                SetCrime(false);
-            };
         }
 
         public void SetCrime(bool active)

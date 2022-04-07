@@ -4,11 +4,15 @@ using CriminalTown.Configs;
 using CriminalTown.Data;
 using Mobiray.Common;
 using UnityEngine;
+using UnityEngine.Playables;
 
 namespace CriminalTown.Entities
 {
     public class EntityStreetFood : BaseConnectorTrigger<EntityStreetFood, StreetFoodCrimeConnector>
     {
+        public GameObject salesman;
+        public PlayableDirector cutscene;
+        
         private CompStaticCrime _staticCrime;
         
         protected override void Awake()

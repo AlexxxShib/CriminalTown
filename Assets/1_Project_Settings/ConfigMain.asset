@@ -27,7 +27,7 @@ MonoBehaviour:
         currentPrice: 1000
       - branch: 0
         index: 1
-        state: 2
+        state: 0
         currentPrice: 0
       - branch: 0
         index: 2
@@ -61,11 +61,11 @@ MonoBehaviour:
     - islands:
       - branch: 2
         index: 0
-        state: 2
+        state: 0
         currentPrice: 0
       - branch: 2
         index: 1
-        state: 2
+        state: 0
         currentPrice: 0
       - branch: 2
         index: 2
@@ -103,3 +103,4 @@ MonoBehaviour:
   activatePolicePanic: 0
   policePanicDistance: 10
   atmTimeLock: 10
+  streetFoodTimeLock: 10

@@ -1,3 +1,4 @@
+using CriminalTown.Configs;
 using CriminalTown.Entities;
 using DG.Tweening;
 using Mobiray.Common;
@@ -16,7 +17,7 @@ namespace CriminalTown.Components.Connectors
         public int cutsceneOuterTrackIndex = 2;
         public bool moveTargetBeforeCutscene = false;
 
-        private EntityPlayer _player;
+        protected EntityPlayer _player;
 
         protected CompHealth _victimHealth;
         
@@ -69,7 +70,9 @@ namespace CriminalTown.Components.Connectors
             
             logger.LogDebug($"+{crimeTag} {connectedObject.gameObject.name}");
             
-            PlayCutscene(connectedObject.gameObject, moveTargetBeforeCutscene);
+            _victimHealth = connectedObject.GetComponent<CompHealth>();
+
+            PlayCutscene(connectedObject, moveTargetBeforeCutscene);
         }
 
         private void OnConnectionIsDown(T connectedObject)
@@ -100,21 +103,21 @@ namespace CriminalTown.Components.Connectors
             _victimHealth.CheckDeath();
         }
 
-        private async void PlayCutscene(GameObject target, bool moveTarget)
+        protected virtual async void PlayCutscene(T target, bool moveTarget)
         {
+            var lookAtDuration = ToolBox.Get<ConfigMain>().lookAtTime;
+            
             if (moveTarget)
             {
-                target.transform.DOLookAt(transform.position, 0.25f);
+                target.transform.DOLookAt(transform.position, lookAtDuration);
             }
 
-            await transform.DOLookAt(target.transform.position, 0.25f).AwaitFor();
+            await transform.DOLookAt(target.transform.position, lookAtDuration).AwaitFor();
 
             if (!IsReady)
             {
                 return;
             }
-
-            _victimHealth = target.GetComponent<CompHealth>();
             
             // logger.LogDebug($"play cutscene, target {target.name} {_victimHealth}");
 

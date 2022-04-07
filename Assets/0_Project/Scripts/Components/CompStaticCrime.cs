@@ -12,6 +12,7 @@ namespace CriminalTown.Components
     [RequireComponent(typeof(CompHealth))]
     public class CompStaticCrime : SignalReceiver, IReceive<SignalNewTool>
     {
+        public CompMeshProgress progressTimeLock;
         public GameObject notAvailableSign;
 
         [Header("Realtime")]
@@ -38,7 +39,6 @@ namespace CriminalTown.Components
 
         private CompHealth _health;
         
-        private CompMeshProgress _progressTimeLock;
         private bool _lockTime;
 
         private DataGameState _gameState;
@@ -48,8 +48,7 @@ namespace CriminalTown.Components
             _health = GetComponent<CompHealth>();
             _health.OnDeath += OnDeath;
 
-            _progressTimeLock = GetComponentInChildren<CompMeshProgress>();
-            _progressTimeLock.gameObject.SetActive(false);
+            progressTimeLock.gameObject.SetActive(false);
 
             _gameState = ToolBox.Get<DataGameState>();
             
@@ -66,7 +65,8 @@ namespace CriminalTown.Components
         private async void OnDeath()
         {
             _lockTime = true;
-            _progressTimeLock.gameObject.SetActive(_lockTime);
+            
+            progressTimeLock.gameObject.SetActive(_lockTime);
 
             var progress = 1f;
             // var timeLock = ToolBox.Get<ConfigMain>().atmTimeLock;
@@ -75,13 +75,13 @@ namespace CriminalTown.Components
                 .To(() => progress, value =>
                 {
                     progress = value;
-                    _progressTimeLock.SetValue(progress);
+                    progressTimeLock.SetValue(progress);
                 }, 0, timeLock)
                 .SetEase(Ease.Linear)
                 .AwaitFor();
 
             _lockTime = false;
-            _progressTimeLock.gameObject.SetActive(_lockTime);
+            progressTimeLock.gameObject.SetActive(_lockTime);
             
             _health.Repair();
         }

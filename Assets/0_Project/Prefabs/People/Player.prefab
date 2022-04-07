@@ -216,9 +216,10 @@ GameObject:
   - component: {fileID: 8239550041801067775}
   - component: {fileID: 7008618211774389739}
   - component: {fileID: 8746544157230241238}
-  - component: {fileID: 5698879567133578744}
   - component: {fileID: 5698879567133578755}
+  - component: {fileID: 5698879567133578744}
   - component: {fileID: 5698879567133578749}
+  - component: {fileID: 3188315522730032189}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -318,7 +319,6 @@ MonoBehaviour:
     currentSceneName: 
   view: {fileID: 5698879566295623027}
   moneyEmitter: {fileID: 4275009766934645771}
-  timelineStealMoney: {fileID: 1686044369}
   isCaught: 0
   isHidden: 0
   hasPoliceVisor: 0
@@ -340,28 +340,6 @@ MonoBehaviour:
     showCurrentScene: 0
     currentSceneName: 
   progressBar: {fileID: 3236979596945246910}
---- !u!114 &5698879567133578744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7013548236144142837}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 018691bdbe7b4ab3b3daf34f77bce7eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  logger:
-    showLog: 0
-    mainTag: CitizenConnector
-    showCurrentScene: 0
-    currentSceneName: 
-  progressBar: {fileID: 3236979596945246910}
-  crimeTag: crime
-  cutscene: {fileID: 1686044369}
-  cutsceneOuterTrackIndex: 2
-  moveTargetBeforeCutscene: 1
 --- !u!114 &5698879567133578755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -380,6 +358,28 @@ MonoBehaviour:
     showCurrentScene: 0
     currentSceneName: 
   progressBar: {fileID: 3236979596945246910}
+--- !u!114 &5698879567133578744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7013548236144142837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 018691bdbe7b4ab3b3daf34f77bce7eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  logger:
+    showLog: 0
+    mainTag: CitizenConnector
+    showCurrentScene: 0
+    currentSceneName: 
+  progressBar: {fileID: 3236979596945246910}
+  crimeTag: crime_citizen
+  cutscene: {fileID: 1686044369}
+  cutsceneOuterTrackIndex: 2
+  moveTargetBeforeCutscene: 1
 --- !u!114 &5698879567133578749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -398,9 +398,31 @@ MonoBehaviour:
     showCurrentScene: 0
     currentSceneName: 
   progressBar: {fileID: 3236979596945246910}
-  crimeTag: crime
+  crimeTag: crime_atm
   cutscene: {fileID: 6620304975181100820}
   cutsceneOuterTrackIndex: 2
+  moveTargetBeforeCutscene: 0
+--- !u!114 &3188315522730032189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7013548236144142837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f7de8ea3a864c7386fca50eb22a89c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  logger:
+    showLog: 1
+    mainTag: StreetConnector
+    showCurrentScene: 0
+    currentSceneName: 
+  progressBar: {fileID: 3236979596945246910}
+  crimeTag: crime_street
+  cutscene: {fileID: 0}
+  cutsceneOuterTrackIndex: 1
   moveTargetBeforeCutscene: 0
 --- !u!1 &7862756666901437018
 GameObject:
