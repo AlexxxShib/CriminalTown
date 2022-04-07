@@ -50,6 +50,7 @@ namespace CriminalTown.Configs
 
         [Header("Other")]
         public float atmTimeLock = 10f;
+        public float streetFoodTimeLock = 10f;
 
         /*[Space] 
         public long BasePriceParameter1;
