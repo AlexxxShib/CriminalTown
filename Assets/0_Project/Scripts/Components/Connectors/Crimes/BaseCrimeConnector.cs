@@ -2,28 +2,34 @@ using CriminalTown.Configs;
 using CriminalTown.Entities;
 using DG.Tweening;
 using Mobiray.Common;
+using MobirayCore.Helpers;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
 
 namespace CriminalTown.Components.Connectors
 {
-    public class BaseCrimeConnector<T> : BaseConnector<T> where T : MonoBehaviour
+    public abstract class BaseCrimeConnector<T> : BaseConnector<T> where T : MonoBehaviour
     {
         public string crimeTag = "crime";
-        
+
+        [Space]
+        public HashMap<string, GameObject> cutsceneTrackMap;
+
         [Space]
         public PlayableDirector cutscene;
-        public int cutsceneOuterTrackIndex = 2;
-        public bool moveTargetBeforeCutscene = false;
+        
+        protected ConfigMain _config;
 
         protected EntityPlayer _player;
-
         protected CompHealth _victimHealth;
         
         protected override void Awake()
         {
             base.Awake();
+
+            _config = ToolBox.Get<ConfigMain>();
 
             _player = GetComponent<EntityPlayer>();
 
@@ -72,7 +78,27 @@ namespace CriminalTown.Components.Connectors
             
             _victimHealth = connectedObject.GetComponent<CompHealth>();
 
-            PlayCutscene(connectedObject, moveTargetBeforeCutscene);
+            SetupCutscene(connectedObject);
+
+            cutscene.played += OnCutscenePlayed;
+            cutscene.stopped += OnCutsceneStopped;
+            
+            cutscene.Play();
+        }
+
+        private void OnCutscenePlayed(PlayableDirector director)
+        {
+            _player.SetCrime(true);
+        }
+        
+        private void OnCutsceneStopped(PlayableDirector director)
+        {
+            _player.SetCrime(false);
+
+            if (IsConnected)
+            {
+                OnExit(ConnectedObject);
+            }
         }
 
         private void OnConnectionIsDown(T connectedObject)
@@ -84,6 +110,9 @@ namespace CriminalTown.Components.Connectors
                 cutscene.Stop();
             }
             
+            cutscene.played -= OnCutscenePlayed;
+            cutscene.stopped -= OnCutsceneStopped;
+            
             _player.SetCrime(false);
             _player.CleanupMoneyEmitter();
         }
@@ -92,6 +121,8 @@ namespace CriminalTown.Components.Connectors
         {
             if (_victimHealth.ApplyDamage())
             {
+                logger.LogDebug($"add money {_victimHealth.damageReward}");
+                
                 _player.AddMoney(_victimHealth.damageReward, Random.Range(2, 3));
             }
         }
@@ -103,32 +134,21 @@ namespace CriminalTown.Components.Connectors
             _victimHealth.CheckDeath();
         }
 
-        protected virtual async void PlayCutscene(T target, bool moveTarget)
+        protected abstract void SetupCutscene(T target);
+        
+        protected void ChangeReaction(SignalAsset signal, UnityAction listener)
         {
-            var lookAtDuration = ToolBox.Get<ConfigMain>().lookAtTime;
+            var receiver = cutscene.gameObject.GetComponent<UnityEngine.Timeline.SignalReceiver>();
             
-            if (moveTarget)
-            {
-                target.transform.DOLookAt(transform.position, lookAtDuration);
-            }
+            var reaction = receiver.GetReaction(signal);
 
-            await transform.DOLookAt(target.transform.position, lookAtDuration).AwaitFor();
-
-            if (!IsReady)
+            if (reaction == null)
             {
                 return;
             }
             
-            // logger.LogDebug($"play cutscene, target {target.name} {_victimHealth}");
-
-            var playableAsset = (TimelineAsset) cutscene.playableAsset;
-
-            var trackKey = playableAsset.GetOutputTrack(cutsceneOuterTrackIndex);
-            
-            cutscene.SetGenericBinding(trackKey, target.GetComponentInChildren<Animator>());
-            cutscene.Play();
-
-            _player.SetupMoneyEmitter();
+            reaction.RemoveAllListeners();
+            reaction.AddListener(listener);
         }
     }
 }

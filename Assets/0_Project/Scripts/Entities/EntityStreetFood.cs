@@ -24,6 +24,9 @@ namespace CriminalTown.Entities
             _staticCrime.toolType = ToolType.BASEBALL_BAT;
             _staticCrime.timeLock = ToolBox.Get<ConfigMain>().streetFoodTimeLock;
             
+            available = ToolBox.Get<DataGameState>()
+                .tools.Contains(_staticCrime.toolType);
+            
             _staticCrime.OnAvailabilityChanged += a => available = a;
         }
     }

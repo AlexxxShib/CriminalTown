@@ -3,6 +3,7 @@ using UnityEngine;
 using CriminalTown.Data;
 using CriminalTown.Entities;
 using Mobiray.Common;
+using UnityEngine.Timeline;
 
 namespace CriminalTown.Configs
 {
@@ -52,6 +53,10 @@ namespace CriminalTown.Configs
         public float lookAtTime = 0.25f;
         public float atmTimeLock = 10f;
         public float streetFoodTimeLock = 10f;
+
+        [Space]
+        public SignalAsset signalHit;
+        public SignalAsset signalLastHit;
 
         /*[Space] 
         public long BasePriceParameter1;

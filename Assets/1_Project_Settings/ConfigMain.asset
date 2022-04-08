@@ -99,8 +99,11 @@ MonoBehaviour:
   policeVisibilityDelay: 1
   hidingTimeBonus: 1.2
   policeHelperCount: 1
-  activateCitizenPanic: 0
-  activatePolicePanic: 0
+  activateCitizenPanic: 1
+  activatePolicePanic: 1
   policePanicDistance: 10
+  lookAtTime: 0.25
   atmTimeLock: 10
   streetFoodTimeLock: 10
+  signalHit: {fileID: 11400000, guid: 29336a98e40d54efc83c59d988399cc4, type: 2}
+  signalLastHit: {fileID: 11400000, guid: 85f2981dbd9e94bf48dddde892c6db58, type: 2}

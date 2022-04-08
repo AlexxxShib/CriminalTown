@@ -9,22 +9,17 @@ namespace CriminalTown.Components.Connectors
 {
     public class StreetFoodCrimeConnector : BaseCrimeConnector<EntityStreetFood>
     {
-        protected override async void PlayCutscene(EntityStreetFood target, bool moveTarget)
+        protected override async void SetupCutscene(EntityStreetFood target)
         {
             cutscene = target.cutscene;
 
-            var receiver = target.cutscene.gameObject.GetComponent<UnityEngine.Timeline.SignalReceiver>();
-            var signalReaction = receiver.GetReaction(receiver.GetSignalAssetAtIndex(0));
+            ChangeReaction(_config.signalLastHit, OnLastHit);
             
-            signalReaction.RemoveAllListeners();
-            signalReaction.AddListener(OnLastHit);
-            
-            var lookAtDuration = ToolBox.Get<ConfigMain>().lookAtTime;
             var salesman = target.salesman.transform;
             
-            salesman.DOLookAt(transform.position, lookAtDuration);
+            salesman.DOLookAt(transform.position, _config.lookAtTime);
 
-            await transform.DOLookAt(salesman.position, lookAtDuration).AwaitFor();
+            await transform.DOLookAt(salesman.position, _config.lookAtTime).AwaitFor();
 
             if (!IsReady)
             {
@@ -33,14 +28,18 @@ namespace CriminalTown.Components.Connectors
             
             _player.SetupMoneyEmitter();
             
-            var playerAnimator = _player.GetComponentInChildren<Animator>();
-            
             var playableAsset = (TimelineAsset) cutscene.playableAsset;
-
-            var trackKey = playableAsset.GetOutputTrack(cutsceneOuterTrackIndex);
             
-            cutscene.SetGenericBinding(trackKey, playerAnimator);
-            cutscene.Play();
+            foreach (var outputTrack in playableAsset.GetOutputTracks())
+            {
+                if (cutsceneTrackMap.TryGetValue(outputTrack.name, out var value))
+                {
+                    cutscene.SetGenericBinding(outputTrack, value);
+                }
+            }
+
+            // var trackKey = playableAsset.GetOutputTrack(cutsceneOuterTrackIndex);
+            // cutscene.SetGenericBinding(trackKey, playerAnimator);
         }
     }
 }
