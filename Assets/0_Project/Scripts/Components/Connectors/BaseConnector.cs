@@ -133,6 +133,8 @@ namespace CriminalTown.Components.Connectors
             IsReady = false;
 
             ConnectedObject = connectedObject;
+            
+            // logger.LogDebug($"enter {connectedObject.gameObject}");
 
             _currentTime = 0;
 
@@ -141,6 +143,8 @@ namespace CriminalTown.Components.Connectors
 
         public virtual bool OnExit(T connectedObject)
         {
+            // logger.LogDebug($"exit {connectedObject.gameObject}");
+            
             if (connectedObject != ConnectedObject)
             {
                 return true;

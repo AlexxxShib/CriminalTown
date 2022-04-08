@@ -36,7 +36,7 @@ namespace CriminalTown.Components.Connectors
             OnConnected += OnConnectionReady;
             OnDisconnected += OnConnectionIsDown;
 
-            cutscene.played += _ => _player.SetCrime(true);
+            /*cutscene.played += _ => _player.SetCrime(true);
             
             cutscene.stopped += _ =>
             {
@@ -46,7 +46,7 @@ namespace CriminalTown.Components.Connectors
                 {
                     OnExit(ConnectedObject);
                 }
-            };
+            };*/
         }
         
         public override bool OnEnter(T connectedObject)
@@ -56,12 +56,14 @@ namespace CriminalTown.Components.Connectors
                 return false;
             }
 
-            if (connectedObject.TryGetComponent<CompHealth>(out var health))
+            if (!connectedObject.TryGetComponent(out _victimHealth))
             {
-                if (health.Death)
-                {
-                    return false;
-                }
+                return false;
+            }
+
+            if (_victimHealth.Death)
+            {
+                return false;
             }
             
             return base.OnEnter(connectedObject);
@@ -76,8 +78,6 @@ namespace CriminalTown.Components.Connectors
             
             logger.LogDebug($"+{crimeTag} {connectedObject.gameObject.name}");
             
-            _victimHealth = connectedObject.GetComponent<CompHealth>();
-
             SetupCutscene(connectedObject);
 
             cutscene.played += OnCutscenePlayed;

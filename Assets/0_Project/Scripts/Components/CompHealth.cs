@@ -12,6 +12,8 @@ namespace CriminalTown.Components
         
         public bool Death { get; private set; }
 
+        public bool Wound => !Death && curHealth < health;
+
         public Action OnDeath;
 
         private void OnEnable()

@@ -25,16 +25,18 @@ namespace CriminalTown.Components.Connectors
         {
             if (!base.OnExit(citizen))
             {
+                citizen.GetComponent<CompHumanControl>().InputEnabled = true;
+
                 if (_victimHealth == null)
                 {
-                    Debug.LogError($"HEALTH NULL {citizen}");
+                    return IsConnected;
                 }
                 
-                if (!_victimHealth.Death)
+                if (_victimHealth.Wound)
                 {
-                    citizen.GetComponent<CompHumanControl>().InputEnabled = true;
                     citizen.SetPanic();
                 }
+
             }
 
             return IsConnected;

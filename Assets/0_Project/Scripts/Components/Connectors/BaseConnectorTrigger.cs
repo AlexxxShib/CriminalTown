@@ -70,7 +70,8 @@ namespace CriminalTown.Components.Connectors
             
             var connector = other.GetComponentInParent<TM>();
 
-            if (connector == _connector && _connector.IsConnected)
+            // if (connector == _connector && _connector.IsConnected)
+            if (connector == _connector)
             {
                 if (!_connector.OnExit(_owner))
                 {
