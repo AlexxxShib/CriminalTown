@@ -94,7 +94,7 @@ namespace CriminalTown.Components.Connectors
             }
         }
         
-        private void OnTriggerEnter(Collider other)
+        protected virtual void OnTriggerEnter(Collider other)
         {
             if (!other.isTrigger && !_hasTriggerAgent)
             {
@@ -102,7 +102,7 @@ namespace CriminalTown.Components.Connectors
             }
         }
 
-        private void OnTriggerStay(Collider other)
+        protected virtual  void OnTriggerStay(Collider other)
         {
             if (!other.isTrigger && !_hasTriggerAgent)
             {
@@ -110,7 +110,7 @@ namespace CriminalTown.Components.Connectors
             }
         }
 
-        private void OnTriggerExit(Collider other)
+        protected virtual  void OnTriggerExit(Collider other)
         {
             if (!other.isTrigger && !_hasTriggerAgent)
             {

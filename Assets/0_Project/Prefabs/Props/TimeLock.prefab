@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3292708189306682615}
   - component: {fileID: 2660906686533982014}
   - component: {fileID: 4195987365342946483}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 4893487995203631897}
   - component: {fileID: 7751246292682825352}
   - component: {fileID: 8918503590243276625}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 931453484088746745}
   - component: {fileID: 701226248784784063}
   - component: {fileID: 4357088200820567807}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -307,7 +307,7 @@ GameObject:
   - component: {fileID: 7063041996046294642}
   - component: {fileID: 1137462472367345724}
   - component: {fileID: 6282657702683368894}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -404,7 +404,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5030680493354836794}
   - component: {fileID: 5030680493354836795}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TimeLock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -533,7 +533,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 451771481608409126}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -651,6 +651,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrimeRibbon
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e334b37ac87864e329ba223ee41e3600,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e334b37ac87864e329ba223ee41e3600, type: 3}
 --- !u!4 &1621834858200126791 stripped
@@ -750,6 +755,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CrimeRibbon (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e334b37ac87864e329ba223ee41e3600,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e334b37ac87864e329ba223ee41e3600, type: 3}

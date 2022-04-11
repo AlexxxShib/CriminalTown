@@ -1,15 +1,13 @@
-using CriminalTown.Configs;
 using CriminalTown.Entities;
 using DG.Tweening;
 using Mobiray.Common;
-using UnityEngine;
 using UnityEngine.Timeline;
 
 namespace CriminalTown.Components.Connectors
 {
-    public class StreetFoodCrimeConnector : BaseCrimeConnector<EntityStreetFood>
+    public class ShopCrimeConnector : BaseCrimeConnector<EntityShop>
     {
-        protected override async void SetupCutscene(EntityStreetFood target)
+        protected override async void SetupCutscene(EntityShop target)
         {
             cutscene = target.cutscene;
 

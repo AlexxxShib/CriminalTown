@@ -119,6 +119,7 @@ GameObject:
   - component: {fileID: 5698879567133578744}
   - component: {fileID: 5698879567133578749}
   - component: {fileID: 3188315522730032189}
+  - component: {fileID: 6098114198098724682}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -325,8 +326,30 @@ MonoBehaviour:
   progressBar: {fileID: 3236979596945246910}
   crimeTag: crime_street
   cutsceneTrackMap:
+    entries: [{key: AnimationPlayerView, value: {fileID: 5698879566295623027}}]
+  cutscene: {fileID: 0}
+--- !u!114 &6098114198098724682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7013548236144142837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 865ebeaa2b0745d59232bc7b54a113e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  logger:
+    showLog: 0
+    mainTag: 
+    showCurrentScene: 0
+    currentSceneName: 
+  progressBar: {fileID: 3236979596945246910}
+  crimeTag: crime_shop
+  cutsceneTrackMap:
     entries:
-    - key: AnimationPlayerView
+    - key: Player
       value: {fileID: 5698879566295623027}
   cutscene: {fileID: 0}
 --- !u!1 &7862756666901437018
@@ -1249,9 +1272,13 @@ PrefabInstance:
         type: 3}
       propertyPath: m_WarningMessage
       value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'Bip001 R Forearm'\n\tFrom animation clip
-        'player_shoot_anim'"
+        already bound by a Humanoid avatar. These transforms can only be changed by
+        Humanoid clips.\n\tTransform 'Bip001 R Forearm'\n\tFrom animation clip 'player_shoot_anim'"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6732900568838678393, guid: c35af8dd0d6c649bbaa93cca98290da4,
+        type: 3}
+      propertyPath: m_WarningMessage
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c35af8dd0d6c649bbaa93cca98290da4, type: 3}
