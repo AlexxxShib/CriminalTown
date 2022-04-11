@@ -13,6 +13,7 @@ namespace CriminalTown.Components.Connectors
         {
             cutscene = target.cutscene;
 
+            ChangeReaction(_config.signalHit, OnHit);
             ChangeReaction(_config.signalLastHit, OnLastHit);
             
             var salesman = target.salesman.transform;

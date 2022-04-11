@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using CriminalTown.Configs;
 using CriminalTown.Entities;
 using DG.Tweening;
@@ -7,15 +9,26 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
+using Random = UnityEngine.Random;
 
 namespace CriminalTown.Components.Connectors
 {
+
+    [Serializable]
+    public class CutsceneTrackValue
+    {
+        public string key;
+        public GameObject value;
+    }
+    
     public abstract class BaseCrimeConnector<T> : BaseConnector<T> where T : MonoBehaviour
     {
         public string crimeTag = "crime";
 
         [Space]
-        public HashMap<string, GameObject> cutsceneTrackMap;
+        // public HashMap<string, GameObject> cutsceneTrackMap;
+        public List<CutsceneTrackValue> trackValues;
+        protected Dictionary<string, GameObject> cutsceneTrackMap;
 
         [Space]
         public PlayableDirector cutscene;
@@ -35,6 +48,12 @@ namespace CriminalTown.Components.Connectors
 
             OnConnected += OnConnectionReady;
             OnDisconnected += OnConnectionIsDown;
+
+            cutsceneTrackMap = new Dictionary<string, GameObject>();
+            foreach (var trackValue in trackValues)
+            {
+                cutsceneTrackMap.Add(trackValue.key, trackValue.value);
+            }
 
             /*cutscene.played += _ => _player.SetCrime(true);
             
