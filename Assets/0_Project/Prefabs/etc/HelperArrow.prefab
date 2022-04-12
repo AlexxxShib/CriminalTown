@@ -42,6 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2091745543433798878}
   - component: {fileID: 2227415003005618352}
+  - component: {fileID: 2088921411701898203}
   m_Layer: 6
   m_Name: HelperArrow
   m_TagString: Untagged
@@ -79,6 +80,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   arrow: {fileID: 2506746145507869757}
+--- !u!95 &2088921411701898203
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2811713999953451711}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8d4d80716aaac4d98b2225faabdcdec8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &5818642511759864681
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -104,7 +125,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: edbf43239027744dbb1a2493fcc54a3e,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 3.3475149
+      value: 3.347515
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: edbf43239027744dbb1a2493fcc54a3e,
         type: 3}
