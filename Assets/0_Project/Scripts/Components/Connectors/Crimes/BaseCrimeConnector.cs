@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using CriminalTown.Configs;
+using CriminalTown.Data;
 using CriminalTown.Entities;
 using DG.Tweening;
 using Mobiray.Common;
@@ -23,6 +24,7 @@ namespace CriminalTown.Components.Connectors
     
     public abstract class BaseCrimeConnector<T> : BaseConnector<T> where T : MonoBehaviour
     {
+        public CrimeType crimeType;
         public string crimeTag = "crime";
 
         [Space]
@@ -54,18 +56,6 @@ namespace CriminalTown.Components.Connectors
             {
                 cutsceneTrackMap.Add(trackValue.key, trackValue.value);
             }
-
-            /*cutscene.played += _ => _player.SetCrime(true);
-            
-            cutscene.stopped += _ =>
-            {
-                _player.SetCrime(false);
-
-                if (IsConnected)
-                {
-                    OnExit(ConnectedObject);
-                }
-            };*/
         }
         
         public override bool OnEnter(T connectedObject)
@@ -94,6 +84,18 @@ namespace CriminalTown.Components.Connectors
             {
                 return;
             }
+
+            if (_player.isPursuit)
+            {
+                if (_player.lastCrimeType < crimeType)
+                {
+                    _player.lastCrimeType = crimeType;
+                }
+            }
+            else
+            {
+                _player.lastCrimeType = crimeType;
+            }
             
             logger.LogDebug($"+{crimeTag} {connectedObject.gameObject.name}");
             
@@ -107,12 +109,12 @@ namespace CriminalTown.Components.Connectors
 
         private void OnCutscenePlayed(PlayableDirector director)
         {
-            _player.SetCrime(true);
+            _player.StartCrime(crimeType);
         }
         
         private void OnCutsceneStopped(PlayableDirector director)
         {
-            _player.SetCrime(false);
+            _player.FinishCrime();
 
             if (IsConnected)
             {
@@ -132,7 +134,7 @@ namespace CriminalTown.Components.Connectors
             cutscene.played -= OnCutscenePlayed;
             cutscene.stopped -= OnCutsceneStopped;
             
-            _player.SetCrime(false);
+            _player.FinishCrime();
             _player.CleanupMoneyEmitter();
         }
 

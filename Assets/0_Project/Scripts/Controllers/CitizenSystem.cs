@@ -20,10 +20,27 @@ namespace CriminalTown.Controllers
         public int maxPolices = 100;
         public int maxCitizens = 1000;
 
-        public delegate void OnCatchingProgressDelegat(float progress, bool isHidden, bool isVisible);
-        public OnCatchingProgressDelegat OnCatchingProgress;
+        public delegate void CatchingProgressDelegate(float progress, bool isHidden, bool isVisible);
+        public CatchingProgressDelegate OnCatchingProgress;
 
         public bool PoliceActivated => _policeActivated;
+
+        public float PursuitTime
+        {
+            get
+            {
+                var crime = _player.lastCrimeType;
+                
+                if (_player.lastCrimeType == CrimeType.NONE)
+                {
+                    logger.LogError("last crime is NONE");
+
+                    crime = CrimeType.CITIZEN;
+                }
+
+                return _config.maxPursuitTime / 5 * _config.GetCrime(crime).pursuitLevel;
+            }
+        }
 
         private List<List<EntityIsland>> _islands;
         private List<DistrictController> _districts;
@@ -75,56 +92,6 @@ namespace CriminalTown.Controllers
 
         private void Update()
         {
-            if (_policeActivated)
-            {
-                var playerIsVisible = false;
-                
-                foreach (var shelter in _shelters)
-                {
-                    shelter.SetAvailable(true);
-                }
-                
-                foreach (var district in _districts)
-                {
-                    foreach (var citizen in district.polices)
-                    {
-                        if (citizen.TryGetComponent<EntityPolice>(out var police))
-                        {
-                            playerIsVisible = playerIsVisible || police.SawPlayer;
-
-                            foreach (var shelter in _shelters)
-                            {
-                                if (police.searchFieldOfView.IsVisible(shelter.transform))
-                                {
-                                    shelter.SetAvailable(false);
-                                }
-                            }
-                        }
-                    }
-                }
-                
-                _player.hasPoliceVisor = playerIsVisible;
-
-                if (playerIsVisible)
-                {
-                    _policeCatchingTime = _config.policePassiveTime;
-                }
-                else
-                {
-                    _policeCatchingTime -= Time.deltaTime * (_player.isHidden ? _config.hidingTimeBonus : 1);
-                }
-
-                var progress = Mathf.Clamp01(_policeCatchingTime / _config.policePassiveTime);
-                OnCatchingProgress?.Invoke(progress, _player.isHidden, playerIsVisible);
-                
-                var policeCatchingTimeout = _policeCatchingTime <= 0;
-
-                if (policeCatchingTimeout)
-                {
-                    DeactivatePolice(false);
-                }
-            }
-            
             _updateTimer += Time.deltaTime;
             
             if (_updateTimer >= _config.updateCitizensTime)
@@ -132,6 +99,55 @@ namespace CriminalTown.Controllers
                 _updateTimer = 0;
 
                 TryAddCitizen();
+            }
+
+            if (!_policeActivated) return;
+
+            var playerIsVisible = false;
+                
+            foreach (var shelter in _shelters)
+            {
+                shelter.SetAvailable(true);
+            }
+                
+            foreach (var district in _districts)
+            {
+                foreach (var citizen in district.polices)
+                {
+                    if (citizen.TryGetComponent<EntityPolice>(out var police))
+                    {
+                        playerIsVisible = playerIsVisible || police.SawPlayer;
+
+                        foreach (var shelter in _shelters)
+                        {
+                            if (police.searchFieldOfView.IsVisible(shelter.transform))
+                            {
+                                shelter.SetAvailable(false);
+                            }
+                        }
+                    }
+                }
+            }
+                
+            _player.hasPoliceVisor = playerIsVisible;
+
+            if (playerIsVisible)
+            {
+                _policeCatchingTime = PursuitTime;
+            }
+            else
+            {
+                _policeCatchingTime -= Time.deltaTime * (_player.isHidden ? _config.hidingTimeBonus : 1);
+            }
+
+            var progress = Mathf.Clamp01(_policeCatchingTime / _config.maxPursuitTime);
+            OnCatchingProgress?.Invoke(progress, _player.isHidden, playerIsVisible);
+                
+            var policeCatchingTimeout = _policeCatchingTime <= 0;
+
+            if (policeCatchingTimeout)
+            {
+                DeactivatePolice(false);
             }
         }
 
@@ -306,7 +322,7 @@ namespace CriminalTown.Controllers
             }
 
             _policeActivated = true;
-            _policeCatchingTime = _config.policePassiveTime;
+            _policeCatchingTime = PursuitTime;
 
             foreach (var district in _districts)
             {

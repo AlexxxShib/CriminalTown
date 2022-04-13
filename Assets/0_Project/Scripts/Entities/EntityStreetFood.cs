@@ -22,7 +22,7 @@ namespace CriminalTown.Entities
             _staticCrime = GetComponent<CompStaticCrime>();
 
             _staticCrime.toolType = ToolType.BASEBALL_BAT;
-            _staticCrime.timeLock = ToolBox.Get<ConfigMain>().streetFoodTimeLock;
+            _staticCrime.timeLock = ToolBox.Get<ConfigMain>().GetCrime(CrimeType.STREET_FOOD).timeLock;
             
             available = ToolBox.Get<DataGameState>()
                 .tools.Contains(_staticCrime.toolType);

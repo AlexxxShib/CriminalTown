@@ -26,11 +26,13 @@ namespace CriminalTown.Entities
         public ParticleSystem moneyEmitter;
 
         [Space]
+        public bool isPursuit;
         public bool isCaught;
         public bool isHidden;
         public bool hasPoliceVisor;
+        public CrimeType lastCrimeType;
 
-        public bool CrimeInProgress => _stealMoneyInProgress;
+        public bool CrimeInProgress { get; private set; }
         
         private CompHumanControl _humanControl;
         private IslandConnector _islandConnector;
@@ -48,9 +50,6 @@ namespace CriminalTown.Entities
         private int _emitMoneyCounterInside;
         
         private int _hitCounter;
-        private bool _stealMoneyInProgress;
-
-        private bool _policeActivated;
 
         private void Awake()
         {
@@ -77,9 +76,26 @@ namespace CriminalTown.Entities
             _helperArrow = GetComponentInChildren<CompHelperArrow>();
         }
 
-        public void SetCrime(bool active)
+        public void StartCrime(CrimeType crimeType)
         {
-            _stealMoneyInProgress = active;
+            CrimeInProgress = true;
+            
+            if (isPursuit)
+            {
+                if (lastCrimeType < crimeType)
+                {
+                    lastCrimeType = crimeType;
+                }
+            }
+            else
+            {
+                lastCrimeType = crimeType;
+            }
+        }
+
+        public void FinishCrime()
+        {
+            CrimeInProgress = false;
         }
 
         private void Start()
@@ -97,7 +113,7 @@ namespace CriminalTown.Entities
 
         private void FindAvailableIsland()
         {
-            if (_policeActivated)
+            if (isPursuit)
             {
                 return;
             }
@@ -300,11 +316,18 @@ namespace CriminalTown.Entities
                 FindAvailableIsland();
             }
 
-            _policeActivated = signal.activated;
-
-            if (_policeActivated)
+            if (isPursuit != signal.activated)
             {
-                _helperArrow.Forget();
+                isPursuit = signal.activated;
+
+                if (isPursuit)
+                {
+                    _helperArrow.Forget();
+                }
+                else
+                {
+                    lastCrimeType = CrimeType.NONE;
+                }
             }
         }
 

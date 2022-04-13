@@ -39,7 +39,7 @@ namespace CriminalTown.Configs
 
         [Header("Police")]
         public float policeCatchTime = 10;
-        public float policePassiveTime = 10;
+        // public float policePassiveTime = 10;
         public float policeVisibilityDelay = 1f;
         public float hidingTimeBonus = 1.2f;
         public int policeHelperCount = 1;
@@ -49,15 +49,20 @@ namespace CriminalTown.Configs
         public bool activatePolicePanic = true;
         public float policePanicDistance = 10;
 
-        [Header("Other")]
+        [Header("Crimes")]
         public float lookAtTime = 0.25f;
-        public float atmTimeLock = 10f;
-        public float streetFoodTimeLock = 10f;
-        public float shopTimeLock = 10f;
+        public float maxPursuitTime = 120;
+        public List<ConfigCrime> crimes;
+        
+        // public float atmTimeLock = 10f;
+        // public float streetFoodTimeLock = 10f;
+        // public float shopTimeLock = 10f;
 
         [Space]
         public SignalAsset signalHit;
         public SignalAsset signalLastHit;
+
+        private readonly Dictionary<CrimeType, ConfigCrime> _crimesMap = new();
 
         /*[Space] 
         public long BasePriceParameter1;
@@ -72,6 +77,16 @@ namespace CriminalTown.Configs
             //READ CONFIGS
             // ReadConfigMoneyOnLevel();
             // ReadConfigMoneyToLevelUp();
+
+            foreach (var configCrime in crimes)
+            {
+                _crimesMap.Add(configCrime.type, configCrime);
+            }
+        }
+
+        public ConfigCrime GetCrime(CrimeType type)
+        {
+            return _crimesMap[type];
         }
 
         /*public int GetParameter1Val(int level)

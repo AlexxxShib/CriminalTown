@@ -26,7 +26,7 @@ namespace CriminalTown.Entities
             _staticCrime = GetComponent<CompStaticCrime>();
 
             _staticCrime.toolType = ToolType.HANDGUN;
-            _staticCrime.timeLock = ToolBox.Get<ConfigMain>().shopTimeLock;
+            _staticCrime.timeLock = ToolBox.Get<ConfigMain>().GetCrime(CrimeType.SHOP).timeLock;
             
             available = ToolBox.Get<DataGameState>()
                 .tools.Contains(_staticCrime.toolType);

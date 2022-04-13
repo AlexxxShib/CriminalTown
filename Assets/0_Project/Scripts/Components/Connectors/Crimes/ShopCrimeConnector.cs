@@ -36,5 +36,15 @@ namespace CriminalTown.Components.Connectors
                 }
             }
         }
+
+        public override bool OnExit(EntityShop connectedObject)
+        {
+            if (_victimHealth.Death)
+            {
+                ToolBox.Signals.Send(SignalPoliceStatus.ActiveState());
+            }
+            
+            return base.OnExit(connectedObject);
+        }
     }
 }

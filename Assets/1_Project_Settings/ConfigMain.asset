@@ -95,7 +95,6 @@ MonoBehaviour:
   citizenPanicAngle: 120
   citizenDeathTime: 6
   policeCatchTime: 8
-  policePassiveTime: 10
   policeVisibilityDelay: 1
   hidingTimeBonus: 1.2
   policeHelperCount: 1
@@ -103,8 +102,11 @@ MonoBehaviour:
   activatePolicePanic: 1
   policePanicDistance: 10
   lookAtTime: 0.25
-  atmTimeLock: 10
-  streetFoodTimeLock: 10
-  shopTimeLock: 10
+  maxPursuitTime: 60
+  crimes:
+  - {fileID: 11400000, guid: f26e6bd74497740ef92b076f2cbc12a2, type: 2}
+  - {fileID: 11400000, guid: fff7fdb268fcc409395323d6685a99b4, type: 2}
+  - {fileID: 11400000, guid: b55d4ff271e874dddab0cd8ac048db5e, type: 2}
+  - {fileID: 11400000, guid: 327991d4245ab49cb9afffb6eccae27b, type: 2}
   signalHit: {fileID: 11400000, guid: 29336a98e40d54efc83c59d988399cc4, type: 2}
   signalLastHit: {fileID: 11400000, guid: 85f2981dbd9e94bf48dddde892c6db58, type: 2}

@@ -21,7 +21,7 @@ namespace CriminalTown.Entities
             _staticCrime = GetComponent<CompStaticCrime>();
 
             _staticCrime.toolType = ToolType.CROWBAR;
-            _staticCrime.timeLock = ToolBox.Get<ConfigMain>().atmTimeLock;
+            _staticCrime.timeLock = ToolBox.Get<ConfigMain>().GetCrime(CrimeType.ATM).timeLock;
 
             available = ToolBox.Get<DataGameState>()
                 .tools.Contains(_staticCrime.toolType);

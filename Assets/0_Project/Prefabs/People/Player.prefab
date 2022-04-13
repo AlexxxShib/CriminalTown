@@ -219,9 +219,11 @@ MonoBehaviour:
     currentSceneName: 
   view: {fileID: 5698879566295623027}
   moneyEmitter: {fileID: 4275009766934645771}
+  isPursuit: 0
   isCaught: 0
   isHidden: 0
   hasPoliceVisor: 0
+  lastCrimeType: 0
 --- !u!114 &8746544157230241238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,6 +278,7 @@ MonoBehaviour:
     showCurrentScene: 0
     currentSceneName: 
   progressBar: {fileID: 3236979596945246910}
+  crimeType: 1
   crimeTag: crime_citizen
   trackValues: []
   cutscene: {fileID: 1686044369}
@@ -297,6 +300,7 @@ MonoBehaviour:
     showCurrentScene: 0
     currentSceneName: 
   progressBar: {fileID: 3236979596945246910}
+  crimeType: 2
   crimeTag: crime_atm
   trackValues:
   - key: Player
@@ -322,6 +326,7 @@ MonoBehaviour:
     showCurrentScene: 0
     currentSceneName: 
   progressBar: {fileID: 3236979596945246910}
+  crimeType: 3
   crimeTag: crime_street
   trackValues:
   - key: Player
@@ -347,6 +352,7 @@ MonoBehaviour:
     showCurrentScene: 0
     currentSceneName: 
   progressBar: {fileID: 3236979596945246910}
+  crimeType: 4
   crimeTag: crime_shop
   trackValues:
   - key: Player

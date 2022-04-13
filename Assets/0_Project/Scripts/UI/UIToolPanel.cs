@@ -8,13 +8,7 @@ namespace CriminalTown.UI
 {
     public class UIToolPanel : SignalReceiver, IReceive<SignalNewTool>
     {
-        [Serializable]
-        public struct Pair<T, TD>
-        {
-            public T key;
-            public TD value;
-        }
-        
+
         public List<Pair<ToolType, GameObject>> toolIcons;
 
         private void Awake()
