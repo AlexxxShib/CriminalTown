@@ -86,6 +86,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3653026287142240392}
   - component: {fileID: 3653026287142240393}
+  - component: {fileID: 9017928596826519823}
   m_Layer: 0
   m_Name: WeaponsPanel
   m_TagString: Untagged
@@ -142,6 +143,26 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &9017928596826519823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3653026287142240391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9328203680894aec83a02d068014bc58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsReceiver: 1
+  toolIcons:
+  - key: 0
+    value: {fileID: 3653026287782314330}
+  - key: 1
+    value: {fileID: 3653026286931877278}
+  - key: 2
+    value: {fileID: 3653026287781446744}
 --- !u!1 &3653026287781446744
 GameObject:
   m_ObjectHideFlags: 0
