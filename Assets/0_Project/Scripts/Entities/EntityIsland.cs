@@ -106,7 +106,8 @@ namespace CriminalTown.Entities
 
         public void ClearTools()
         {
-            var gameState = ToolBox.Get<DataGameState>();
+            //NOT ACTIAL
+            /*var gameState = ToolBox.Get<DataGameState>();
             var tools = body.GetComponentsInChildren<EntityTool>(true);
 
             foreach (var tool in tools)
@@ -115,7 +116,7 @@ namespace CriminalTown.Entities
                 {
                     Destroy(tool.gameObject);
                 }
-            }
+            }*/
         }
 
         public void UpdatePrice()

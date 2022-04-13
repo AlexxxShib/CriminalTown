@@ -9893,7 +9893,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
-  damageReward: 200
+  damageReward: 600
   curHealth: 0
 --- !u!114 &6743131417081103936
 MonoBehaviour:
@@ -10270,12 +10270,7 @@ PrefabInstance:
     - target: {fileID: 9195594706939102369, guid: 6b38d878f83754bba8de1b0df52c76b5,
         type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'Bip001 R Foot'\n\tTransform 'Bip001 R Toe0'\n\tTransform
-        'Bip001 R UpperArm'\n\tTransform 'Bip001 R Calf'\n\tTransform 'Bip001 L Toe0'\n\tTransform
-        'Bip001 L Hand'\n\tTransform 'Bip001 Head'\n\tTransform 'Bip001 L UpperArm'\n\tTransform
-        'Bip001 Neck'\n\tTransform 'Bip001 Spine'\n\tand more ..."
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b38d878f83754bba8de1b0df52c76b5, type: 3}

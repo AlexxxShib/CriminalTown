@@ -10121,7 +10121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
-  damageReward: 80
+  damageReward: 160
   curHealth: 0
 --- !u!114 &8028213443198405660
 MonoBehaviour:

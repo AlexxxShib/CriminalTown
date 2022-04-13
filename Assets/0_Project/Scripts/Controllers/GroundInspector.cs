@@ -1,4 +1,7 @@
 using System;
+using System.Collections.Generic;
+using CriminalTown.Data;
+using CriminalTown.Entities;
 using Mobiray.Common;
 using UnityEngine;
 
@@ -18,6 +21,10 @@ namespace CriminalTown.Controllers
         {
             var children = transform.GetChildren();
 
+            var destroyTools = new List<Transform>();
+
+            var gameState = ToolBox.Get<DataGameState>();
+
             foreach (var child in children)
             {
                 if (init)
@@ -31,6 +38,19 @@ namespace CriminalTown.Controllers
                 {
                     child.gameObject.SetActive(hit.transform.gameObject.layer != layerWater);
                 }
+
+                if (child.TryGetComponent<EntityTool>(out var tool))
+                {
+                    if (gameState.tools.Contains(tool.type))
+                    {
+                        destroyTools.Add(child);
+                    }
+                }
+            }
+            
+            foreach (var tool in destroyTools)
+            {
+                Destroy(tool.gameObject);
             }
         }
 
