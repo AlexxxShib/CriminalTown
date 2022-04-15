@@ -40,32 +40,50 @@ namespace CriminalTown.Entities
 
         private void OnEnterShop(Collider other)
         {
-            shopView.SetBool(AnimIdIfShop, true);
+            if (other.gameObject.TryGetComponent<EntityPlayer>(out _))
+            {
+                shopView.SetBool(AnimIdIfShop, true);
+            }
         }
         
         private void OnStayShop(Collider other)
         {
-            shopView.SetBool(AnimIdIfShop, true);
+            if (other.gameObject.TryGetComponent<EntityPlayer>(out _))
+            {
+                shopView.SetBool(AnimIdIfShop, true);
+            }
         }
         
         private void OnExitShop(Collider other)
         {
-            shopView.SetBool(AnimIdIfShop, false);
+            if (other.gameObject.TryGetComponent<EntityPlayer>(out _))
+            {
+                shopView.SetBool(AnimIdIfShop, false);
+            }
         }
 
         protected override void OnTriggerEnter(Collider other)
         {
-            shopView.SetBool(AnimIdIfDoor, true);
+            if (other.gameObject.TryGetComponent<EntityPlayer>(out _))
+            {
+                shopView.SetBool(AnimIdIfDoor, true);
+            }
         }
 
         protected override void OnTriggerStay(Collider other)
         {
-            shopView.SetBool(AnimIdIfDoor, true);
+            if (other.gameObject.TryGetComponent<EntityPlayer>(out _))
+            {
+                shopView.SetBool(AnimIdIfDoor, true);
+            }
         }
 
         protected override void OnTriggerExit(Collider other)
         {
-            shopView.SetBool(AnimIdIfDoor, false);
+            if (other.gameObject.TryGetComponent<EntityPlayer>(out _))
+            {
+                shopView.SetBool(AnimIdIfDoor, false);
+            }
         }
     }
 }
