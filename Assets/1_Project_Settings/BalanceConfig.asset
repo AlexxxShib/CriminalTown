@@ -23,16 +23,16 @@ MonoBehaviour:
     - price: 500
       citizensCount: 1
       policeCount: 0
-    - price: 3000
+    - price: 2500
       citizensCount: 1
       policeCount: 1
-    - price: 5000
+    - price: 4000
       citizensCount: 1
       policeCount: 0
     - price: 14000
       citizensCount: 1
       policeCount: 0
-    - price: 30000
+    - price: 20000
       citizensCount: 1
       policeCount: 0
   - islands:
@@ -42,19 +42,19 @@ MonoBehaviour:
     - price: 2200
       citizensCount: 1
       policeCount: 0
-    - price: 8000
+    - price: 6000
       citizensCount: 1
       policeCount: 1
   - islands:
     - price: 1500
       citizensCount: 1
       policeCount: 0
-    - price: 6000
-      citizensCount: 1
+    - price: 5000
+      citizensCount: 2
       policeCount: 0
     - price: 12000
       citizensCount: 1
       policeCount: 0
-    - price: 20000
+    - price: 16000
       citizensCount: 1
       policeCount: 1

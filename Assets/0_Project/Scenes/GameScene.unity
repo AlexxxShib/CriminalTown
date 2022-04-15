@@ -1412,6 +1412,7 @@ MonoBehaviour:
   entitiesParent: {fileID: 0}
   citizenPrefabs:
   - {fileID: 6237996799701716922, guid: 1f1c26e5d13604c3b9068a888c83807e, type: 3}
+  - {fileID: 8035402832157925601, guid: 7baeecce20e774c2681d660963de9136, type: 3}
   points: []
   citizens: []
   polices: []
@@ -9127,6 +9128,7 @@ MonoBehaviour:
   entitiesParent: {fileID: 0}
   citizenPrefabs:
   - {fileID: 6237996799701716922, guid: 1f1c26e5d13604c3b9068a888c83807e, type: 3}
+  - {fileID: 8035402832157925601, guid: 7baeecce20e774c2681d660963de9136, type: 3}
   points: []
   citizens: []
   polices: []
@@ -11177,6 +11179,7 @@ MonoBehaviour:
   entitiesParent: {fileID: 0}
   citizenPrefabs:
   - {fileID: 6237996799701716922, guid: 1f1c26e5d13604c3b9068a888c83807e, type: 3}
+  - {fileID: 8035402832157925601, guid: 7baeecce20e774c2681d660963de9136, type: 3}
   points: []
   citizens: []
   polices: []
@@ -11468,6 +11471,7 @@ MonoBehaviour:
   entitiesParent: {fileID: 0}
   citizenPrefabs:
   - {fileID: 6237996799701716922, guid: 1f1c26e5d13604c3b9068a888c83807e, type: 3}
+  - {fileID: 8035402832157925601, guid: 7baeecce20e774c2681d660963de9136, type: 3}
   points: []
   citizens: []
   polices: []
@@ -22452,7 +22456,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2038481955}
-  m_LocalRotation: {x: 0.55292255, y: 0.000000021505372, z: -0.000000014270689, w: 0.83323264}
+  m_LocalRotation: {x: 0.55292255, y: 0.000000021505372, z: -0.0000000142706895, w: 0.83323264}
   m_LocalPosition: {x: 0, y: 15.94, z: -6.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -22862,6 +22866,7 @@ MonoBehaviour:
   entitiesParent: {fileID: 0}
   citizenPrefabs:
   - {fileID: 6237996799701716922, guid: 1f1c26e5d13604c3b9068a888c83807e, type: 3}
+  - {fileID: 8035402832157925601, guid: 7baeecce20e774c2681d660963de9136, type: 3}
   points: []
   citizens: []
   polices: []
