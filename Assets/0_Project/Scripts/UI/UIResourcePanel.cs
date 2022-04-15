@@ -31,7 +31,8 @@ namespace CriminalTown.UI
 
             var punchVal = (signal.money > 0 ? 1 : -1) * 0.1f.ToVector();
 
-            transform.DOPunchScale(punchVal, 0.4f, 2);
+            transform.DOPunchScale(punchVal, 0.4f, 2)
+                .OnComplete(() => transform.localScale = Vector3.one);
         }
     }
 }

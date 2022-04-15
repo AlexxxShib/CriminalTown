@@ -2,6 +2,7 @@ using System.IO;
 using CriminalTown.Data;
 using Mobiray.Common;
 using NaughtyAttributes;
+using UnityEditor;
 using UnityEngine;
 
 namespace CriminalTown.Configs
@@ -22,7 +23,13 @@ namespace CriminalTown.Configs
         [Header("Other")]
         public int targetFrameRate = 60;
         
-        [Button("Clear Saves & Prefs", space:20)]
+        [Button("Open Saves Folder", space:20)]
+        public void OpenSavesFolder()
+        {
+            EditorUtility.RevealInFinder(ToolSaver.PathFor(pathSaves, typeof(DataGameState)));
+        }
+        
+        [Button("Clear Saves & Prefs")]
         public void ClearSaves()
         {
             File.Delete(ToolSaver.PathFor(pathSaves, typeof(DataGameState)));

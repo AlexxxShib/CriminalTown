@@ -9,6 +9,9 @@ namespace CriminalTown.Entities
     
     public class EntityShelter : SignalReceiver, IReceive<SignalPoliceStatus>
     {
+        public MobirayLogger logger;
+        
+        [Space]
         public GameObject viewEmpty;
         public GameObject viewFill;
 
@@ -19,7 +22,7 @@ namespace CriminalTown.Entities
         // public bool IsAvailable { get; private set; }
         public bool IsAvailable;
 
-        private bool _showSign;
+        private bool _activePolice;
 
         private void Awake()
         {
@@ -43,7 +46,7 @@ namespace CriminalTown.Entities
                 IsAvailable = false;
             }
             
-            availableMark.SetActive(IsAvailable && _showSign);
+            availableMark.SetActive(IsAvailable && _activePolice);
         }
 
         public void EnterShelter()
@@ -95,7 +98,9 @@ namespace CriminalTown.Entities
 
         public void HandleSignal(SignalPoliceStatus signal)
         {
-            _showSign = signal.activated;
+            _activePolice = signal.activated;
+            
+            logger.LogDebug($"police activated {_activePolice}");
         }
     }
 }

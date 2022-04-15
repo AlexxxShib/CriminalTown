@@ -51,6 +51,22 @@ namespace CriminalTown.States
 
         private void UpdateCameraPos()
         {
+            if (_player.isHidden || _player.isCaught)
+            {
+                _host.cameraLow.Priority = lowCameraPriorityDefault;
+                _host.cameraHigh.Priority = highCameraPriorityDefault;
+                
+                return;
+            }
+
+            if (_player.isPursuit)
+            {
+                _host.cameraLow.Priority = highCameraPriorityDefault;
+                _host.cameraHigh.Priority = lowCameraPriorityDefault;
+                
+                return;
+            }
+            
             var cameraPos = _host.cameraLow.transform.position;
             var playerDir = _player.transform.position - cameraPos;
 

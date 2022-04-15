@@ -153,7 +153,8 @@ namespace CriminalTown.Controllers
             {
                 var distance = (point.position - _player.transform.position).magnitude;
 
-                if (distance > _config.citizenPlayerDistanceMin)
+                if (distance > _config.citizenPlayerDistanceMin && 
+                    !_mainCamera.IsVisible(new Bounds(point.position, 0.5f.ToVector())))
                 {
                     availablePoints.Add(point);
                 }
@@ -201,8 +202,12 @@ namespace CriminalTown.Controllers
         
         private bool TryDestroyCitizen(EntityCitizen citizen)
         {
-            var citizenPlayerDistance = (_player.transform.position - citizen.transform.position).magnitude;
-            if (citizenPlayerDistance < _config.citizenPlayerDistanceMin)
+            var citizenPos = citizen.transform.position;
+            
+            var citizenPlayerDistance = (_player.transform.position - citizenPos).magnitude;
+            
+            if (citizenPlayerDistance < _config.citizenPlayerDistanceMin || 
+                _mainCamera.IsVisible(new Bounds(citizenPos, 0.5f.ToVector())))
             {
                 return false;
             }

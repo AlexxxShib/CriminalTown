@@ -12,8 +12,9 @@ namespace CriminalTown.Controllers
         IReceive<SignalPoliceStatus>, IReceive<SignalPlayerCaught>
     {
         public MobirayLogger logger;
-        
+
         [Space]
+        public Transform sheltersParent;
         public Transform entitiesParent;
 
         [Header("Debug")]
@@ -101,15 +102,18 @@ namespace CriminalTown.Controllers
                 TryAddCitizen();
             }
 
-            if (!_policeActivated) return;
-
-            var playerIsVisible = false;
+            if (!_policeActivated)
+            {
+                return;
+            }
                 
             foreach (var shelter in _shelters)
             {
                 shelter.SetAvailable(true);
             }
-                
+            
+            var playerIsVisible = false;
+
             foreach (var district in _districts)
             {
                 foreach (var citizen in district.polices)
@@ -282,6 +286,13 @@ namespace CriminalTown.Controllers
             }
             
             _shelters.Clear();
+
+            var shelters = sheltersParent.GetComponentsInChildren<EntityShelter>();
+            _shelters.AddRange(shelters);
+            // foreach (var shelter in shelters)
+            // {
+                // if (shelter.gameObject.is)
+            // }
 
             _targetCitizenCount = 0;
             _targetPoliceCount = 0;

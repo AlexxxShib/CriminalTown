@@ -40,7 +40,10 @@ namespace CriminalTown.Entities
         public bool IsVisible(Transform obj)
         {
             var direction = obj.position - transform.position;
-            if (direction.magnitude > range) return false;
+            if (direction.magnitude > range)
+            {
+                return false;
+            }
 
             var dot = Vector3.Dot(direction.normalized, transform.forward);
             var angle = Mathf.Acos(dot) * Mathf.Rad2Deg;
