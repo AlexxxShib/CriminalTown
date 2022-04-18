@@ -10138,7 +10138,7 @@ MonoBehaviour:
   IsReceiver: 1
   progressTimeLock: {fileID: 5676152225385511800}
   notAvailableSign: {fileID: 415183097243532047}
-  toolType: 0
+  toolType: 1
   timeLock: 0
 --- !u!1 &9209955212743209398
 GameObject:

@@ -40,7 +40,7 @@ namespace CriminalTown.Entities
 
         private void OnEnterShop(Collider other)
         {
-            if (other.gameObject.TryGetComponent<EntityPlayer>(out _))
+            if (IsPlayer(other))
             {
                 shopView.SetBool(AnimIdIfShop, true);
             }
@@ -48,7 +48,7 @@ namespace CriminalTown.Entities
         
         private void OnStayShop(Collider other)
         {
-            if (other.gameObject.TryGetComponent<EntityPlayer>(out _))
+            if (IsPlayer(other))
             {
                 shopView.SetBool(AnimIdIfShop, true);
             }
@@ -56,7 +56,7 @@ namespace CriminalTown.Entities
         
         private void OnExitShop(Collider other)
         {
-            if (other.gameObject.TryGetComponent<EntityPlayer>(out _))
+            if (IsPlayer(other))
             {
                 shopView.SetBool(AnimIdIfShop, false);
             }
@@ -64,7 +64,7 @@ namespace CriminalTown.Entities
 
         protected override void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.TryGetComponent<EntityPlayer>(out _))
+            if (IsPlayer(other))
             {
                 shopView.SetBool(AnimIdIfDoor, true);
             }
@@ -72,7 +72,7 @@ namespace CriminalTown.Entities
 
         protected override void OnTriggerStay(Collider other)
         {
-            if (other.gameObject.TryGetComponent<EntityPlayer>(out _))
+            if (IsPlayer(other))
             {
                 shopView.SetBool(AnimIdIfDoor, true);
             }
@@ -80,10 +80,17 @@ namespace CriminalTown.Entities
 
         protected override void OnTriggerExit(Collider other)
         {
-            if (other.gameObject.TryGetComponent<EntityPlayer>(out _))
+            if (IsPlayer(other))
             {
                 shopView.SetBool(AnimIdIfDoor, false);
             }
+        }
+
+        private bool IsPlayer(Collider other)
+        {
+            var player = other.gameObject.GetComponentInParent<EntityPlayer>();
+
+            return player != null;
         }
     }
 }

@@ -11,6 +11,8 @@ namespace CriminalTown.Components.Connectors
     public interface IConnector
     {
         public bool IsConnected { get; }
+
+        public void ForceExit();
     }
 
     public abstract class BaseConnector<T> : MonoBehaviour, IConnector where T : MonoBehaviour
@@ -57,7 +59,7 @@ namespace CriminalTown.Components.Connectors
         private Material _progressbarMat;
         private static readonly int FillPercent = Shader.PropertyToID("_fillPercent");
 
-        private List<IConnector> _otherConnectors = new List<IConnector>();
+        private List<IConnector> _otherConnectors = new();
 
         protected virtual void Awake()
         {
@@ -140,22 +142,31 @@ namespace CriminalTown.Components.Connectors
 
             return IsConnected;
         }
-
-        public virtual bool OnExit(T connectedObject)
+        
+        public void ForceExit()
         {
-            // logger.LogDebug($"exit {connectedObject.gameObject}");
-            
-            if (connectedObject != ConnectedObject)
-            {
-                return true;
-            }
-            
             progressBar.gameObject.SetActive(false);
 
             IsConnected = false;
             IsReady = false;
 
             _progressbarMat.SetFloat(FillPercent, 0);
+        }
+
+        public virtual bool OnExit(T connectedObject)
+        {
+            // logger.LogDebug($"exit {connectedObject.gameObject}");
+            foreach (var otherConnector in _otherConnectors)
+            {
+                otherConnector.ForceExit();
+            }
+            
+            if (connectedObject != ConnectedObject)
+            {
+                // return true;
+            }
+            
+            ForceExit();
 
             return IsConnected;
         }

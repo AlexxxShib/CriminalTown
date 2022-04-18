@@ -9910,7 +9910,7 @@ MonoBehaviour:
   IsReceiver: 1
   progressTimeLock: {fileID: 1748798589681812170}
   notAvailableSign: {fileID: 2977947126674227044}
-  toolType: 0
+  toolType: 2
   timeLock: 0
 --- !u!65 &6743131417081103939
 BoxCollider:
