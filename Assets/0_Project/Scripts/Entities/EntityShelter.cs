@@ -24,10 +24,11 @@ namespace CriminalTown.Entities
 
         private bool _activePolice;
 
-        private void Awake()
+        protected override void OnEnable()
         {
-            UpdateState();
+            base.OnEnable();
             
+            UpdateState();
             SetAvailable(true);
         }
 

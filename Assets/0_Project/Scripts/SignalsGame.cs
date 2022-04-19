@@ -20,6 +20,16 @@ namespace CriminalTown
         public static SignalPoliceStatus InactiveState() => new() {activated = false, caught = false};
         public static SignalPoliceStatus CaughtState() => new() {activated = false, caught = true};
     }
+    
+    public struct SignalCitizenPanic
+    {
+        public bool activated;
+        public EntityCitizen citizen;
+
+        public static SignalCitizenPanic Activate(EntityCitizen citizen) => new() {activated = true, citizen = citizen};
+        
+        public static SignalCitizenPanic Deactivate(EntityCitizen citizen) => new() {activated = false, citizen = citizen};
+    }
 
     public struct SignalTryDestroyCitizen
     {
@@ -29,5 +39,7 @@ namespace CriminalTown
     }
 
     public struct SignalNewTool { }
+
+    public struct SignalClarifyPursuitPosition { }
 
 }

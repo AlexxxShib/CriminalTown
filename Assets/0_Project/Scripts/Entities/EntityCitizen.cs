@@ -12,16 +12,6 @@ using Random = UnityEngine.Random;
 namespace CriminalTown.Entities
 {
 
-    public struct SignalCitizenPanic
-    {
-        public bool activated;
-        public EntityCitizen citizen;
-
-        public static SignalCitizenPanic Activate(EntityCitizen citizen) => new() {activated = true, citizen = citizen};
-        
-        public static SignalCitizenPanic Deactivate(EntityCitizen citizen) => new() {activated = false, citizen = citizen};
-    } 
-    
     public class EntityCitizen : BaseConnectorTrigger<EntityCitizen, CitizenCrimeConnector>
     {
         public bool staff;
@@ -194,7 +184,11 @@ namespace CriminalTown.Entities
             
             Panic = true;
 
-            if (!ToolBox.Get<CitizenSystem>().PoliceActivated)
+            if (ToolBox.Get<CitizenSystem>().PoliceActivated)
+            {
+                ToolBox.Signals.Send<SignalClarifyPursuitPosition>();
+            }
+            else
             {
                 Snitch = true;
                 

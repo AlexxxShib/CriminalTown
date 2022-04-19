@@ -9,6 +9,8 @@ namespace CriminalTown.Components
         public Transform target;
         public Transform arrow;
 
+        public bool visible = true;
+
         private bool _hasTarget;
 
         private void OnEnable()
@@ -28,7 +30,7 @@ namespace CriminalTown.Components
                 _hasTarget = false;
             }
 
-            arrow.gameObject.SetActive(_hasTarget);
+            arrow.gameObject.SetActive(_hasTarget && visible);
         }
 
         public void Forget()

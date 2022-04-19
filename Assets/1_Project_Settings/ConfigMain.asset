@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ConfigMain
   m_EditorClassIdentifier: 
   initGameState:
-    money: 100000
+    money: 400
     tools: 
     branches: []
   debugGameState:
@@ -96,7 +96,7 @@ MonoBehaviour:
   policeHelperCount: 1
   activateCitizenPanic: 1
   activatePolicePanic: 1
-  policePanicDistance: 10
+  policePanicDistance: 5
   lookAtTime: 0.25
   maxPursuitTime: 60
   crimes:

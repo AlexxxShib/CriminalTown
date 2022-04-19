@@ -13,7 +13,8 @@ namespace CriminalTown.Entities
         NONE, ACTIVE, PASSIVE
     }
     
-    public class EntityPolice : SignalReceiver, IReceive<SignalPlayerCaught>, IReceive<SignalUICaughtContinue>
+    public class EntityPolice : SignalReceiver, IReceive<SignalPlayerCaught>, 
+        IReceive<SignalUICaughtContinue>, IReceive<SignalClarifyPursuitPosition>
     {
         public MobirayLogger logger;
 
@@ -161,24 +162,24 @@ namespace CriminalTown.Entities
 
         public async void SetPanicPassive()
         {
-            if (_panicMode != PanicMode.ACTIVE)
+            if (_panicMode == PanicMode.NONE)
             {
                 return;
             }
-            
+
             _panicMode = PanicMode.PASSIVE;
             _catchingTime = 0;
-            
+
             catchingFieldProgress.gameObject.SetActive(false);
             _control.MaxSpeed = _config.citizenSpeedWalk;
-            
+
             // ToolBox.Get<CitizenSystem>().ReturnPolice(_citizen, _control);
             emojiQuestion.Play();
 
             _control.InputEnabled = false;
-            
+
             await Task.Delay(TimeSpan.FromSeconds(2f));
-            
+
             _control.InputEnabled = true;
 
             if (_panicMode == PanicMode.PASSIVE)
@@ -243,6 +244,11 @@ namespace CriminalTown.Entities
             _control.SetPistol(false);
             
             ToolBox.Get<CitizenSystem>().ReturnPolice(this);
+        }
+
+        public void HandleSignal(SignalClarifyPursuitPosition signal)
+        {
+            SetPanicActive();
         }
     }
 }

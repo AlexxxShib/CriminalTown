@@ -115,7 +115,7 @@ namespace CriminalTown.Entities
                 GetComponent<NavMeshAgent>().enabled = true;
             }
 
-            _helperArrow.gameObject.SetActive(!isPursuit && _connectors.All(c => !c.IsConnected));
+            _helperArrow.visible = !isPursuit && _connectors.All(c => !c.IsConnected);
         }
 
         private void FindAvailableIsland()
