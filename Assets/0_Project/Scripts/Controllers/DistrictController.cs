@@ -151,10 +151,9 @@ namespace CriminalTown.Controllers
             
             foreach (var point in points)
             {
-                var distance = (point.position - _player.transform.position).magnitude;
+                // var distance = (point.position - _player.transform.position).magnitude;
 
-                if (distance > _config.citizenPlayerDistanceMin && 
-                    !_mainCamera.IsVisible(new Bounds(point.position, 0.5f.ToVector())))
+                if (!IsVisible(point.position))
                 {
                     availablePoints.Add(point);
                 }
@@ -169,6 +168,11 @@ namespace CriminalTown.Controllers
             finish = FindFarPoint(start.position, points);
 
             return true;
+        }
+
+        private bool IsVisible(Vector3 point)
+        {
+            return _mainCamera.IsVisible(new Bounds(point, 0.5f.ToVector()));
         }
         
         private Transform FindFarPoint(Vector3 start, List<Transform> availablePoints)
@@ -204,10 +208,9 @@ namespace CriminalTown.Controllers
         {
             var citizenPos = citizen.transform.position;
             
-            var citizenPlayerDistance = (_player.transform.position - citizenPos).magnitude;
+            // var citizenPlayerDistance = (_player.transform.position - citizenPos).magnitude;
             
-            if (citizenPlayerDistance < _config.citizenPlayerDistanceMin || 
-                _mainCamera.IsVisible(new Bounds(citizenPos, 0.5f.ToVector())))
+            if (IsVisible(citizenPos))
             {
                 return false;
             }

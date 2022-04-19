@@ -1,3 +1,4 @@
+using CriminalTown.Components.Connectors;
 using CriminalTown.Configs;
 using CriminalTown.Controllers;
 using CriminalTown.Data;
@@ -18,6 +19,7 @@ namespace CriminalTown.States
 
         private ConfigBalance _balance;
         private EntityPlayer _player;
+        private IslandConnector _islandConnector;
 
         public override void Initialize(GameController character, StateMachine<GameController> stateMachine)
         {
@@ -33,6 +35,7 @@ namespace CriminalTown.States
             _host.screenMain.SetActive(true);
             
             _player = ToolBox.Get<EntityPlayer>();
+            _islandConnector = _player.GetComponent<IslandConnector>();
         }
 
         public override void Exit()
@@ -59,7 +62,7 @@ namespace CriminalTown.States
                 return;
             }
 
-            if (_player.isPursuit)
+            if (_player.isPursuit || _islandConnector.IsConnected)
             {
                 _host.cameraLow.Priority = highCameraPriorityDefault;
                 _host.cameraHigh.Priority = lowCameraPriorityDefault;

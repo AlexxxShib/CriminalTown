@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using CriminalTown.Components;
 using CriminalTown.Components.Connectors;
@@ -38,6 +39,8 @@ namespace CriminalTown.Entities
         private IslandConnector _islandConnector;
         private ShelterConnector _shelterConnector;
 
+        private List<IConnector> _connectors = new();
+
         private CompTriggerAgent _moneyTriggerAgent;
         private ParticleSystemForceField _ownForceField;
 
@@ -57,6 +60,8 @@ namespace CriminalTown.Entities
             _gameState = ToolBox.Get<DataGameState>();
             
             ToolBox.Add(this);
+            
+            _connectors.AddRange(GetComponents<IConnector>());
             
             _humanControl = GetComponent<CompHumanControl>();
             
@@ -109,6 +114,8 @@ namespace CriminalTown.Entities
             {
                 GetComponent<NavMeshAgent>().enabled = true;
             }
+
+            _helperArrow.gameObject.SetActive(!isPursuit && _connectors.All(c => !c.IsConnected));
         }
 
         private void FindAvailableIsland()

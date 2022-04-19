@@ -37,6 +37,14 @@ namespace CriminalTown.Entities
             triggerAgent.onCallTriggerStay += OnStayShop;
             triggerAgent.onCallTriggerExit += OnExitShop;
         }
+        
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            
+            available = ToolBox.Get<DataGameState>()
+                .tools.Contains(_staticCrime.toolType);
+        }
 
         private void OnEnterShop(Collider other)
         {

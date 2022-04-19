@@ -29,5 +29,13 @@ namespace CriminalTown.Entities
             
             _staticCrime.OnAvailabilityChanged += a => available = a;
         }
+
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            
+            available = ToolBox.Get<DataGameState>()
+                .tools.Contains(_staticCrime.toolType);
+        }
     }
 }

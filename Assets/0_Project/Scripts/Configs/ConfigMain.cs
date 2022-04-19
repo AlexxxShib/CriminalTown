@@ -21,18 +21,18 @@ namespace CriminalTown.Configs
         public int emitMoneyMax = 800;
 
         [Header("Citizens")]
-        public int citizenHealth = 3;
+        // public int citizenHealth = 3;
         public float citizenSpeedWalk = 2;
         public float citizenSpeedRun = 3;
         
         [Space]
         public List<Material> citizenMaterials;
-        public List<EntityCitizen> citizenPrefabs;
+        // public List<EntityCitizen> citizenPrefabs;
         public List<EntityCitizen> policePrefabs;
 
         [Header("Citizen System")]
         public float updateCitizensTime = 1;
-        public float citizenPlayerDistanceMin = 8;
+        // public float citizenPlayerDistanceMin = 8;
         public float citizenPanicDistance = 4;
         public float citizenPanicAngle = 120;
         public float citizenDeathTime = 6f;

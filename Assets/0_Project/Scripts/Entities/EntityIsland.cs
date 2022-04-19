@@ -12,6 +12,9 @@ namespace CriminalTown.Entities
 {
     public class EntityIsland : MonoBehaviour
     {
+        public MobirayLogger logger;
+        
+        [Space]
         public DataIsland data;
         public IslandConfig balance;
         
@@ -36,6 +39,8 @@ namespace CriminalTown.Entities
 
         public void Initialize(DataIsland dataIsland, IslandConfig balanceIsland)
         {
+            logger.mainTag = transform.parent.gameObject.name + " " + gameObject.name;
+            
             _configMain = ToolBox.Get<ConfigMain>();
             
             data = dataIsland;
@@ -131,11 +136,18 @@ namespace CriminalTown.Entities
 
         private void OnEnterIsland(Collider other)
         {
-            _curConnector = other.GetComponentInParent<IslandConnector>();
+            var connector = other.GetComponentInParent<IslandConnector>();
             
-            if (_curConnector != null)
+            if (connector != null)
             {
-                Debug.Log(other.gameObject);
+                if (connector == _curConnector && connector.IsConnected)
+                {
+                    return;
+                }
+
+                _curConnector = connector;
+                
+                logger.LogDebug($"trigger enter {_curConnector.gameObject.name}", other.gameObject);
 
                 _curConnector.OnEnter(this);
             }
@@ -147,6 +159,13 @@ namespace CriminalTown.Entities
             
             if (connector != null)
             {
+                if (!connector.IsConnected)
+                {
+                    return;
+                }
+                
+                logger.LogDebug($"trigger exit {connector.gameObject.name}", other.gameObject);
+                
                 connector.OnExit(this);
             }
         }

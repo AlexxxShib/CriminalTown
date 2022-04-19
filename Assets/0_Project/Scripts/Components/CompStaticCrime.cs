@@ -30,6 +30,8 @@ namespace CriminalTown.Components
                     _available = value;
                     
                     OnAvailabilityChanged?.Invoke(_available);
+                    
+                    // Debug.Log($"[{gameObject.name}] available: {_available}");
                 }
             }
         }
@@ -51,6 +53,11 @@ namespace CriminalTown.Components
             progressTimeLock.gameObject.SetActive(false);
 
             _gameState = ToolBox.Get<DataGameState>();
+        }
+
+        protected override void OnEnable()
+        {
+            base.OnEnable();
             
             UpdateAvailableState();
         }

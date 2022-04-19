@@ -13,25 +13,25 @@ MonoBehaviour:
   m_Name: ConfigMain
   m_EditorClassIdentifier: 
   initGameState:
-    money: 300
+    money: 100000
     tools: 
     branches: []
   debugGameState:
-    money: 47000
-    tools: 
+    money: 91120
+    tools: 00000000
     branches:
     - islands:
       - branch: 0
         index: 0
         state: 0
-        currentPrice: 1000
+        currentPrice: 0
       - branch: 0
         index: 1
         state: 0
         currentPrice: 0
       - branch: 0
         index: 2
-        state: 0
+        state: 2
         currentPrice: 0
       - branch: 0
         index: 3
@@ -40,7 +40,7 @@ MonoBehaviour:
       - branch: 0
         index: 4
         state: 2
-        currentPrice: 0
+        currentPrice: 14000
       - branch: 0
         index: 5
         state: 2
@@ -52,11 +52,11 @@ MonoBehaviour:
         currentPrice: 0
       - branch: 1
         index: 1
-        state: 0
-        currentPrice: 0
+        state: 1
+        currentPrice: 5000
       - branch: 1
         index: 2
-        state: 0
+        state: 2
         currentPrice: 0
     - islands:
       - branch: 2
@@ -65,12 +65,12 @@ MonoBehaviour:
         currentPrice: 0
       - branch: 2
         index: 1
-        state: 0
+        state: 2
         currentPrice: 0
       - branch: 2
         index: 2
         state: 2
-        currentPrice: 0
+        currentPrice: 12000
       - branch: 2
         index: 3
         state: 2
@@ -79,24 +79,20 @@ MonoBehaviour:
   emitResourceTime: 0.4
   emitMoneyMin: 100
   emitMoneyMax: 800
-  citizenHealth: 3
   citizenSpeedWalk: 1.4
   citizenSpeedRun: 2.6
   citizenMaterials:
   - {fileID: 2100000, guid: 814f491ea1422f5418dd1a97154ca32c, type: 2}
   - {fileID: 2100000, guid: 4142add5bd162f84497f4c6e082c6183, type: 2}
-  citizenPrefabs:
-  - {fileID: 6237996799701716922, guid: 1f1c26e5d13604c3b9068a888c83807e, type: 3}
   policePrefabs:
   - {fileID: 790617023782243703, guid: c34b457097c5c4b5e99bd0d188e126e1, type: 3}
   updateCitizensTime: 1
-  citizenPlayerDistanceMin: 8
   citizenPanicDistance: 4
   citizenPanicAngle: 120
   citizenDeathTime: 6
   policeCatchTime: 8
   policeVisibilityDelay: 1
-  hidingTimeBonus: 2
+  hidingTimeBonus: 3
   policeHelperCount: 1
   activateCitizenPanic: 1
   activatePolicePanic: 1
