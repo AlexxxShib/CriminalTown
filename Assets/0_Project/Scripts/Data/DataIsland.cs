@@ -6,7 +6,7 @@ namespace CriminalTown.Data
 
     public enum IslandState
     {
-        OPENED, AVAILABLE, CLOSED
+        OPENED, AVAILABLE, CLOSED, LOCK
     }
 
     [Serializable]

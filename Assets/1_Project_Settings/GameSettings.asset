@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GameSettings
   m_EditorClassIdentifier: 
   isDebugGameState: 0
-  isSaveGame: 1
+  isSaveGame: 0
   pathSaves: /saves
   interstitialCoolDown: 30
   adsFreeBuild: 0

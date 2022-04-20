@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using CriminalTown.Components;
 using CriminalTown.Components.Connectors;
 using CriminalTown.Configs;
 using CriminalTown.Data;
@@ -19,23 +20,19 @@ namespace CriminalTown.Entities
         public IslandConfig balance;
         
         [Space]
-        public GameObject offer;
+        public CompIslandOffer offer;
         public GameObject body;
 
         [Space]
         public List<EntityIsland> dependIslands;
 
-        // [Space]
-        // public Transform peoplePoints;
-
         public ParticleSystemForceField ForceField { get; private set; }
         public Collider ForceFieldCollider { get; private set; }
 
-        private TextMeshProUGUI _textPrice;
-        
         private ConfigMain _configMain;
 
         private IslandConnector _curConnector;
+        private Collider _triggerCollider;
 
         public void Initialize(DataIsland dataIsland, IslandConfig balanceIsland)
         {
@@ -46,15 +43,15 @@ namespace CriminalTown.Entities
             data = dataIsland;
             balance = balanceIsland;
 
-            offer = transform.GetChild(0).gameObject;
+            offer = GetComponentInChildren<CompIslandOffer>();
             body = transform.GetChild(1).gameObject;
 
             ForceField = offer.GetComponentInChildren<ParticleSystemForceField>(true);
             ForceFieldCollider = ForceField.GetComponent<Collider>();
             
-            _textPrice = offer.GetComponentInChildren<TextMeshProUGUI>(true);
-
             var triggerAgent = offer.GetComponent<CompTriggerAgent>();
+
+            _triggerCollider = triggerAgent.GetComponent<Collider>();
 
             triggerAgent.onCallTriggerEnter += OnEnterIsland;
             triggerAgent.onCallTriggerExit += OnExitIsland;
@@ -69,6 +66,9 @@ namespace CriminalTown.Entities
             {
                 if (island.data.state != IslandState.OPENED)
                 {
+                    data.state = IslandState.LOCK;
+                    
+                    UpdateState();
                     return;
                 }
             }
@@ -103,9 +103,16 @@ namespace CriminalTown.Entities
 
         public void UpdateState()
         {
-            offer.SetActive(data.state == IslandState.AVAILABLE);
-            body.SetActive(data.state == IslandState.OPENED);
+            offer.gameObject.SetActive(data.state is IslandState.AVAILABLE or IslandState.LOCK);
+            // offer.gameObject.SetActive(data.state == IslandState.AVAILABLE || data.state == IslandState.LOCK);
             
+            offer.openLock.SetActive(data.state == IslandState.LOCK);
+            
+            offer.textPrice.gameObject.SetActive(data.state == IslandState.AVAILABLE);
+            _triggerCollider.enabled = data.state == IslandState.AVAILABLE;
+            
+            body.SetActive(data.state == IslandState.OPENED);
+
             UpdatePrice();
         }
 
@@ -131,7 +138,7 @@ namespace CriminalTown.Entities
                 return;
             }
             
-            _textPrice.text = $"{data.currentPrice:N0}$";
+            offer.textPrice.text = $"{data.currentPrice:N0}$";
         }
 
         private void OnEnterIsland(Collider other)
