@@ -301,6 +301,24 @@ namespace CriminalTown.Entities
             isCaught = true;
 
             _humanControl.InputEnabled = false;
+
+            var crime = lastCrimeType == CrimeType.NONE ? CrimeType.CITIZEN : lastCrimeType;
+            var pursuitLevel = _configMain.GetCrime(crime).pursuitLevel;
+
+            var fine = ToolBox.Get<ConfigBalance>().policeFine * pursuitLevel;
+
+            ToolBox.Get<GameController>().textFine.text = $"{fine:N0}";
+
+            try
+            {
+                CleanupMoneyEmitter();
+            }
+            catch (Exception e)
+            {
+                Debug.LogException(e);
+            }
+            
+            AddMoney(fine, pursuitLevel);
             
             ToolBox.Signals.Send<SignalPlayerCaught>();
         }

@@ -111,7 +111,7 @@ namespace CriminalTown.States
 
         public void HandleSignal(SignalPlayerCaught signal)
         {
-            _gameState.AddMoney(-_balance.policeFine);
+            // _gameState.AddMoney(-_balance.policeFine);
             
             _host.screenMain.SetActive(false);
             _host.screenGameOver.SetActive(true);

@@ -24,6 +24,7 @@ namespace CriminalTown.Controllers
 
         [Space]
         public TextMeshProUGUI textLevel;
+        public TextMeshProUGUI textFine;
 
         [Header("Cameras")]
         public CinemachineVirtualCamera cameraLow;

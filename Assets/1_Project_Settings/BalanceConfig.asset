@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3116fc9a6b9348349c76a1d64b1bde4e, type: 3}
   m_Name: BalanceConfig
   m_EditorClassIdentifier: 
-  policeFine: 200
+  policeFine: -200
   policeReward: 300
   policeIsland: {x: 1, y: 0}
   branches:

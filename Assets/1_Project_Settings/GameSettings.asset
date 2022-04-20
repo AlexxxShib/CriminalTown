@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca01ee2ae6b74249ad6a9211e1ab2589, type: 3}
   m_Name: GameSettings
   m_EditorClassIdentifier: 
-  isDebugGameState: 0
+  isDebugGameState: 1
   isSaveGame: 0
   pathSaves: /saves
   interstitialCoolDown: 30
