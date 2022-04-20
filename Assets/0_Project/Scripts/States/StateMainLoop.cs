@@ -98,7 +98,9 @@ namespace CriminalTown.States
             {
                 for (var j = 0; j < _gameState.branches[i].islands.Count; j++)
                 {
-                    if (_gameState.branches[i].islands[j].state == IslandState.CLOSED && 
+                    var curState = _gameState.branches[i].islands[j].state;
+                    
+                    if (curState == IslandState.LOCK || curState == IslandState.CLOSED && 
                         (j == 0 || _gameState.branches[i].islands[j - 1].state == IslandState.OPENED))
                     {
                         _host.islands[i][j].SetAvailable();
