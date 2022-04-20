@@ -41,6 +41,13 @@ namespace CriminalTown.Components
 
         private void Update()
         {
+            var showArrow = visible && _hasTarget;
+            
+            if (arrow.gameObject.activeSelf != showArrow)
+            {
+                arrow.gameObject.SetActive(showArrow);
+            }
+            
             if (!_hasTarget)
             {
                 return;

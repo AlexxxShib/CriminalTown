@@ -26,7 +26,9 @@ namespace CriminalTown.Configs
         [Button("Open Saves Folder", space:20)]
         public void OpenSavesFolder()
         {
+#if UNITY_EDITOR
             EditorUtility.RevealInFinder(ToolSaver.PathFor(pathSaves, typeof(DataGameState)));
+#endif
         }
         
         [Button("Clear Saves & Prefs")]
