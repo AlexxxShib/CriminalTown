@@ -30,6 +30,8 @@ dependencies {
     implementation 'com.facebook.android:facebook-gamingservices:[11.0, 12)' // Assets/FacebookSDK/Plugins/Editor/Dependencies.xml:9
     implementation 'com.facebook.android:facebook-login:[11.0, 12)' // Assets/FacebookSDK/Plugins/Editor/Dependencies.xml:7
     implementation 'com.facebook.android:facebook-share:[11.0, 12)' // Assets/FacebookSDK/Plugins/Editor/Dependencies.xml:8
+    implementation 'com.google.android.gms:play-services-appset:16.0.2' // Assets/GameAnalytics/Editor/Android/Dependencies.xml:4
+    implementation 'com.google.android.instantapps:instantapps:1.1.0' // Assets/GameAnalytics/Editor/Android/Dependencies.xml:3
     implementation 'com.parse.bolts:bolts-android:1.4.0' // Assets/FacebookSDK/Plugins/Editor/Dependencies.xml:4
 // Android Resolver Dependencies End
 **DEPS**}
