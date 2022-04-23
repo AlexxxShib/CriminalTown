@@ -307,7 +307,7 @@ namespace CriminalTown.Entities
 
             var fine = ToolBox.Get<ConfigBalance>().policeFine * pursuitLevel;
 
-            ToolBox.Get<GameController>().textFine.text = $"{fine:N0}";
+            ToolBox.Get<GameController>().textFine.text = $"{Mathf.Abs(fine):N0}";
 
             try
             {

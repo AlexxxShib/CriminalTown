@@ -617,7 +617,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8053454893576562980
 RectTransform:
   m_ObjectHideFlags: 0
@@ -633,11 +633,11 @@ RectTransform:
   m_Father: {fileID: 1260738863833627611}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -462}
-  m_SizeDelta: {x: -580, y: -1960}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 560}
+  m_SizeDelta: {x: 500, y: 100}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &3621041554852151629
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -666,7 +666,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: fine
+  m_text: police fine
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9fc63f7ba11814f05b1f75cde4e76990, type: 2}
   m_sharedMaterial: {fileID: 7797412314722162883, guid: 9fc63f7ba11814f05b1f75cde4e76990,
@@ -694,8 +694,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 70.8
-  m_fontSizeBase: 70.8
+  m_fontSize: 58
+  m_fontSizeBase: 58
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -745,6 +745,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8102576787907990611}
+  - component: {fileID: 3495530222731434331}
   m_Layer: 0
   m_Name: IconPlace
   m_TagString: Untagged
@@ -770,9 +771,29 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 139.9275, y: -50}
-  m_SizeDelta: {x: 279.855, y: 0}
+  m_AnchoredPosition: {x: 148.10727, y: -50}
+  m_SizeDelta: {x: 296.21454, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3495530222731434331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2540036554560461493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: 1.2
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!1 &5511345158015707237
 GameObject:
   m_ObjectHideFlags: 0
@@ -861,7 +882,7 @@ GameObject:
   - component: {fileID: 5511345159348452242}
   - component: {fileID: 5511345159348452243}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: TextFineValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -884,8 +905,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 529.1775, y: -50}
-  m_SizeDelta: {x: 494.64502, y: 0}
+  m_AnchoredPosition: {x: 537.3573, y: -50}
+  m_SizeDelta: {x: 478.28546, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5511345159348452242
 CanvasRenderer:
@@ -915,7 +936,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 300
+  m_text: 800
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 177f47aa3ec87413d9b68dd54624fcc0, type: 2}
   m_sharedMaterial: {fileID: -8282778569074943674, guid: 177f47aa3ec87413d9b68dd54624fcc0,
@@ -943,8 +964,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 110
-  m_fontSizeBase: 110
+  m_fontSize: 115
+  m_fontSizeBase: 115
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 70
@@ -1021,11 +1042,11 @@ RectTransform:
   m_Father: {fileID: 1260738863833627611}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4, y: -535}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 4, y: 649}
   m_SizeDelta: {x: 776.5, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &7518798736815867978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1073,7 +1094,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5511345159793010757}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 60d187dc2b9a94fd380894e6b8888c9e, type: 2}
   m_CullingMode: 0
