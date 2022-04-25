@@ -32,6 +32,23 @@ namespace CriminalTown.Data
             ToolBox.Signals.Send(new SignalAddMoney {money = value});
         }
 
+        public int CalcBoughtIslands()
+        {
+            var boughtCount = 0;
+            foreach (var branch in branches)
+            {
+                foreach (var island in branch.islands)
+                {
+                    if (island.state == IslandState.OPENED)
+                    {
+                        boughtCount++;
+                    }
+                }
+            }
+
+            return boughtCount;
+        }
+
         /*public void AddHard(int value)
         {
             HardCurrency += value;

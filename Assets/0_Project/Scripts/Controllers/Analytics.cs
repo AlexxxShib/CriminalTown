@@ -5,6 +5,7 @@ using CriminalTown.Ads;
 using CriminalTown.Data;
 using Facebook.Unity;
 using FlurrySDK;
+using GameAnalyticsSDK;
 using Mobiray.Common;
 using UnityEngine;
 
@@ -96,6 +97,51 @@ namespace CriminalTown.Controllers
             
             AppMetrica.Instance.SendEventsBuffer();
         }
+
+        public static void SendIslandBought(DataIsland data)
+        {
+            var boughtCount = ToolBox.Get<DataGameState>().CalcBoughtIslands();
+
+            var parameters = new Dictionary<string, object>
+            {
+                {"branch", data.branch},
+                {"index", data.index},
+                {"islands_count", boughtCount},
+            };
+                
+            OnEvent("island_open", parameters);
+                
+            GameAnalytics.NewProgressionEvent(
+                GAProgressionStatus.Complete, "city01", $"island{boughtCount:00}", parameters);
+        }
+
+        public static void SendPoliceCatch()
+        {
+            var boughtCount = ToolBox.Get<DataGameState>().CalcBoughtIslands();
+
+            var parameters = new Dictionary<string, object>
+            {
+                {"islands_count", boughtCount}
+            };
+                
+            OnEvent("police_catch", parameters);
+            
+            GameAnalytics.NewDesignEvent("police_catch", parameters);
+        }
+
+        public static void SendPoliceEscape()
+        {
+            var boughtCount = ToolBox.Get<DataGameState>().CalcBoughtIslands();
+            
+            var parameters = new Dictionary<string, object>
+            {
+                {"islands_count", boughtCount}
+            };
+                
+            OnEvent("police_escape", parameters);
+            
+            GameAnalytics.NewDesignEvent("police_escape", parameters);
+        }
         
         public static void OnEvent(string eventName)
         {
@@ -103,7 +149,7 @@ namespace CriminalTown.Controllers
             {
                 AppMetrica.Instance.ReportEvent(eventName);
                 
-                FB.LogAppEvent(eventName);
+                // FB.LogAppEvent(eventName);
                 // FirebaseAnalytics.LogEvent(eventName);
                 // Flurry.LogEvent(eventName);
             }
@@ -132,7 +178,7 @@ namespace CriminalTown.Controllers
                 AppMetrica.Instance.ReportEvent(eventName, parameters);
                 
                 // FB.LogAppEvent(eventName, parameters: parameters);
-                Flurry.LogEvent(eventName, ToStringMap(parameters));
+                // Flurry.LogEvent(eventName, ToStringMap(parameters));
                 // FirebaseAnalytics.LogEvent(eventName, ToFirebaseParameters(parameters));
             }
             catch (Exception e)

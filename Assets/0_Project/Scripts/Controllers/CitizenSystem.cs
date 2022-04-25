@@ -257,9 +257,16 @@ namespace CriminalTown.Controllers
             _player.hasPoliceVisor = false;
             _policeActivated = false;
 
-            ToolBox.Signals.Send(isCaught ? 
-                SignalPoliceStatus.CaughtState() : 
-                SignalPoliceStatus.InactiveState());
+            if (isCaught)
+            {
+                ToolBox.Signals.Send(SignalPoliceStatus.CaughtState());
+                Analytics.SendPoliceCatch();
+            }
+            else
+            {
+                ToolBox.Signals.Send(SignalPoliceStatus.InactiveState());
+                Analytics.SendPoliceEscape();
+            }
         }
 
         public void ReturnPolice(EntityPolice police)

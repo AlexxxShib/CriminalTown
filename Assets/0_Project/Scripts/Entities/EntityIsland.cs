@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using CriminalTown.Components;
 using CriminalTown.Components.Connectors;
 using CriminalTown.Configs;
+using CriminalTown.Controllers;
 using CriminalTown.Data;
 using DG.Tweening;
+using GameAnalyticsSDK;
 using Mobiray.Common;
 using TMPro;
 using UnityEngine;
@@ -98,6 +100,8 @@ namespace CriminalTown.Entities
                 {
                     _curConnector.OnExit(this);
                 }
+                
+                Analytics.SendIslandBought(data);
             }
         }
 
