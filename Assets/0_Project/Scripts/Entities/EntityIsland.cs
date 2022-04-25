@@ -56,6 +56,7 @@ namespace CriminalTown.Entities
             _triggerCollider = triggerAgent.GetComponent<Collider>();
 
             triggerAgent.onCallTriggerEnter += OnEnterIsland;
+            triggerAgent.onCallTriggerStay += OnStayIsland;
             triggerAgent.onCallTriggerExit += OnExitIsland;
             
             UpdateState();
@@ -145,7 +146,7 @@ namespace CriminalTown.Entities
             offer.textPrice.text = $"{data.currentPrice:N0}$";
         }
 
-        private void OnEnterIsland(Collider other)
+        private void TryConnect(Collider other)
         {
             var connector = other.GetComponentInParent<IslandConnector>();
             
@@ -161,6 +162,19 @@ namespace CriminalTown.Entities
                 logger.LogDebug($"trigger enter {_curConnector.gameObject.name}", other.gameObject);
 
                 _curConnector.OnEnter(this);
+            }
+        }
+
+        private void OnEnterIsland(Collider other)
+        {
+            TryConnect(other);
+        }
+
+        private void OnStayIsland(Collider other)
+        {
+            if (_curConnector == null || !_curConnector.IsConnected)
+            {
+                TryConnect(other);
             }
         }
 

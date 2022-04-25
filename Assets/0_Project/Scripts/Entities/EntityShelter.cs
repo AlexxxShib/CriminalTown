@@ -24,6 +24,8 @@ namespace CriminalTown.Entities
 
         private bool _activePolice;
 
+        private ShelterConnector _curConnector;
+
         protected override void OnEnable()
         {
             base.OnEnable();
@@ -72,7 +74,7 @@ namespace CriminalTown.Entities
             SetAvailable(true);
         }
 
-        public void OnTriggerEnter(Collider other)
+        private void TryConnect(Collider other)
         {
             if (!IsAvailable)
             {
@@ -83,7 +85,22 @@ namespace CriminalTown.Entities
 
             if (connector != null)
             {
+                _curConnector = connector;
+                
                 connector.OnEnter(this);
+            }
+        }
+
+        public void OnTriggerEnter(Collider other)
+        {
+            TryConnect(other);
+        }
+
+        public void OnTriggerStay(Collider other)
+        {
+            if (_curConnector == null || !_curConnector.IsConnected)
+            {
+                TryConnect(other);
             }
         }
 
@@ -93,6 +110,8 @@ namespace CriminalTown.Entities
 
             if (connector != null)
             {
+                _curConnector = null;
+                
                 connector.OnExit(this);
             }
         }

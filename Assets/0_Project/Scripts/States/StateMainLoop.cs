@@ -71,7 +71,7 @@ namespace CriminalTown.States
             }
             
             var cameraPos = _host.cameraLow.transform.position;
-            var playerDir = _player.transform.position - cameraPos;
+            var playerDir = _player.transform.position + new Vector3(0, 0.5f, 0) - cameraPos;
 
             var cameraRay = new Ray(cameraPos, playerDir);
 
